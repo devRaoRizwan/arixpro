@@ -1,0 +1,337 @@
+@import 'tailwindcss';
+
+/*
+ * Two themes, one set of utilities.
+ *
+ * Every colour below is declared as a plain custom property first, then mapped
+ * into Tailwind's theme by reference. The indirection matters: it stops Tailwind
+ * inlining literal hex values, so opacity modifiers compile to color-mix() and
+ * follow the active theme instead of freezing the dark palette.
+ *
+ * The numeric steps encode role, not lightness. `surface-950` is always the page
+ * background and `content-50` is always the strongest text, in both themes.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces, from page background up to the strongest border. */
+  --sf-950: #06080a;
+  --sf-900: #0a0d11;
+  --sf-850: #0e1217;
+  --sf-800: #12171d;
+  --sf-750: #171d25;
+  --sf-700: #1e2530;
+  --sf-600: #2a333f;
+  --sf-500: #3a4553;
+
+  /* Text, from strongest to faintest. */
+  --ct-50: #f4f7fa;
+  --ct-100: #e4e9f0;
+  --ct-200: #c8d0dc;
+  --ct-300: #a3aebe;
+  --ct-400: #7c8798;
+  --ct-500: #5c6676;
+
+  /* ArixPro green. */
+  --ac-100: #dcf3e1;
+  --ac-200: #b4e3bf;
+  --ac-300: #7fcb92;
+  --ac-400: #4bb265;
+  --ac-500: #2f9449;
+  --ac-600: #1e7738;
+  --ac-700: #175d2c;
+  --ac-900: #0c3419;
+
+  /* Code surfaces. */
+  --code-kw: #8ea9e8;
+  --code-mut: #55606f;
+
+  --danger-color: #fb7185;
+
+  /* Translucent veils used for hover states and fine highlights. */
+  --veil: rgb(255 255 255 / 0.04);
+  --veil-strong: rgb(255 255 255 / 0.08);
+  --hairline-color: rgb(255 255 255 / 0.16);
+  --grid-line: rgb(255 255 255 / 0.035);
+
+  /* Ambient accent light, three strengths. */
+  --glow-1: rgb(75 178 101 / 0.07);
+  --glow-2: rgb(75 178 101 / 0.13);
+  --glow-3: rgb(75 178 101 / 0.2);
+
+  --sh-raise: 0 10px 26px -20px rgb(0 0 0 / 0.9);
+  --sh-card: 0 30px 70px -40px rgb(0 0 0 / 0.95);
+  --sh-float: 0 40px 80px -40px rgb(0 0 0 / 0.95);
+  --sh-pop: 0 18px 44px -18px rgb(0 0 0 / 0.9);
+  --sh-accent: 0 10px 30px -14px rgb(75 178 101 / 0.85);
+  --sh-accent-lg: 0 14px 38px -14px rgb(75 178 101 / 0.9);
+  --sh-inset-top: inset 0 1px 0 0 rgb(255 255 255 / 0.06);
+
+  /* Specular sheen across the top of raised surfaces. */
+  --gloss: linear-gradient(180deg, rgb(255 255 255 / 0.045) 0%, rgb(255 255 255 / 0) 45%);
+  --gloss-accent: linear-gradient(180deg, rgb(255 255 255 / 0.18) 0%, rgb(255 255 255 / 0) 58%);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* The page sits a step below the cards so white surfaces read as raised. */
+  --sf-950: #eef1f6;
+  --sf-900: #ffffff;
+  --sf-850: #e6eaf0;
+  --sf-800: #dde3ea;
+  --sf-750: #d5dce4;
+  --sf-700: #c8d1db;
+  --sf-600: #a8b3c0;
+  --sf-500: #8b96a4;
+
+  --ct-50: #0b1119;
+  --ct-100: #1a222d;
+  --ct-200: #333d4a;
+  --ct-300: #414b59;
+  --ct-400: #565f6c;
+  --ct-500: #626a77;
+
+  --ac-100: #e6f4e9;
+  --ac-200: #c2e5cb;
+  --ac-300: #075c22;
+  --ac-400: #0a6b28;
+  --ac-500: #0d7c2f;
+  --ac-600: #0f8d36;
+  --ac-700: #12a03e;
+  --ac-900: #cfe9d6;
+
+  --code-kw: #2f4fa8;
+  --code-mut: #98a1ad;
+
+  --danger-color: #b42318;
+
+  --veil: rgb(15 23 42 / 0.05);
+  --veil-strong: rgb(15 23 42 / 0.09);
+  --hairline-color: rgb(15 23 42 / 0.09);
+  --grid-line: rgb(15 23 42 / 0.055);
+
+  --glow-1: rgb(12 130 48 / 0.09);
+  --glow-2: rgb(12 130 48 / 0.14);
+  --glow-3: rgb(12 130 48 / 0.18);
+
+  /* Two-part shadows: a tight contact edge plus a broad diffuse falloff. */
+  --sh-raise: 0 1px 2px rgb(15 23 42 / 0.04), 0 6px 16px -10px rgb(15 23 42 / 0.16);
+  --sh-card: 0 1px 2px rgb(15 23 42 / 0.05), 0 14px 34px -16px rgb(15 23 42 / 0.22);
+  --sh-float: 0 2px 6px rgb(15 23 42 / 0.05), 0 30px 60px -24px rgb(15 23 42 / 0.3);
+  --sh-pop: 0 2px 6px rgb(15 23 42 / 0.06), 0 20px 44px -18px rgb(15 23 42 / 0.32);
+  --sh-accent: 0 1px 2px rgb(10 107 40 / 0.3), 0 10px 22px -10px rgb(10 107 40 / 0.45);
+  --sh-accent-lg: 0 2px 4px rgb(10 107 40 / 0.32), 0 16px 32px -12px rgb(10 107 40 / 0.5);
+  --sh-inset-top: inset 0 1px 0 0 rgb(255 255 255 / 0.9);
+
+  --gloss: linear-gradient(180deg, rgb(255 255 255 / 0.9) 0%, rgb(255 255 255 / 0) 55%);
+  --gloss-accent: linear-gradient(180deg, rgb(255 255 255 / 0.22) 0%, rgb(255 255 255 / 0) 62%);
+}
+
+@theme inline {
+  --color-surface-950: var(--sf-950);
+  --color-surface-900: var(--sf-900);
+  --color-surface-850: var(--sf-850);
+  --color-surface-800: var(--sf-800);
+  --color-surface-750: var(--sf-750);
+  --color-surface-700: var(--sf-700);
+  --color-surface-600: var(--sf-600);
+  --color-surface-500: var(--sf-500);
+
+  --color-content-50: var(--ct-50);
+  --color-content-100: var(--ct-100);
+  --color-content-200: var(--ct-200);
+  --color-content-300: var(--ct-300);
+  --color-content-400: var(--ct-400);
+  --color-content-500: var(--ct-500);
+
+  --color-accent-100: var(--ac-100);
+  --color-accent-200: var(--ac-200);
+  --color-accent-300: var(--ac-300);
+  --color-accent-400: var(--ac-400);
+  --color-accent-500: var(--ac-500);
+  --color-accent-600: var(--ac-600);
+  --color-accent-700: var(--ac-700);
+  --color-accent-900: var(--ac-900);
+
+  --color-code-keyword: var(--code-kw);
+  --color-code-muted: var(--code-mut);
+  --color-danger: var(--danger-color);
+
+  --color-veil: var(--veil);
+  --color-veil-strong: var(--veil-strong);
+  --color-hairline: var(--hairline-color);
+
+  --shadow-raise: var(--sh-raise);
+  --shadow-card: var(--sh-card);
+  --shadow-float: var(--sh-float);
+  --shadow-pop: var(--sh-pop);
+  --shadow-accent: var(--sh-accent);
+  --shadow-accent-lg: var(--sh-accent-lg);
+  --shadow-inset-top: var(--sh-inset-top);
+}
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+
+  --breakpoint-xs: 28rem;
+
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-surface-700);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--color-surface-950);
+    color: var(--color-content-200);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    font-variant-ligatures: contextual;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-content-50);
+    text-wrap: balance;
+  }
+
+  /* Display face carries the headlines; its word spaces need loosening. */
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    letter-spacing: -0.018em;
+    word-spacing: 0.06em;
+  }
+
+  /* Sub-headings stay in the text face, far more legible below ~24px. */
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-400);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-400);
+    color: var(--color-surface-950);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-600);
+    border-radius: 99px;
+    border: 3px solid var(--color-surface-950);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-surface-500);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Fine engineering grid, used sparingly behind key sections. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Specular sheen for raised surfaces; pairs with a background colour. */
+@utility gloss {
+  background-image: var(--gloss);
+}
+
+@utility gloss-accent {
+  background-image: var(--gloss-accent);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    180deg,
+    var(--color-content-50) 0%,
+    var(--color-content-50) 45%,
+    var(--color-content-300) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@utility animate-caret {
+  animation: caret-blink 1.15s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
