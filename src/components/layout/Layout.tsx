@@ -1,4 +1,7 @@
 import { Outlet } from 'react-router-dom'
+/* Vite app, so this is the /react entry point. The /next one pulls in
+   Next-only modules and will not build here. */
+import { Analytics } from '@vercel/analytics/react'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { WhatsAppButton } from './WhatsAppButton'
@@ -20,6 +23,7 @@ export function Layout() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <Analytics />
     </div>
   )
 }
