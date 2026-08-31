@@ -20,12 +20,10 @@ export const siteConfig = {
       "Assalam-o-Alaikum! I'd like to know more about the courses at ArixPro.",
   },
 
-  /** PLACEHOLDER: replace hrefs with the real profiles. */
   socials: [
-    { label: 'Instagram', href: 'https://instagram.com/' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/' },
-    { label: 'YouTube', href: 'https://youtube.com/' },
-    { label: 'GitHub', href: 'https://github.com/' },
+    { label: 'GitHub', href: 'https://github.com/arixpro' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/arixpro' },
+    { label: 'Instagram', href: 'https://www.instagram.com/arixpro.pk/' },
   ],
 
   location: 'Lahore and Online',

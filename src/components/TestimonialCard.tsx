@@ -7,7 +7,7 @@ type TestimonialCardProps = {
 
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <figure className="gloss relative flex h-full flex-col rounded-2xl border border-surface-800 bg-surface-900 p-6 shadow-raise sm:p-7">
+    <figure className="gloss relative flex h-full min-h-[21rem] flex-col rounded-2xl border border-surface-800 bg-surface-900 p-6 shadow-raise sm:p-7">
       <Quote className="size-6 text-accent-400/35" aria-hidden="true" />
 
       <blockquote className="mt-5 flex-1 text-[0.95rem] leading-relaxed text-content-200">
