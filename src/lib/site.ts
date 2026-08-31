@@ -24,6 +24,7 @@ export const siteConfig = {
     { label: 'GitHub', href: 'https://github.com/arixpro' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/company/arixpro' },
     { label: 'Instagram', href: 'https://www.instagram.com/arixpro.pk/' },
+    { label: 'Facebook', href: 'https://www.facebook.com/people/ArixPro/61594211541429/' },
   ],
 
   location: 'Lahore and Online',

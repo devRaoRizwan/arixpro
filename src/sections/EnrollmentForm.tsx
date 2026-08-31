@@ -4,8 +4,11 @@ import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, CircleCheck, MessageCircle, TriangleAlert } from 'lucide-react'
 import { courses } from '@/data/courses'
+import type { BatchTierId } from '@/data/learningOptions'
 import {
+  batchOptions,
   experienceOptions,
+  isBatchTierId,
   isEnrollmentDeliveryConfigured,
   isLearningMode,
   modeOptions,
@@ -26,6 +29,7 @@ type FormState = {
   phone: string
   course: string
   mode: LearningMode
+  batch: BatchTierId
   experience: ExperienceLevel
   message: string
 }
@@ -63,6 +67,7 @@ export function EnrollmentForm() {
   const [searchParams] = useSearchParams()
   const presetMode = searchParams.get('mode')
   const presetCourse = searchParams.get('course')
+  const presetBatch = searchParams.get('batch')
   const ids = useId()
 
   const [values, setValues] = useState<FormState>({
@@ -71,6 +76,7 @@ export function EnrollmentForm() {
     phone: '',
     course: courses.some((c) => c.slug === presetCourse) ? (presetCourse as string) : '',
     mode: isLearningMode(presetMode) ? presetMode : 'one-on-one',
+    batch: isBatchTierId(presetBatch) ? presetBatch : batchOptions[0].value,
     experience: 'beginner',
     message: '',
   })
@@ -228,6 +234,42 @@ export function EnrollmentForm() {
           ))}
         </div>
       </fieldset>
+
+      {/* Batch size is a question only a batch student has an answer to, so it
+          stays hidden until they pick that mode. */}
+      <AnimatePresence initial={false}>
+        {values.mode === 'live-batch' ? (
+          <motion.div
+            key="batch"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.32, ease: easeOutExpo }}
+            className="overflow-hidden"
+          >
+            <fieldset className="mt-5 rounded-xl border border-surface-800 bg-surface-950/40 p-4 sm:p-5">
+              <legend className="px-1 text-sm font-medium text-content-200">Batch size</legend>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {batchOptions.map((option) => (
+                  <Choice
+                    key={option.value}
+                    name="batch"
+                    value={option.value}
+                    label={option.label}
+                    hint={option.hint}
+                    checked={values.batch === option.value}
+                    onChange={() => update('batch', option.value)}
+                  />
+                ))}
+              </div>
+              <p className="mt-3 text-2xs leading-relaxed text-content-500">
+                Not sure? Pick either one. We confirm the batch that actually fits you before
+                anything starts.
+              </p>
+            </fieldset>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <fieldset className="mt-8">
         <legend className={labelClass}>Experience</legend>

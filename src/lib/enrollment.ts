@@ -1,4 +1,5 @@
 import { courses } from '@/data/courses'
+import { batchTiers, type BatchTierId } from '@/data/learningOptions'
 
 export type LearningMode = 'one-on-one' | 'live-batch'
 export type ExperienceLevel = 'beginner' | 'some-experience' | 'intermediate'
@@ -10,6 +11,8 @@ export type EnrollmentPayload = {
   /** Course slug from `src/data/courses.ts`, or `undecided`. */
   course: string
   mode: LearningMode
+  /** Only meaningful when `mode` is `live-batch`; ignored otherwise. */
+  batch: BatchTierId
   experience: ExperienceLevel
   message: string
 }
@@ -27,8 +30,17 @@ export const modeOptions: { value: LearningMode; label: string; hint: string }[]
   { value: 'live-batch', label: 'Live Batch', hint: 'Small group class' },
 ]
 
+/** Batch choices for the enrolment form, derived so the copy stays in one place. */
+export const batchOptions: { value: BatchTierId; label: string; hint: string }[] = batchTiers.map(
+  (tier) => ({ value: tier.id, label: tier.name, hint: tier.seatsLabel }),
+)
+
 export function isLearningMode(value: string | null): value is LearningMode {
   return value === 'one-on-one' || value === 'live-batch'
+}
+
+export function isBatchTierId(value: string | null): value is BatchTierId {
+  return batchTiers.some((tier) => tier.id === value)
 }
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
@@ -47,6 +59,8 @@ function toReadableAnswers(payload: EnrollmentPayload) {
   const course =
     courses.find((item) => item.slug === payload.course)?.title ?? 'Not sure yet, help me choose'
 
+  const batch = batchTiers.find((tier) => tier.id === payload.batch)
+
   return {
     Name: payload.name.trim(),
     Email: payload.email.trim(),
@@ -54,6 +68,11 @@ function toReadableAnswers(payload: EnrollmentPayload) {
     Course: course,
     'Learning preference':
       modeOptions.find((item) => item.value === payload.mode)?.label ?? payload.mode,
+    /* Batch size only means something for a batch request, so keep it out of
+       the email entirely for 1-on-1 rather than sending a misleading value. */
+    ...(payload.mode === 'live-batch' && batch
+      ? { 'Batch size': `${batch.name} (${batch.seatsLabel})` }
+      : {}),
     Experience:
       experienceOptions.find((item) => item.value === payload.experience)?.label ??
       payload.experience,

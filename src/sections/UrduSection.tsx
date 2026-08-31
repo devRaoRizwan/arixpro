@@ -56,9 +56,11 @@ export function UrduSection() {
 
           <Reveal delay={0.12}>
             <div className="relative">
+              {/* Bleed must stay inside container-page's padding (20px under sm,
+                  32px above) or it widens the page and adds a scrollbar. */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -inset-6 -z-10 opacity-70 blur-3xl"
+                className="pointer-events-none absolute -inset-4 -z-10 opacity-70 blur-3xl sm:-inset-6"
                 style={{
                   background:
                     'radial-gradient(50% 50% at 60% 40%, var(--glow-2) 0%, transparent 72%)',

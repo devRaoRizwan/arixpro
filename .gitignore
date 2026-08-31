@@ -37,3 +37,6 @@ pnpm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Social content calendar: large PNG exports, regenerable from brand/BRAND.md
+content/
