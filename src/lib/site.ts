@@ -20,11 +20,21 @@ export const siteConfig = {
       "Assalam-o-Alaikum! I'd like to know more about the courses at ArixPro.",
   },
 
+  /**
+   * Public profile URLs only. These render in the footer and are mirrored into
+   * the `sameAs` block of the structured data in index.html, which is how search
+   * engines tie these accounts to the organisation, so keep the two in step.
+   */
   socials: [
-    { label: 'GitHub', href: 'https://github.com/arixpro' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/arixpro' },
     { label: 'Instagram', href: 'https://www.instagram.com/arixpro.pk/' },
-    { label: 'Facebook', href: 'https://www.facebook.com/people/ArixPro/61594211541429/' },
+    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61594211541429' },
+    { label: 'TikTok', href: 'https://www.tiktok.com/@arixpro.pk' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/144802024/' },
+    {
+      label: 'WhatsApp Channel',
+      href: 'https://www.whatsapp.com/channel/0029VbDcYUR3GJP0aYBn9Y1t',
+    },
+    { label: 'GitHub', href: 'https://github.com/arixpro' },
   ],
 
   location: 'Lahore and Online',
