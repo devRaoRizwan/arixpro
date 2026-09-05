@@ -16,9 +16,9 @@ const steps = [
 
 export function ContactPage() {
   useSeo({
-    title: 'Start Learning',
+    title: 'Enroll in Coding Classes — Lahore & Online',
     description:
-      'Enroll at ArixPro. Choose a course, pick 1-on-1 mentorship or a live batch, and tell us your experience level, then we reply with a recommended starting point.',
+      'Enroll in coding classes at ArixPro. Choose a course, pick 1-on-1 mentorship or a live batch of 5 or 10 students, and tell us your experience level. We reply with a recommended starting point.',
     path: '/contact',
   })
 

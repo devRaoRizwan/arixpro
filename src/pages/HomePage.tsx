@@ -16,9 +16,9 @@ import { CTASection } from '@/sections/CTASection'
 
 export function HomePage() {
   useSeo({
-    title: 'ArixPro',
+    title: 'Coding Classes in Pakistan — Python, Web Dev & AI',
     description:
-      'ArixPro is a modern coding institute for students in Pakistan. Learn Python, web development, backend engineering and AI through live batches, 1-on-1 mentorship and real projects.',
+      'Learn coding in Pakistan with ArixPro. Live Python, web development, backend and AI classes in Lahore and online, taught in Urdu-friendly English through real projects, small batches and 1-on-1 mentorship.',
     path: '/',
   })
 

@@ -11,7 +11,10 @@ import { ButtonLink } from '@/components/ui/Button'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 12)
+  /* Same as WhatsAppButton: no window during prerender. */
+  const [scrolled, setScrolled] = useState(
+    () => typeof window !== 'undefined' && window.scrollY > 12,
+  )
   const [open, setOpen] = useState(false)
   const close = useCallback(() => setOpen(false), [])
 

@@ -22,6 +22,14 @@ export const footerNav: { title: string; links: NavLinkItem[] }[] = [
     ],
   },
   {
+    title: 'Popular',
+    links: [
+      { label: 'Coding Classes in Lahore', href: '/coding-classes-in-lahore' },
+      { label: 'Online Coding Courses', href: '/online-coding-courses-pakistan' },
+      { label: 'Learn Coding in Urdu', href: '/learn-coding-in-urdu' },
+    ],
+  },
+  {
     title: 'Institute',
     links: [
       { label: 'About', href: '/about' },

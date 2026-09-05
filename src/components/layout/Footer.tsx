@@ -16,7 +16,7 @@ export function Footer() {
       />
 
       <Container className="py-10 lg:py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.5fr)_repeat(3,minmax(0,1fr))] lg:gap-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] lg:gap-8">
           <div className="max-w-xs">
             <Logo />
             <p className="mt-3 text-sm leading-relaxed text-content-400">

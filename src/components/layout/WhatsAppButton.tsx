@@ -6,7 +6,11 @@ import { siteConfig, whatsappHref } from '@/lib/site'
 
 /** Floating WhatsApp entry point, the primary conversion channel in Pakistan. */
 export function WhatsAppButton() {
-  const [visible, setVisible] = useState(() => window.scrollY > 420)
+  /* Read during render, so it must survive prerendering, where there is no
+     window. The scroll listener corrects it on the client immediately. */
+  const [visible, setVisible] = useState(
+    () => typeof window !== 'undefined' && window.scrollY > 420,
+  )
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 420)

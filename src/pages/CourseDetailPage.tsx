@@ -1,7 +1,9 @@
 import { Navigate, useParams } from 'react-router-dom'
 import { ArrowRight, Check, Clock, MessageCircle, Signal } from 'lucide-react'
 import { courses, getCourseBySlug } from '@/data/courses'
+import { breadcrumbSchema, courseSchema } from '@/lib/structuredData'
 import { useSeo } from '@/lib/useSeo'
+import { JsonLd } from '@/components/JsonLd'
 import { whatsappHref } from '@/lib/site'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -26,8 +28,10 @@ export function CourseDetailPage() {
 
 function CourseDetail({ course }: { course: NonNullable<ReturnType<typeof getCourseBySlug>> }) {
   useSeo({
-    title: course.title,
-    description: `${course.tagline} ${course.description}`,
+    /* "Python Programming Course in Pakistan" outranks a bare course name for
+       the queries buyers actually type. */
+    title: `${course.title} Course in Pakistan`,
+    description: `${course.tagline} ${course.description} Taught live in Lahore and online.`,
     path: `/courses/${course.slug}`,
   })
 
@@ -35,6 +39,14 @@ function CourseDetail({ course }: { course: NonNullable<ReturnType<typeof getCou
 
   return (
     <>
+      <JsonLd data={courseSchema(course)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Courses', path: '/courses' },
+          { name: course.title, path: `/courses/${course.slug}` },
+        ])}
+      />
       <PageHero
         eyebrow="Course"
         title={course.title}

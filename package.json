@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && node scripts/build.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -26,6 +26,7 @@
     "oxlint": "^1.79.0",
     "tailwindcss": "^4.2.4",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "vite-prerender-plugin": "^0.5.13"
   }
 }

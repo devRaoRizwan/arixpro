@@ -40,3 +40,9 @@ Thumbs.db
 
 # Social content calendar: large PNG exports, regenerable from brand/BRAND.md
 content/
+
+# Google Business Profile photos: PNG exports, regenerable with
+# `node scripts/business-photos.mjs`
+brand/business/*.png
+platforms.txt
+tools/

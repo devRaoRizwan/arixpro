@@ -13,9 +13,9 @@ import { CTASection } from '@/sections/CTASection'
 
 export function LearningPathsPage() {
   useSeo({
-    title: 'Learning Paths',
+    title: 'Programming Roadmap for Beginners in Pakistan',
     description:
-      'The ArixPro roadmap from complete beginner to job-ready developer, in eight stages covering programming fundamentals, Python, Git, APIs, databases, backend, frontend and real projects.',
+      'A step-by-step programming roadmap for beginners in Pakistan: eight stages from your first line of code to job-ready, covering fundamentals, Python, Git, APIs, databases, backend and frontend.',
     path: '/learning-paths',
   })
 

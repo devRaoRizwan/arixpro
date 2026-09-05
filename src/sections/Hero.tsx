@@ -42,7 +42,7 @@ export function Hero() {
               {...rise(0.05)}
               className="text-gradient text-[clamp(2.5rem,9vw,4.5rem)] leading-[0.98] font-extrabold tracking-[-0.028em]"
             >
-              Learn to Code.
+              Learn to Code in Pakistan.
               <br />
               Build for Real
             </motion.h1>

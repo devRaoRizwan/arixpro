@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { applyTheme, readStoredTheme, type Theme } from './theme'
+import { DEFAULT_THEME, applyTheme, readStoredTheme, type Theme } from './theme'
 
 /**
  * The inline script in index.html sets `data-theme` before first paint, so this
@@ -7,7 +7,7 @@ import { applyTheme, readStoredTheme, type Theme } from './theme'
  */
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() =>
-    typeof document === 'undefined' ? 'light' : readStoredTheme(),
+    typeof document === 'undefined' ? DEFAULT_THEME : readStoredTheme(),
   )
 
   useEffect(() => {

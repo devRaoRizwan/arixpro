@@ -1,5 +1,7 @@
 import { courses } from '@/data/courses'
+import { breadcrumbSchema, courseListSchema } from '@/lib/structuredData'
 import { useSeo } from '@/lib/useSeo'
+import { JsonLd } from '@/components/JsonLd'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
@@ -10,18 +12,25 @@ import { CTASection } from '@/sections/CTASection'
 
 export function CoursesPage() {
   useSeo({
-    title: 'Courses',
+    title: 'Coding Courses in Pakistan — Python, Web & AI',
     description:
-      'Python, web development, backend engineering and AI courses at ArixPro. Practical tracks taught live through real projects, for beginners and university students in Pakistan.',
+      'Four coding courses in Pakistan: Python programming, web development, backend engineering and AI automation. Taught live in Lahore and online, from complete beginner to job-ready, through real projects.',
     path: '/courses',
   })
 
   return (
     <>
+      <JsonLd data={courseListSchema(courses)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Courses', path: '/courses' },
+        ])}
+      />
       <PageHero
         eyebrow="Courses"
-        title="Four tracks that lead to working software"
-        description="Every track starts from fundamentals, moves through real tooling, and ends with projects you can put in front of an employer or a client."
+        title="Coding Courses in Pakistan"
+        description="Four tracks that lead to working software. Every one starts from fundamentals, moves through real tooling, and ends with projects you can put in front of an employer or a client."
       />
 
       <Section bordered={false} className="pt-0 sm:pt-0 lg:pt-0">

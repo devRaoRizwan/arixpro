@@ -43,9 +43,9 @@ const notDoing = [
 
 export function AboutPage() {
   useSeo({
-    title: 'About',
+    title: 'Coding Institute in Lahore, Pakistan',
     description:
-      'ArixPro is a coding and technology institute for students in Pakistan. Practical, Urdu-friendly teaching built around real projects, live batches and 1-on-1 mentorship.',
+      'ArixPro is a coding and technology institute based in Lahore, teaching students across Pakistan online. Practical, Urdu-friendly teaching built around real projects, small live batches and 1-on-1 mentorship.',
     path: '/about',
   })
 
