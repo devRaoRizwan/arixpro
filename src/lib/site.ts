@@ -29,7 +29,7 @@ export const siteConfig = {
     { label: 'Instagram', href: 'https://www.instagram.com/arixpro.pk/' },
     { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61594211541429' },
     { label: 'TikTok', href: 'https://www.tiktok.com/@arixpro.pk' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/144802024/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/arixpro-pk/' },
     {
       label: 'WhatsApp Channel',
       href: 'https://www.whatsapp.com/channel/0029VbDcYUR3GJP0aYBn9Y1t',

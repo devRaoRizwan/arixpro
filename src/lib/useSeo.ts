@@ -7,6 +7,9 @@ export type SeoOptions = {
   description: string
   /** Path only, e.g. `/courses/python`. */
   path?: string
+  /** Keeps the page out of search results while still following its links.
+   *  For thin pages that would otherwise compete with a real one. */
+  noindex?: boolean
 }
 
 export type ResolvedSeo = {
@@ -64,10 +67,16 @@ export function useSeo(options: SeoOptions) {
   // oxlint-disable-next-line react(globals)
   if (typeof document === 'undefined') capturedSeo = options
 
-  const { title, description, path } = options
+  const { title, description, path, noindex } = options
 
   useEffect(() => {
     const resolved = resolveSeo({ title, description, path })
+
+    /* Removed rather than set to "index", so navigating away from a noindex
+       page does not leave the tag behind on the next one. */
+    const robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]')
+    if (noindex) setMeta('name', 'robots', 'noindex, follow')
+    else if (robots) robots.remove()
 
     document.title = resolved.title
     setMeta('name', 'description', resolved.description)
@@ -86,5 +95,5 @@ export function useSeo(options: SeoOptions) {
       }
       canonical.href = resolved.url
     }
-  }, [title, description, path])
+  }, [title, description, path, noindex])
 }

@@ -49,6 +49,10 @@ export async function prerender(data: { url: string }): Promise<PrerenderResult>
     { type: 'meta', props: { name: 'twitter:description', content: seo.description } },
   ])
 
+  if (captured?.noindex) {
+    elements.add({ type: 'meta', props: { name: 'robots', content: 'noindex, follow' } })
+  }
+
   if (seo.url) {
     elements.add({ type: 'meta', props: { property: 'og:url', content: seo.url } })
     elements.add({ type: 'link', props: { rel: 'canonical', href: seo.url } })

@@ -46,3 +46,7 @@ content/
 brand/business/*.png
 platforms.txt
 tools/
+
+CONTENT.md
+# Python bytecode
+__pycache__/

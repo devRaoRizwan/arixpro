@@ -2,6 +2,7 @@ import { MotionConfig } from 'framer-motion'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { landingPages } from '@/data/landingPages'
 import { Layout } from '@/components/layout/Layout'
+import { BareLayout } from '@/components/layout/BareLayout'
 import { HomePage } from '@/pages/HomePage'
 import { CoursesPage } from '@/pages/CoursesPage'
 import { CourseDetailPage } from '@/pages/CourseDetailPage'
@@ -10,6 +11,7 @@ import { AboutPage } from '@/pages/AboutPage'
 import { FaqPage } from '@/pages/FaqPage'
 import { ContactPage } from '@/pages/ContactPage'
 import { LandingPage } from '@/pages/LandingPage'
+import { LinksPage } from '@/pages/LinksPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 /**
@@ -23,6 +25,11 @@ import { NotFoundPage } from '@/pages/NotFoundPage'
 export function AppRoutes() {
   return (
       <Routes>
+          {/* Standalone: no navbar or footer competing with the link list. */}
+          <Route element={<BareLayout />}>
+            <Route path="links" element={<LinksPage />} />
+          </Route>
+
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="courses" element={<CoursesPage />} />
