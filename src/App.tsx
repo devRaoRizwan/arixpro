@@ -1,59 +1,33 @@
-import { MotionConfig } from 'framer-motion'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { landingPages } from '@/data/landingPages'
-import { Layout } from '@/components/layout/Layout'
-import { BareLayout } from '@/components/layout/BareLayout'
-import { HomePage } from '@/pages/HomePage'
-import { CoursesPage } from '@/pages/CoursesPage'
-import { CourseDetailPage } from '@/pages/CourseDetailPage'
-import { LearningPathsPage } from '@/pages/LearningPathsPage'
-import { AboutPage } from '@/pages/AboutPage'
-import { FaqPage } from '@/pages/FaqPage'
-import { ContactPage } from '@/pages/ContactPage'
-import { LandingPage } from '@/pages/LandingPage'
-import { LinksPage } from '@/pages/LinksPage'
-import { NotFoundPage } from '@/pages/NotFoundPage'
+import { Routes, Route } from 'react-router-dom'
+import { Navbar } from './components/Navbar'
+import { Footer } from './components/Footer'
+import { Home } from './pages/Home'
+import { Services } from './pages/Services'
+import { Work } from './pages/Work'
+import { WorkDetail } from './pages/WorkDetail'
+import { Process } from './pages/Process'
+import { About } from './pages/About'
+import { Contact } from './pages/Contact'
 
-/**
- * Routes are imported eagerly on purpose. Behind React.lazy the scroll-reveal
- * animations never receive their first IntersectionObserver callback, leaving
- * everything below a page hero invisible. Splitting also saved under 5 kB
- * gzipped here, since every route shares the same component and motion code.
- */
-/** Shared by the browser entry and the build-time prerenderer, which each
- *  supply their own router. */
-export function AppRoutes() {
+export function App() {
   return (
-      <Routes>
-          {/* Standalone: no navbar or footer competing with the link list. */}
-          <Route element={<BareLayout />}>
-            <Route path="links" element={<LinksPage />} />
-          </Route>
-
-          <Route element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="courses" element={<CoursesPage />} />
-            <Route path="courses/:slug" element={<CourseDetailPage />} />
-            <Route path="learning-paths" element={<LearningPathsPage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="faq" element={<FaqPage />} />
-            <Route path="contact" element={<ContactPage />} />
-            {/* Search landing pages live at the root so their URL is the keyword. */}
-            {landingPages.map((page) => (
-              <Route key={page.slug} path={page.slug} element={<LandingPage page={page} />} />
-            ))}
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-      </Routes>
+    <div className="min-h-screen bg-white text-[#4A4458] font-sans antialiased selection:bg-[#6336C5] selection:text-white flex flex-col justify-between">
+      <Navbar />
+      <main id="main" className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:slug" element={<WorkDetail />} />
+          <Route path="/process" element={<Process />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   )
 }
 
-export default function App() {
-  return (
-    <MotionConfig reducedMotion="user">
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </MotionConfig>
-  )
-}
+export default App

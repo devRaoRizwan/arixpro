@@ -14,7 +14,16 @@ export default defineConfig({
     vitePrerenderPlugin({
       renderTarget: '#root',
       prerenderScript: fileURLToPath(new URL('./src/prerender.tsx', import.meta.url)),
-      additionalPrerenderRoutes: ['/404', '/links'],
+      additionalPrerenderRoutes: [
+        '/services',
+        '/work',
+        '/work/sitescopia',
+        '/work/jobharvester',
+        '/work/bomwatcher',
+        '/process',
+        '/about',
+        '/contact',
+      ],
     }),
   ],
   resolve: {

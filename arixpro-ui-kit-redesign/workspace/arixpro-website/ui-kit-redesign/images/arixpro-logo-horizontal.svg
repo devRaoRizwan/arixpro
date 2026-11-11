@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ArixPro - Royal Pomegranate v2 - Horizontal - TRANSPARENT, no bg -->
+<!-- Reference: WhatsApp_Image_2026-11-11_at_4.24.43_PM.jpeg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="120" viewBox="0 0 320 120" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">ArixPro Logo Horizontal</title>
+  <desc id="desc">Royal pomegranate mark left, ArixPro wordmark right, transparent background.</desc>
+  <defs>
+    <radialGradient id="purpleSeed" cx="0.35" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#A020F0"/><stop offset="0.55" stop-color="#6336C5"/><stop offset="1" stop-color="#3D0A7A"/>
+    </radialGradient>
+    <radialGradient id="greenSeed" cx="0.35" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#8CEA4A"/><stop offset="0.55" stop-color="#2ECC40"/><stop offset="1" stop-color="#0F7A1E"/>
+    </radialGradient>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8A1FF0"/><stop offset="0.5" stop-color="#6336C5"/><stop offset="1" stop-color="#3D0A7A"/>
+    </linearGradient>
+  </defs>
+  <g id="logo">
+    <g id="mark" transform="translate(0,0) scale(0.6)">
+<g id="pomegranate">
+    <!-- CROWN: 3 pointed petals on top, like reference -->
+    <g id="crown" fill="url(#ringGrad)">
+      <path d="M100 6 C108 18 110 28 108 38 C104 28 100 22 100 22 C100 22 96 28 92 38 C90 28 92 18 100 6 Z"/>
+      <path d="M72 18 C84 22 92 30 94 42 C86 36 78 34 70 36 C74 28 74 22 72 18 Z"/>
+      <path d="M128 18 C116 22 108 30 106 42 C114 36 122 34 130 36 C126 28 126 22 128 18 Z"/>
+    </g>
+    <!-- OUTER RING: thick purple ring, round pomegranate body -->
+    <g id="outer-ring" fill="url(#ringGrad)">
+      <path d="M100 28 C150 28 184 66 184 112 C184 158 146 190 100 190 C54 190 16 158 16 112 C16 66 50 28 100 28 Z"/>
+      <path d="M100 52 C136 52 160 78 160 112 C160 144 134 166 100 166 C66 166 40 144 40 112 C40 78 64 52 100 52 Z" fill="#FFFFFF"/>
+    </g>
+    <!-- WHITE SWIRL: negative space curves, like reference -->
+    <g id="white-swirl" fill="#FFFFFF">
+      <path d="M100 52 C130 52 152 70 156 96 C140 82 118 76 100 82 C82 88 68 102 66 120 C58 96 72 60 100 52 Z"/>
+      <path d="M40 112 C40 140 62 162 92 166 C70 158 52 138 50 116 C52 100 44 104 40 112 Z"/>
+      <path d="M160 112 C160 130 150 148 132 158 C148 140 154 122 150 104 C154 108 160 110 160 112 Z"/>
+    </g>
+    <!-- SEEDS: 3 teardrops, 2 purple, 1 green, like reference -->
+    <g id="seeds">
+      <g id="seed-top" transform="translate(100,102) rotate(-8)">
+        <path d="M0 -26 C14 -22 20 -6 14 8 C8 20 -8 20 -14 8 C-20 -6 -14 -22 0 -26 Z" fill="url(#purpleSeed)"/>
+      </g>
+      <g id="seed-left" transform="translate(74,136) rotate(-28)">
+        <path d="M0 -26 C14 -22 20 -6 14 8 C8 20 -8 20 -14 8 C-20 -6 -14 -22 0 -26 Z" fill="url(#purpleSeed)"/>
+      </g>
+      <g id="seed-right" transform="translate(128,138) rotate(28)">
+        <path d="M0 -26 C14 -22 20 -6 14 8 C8 20 -8 20 -14 8 C-20 -6 -14 -22 0 -26 Z" fill="url(#greenSeed)"/>
+      </g>
+    </g>
+  </g>
+
+    </g>
+    <g id="wordmark" font-family="Outfit, Inter, sans-serif" font-weight="700" font-size="40" fill="#241044">
+      <text x="132" y="72">ArixPro</text>
+    </g>
+  </g>
+</svg>

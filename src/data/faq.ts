@@ -5,43 +5,43 @@ export type FaqItem = {
 
 export const faqs: FaqItem[] = [
   {
-    question: 'Do I need programming experience?',
+    question: 'Who owns the intellectual property and code produced during the project?',
     answer:
-      'No. The beginner track assumes nothing. Not a prior language, not a computer science background, not even a terminal you have opened before. If you already know some programming, tell us during enrolment and we start you further along the roadmap instead of repeating what you know.',
+      'You do, 100%. Upon completion of project milestones and payment, all source code, repository commits, cloud configurations, schemas, and design assets are fully transferred to your company with zero licensing restrictions.',
   },
   {
-    question: 'Are classes available in Urdu?',
+    question: 'How do you structure project engagements and contracts?',
     answer:
-      'Yes. Concepts are explained in Urdu whenever that makes them clearer, while technical terms stay in English, because that is how documentation, error messages and job interviews are written. You can ask questions in whichever language you are comfortable with.',
+      'We offer two primary delivery models: Fixed-Scope Delivery for well-defined projects with agreed milestone checkpoints, and Dedicated Engineering Sprints for evolving products requiring continuous, agile development and roadmap flexibility.',
   },
   {
-    question: 'Do you offer 1-on-1 classes?',
+    question: 'What does your day-to-day communication and progress reporting look like?',
     answer:
-      'Yes. One-on-one mentorship is scheduled around you, moves at your pace, and can be shaped around a specific goal such as a university project, a job interview or a freelance client. It suits complete beginners and anyone who needs individual attention.',
+      'We work in transparent bi-weekly sprints with clear deliverable boards. You receive automated pull request previews, weekly sprint review demonstrations, and direct asynchronous access to the engineering team via Slack or Microsoft Teams.',
   },
   {
-    question: 'Are courses live or recorded?',
+    question: 'How do you ensure software quality, security, and performance?',
     answer:
-      'Teaching is live, both in batches and in 1-on-1 sessions, so you can interrupt, ask and get unstuck in the moment. Sessions are supported by written notes and practice work you keep afterwards.',
+      'Every codebase adheres to automated CI/CD checks: unit testing, static type verification (TypeScript/Go/Python), dependency vulnerability scanning, and end-to-end integration tests. We benchmark against strict P99 latency and security compliance requirements.',
   },
   {
-    question: 'What programming language should beginners start with?',
+    question: 'Can you work with our existing codebase or legacy infrastructure?',
     answer:
-      'Python. The syntax stays out of your way while you learn how programming actually works, and it carries directly into backend development, automation and AI. If your goal is specifically websites, the Web Development track starts with HTML, CSS and JavaScript instead.',
+      'Yes. We regularly perform technical architecture audits on legacy systems and execute non-disruptive modernization strategies (such as the Strangler pattern), refactoring outdated components while keeping live production services uninterrupted.',
   },
   {
-    question: 'Do students build projects?',
+    question: 'Do you offer ongoing post-launch maintenance and support?',
     answer:
-      'Every module ends in something that runs. By the end of a track you have several complete projects on GitHub, with the code, the commit history and the ability to explain every decision in them.',
+      'Yes. After production launch, we provide ongoing maintenance SLAs covering 24/7 infrastructure monitoring, zero-downtime security patches, library updates, cloud optimization, and on-call engineering support.',
   },
   {
-    question: 'Can university students join?',
+    question: 'How quickly can an engineering engagement kick off?',
     answer:
-      'Yes, and many do. Sessions are scheduled around semester timetables, and the practical side, covering Git, APIs, databases and deployment, tends to be exactly what coursework leaves out.',
+      'Following an initial technical discovery session to review requirements and define the system architecture, we typically establish the project workspace, staging pipelines, and begin Sprint 1 within 5 to 7 business days.',
   },
   {
-    question: 'How do I enroll?',
+    question: 'What tech stacks do you specialize in?',
     answer:
-      'Send the enrolment form on this site or message us on WhatsApp. We will talk through your background and goal, recommend a starting point on the roadmap, and confirm whether 1-on-1 or a live batch fits you better before anything is paid.',
+      'Our core production stack includes React, Next.js, and TypeScript on the frontend; Go, Node.js, and Python on the backend; PostgreSQL, Redis, and Kafka for data layers; and AWS, Google Cloud, Docker, and Terraform for cloud infrastructure.',
   },
 ]

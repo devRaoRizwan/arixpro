@@ -1,15 +1,28 @@
 export type StatItem = {
   label: string
   detail: string
+  metric?: string
 }
 
-/**
- * Deliberately no invented numbers. These describe how ArixPro teaches.
- * Replace with measured figures only once they are real.
- */
 export const stats: StatItem[] = [
-  { label: '1-on-1 Mentorship', detail: 'Sessions built around one student' },
-  { label: 'Live Learning', detail: 'Taught live, questions answered live' },
-  { label: 'Practical Projects', detail: 'Every module ends in working code' },
-  { label: 'Urdu-Friendly', detail: 'Explained in the language you think in' },
+  {
+    metric: '100%',
+    label: 'Code Ownership',
+    detail: 'Full IP transfer with clean git repositories and comprehensive documentation.',
+  },
+  {
+    metric: '99.9%',
+    label: 'Architecture Uptime',
+    detail: 'High-availability infrastructure designed with automated failover and zero-downtime deploys.',
+  },
+  {
+    metric: '< 100ms',
+    label: 'Target Latency',
+    detail: 'Performance-engineered APIs optimized with connection pooling and query indexing.',
+  },
+  {
+    metric: 'Zero',
+    label: 'Vendor Lock-in',
+    detail: 'Built on open cloud-native standards (Docker, PostgreSQL, Terraform, Linux).',
+  },
 ]

@@ -1,10 +1,10 @@
 import {
-  Hammer,
-  Sprout,
-  LifeBuoy,
-  Languages,
-  FolderGit2,
-  Briefcase,
+  ShieldCheck,
+  Cpu,
+  Layers,
+  Terminal,
+  Activity,
+  Users,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -16,33 +16,33 @@ export type Feature = {
 
 export const whyArixPro: Feature[] = [
   {
-    title: 'Practical Learning',
-    body: 'Time goes to the skills used in real development work, not to definitions that only matter in an exam.',
-    icon: Hammer,
+    title: 'Disciplined Architecture',
+    body: 'We model domain boundaries, schemas, and API contracts before building. No rushed hacks that cripple future releases.',
+    icon: Layers,
   },
   {
-    title: 'Beginner Friendly',
-    body: 'Nothing is assumed. If you have never opened a terminal, that is exactly where we start.',
-    icon: Sprout,
+    title: 'Strict Type-Safety & Testing',
+    body: 'Every PR is guarded by automated test suites, linting, and type verification. Zero compromises on codebase stability.',
+    icon: ShieldCheck,
   },
   {
-    title: 'Personal Guidance',
-    body: 'When something breaks, you get a person who explains why, not a comment section and a broken link.',
-    icon: LifeBuoy,
+    title: 'High-Concurrency Performance',
+    body: 'Optimized for low latency. We tune database indexes, connection pools, and caching layers to maintain sub-100ms response targets.',
+    icon: Cpu,
   },
   {
-    title: 'Real Projects',
-    body: 'You leave every module with working code you wrote yourself and can defend line by line.',
-    icon: FolderGit2,
+    title: 'Observable & Maintainable',
+    body: 'Built with structured logging, distributed tracing, and automated health checks. When edge cases happen, they are solved in minutes.',
+    icon: Activity,
   },
   {
-    title: 'Urdu-Friendly',
-    body: 'Difficult concepts explained in the language you think in, with the technical vocabulary kept in English.',
-    icon: Languages,
+    title: 'Senior Engineering Team',
+    body: 'Direct collaboration with engineers who understand system design, distributed systems, and real-world scale.',
+    icon: Terminal,
   },
   {
-    title: 'Career Focused',
-    body: 'Git, APIs, databases, deployment and a portfolio. The things internships and clients actually ask for.',
-    icon: Briefcase,
+    title: 'Transparent Sprint Cadence',
+    body: 'Bi-weekly sprint reviews, demonstrable staging environments, and full visibility into git commits and issue tracking boards.',
+    icon: Users,
   },
 ]

@@ -1,0 +1,12 @@
+/* ArixPro Redesign UI Kit - Airbnb + Linear + Stripe - tokens.css */
+:root{
+  --white:#FFFFFF; --surface:#F7F6FC; --surface-soft:#F7F7F7; --surface-card:#FFFFFF;
+  --ink:#241044; --body:#4A4458; --muted:#6B6578; --muted-soft:#929292;
+  --hairline:#E4DEF2; --hairline-soft:#EBEBEB; --border-strong:#C1C1C1;
+  --purple:#6336C5; --purple-active:#4F2AA0; --purple-disabled:#D9CFF5; --blue:#315BDA;
+  --success:#1E9E4A; --error:#C13515;
+  --radius-xs:4px; --radius-sm:8px; --radius-md:14px; --radius-lg:20px; --radius-xl:32px; --radius-full:9999px;
+  --shadow-one:rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 6px, rgba(0,0,0,0.1) 0 4px 8px;
+  --font-sans:'Outfit',sans-serif; --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --max:1280px; --nav-h:80px; --section:64px;
+}

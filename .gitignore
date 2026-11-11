@@ -50,3 +50,11 @@ tools/
 CONTENT.md
 # Python bytecode
 __pycache__/
+
+# Video lab: rendered frames, scores and finished cuts. Regenerable with
+# `python3 lab/build.py lab/specs/<name>.py`
+lab/out/
+
+# LeetCode reels, rendered with the lab. Regenerable with
+# `python3 leetcode/build.py leetcode/p<NN>_<name>.py`
+leetcode/out/
