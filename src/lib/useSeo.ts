@@ -59,13 +59,18 @@ function setMeta(key: 'name' | 'property', keyValue: string, content: string) {
   el.setAttribute('content', content)
 }
 
+function recordSeoForPrerender(options: SeoOptions) {
+  capturedSeo = options
+}
+
 /** Keeps the document head in sync with the active route. */
 export function useSeo(options: SeoOptions) {
   /* Recorded during render because that is the only phase the prerenderer runs.
      Deliberately impure, and safe: the branch is unreachable in a browser, and
      the build renders one route at a time, synchronously. */
-  // oxlint-disable-next-line react(globals)
-  if (typeof document === 'undefined') capturedSeo = options
+  if (typeof document === 'undefined') {
+    recordSeoForPrerender(options)
+  }
 
   const { title, description, path, noindex } = options
 

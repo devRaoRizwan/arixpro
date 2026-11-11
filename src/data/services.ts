@@ -28,7 +28,7 @@ export const services: ServiceItem[] = [
       'The complete end-to-end digital foundation for modern businesses. We design and engineer your custom web portal, scalable backend engine, and iOS/Android mobile apps together—sharing unified data models, real-time sync, and cohesive security.',
     icon: Boxes,
     deliverables: [
-      'Seamless multi-platform data sync between web and mobile users',
+      'Direct multi-platform data sync between web and mobile users',
       'Unified authentication (SSO, OAuth, JWT) across all touchpoints',
       'Centralized admin dashboard controlling both web and mobile operations',
       'Shared API contracts and single source of truth for business logic',

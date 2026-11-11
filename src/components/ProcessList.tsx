@@ -53,7 +53,7 @@ export function ProcessList() {
         >
           {/* Step Number */}
           <div className="md:col-span-2 flex items-baseline gap-2">
-            <span className="font-mono text-[28px] font-bold text-[#6336C5] tabular-nums">
+            <span className="font-mono text-[28px] font-semibold text-[#241044] tabular-nums">
               {step.number}
             </span>
             <span className="font-mono text-[12px] uppercase text-[#6B6578]">
@@ -73,11 +73,11 @@ export function ProcessList() {
 
           {/* Concrete Deliverable */}
           <div className="md:col-span-5 rounded-[8px] bg-[#F7F6FC] p-4 border border-[#E4DEF2]">
-            <span className="block font-mono text-[11px] font-medium uppercase tracking-wider text-[#6336C5]">
+            <span className="block font-mono text-[11px] font-semibold uppercase tracking-wider text-[#6B6578]">
               Deliverable Handed Over
             </span>
             <div className="mt-1.5 flex items-start gap-2">
-              <Check className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+              <Check className="size-4 text-[#241044] shrink-0 mt-0.5" />
               <p className="font-sans text-[14px] font-medium text-[#241044]">
                 {step.deliverable}
               </p>

@@ -44,7 +44,7 @@ Sitemap, 8 pages, each with its own URL, nav, footer, SEO title:
 3. /services/web-applications, /services/backend, /services/apis, /services/saas - or 1 services page with 4 anchored sections? No, separate pages in React Router, see below
 4. /work - Work: full-bleed project list, filters by stack, each project card photo-first
 5. /work/sitescopia - SiteScopia detail: 38 checks, dashboard mock, stack, live + GitHub, scan table
-6. /work/jobharvester - JobHarvester detail: Django, PostgreSQL, Celery, board mock, note live site shows No jobs yet, fix before linking live
+6. /work/jobharvester - JobHarvester detail: Django, PostgreSQL, Celery, board mock (illustrative numbers, not live data). Live demo verified 2026-10-07 in a real browser: 1,476 jobs, 9 per page, pagination working; re-verified 2026-11-11: 1,641 jobs claimed, 9 per page, pagination working, first load ~30s. No jobs yet only during load
 7. /work/bomwatcher - BOMWatcher detail: FastAPI, LLM, RAG, scanner mock, BOM table, AI summary
 8. /process - Process: Discover, Build, Ship, Support, numbered list, deliverables, timeline
 9. /about - About: Rao Rizwan, backend engineer, 2 years Python backend, Django REST APIs at 100,000+ requests a day, links devraorizwan.online, GitHub, LinkedIn, no stock photo

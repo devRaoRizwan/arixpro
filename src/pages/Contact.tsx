@@ -5,24 +5,24 @@ export function Contact() {
   return (
     <div className="w-full bg-white">
       {/* Header */}
-      <section className="py-16 sm:py-20 border-b border-[#E8E4F3] bg-[#FAF9FD]">
+      <section className="py-16 border-b border-[#E4DEF2] bg-[#F7F6FC]">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6B6578]">
               Start an Engagement
             </span>
-            <h1 className="mt-3 font-sans text-[36px] sm:text-[44px] font-bold text-[#160B28] tracking-tight leading-tight">
+            <h1 className="mt-3 font-sans text-[28px] sm:text-[36px] font-semibold text-[#241044] tracking-tight leading-tight">
               Start Your Project with ArixPro
             </h1>
-            <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#504665]">
+            <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#4A4458]">
               Send your project specifications or chat directly with our senior engineering team. We review scopes and reply within 24 business hours.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Form & Contact Information */}
-      <section className="py-16 md:py-20">
+      {/* Main Form & Contact Information: Section Padding Strictly 64px (py-16) */}
+      <section className="py-16">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
             {/* Left Column: Form */}
@@ -39,7 +39,7 @@ export function Contact() {
             <div className="lg:col-span-5 space-y-6">
               {/* WhatsApp Primary Card */}
               <div className="rounded-[14px] border border-[#E4DEF2] bg-[#F7F6FC] p-6 sm:p-8">
-                <span className="font-mono text-[11px] font-medium uppercase tracking-wider text-[#6336C5]">
+                <span className="font-mono text-[11px] font-medium uppercase tracking-wider text-[#6B6578]">
                   Instant Engineering Response
                 </span>
                 <h3 className="mt-2 font-sans text-[20px] font-semibold text-[#241044]">
@@ -57,39 +57,39 @@ export function Contact() {
                     className="btn-primary w-full justify-center"
                   >
                     <MessageSquare className="size-4" />
-                    <span>WhatsApp: +92 312 0418701</span>
+                    <span>WhatsApp +92 312 0418701</span>
                     <ArrowUpRight className="size-4" />
                   </a>
                 </div>
 
                 <div className="mt-6 pt-5 border-t border-[#E4DEF2] space-y-2.5 font-sans text-[13px] text-[#4A4458]">
                   <div className="flex items-center gap-2">
-                    <Globe className="size-4 text-[#6336C5]" />
+                    <Globe className="size-4 text-[#241044]" />
                     <span>Official Web: arixpro.com</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="size-4 text-[#6336C5]" />
+                    <Clock className="size-4 text-[#241044]" />
                     <span>Typical Response: Under 1 hour</span>
                   </div>
                 </div>
               </div>
 
               {/* What to Expect Card */}
-              <div className="rounded-[14px] border border-[#E4DEF2] bg-white p-6">
+              <div className="rounded-[14px] border border-[#E4DEF2] bg-white p-6 shadow-sm">
                 <h4 className="font-sans text-[15px] font-semibold text-[#241044]">
                   What Happens Next?
                 </h4>
                 <ul className="mt-4 space-y-3 font-sans text-[14px] text-[#4A4458]">
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>We evaluate your technical stack requirements and domain constraints.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>We provide a transparent milestone schedule with fixed deliverables.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>We set up private staging environments and a dedicated Git repository.</span>
                   </li>
                 </ul>

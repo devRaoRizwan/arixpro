@@ -26,7 +26,7 @@ Routes in App.jsx, react-router-dom. Each page has its own URL, title, nav, foot
 ## Images - in images/
 - arixpro-pomegranate.png, arixpro-logo-horizontal.svg - ONLY logo, pomegranate
 - media-generation-sitescopia-dashboard-mock-*.webp - SiteScopia, 38 checks, 34/38
-- media-generation-jobharvester-board-mock-*.webp - JobHarvester, mock data, live site shows No jobs yet, fix before linking live
+- media-generation-jobharvester-board-mock-*.webp - JobHarvester, mock data (illustrative numbers, not live data). Live demo verified 2026-10-07 in a real browser: 1,476 jobs, 9 per page, pagination working; re-verified 2026-11-11: 1,641 jobs claimed, 9 per page, pagination working, first load ~30s. No jobs yet only appears during load
 - media-generation-bomwatcher-scanner-mock-*.webp - BOMWatcher, 128 components, 3 high risk
 
 ## Anti-AI rules - still apply

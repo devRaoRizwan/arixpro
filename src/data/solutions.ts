@@ -36,7 +36,7 @@ export const solutions: SolutionItem[] = [
     title: 'SaaS Product Engineering',
     subtitle: 'From greenfield architecture to multi-tenant scale.',
     description:
-      'Building software as a service requires resilient multi-tenancy, subscription billing, granular role-based access control (RBAC), and bulletproof data isolation. We engineer complete SaaS platforms designed to scale seamlessly as user concurrency surges.',
+      'Building software as a service requires resilient multi-tenancy, subscription billing, granular role-based access control (RBAC), and bulletproof data isolation. We engineer complete SaaS platforms designed to scale reliably as user concurrency surges.',
     icon: Boxes,
     capabilities: [
       'Multi-tenant database architectures with strict row-level security',

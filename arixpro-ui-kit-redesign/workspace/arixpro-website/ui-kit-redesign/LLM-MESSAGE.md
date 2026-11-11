@@ -23,7 +23,7 @@ MULTI-PAGE ROUTES - build all of these, with react-router-dom, each page separat
 - /services: Web Applications, Backend Engineering, APIs, SaaS Products, each with stack, deliverable, and a real example
 - /work: full project list, filter by stack, photo-first cards, Live badge top-left, project UI screenshot first
 - /work/sitescopia: SiteScopia, website analyzer, 38 checks per scan, FastAPI + React, dashboard mock image, scan table 34/38 passed, live + GitHub links
-- /work/jobharvester: JobHarvester, job board, Django + PostgreSQL + Celery, board mock image, note in code: live site currently shows No jobs yet, do not claim 1,400+ live listings as live
+- /work/jobharvester: JobHarvester, job board, Django + PostgreSQL + Celery, board mock image, live demo verified 2026-10-07 in a real browser (5-15s wait): 1,476 jobs, 9 per page, pagination working. Re-verified 2026-11-11 in a live browser: page claims 1,641 jobs available, 9 cards per page, pagination working; first load took about 30s before cards appeared. A fast fetch shows No jobs yet during load, that reading was superseded. Mock image numbers are illustrative, not live data.
 - /work/bomwatcher: BOMWatcher, AI supply-chain scanner, FastAPI + LLM + RAG, scanner mock image, BOM table, AI summary
 - /process: Discover, Build, Ship, Support, numbered list, each with a deliverable
 - /about: Rao Rizwan, backend engineer, 2 years Python backend in production, Django REST APIs at 100,000+ requests a day, links devraorizwan.online, GitHub, LinkedIn, no stock photo

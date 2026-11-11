@@ -1,2 +1,2 @@
-// WorkDetail /work/:slug - sitescopia, jobharvester, bomwatcher. Each with mock UI image, stack, live + GitHub, details. JobHarvester: note live shows No jobs yet.
+// WorkDetail /work/:slug - sitescopia, jobharvester, bomwatcher. Each with mock UI image, stack, live + GitHub, details. JobHarvester live demo verified 2026-10-07 in a real browser: 1,476 jobs, 9 per page, pagination working (No jobs yet only during load, superseded reading). Re-verified 2026-11-11: 1,641 jobs claimed, 9 per page, pagination working, first load ~30s.
 export default function WorkDetail(){ return null; }

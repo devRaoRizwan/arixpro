@@ -7,7 +7,7 @@ export function Services() {
     {
       id: 'web-applications',
       title: 'Web Applications',
-      icon: <Layout className="size-6 text-[#6336C5]" />,
+      icon: <Layout className="size-6 text-[#241044]" />,
       summary:
         'Fast, accessible client web applications engineered with React 18, Vite, and strict TypeScript.',
       description:
@@ -25,7 +25,7 @@ export function Services() {
     {
       id: 'backend-engineering',
       title: 'Backend Engineering',
-      icon: <Server className="size-6 text-[#6336C5]" />,
+      icon: <Server className="size-6 text-[#241044]" />,
       summary:
         'Resilient Python backend architectures built on Django 5, PostgreSQL, and Celery.',
       description:
@@ -43,7 +43,7 @@ export function Services() {
     {
       id: 'apis',
       title: 'APIs & Microservices',
-      icon: <Database className="size-6 text-[#6336C5]" />,
+      icon: <Database className="size-6 text-[#241044]" />,
       summary:
         'High-throughput asynchronous REST microservices built with FastAPI and Pydantic.',
       description:
@@ -61,7 +61,7 @@ export function Services() {
     {
       id: 'saas-products',
       title: 'SaaS Products',
-      icon: <Sparkles className="size-6 text-[#6336C5]" />,
+      icon: <Sparkles className="size-6 text-[#241044]" />,
       summary:
         'Turn product requirements into a production-ready, multi-tenant digital business.',
       description:
@@ -81,60 +81,60 @@ export function Services() {
   return (
     <div className="w-full bg-white">
       {/* Header */}
-      <section className="py-16 sm:py-20 border-b border-[#E8E4F3] bg-[#FAF9FD]">
+      <section className="py-16 border-b border-[#E4DEF2] bg-[#F7F6FC]">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6B6578]">
               Engineering Services
             </span>
-            <h1 className="mt-3 font-sans text-[36px] sm:text-[44px] font-bold text-[#160B28] tracking-tight leading-tight">
+            <h1 className="mt-3 font-sans text-[28px] sm:text-[36px] font-semibold text-[#241044] tracking-tight leading-tight">
               Software Solutions Built for Production Scale
             </h1>
-            <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#504665]">
+            <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#4A4458]">
               We build custom web applications, Python backends, high-concurrency APIs, and full SaaS platforms. Fixed deliverables, clean source code, and direct engineering collaboration.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-20">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 space-y-16">
+      {/* Services List: Section Padding Strictly 64px (py-16) */}
+      <section className="py-16">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 space-y-12">
           {serviceList.map((service, index) => (
             <div
               key={service.id}
               id={service.id}
-              className="scroll-mt-24 agency-card p-8 sm:p-12"
+              className="scroll-mt-24 ui-card p-6 sm:p-10"
             >
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
                 {/* Left Description */}
                 <div className="lg:col-span-7">
                   <div className="flex items-center gap-3">
-                    <div className="flex size-12 items-center justify-center rounded-[12px] bg-[#FAF9FD] border border-[#E8E4F3]">
+                    <div className="flex size-11 items-center justify-center rounded-[8px] bg-[#F7F6FC] border border-[#E4DEF2]">
                       {service.icon}
                     </div>
                     <div>
-                      <span className="font-mono text-[12px] text-[#6B6578]">
+                      <span className="font-mono text-[11px] text-[#6B6578]">
                         0{index + 1}
                       </span>
-                      <h2 className="font-sans text-[24px] font-bold text-[#160B28]">
+                      <h2 className="font-sans text-[22px] font-semibold text-[#241044]">
                         {service.title}
                       </h2>
                     </div>
                   </div>
 
-                  <p className="mt-5 font-sans text-[16px] font-medium text-[#160B28]">
+                  <p className="mt-5 font-sans text-[16px] font-medium text-[#241044]">
                     {service.summary}
                   </p>
 
-                  <p className="mt-2 font-sans text-[15px] leading-relaxed text-[#504665]">
+                  <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#4A4458]">
                     {service.description}
                   </p>
 
                   {/* Stack */}
                   <div className="mt-6">
                     <span className="block font-mono text-[11px] font-semibold uppercase text-[#6B6578] mb-2">
-                      Production Stack
+                      Engineering Stack
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {service.stack.map((tech) => (
@@ -144,7 +144,7 @@ export function Services() {
                   </div>
 
                   {/* Action */}
-                  <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
                     <Link
                       to={`/work/${service.exampleSlug}`}
                       className="btn-primary"
@@ -159,21 +159,21 @@ export function Services() {
                 </div>
 
                 {/* Right Deliverables Table / Box */}
-                <div className="lg:col-span-5 rounded-[14px] border border-[#E8E4F3] bg-[#FAF9FD] p-6 shadow-sm">
-                  <h3 className="font-sans text-[16px] font-bold text-[#160B28] border-b border-[#E8E4F3] pb-3">
+                <div className="lg:col-span-5 rounded-[14px] border border-[#E4DEF2] bg-[#F7F6FC] p-6 shadow-sm">
+                  <h3 className="font-sans text-[15px] font-semibold text-[#241044] border-b border-[#E4DEF2] pb-3">
                     Concrete Deliverables Handed Over
                   </h3>
 
                   <ul className="mt-4 space-y-3 font-sans text-[14px] text-[#4A4458]">
                     {service.deliverables.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-6 pt-5 border-t border-[#E8E4F3] flex items-center justify-between text-xs font-mono text-[#6B6578]">
+                  <div className="mt-6 pt-5 border-t border-[#E4DEF2] flex items-center justify-between text-xs font-mono text-[#6B6578]">
                     <span>100% IP Ownership</span>
                     <span>Direct Senior Eng</span>
                   </div>

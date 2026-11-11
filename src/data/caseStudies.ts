@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     impact: [
       'Live vehicle telemetry lag reduced from 240 seconds to under 350 milliseconds',
       'Automated dispatch routing slashed fleet fuel overhead by 18%',
-      'Seamless telemetry tracking across 3,500+ commercial vehicles in real time',
+      'Continuous telemetry tracking across 3,500+ commercial vehicles in real time',
     ],
     stack: ['TypeScript', 'Node.js', 'React', 'PostGIS', 'Redis Streams', 'Mapbox'],
     metrics: [

@@ -25,7 +25,7 @@ export function Work() {
       stack: ['Django 5', 'PostgreSQL', 'Celery', 'Redis'],
       isLive: true,
       meta: 'Celery worker queues & relational indexing',
-      statusNote: 'Note: Live site currently in active maintenance (no synthetic data)',
+      statusNote: 'Live board in active maintenance',
     },
     {
       slug: 'bomwatcher',
@@ -51,16 +51,16 @@ export function Work() {
   return (
     <div className="w-full bg-white">
       {/* Header */}
-      <section className="py-16 sm:py-20 border-b border-[#E8E4F3] bg-[#FAF9FD]">
+      <section className="py-16 border-b border-[#E4DEF2] bg-[#F7F6FC]">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6B6578]">
               Production Portfolio
             </span>
-            <h1 className="mt-3 font-sans text-[36px] sm:text-[44px] font-bold text-[#160B28] tracking-tight leading-tight">
+            <h1 className="mt-3 font-sans text-[28px] sm:text-[36px] font-semibold text-[#241044] tracking-tight leading-tight">
               Featured Systems &amp; Engineering Work
             </h1>
-            <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#504665]">
+            <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#4A4458]">
               Real software systems shipped to production. Photo-first inspection, transparent architectures, and verified source code.
             </p>
           </div>
@@ -72,10 +72,10 @@ export function Work() {
                 key={filter}
                 type="button"
                 onClick={() => setSelectedFilter(filter)}
-                className={`h-[38px] px-4 rounded-full font-sans text-[14px] font-medium transition-all cursor-pointer border ${
+                className={`h-[38px] px-4 rounded-full font-sans text-[14px] font-medium transition-colors cursor-pointer border ${
                   selectedFilter === filter
-                    ? 'bg-[#6336C5] text-white border-[#6336C5] shadow-sm'
-                    : 'bg-white text-[#504665] border-[#E8E4F3] hover:border-[#6336C5] hover:text-[#6336C5]'
+                    ? 'bg-[#6336C5] text-white border-[#6336C5]'
+                    : 'bg-white text-[#4A4458] border-[#E4DEF2] hover:border-[#6336C5] hover:text-[#6336C5]'
                 }`}
               >
                 {filter}
@@ -86,7 +86,7 @@ export function Work() {
       </section>
 
       {/* Grid of Projects */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           {filteredProjects.length === 0 ? (
             <EmptyState

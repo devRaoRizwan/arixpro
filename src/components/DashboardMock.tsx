@@ -70,44 +70,44 @@ export function DashboardMock() {
   ]
 
   return (
-    <div className="rounded-[14px] border border-[#E4DEF2] bg-white overflow-hidden shadow-dropdown">
+    <div className="rounded-[14px] border border-[#E4DEF2] bg-white overflow-hidden shadow-sm">
       {/* Dashboard Top Header Bar */}
       <div className="border-b border-[#E4DEF2] bg-[#F7F6FC] p-4 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="size-2 rounded-full bg-[#1E9E4A]" />
+              <span className="size-2 rounded-full bg-[#241044]" />
               <span className="font-mono text-[12px] uppercase text-[#6B6578]">
                 SiteScopia Production Inspection
               </span>
             </div>
-            <h4 className="mt-1 font-sans text-[20px] font-semibold text-[#241044]">
+            <h4 className="mt-1 font-sans text-[18px] font-semibold text-[#241044]">
               Target: api.production-gateway.internal
             </h4>
           </div>
 
           {/* Quick Metrics */}
           <div className="flex items-center gap-3">
-            <div className="rounded-[8px] border border-[#C8EED3] bg-[#EAF8EE] px-3.5 py-1.5 text-center">
-              <span className="block font-mono text-[18px] font-bold text-[#1E9E4A] tabular-nums">
+            <div className="rounded-[8px] border border-[#E4DEF2] bg-white px-3.5 py-1.5 text-center">
+              <span className="block font-mono text-[16px] font-semibold text-[#241044] tabular-nums">
                 34/38
               </span>
-              <span className="font-mono text-[10px] uppercase text-[#1E9E4A]">
+              <span className="font-mono text-[10px] uppercase text-[#6B6578]">
                 Passed
               </span>
             </div>
 
-            <div className="rounded-[8px] border border-[#FEEBC8] bg-[#FFF8E6] px-3.5 py-1.5 text-center">
-              <span className="block font-mono text-[18px] font-bold text-[#B7791F] tabular-nums">
+            <div className="rounded-[8px] border border-[#E4DEF2] bg-white px-3.5 py-1.5 text-center">
+              <span className="block font-mono text-[16px] font-semibold text-[#241044] tabular-nums">
                 4
               </span>
-              <span className="font-mono text-[10px] uppercase text-[#B7791F]">
+              <span className="font-mono text-[10px] uppercase text-[#6B6578]">
                 Issues
               </span>
             </div>
 
             <div className="rounded-[8px] border border-[#E4DEF2] bg-white px-3.5 py-1.5 text-center">
-              <span className="block font-mono text-[18px] font-bold text-[#241044] tabular-nums">
+              <span className="block font-mono text-[16px] font-semibold text-[#241044] tabular-nums">
                 142.6ms
               </span>
               <span className="font-mono text-[10px] uppercase text-[#6B6578]">
@@ -122,7 +122,7 @@ export function DashboardMock() {
       <div className="overflow-x-auto">
         <table className="w-full text-left font-sans text-[13px]">
           <thead>
-            <tr className="border-b border-[#E4DEF2] bg-white text-[#6B6578] font-mono text-[11px] uppercase tracking-wider">
+            <tr className="border-b border-[#E4DEF2] bg-[#F7F6FC] text-[#6B6578] font-mono text-[11px] uppercase tracking-wider">
               <th className="py-3 px-4">Code</th>
               <th className="py-3 px-4">Check Name</th>
               <th className="py-3 px-4">Category</th>
@@ -161,8 +161,8 @@ export function DashboardMock() {
       {/* Summary Footer */}
       <div className="border-t border-[#E4DEF2] bg-[#F7F6FC] px-4 py-3 flex items-center justify-between font-mono text-[12px] text-[#6B6578]">
         <span>Full report contains 38 total checks</span>
-        <span className="flex items-center gap-1.5 text-[#1E9E4A]">
-          <CheckCircle2 className="size-3.5" />
+        <span className="flex items-center gap-1.5 text-[#241044]">
+          <CheckCircle2 className="size-3.5 text-[#241044]" />
           <span>89.4% Compliance Score</span>
         </span>
       </div>

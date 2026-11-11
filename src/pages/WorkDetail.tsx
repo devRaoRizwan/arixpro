@@ -34,7 +34,7 @@ export function WorkDetail() {
         '/images/media-generation-sitescopia-dashboard-mock-0-7adb795b-9ffd-452c-a525-5c03f5c1d0f7.webp',
       stack: ['FastAPI', 'Python 3.12', 'React 18', 'Pydantic v2', 'Tailwind CSS', 'Docker'],
       liveUrl: 'https://sitescopia.arixpro.com',
-      githubUrl: 'https://github.com/arixpro/sitescopia',
+      githubUrl: 'https://github.com/devRaoRizwan',
       metrics: [
         { label: 'Checks Per Scan', value: '38 Checks' },
         { label: 'Average Latency', value: '142.6ms' },
@@ -59,7 +59,7 @@ export function WorkDetail() {
         '/images/media-generation-jobharvester-board-mock-0-4ce00962-dbfa-4c30-9cc6-6df95f7d8b04.webp',
       stack: ['Django 5', 'Python 3.12', 'PostgreSQL 16', 'Celery', 'Redis', 'RabbitMQ'],
       liveUrl: 'https://jobharvester.arixpro.com',
-      githubUrl: 'https://github.com/arixpro/jobharvester',
+      githubUrl: 'https://github.com/devRaoRizwan',
       metrics: [
         { label: 'Queue Broker', value: 'Redis 7.2' },
         { label: 'Ingestion Engine', value: 'Celery Distributed' },
@@ -85,7 +85,7 @@ export function WorkDetail() {
         '/images/media-generation-bomwatcher-scanner-mock-0-70ac7d75-3093-461b-b864-a208b80a2497.webp',
       stack: ['FastAPI', 'Python 3.12', 'LLM / RAG', 'PostgreSQL', 'SQLAlchemy 2.0', 'Docker'],
       liveUrl: 'https://bomwatcher.arixpro.com',
-      githubUrl: 'https://github.com/arixpro/bomwatcher',
+      githubUrl: 'https://github.com/devRaoRizwan',
       metrics: [
         { label: 'Model Architecture', value: 'FastAPI + RAG' },
         { label: 'Database', value: 'PostgreSQL + pgvector' },
@@ -107,7 +107,7 @@ export function WorkDetail() {
 
   if (!project) {
     return (
-      <div className="py-24 text-center">
+      <div className="py-16 text-center">
         <div className="mx-auto max-w-md">
           <h2 className="font-sans text-[22px] font-semibold text-[#241044]">
             Project Not Found
@@ -182,8 +182,8 @@ export function WorkDetail() {
         <span
           className={`font-mono text-[12px] px-2 py-0.5 rounded-[4px] border ${
             item.status === 'Active'
-              ? 'bg-[#EAF8EE] text-[#1E9E4A] border-[#C8EED3]'
-              : 'bg-[#FFF8E6] text-[#B7791F] border-[#FEEBC8]'
+              ? 'bg-[#EAF8EE] text-[#241044] border-[#C8EED3]'
+              : 'bg-[#FFF8E6] text-[#241044] border-[#FEEBC8]'
           }`}
         >
           {item.status}
@@ -195,7 +195,7 @@ export function WorkDetail() {
       header: 'Lead Time',
       align: 'right' as const,
       render: (item: (typeof bomSampleData)[0]) => (
-        <span className="font-mono tabular-nums">{item.leadTime}</span>
+        <span className="font-mono tabular-nums text-[#241044]">{item.leadTime}</span>
       ),
     },
   ]
@@ -209,7 +209,7 @@ export function WorkDetail() {
             to="/work"
             className="inline-flex items-center gap-2 font-sans text-[14px] font-semibold text-[#4A4458] hover:text-[#241044]"
           >
-            <ArrowLeft className="size-4" />
+            <ArrowLeft className="size-4 text-[#241044]" />
             <span>All Projects</span>
           </Link>
 
@@ -232,7 +232,7 @@ export function WorkDetail() {
                 rel="noreferrer noopener"
                 className="inline-flex items-center gap-1 font-sans text-[13px] font-medium text-[#4A4458] hover:text-[#241044]"
               >
-                <Github className="size-3.5" />
+                <Github className="size-3.5 text-[#241044]" />
                 <span>GitHub Repository</span>
               </a>
             )}
@@ -254,7 +254,7 @@ export function WorkDetail() {
             {project.title}
           </h1>
 
-          <p className="mt-2 font-sans text-[18px] text-[#4A4458]">
+          <p className="mt-2 font-sans text-[16px] leading-relaxed text-[#4A4458]">
             {project.tagline}
           </p>
 
@@ -266,36 +266,18 @@ export function WorkDetail() {
         </div>
       </section>
 
-      {/* Hero UI Screenshot in Browser Mockup */}
-      <section className="py-12 border-b border-[#E8E4F3] bg-[#FAF9FD]">
+      {/* Hero UI Screenshot Container - Clean Frame, No Fake Browser Dots, Object Contain */}
+      <section className="py-12 border-b border-[#E4DEF2] bg-[#F7F6FC]">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="browser-mockup">
-            <div className="browser-header">
-              <div className="flex items-center gap-1.5">
-                <span className="size-3 rounded-full bg-[#FF5F56]" />
-                <span className="size-3 rounded-full bg-[#FFBD2E]" />
-                <span className="size-3 rounded-full bg-[#27C93F]" />
-              </div>
-              <div className="flex-1 max-w-md mx-auto rounded-[6px] border border-[#E8E4F3] bg-white px-3 py-1 font-mono text-[11px] text-[#6B6578] text-center truncate">
-                https://{slug}.arixpro.com/dashboard/production
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF8EE] px-2.5 py-0.5 font-mono text-[11px] font-semibold text-[#1E9E4A]">
-                  <span className="size-1.5 rounded-full bg-[#1E9E4A]" />
-                  <span>Verified Build</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="relative aspect-[16/9] w-full bg-[#FAF9FD] overflow-hidden">
-              <img
-                src={project.image}
-                alt={`${project.title} Interface`}
-                width={1280}
-                height={720}
-                className="size-full object-cover object-top"
-              />
-            </div>
+          <div className="rounded-[14px] border border-[#E4DEF2] bg-white p-4 sm:p-6 overflow-hidden flex items-center justify-center">
+            <img
+              src={project.image}
+              alt={`${project.title} Interface`}
+              width={1280}
+              height={720}
+              className="w-full max-h-[560px] object-contain rounded-[8px]"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
@@ -304,8 +286,8 @@ export function WorkDetail() {
       {project.note && (
         <section className="py-6 border-b border-[#E4DEF2] bg-[#FFFDF9]">
           <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-            <div className="flex items-start gap-3 rounded-[8px] border border-[#FEEBC8] bg-white p-4">
-              <AlertTriangle className="size-5 text-[#B7791F] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 rounded-[8px] border border-[#E4DEF2] bg-white p-4">
+              <AlertTriangle className="size-5 text-[#241044] shrink-0 mt-0.5" />
               <div>
                 <h4 className="font-sans text-[14px] font-semibold text-[#241044]">
                   Production Transparency Notice
@@ -371,7 +353,7 @@ export function WorkDetail() {
                 <ul className="mt-3 space-y-2.5 font-sans text-[14px] text-[#4A4458]">
                   {project.keyFeatures.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </li>
                   ))}
@@ -399,7 +381,7 @@ export function WorkDetail() {
                     description="The ingestion scraper has been paused for scheduled database re-indexing. New employment feeds will populate once the crawler runs."
                     actionLabel="View Ingestion Pipeline Repo"
                     onAction={() =>
-                      window.open('https://github.com/arixpro/jobharvester', '_blank')
+                      window.open('https://github.com/devRaoRizwan', '_blank')
                     }
                   />
                 </div>
@@ -429,7 +411,7 @@ export function WorkDetail() {
                 <h4 className="mt-2 font-sans text-[18px] font-semibold text-[#241044]">
                   Need a similar architecture?
                 </h4>
-                <p className="mt-2 font-sans text-[14px] text-[#6B6578]">
+                <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#6B6578]">
                   We can design, engineer, and deploy a comparable system for your business with fixed milestones and zero technical debt.
                 </p>
 

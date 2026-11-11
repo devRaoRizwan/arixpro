@@ -4,16 +4,16 @@ export function About() {
   return (
     <div className="w-full bg-white">
       {/* Header */}
-      <section className="py-16 sm:py-20 border-b border-[#E8E4F3] bg-[#FAF9FD]">
+      <section className="py-16 border-b border-[#E4DEF2] bg-[#F7F6FC]">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           <div className="max-w-2xl">
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6B6578]">
               Engineering Leadership
             </span>
-            <h1 className="mt-3 font-sans text-[36px] sm:text-[44px] font-bold text-[#160B28] tracking-tight leading-tight">
+            <h1 className="mt-3 font-sans text-[28px] sm:text-[36px] font-semibold text-[#241044] tracking-tight leading-tight">
               About ArixPro &amp; Lead Engineer Rao Rizwan
             </h1>
-            <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#504665]">
+            <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#4A4458]">
               ArixPro is founded and led by Rao Rizwan, a senior backend engineer specializing in high-throughput Python systems, distributed databases, and clean web architecture.
             </p>
           </div>
@@ -21,7 +21,7 @@ export function About() {
       </section>
 
       {/* Main Profile & Experience (No Stock Photo as specified) */}
-      <section className="py-16 md:py-20">
+      <section className="py-16">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
             {/* Left Bio Column */}
@@ -44,25 +44,25 @@ export function About() {
                 </h3>
                 <ul className="mt-4 space-y-3 font-sans text-[14px] text-[#4A4458]">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>
                       <strong>Deterministic Systems:</strong> We write typed code with Python 3.12, Pydantic v2, and TypeScript. No runtime guess-work.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>
                       <strong>Defensive Data Schemas:</strong> Relational integrity in PostgreSQL, indexed foreign keys, and atomic transactions.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>
                       <strong>Usability First:</strong> Products that solve business problems in 5 seconds without unnecessary UI gimmicks.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#1E9E4A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
                     <span>
                       <strong>Complete Transparency:</strong> Accurate project statuses, real staging environments, and zero fabricated testimonials.
                     </span>
@@ -82,30 +82,30 @@ export function About() {
                     rel="noreferrer noopener"
                     className="inline-flex items-center gap-2 rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] px-4 py-2.5 font-sans text-[14px] font-medium text-[#241044] hover:bg-white hover:border-[#6336C5] transition-colors"
                   >
-                    <Globe className="size-4 text-[#6336C5]" />
-                    <span>Personal Portfolio: devraorizwan.online</span>
+                    <Globe className="size-4 text-[#241044]" />
+                    <span>Portfolio: devraorizwan.online</span>
                     <ArrowUpRight className="size-3.5 text-[#6B6578]" />
                   </a>
 
                   <a
-                    href="https://github.com/arixpro"
+                    href="https://github.com/devRaoRizwan"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="inline-flex items-center gap-2 rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] px-4 py-2.5 font-sans text-[14px] font-medium text-[#241044] hover:bg-white hover:border-[#6336C5] transition-colors"
                   >
                     <Github className="size-4 text-[#241044]" />
-                    <span>GitHub: github.com/arixpro</span>
+                    <span>GitHub: github.com/devRaoRizwan</span>
                     <ArrowUpRight className="size-3.5 text-[#6B6578]" />
                   </a>
 
                   <a
-                    href="https://www.linkedin.com/company/arixpro-pk/"
+                    href="https://www.linkedin.com/in/raorixwan"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="inline-flex items-center gap-2 rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] px-4 py-2.5 font-sans text-[14px] font-medium text-[#241044] hover:bg-white hover:border-[#6336C5] transition-colors"
                   >
-                    <Linkedin className="size-4 text-[#315BDA]" />
-                    <span>LinkedIn: ArixPro</span>
+                    <Linkedin className="size-4 text-[#241044]" />
+                    <span>LinkedIn: linkedin.com/in/raorixwan</span>
                     <ArrowUpRight className="size-3.5 text-[#6B6578]" />
                   </a>
                 </div>
@@ -115,7 +115,7 @@ export function About() {
             {/* Right Facts Box */}
             <div className="lg:col-span-5">
               <div className="rounded-[14px] border border-[#E4DEF2] bg-[#F7F6FC] p-6 sm:p-8 shadow-sm">
-                <span className="font-mono text-[12px] font-medium uppercase tracking-wider text-[#6336C5]">
+                <span className="font-mono text-[12px] font-medium uppercase tracking-wider text-[#6B6578]">
                   Fast Facts
                 </span>
                 <h3 className="mt-2 font-sans text-[20px] font-semibold text-[#241044]">
