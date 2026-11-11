@@ -1,186 +1,131 @@
-import { ArrowUpRight, Github, Linkedin, Globe, CheckCircle2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { TechIcons } from '../components/TechIcons'
+import { ArrowUpRight, Terminal } from 'lucide-react'
 
 export function About() {
+  const principles = [
+    {
+      title: 'Determinism Over Guesswork',
+      desc: 'We write strict schemas, typed interfaces, and reproducible database migrations. Runtimes must fail loudly during tests rather than quietly in production.',
+    },
+    {
+      title: 'Continuous Verification & CI',
+      desc: 'Every commit is verified against automated unit and integration tests. No code enters main without passing automated pipeline checks.',
+    },
+    {
+      title: 'Zero Premature Abstraction',
+      desc: 'We prioritize clarity over cleverness. Systems are structured so any competent engineer can read the codebase and understand the execution flow in minutes.',
+    },
+    {
+      title: 'Telemetry & Observability First',
+      desc: 'We instrument every endpoint and background queue with latency metrics, structured logging, and anomaly alarms from day one.',
+    },
+  ]
+
   return (
-    <div className="w-full bg-white">
-      {/* Header */}
-      <section className="py-16 border-b border-[#E4DEF2] bg-[#F7F6FC]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="max-w-2xl">
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6B6578]">
-              Engineering Leadership
-            </span>
-            <h1 className="mt-3 font-sans text-[28px] sm:text-[36px] font-semibold text-[#241044] tracking-tight leading-tight">
-              About ArixPro &amp; Lead Engineer Rao Rizwan
+    <div className="w-full text-white selection:bg-[#8B5CF6]/30 selection:text-white">
+      {/* Top Architecture Hero */}
+      <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 border-b border-white/[0.06] overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#794BE8]/15 blur-[120px] pointer-events-none" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md mb-4">
+              <Terminal className="size-3.5 text-[#A78BFA]" />
+              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+                Engineering Studio
+              </span>
+            </div>
+            <h1 className="font-sans text-[36px] sm:text-[48px] font-bold text-white tracking-tight leading-tight">
+              About ArixPro
             </h1>
-            <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#4A4458]">
-              ArixPro is founded and led by Rao Rizwan, a senior backend engineer specializing in high-throughput Python systems, distributed databases, and clean web architecture.
+            <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#C9C2E0]/85">
+              An independent software company building resilient web apps, high-throughput APIs, and multi-tenant SaaS products for clients who demand working software.
             </p>
+          </div>
+
+          {/* Studio Team Photography */}
+          <div className="w-full rounded-2xl border border-white/[0.12] bg-[#0E061D]/90 p-4 sm:p-6 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] flex items-center justify-center overflow-hidden">
+            <img
+              src="/images/about-office-team.webp"
+              alt="ArixPro Engineering Collaboration Studio"
+              width={1376}
+              height={768}
+              className="w-full max-h-[460px] object-contain rounded-xl"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
 
-      {/* Main Profile & Experience (No Stock Photo as specified) */}
-      <section className="py-16">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
-            {/* Left Bio Column */}
-            <div className="lg:col-span-7 space-y-8">
-              <div>
-                <h2 className="font-sans text-[22px] font-semibold text-[#241044]">
-                  Production Background
-                </h2>
-                <p className="mt-3 font-sans text-[15px] leading-relaxed text-[#4A4458]">
-                  With over 2 years of dedicated Python backend engineering in production environments, Rao Rizwan architectures systems that handle <strong>100,000+ daily API requests</strong> without accumulated technical debt.
-                </p>
-                <p className="mt-3 font-sans text-[15px] leading-relaxed text-[#4A4458]">
-                  Rather than outsourcing to unverified junior contractors or generating fragile code boilerplate, every project undertaken by ArixPro is supervised, structured, and reviewed by senior engineers who understand transactional integrity, caching strategies, and defensive API boundaries.
-                </p>
-              </div>
+      {/* Ethos & Principles */}
+      <section className="py-20 border-b border-white/[0.06]">
+        <div className="mx-auto max-w-[960px] px-6 sm:px-8 space-y-16">
+          <div className="space-y-6 font-sans text-[18px] leading-[1.7] text-[#C9C2E0]">
+            <p className="text-white text-[22px] font-medium leading-relaxed">
+              We work in small, testable increments. We deploy to production with zero downtime, and we keep the systems stable after launch.
+            </p>
+            <p>
+              Modern software development is plagued by over-engineering, unmaintainable dependencies, and synthetic marketing claims. ArixPro was founded to return to core engineering fundamentals: explicit database schemas, typed boundary contracts, sub-50ms response times, and automated test pipelines.
+            </p>
+          </div>
 
-              <div>
-                <h3 className="font-sans text-[18px] font-semibold text-[#241044]">
-                  Core Engineering Principles
-                </h3>
-                <ul className="mt-4 space-y-3 font-sans text-[14px] text-[#4A4458]">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
-                    <span>
-                      <strong>Deterministic Systems:</strong> We write typed code with Python 3.12, Pydantic v2, and TypeScript. No runtime guess-work.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
-                    <span>
-                      <strong>Defensive Data Schemas:</strong> Relational integrity in PostgreSQL, indexed foreign keys, and atomic transactions.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
-                    <span>
-                      <strong>Usability First:</strong> Products that solve business problems in 5 seconds without unnecessary UI gimmicks.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
-                    <span>
-                      <strong>Complete Transparency:</strong> Accurate project statuses, real staging environments, and zero fabricated testimonials.
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Direct Verification Links */}
-              <div>
-                <h3 className="font-sans text-[18px] font-semibold text-[#241044]">
-                  Verified Engineer Links
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <a
-                    href="https://devraorizwan.online"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] px-4 py-2.5 font-sans text-[14px] font-medium text-[#241044] hover:bg-white hover:border-[#6336C5] transition-colors"
-                  >
-                    <Globe className="size-4 text-[#241044]" />
-                    <span>Portfolio: devraorizwan.online</span>
-                    <ArrowUpRight className="size-3.5 text-[#6B6578]" />
-                  </a>
-
-                  <a
-                    href="https://github.com/devRaoRizwan"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] px-4 py-2.5 font-sans text-[14px] font-medium text-[#241044] hover:bg-white hover:border-[#6336C5] transition-colors"
-                  >
-                    <Github className="size-4 text-[#241044]" />
-                    <span>GitHub: github.com/devRaoRizwan</span>
-                    <ArrowUpRight className="size-3.5 text-[#6B6578]" />
-                  </a>
-
-                  <a
-                    href="https://www.linkedin.com/in/raorixwan"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center gap-2 rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] px-4 py-2.5 font-sans text-[14px] font-medium text-[#241044] hover:bg-white hover:border-[#6336C5] transition-colors"
-                  >
-                    <Linkedin className="size-4 text-[#241044]" />
-                    <span>LinkedIn: linkedin.com/in/raorixwan</span>
-                    <ArrowUpRight className="size-3.5 text-[#6B6578]" />
-                  </a>
+          {/* 4 Engineering Principles */}
+          <div className="space-y-6">
+            <h2 className="font-sans text-[26px] font-bold text-white tracking-tight">
+              Our Engineering Principles
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {principles.map((p) => (
+                <div
+                  key={p.title}
+                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-6 space-y-2"
+                >
+                  <h3 className="font-sans text-[17px] font-bold text-[#A78BFA]">
+                    {p.title}
+                  </h3>
+                  <p className="font-sans text-[14px] leading-relaxed text-[#C9C2E0]/80">
+                    {p.desc}
+                  </p>
                 </div>
-              </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Right Facts Box */}
-            <div className="lg:col-span-5">
-              <div className="rounded-[14px] border border-[#E4DEF2] bg-[#F7F6FC] p-6 sm:p-8 shadow-sm">
-                <span className="font-mono text-[12px] font-medium uppercase tracking-wider text-[#6B6578]">
-                  Fast Facts
-                </span>
-                <h3 className="mt-2 font-sans text-[20px] font-semibold text-[#241044]">
-                  Engineering Profile
-                </h3>
+      {/* Production Tech Stack */}
+      <section className="py-20 border-b border-white/[0.06] bg-[#07030E] text-center">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-md mx-auto mb-12">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+              Technology Standards
+            </span>
+            <h2 className="mt-2 font-sans text-[30px] font-bold text-white tracking-tight">
+              Production Stack
+            </h2>
+          </div>
 
-                <div className="mt-6 space-y-4 font-sans text-[14px]">
-                  <div className="border-b border-[#E4DEF2] pb-3">
-                    <span className="block font-mono text-[11px] uppercase text-[#6B6578]">
-                      Name &amp; Role
-                    </span>
-                    <span className="font-semibold text-[#241044] text-[15px]">
-                      Rao Rizwan — Principal Backend Engineer &amp; Founder
-                    </span>
-                  </div>
+          <div className="p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl">
+            <TechIcons />
+          </div>
+        </div>
+      </section>
 
-                  <div className="border-b border-[#E4DEF2] pb-3">
-                    <span className="block font-mono text-[11px] uppercase text-[#6B6578]">
-                      Experience Focus
-                    </span>
-                    <span className="text-[#4A4458]">
-                      2+ Years in Production Backend Engineering (Python / Django / FastAPI)
-                    </span>
-                  </div>
-
-                  <div className="border-b border-[#E4DEF2] pb-3">
-                    <span className="block font-mono text-[11px] uppercase text-[#6B6578]">
-                      Production Throughput
-                    </span>
-                    <span className="font-mono text-[#241044] font-medium">
-                      100,000+ API Requests / Day
-                    </span>
-                  </div>
-
-                  <div className="border-b border-[#E4DEF2] pb-3">
-                    <span className="block font-mono text-[11px] uppercase text-[#6B6578]">
-                      Verified Technologies
-                    </span>
-                    <span className="text-[#4A4458]">
-                      Python 3.12, Django 5, FastAPI, Celery, PostgreSQL 16, Redis, React 18
-                    </span>
-                  </div>
-
-                  <div>
-                    <span className="block font-mono text-[11px] uppercase text-[#6B6578]">
-                      Company Registration
-                    </span>
-                    <span className="text-[#4A4458]">
-                      ArixPro (arixpro.com) • International Client Deliveries
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-[#E4DEF2]">
-                  <a
-                    href="https://wa.me/923120418701?text=Hello%20Rao%20Rizwan!%20I'd%20like%20to%20discuss%20a%20software%20project."
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="btn-primary w-full justify-center"
-                  >
-                    Contact Rao on WhatsApp (+92 312 0418701)
-                  </a>
-                </div>
-              </div>
-            </div>
+      {/* Bottom CTA */}
+      <section className="py-20 bg-[#090412]">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
+          <h2 className="font-sans text-[28px] sm:text-[36px] font-bold text-white tracking-tight">
+            Have a project in mind?
+          </h2>
+          <p className="mt-3 font-sans text-[16px] text-[#C9C2E0]/80 max-w-xl mx-auto">
+            Tell us about your requirements and we will reply with a concrete architecture proposal.
+          </p>
+          <div className="mt-8">
+            <Link to="/contact" className="btn-primary text-[16px] h-[50px] px-8">
+              <span>Start a Project</span>
+              <ArrowUpRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>

@@ -1,450 +1,393 @@
 import { useParams, Link } from 'react-router-dom'
-import { StackBadge, LiveBadge } from '../components/Badges'
-import { DashboardMock } from '../components/DashboardMock'
-import { EmptyState } from '../components/EmptyState'
-import { Table } from '../components/Tables'
-import { ArrowLeft, ArrowUpRight, Github, CheckCircle2, AlertTriangle } from 'lucide-react'
+import { TechIcons } from '../components/TechIcons'
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  Layers,
+  Cpu,
+  Database,
+  Activity,
+  ShieldCheck,
+} from 'lucide-react'
+
+interface ProjectDetailData {
+  title: string
+  subtitle: string
+  category: string
+  image: string
+  problem: string
+  problemContext: string
+  whatWeBuilt: string
+  architectureDetails: {
+    layer: string
+    tech: string
+    description: string
+  }[]
+  metrics: {
+    label: string
+    value: string
+    subtext: string
+  }[]
+  stackDisplay: string
+  deviconNames: string[]
+  features: string[]
+  nextSlug: string
+  nextTitle: string
+}
+
+const PROJECTS_DATA: Record<string, ProjectDetailData> = {
+  'analytics-dashboard': {
+    title: 'Analytics Dashboard',
+    subtitle: 'Unified Operational Telemetry & High-Throughput Aggregation Engine',
+    category: 'Operational Intelligence',
+    image: '/images/work-analytics-dashboard.webp',
+    problem: 'Data lives in 3 disparate silos, queries take up to 45 seconds, and executives lack trusted real-time visibility.',
+    problemContext:
+      'The organization previously relied on manual CSV dumps across three isolated internal databases. High query overhead caused database locks during business hours, leading to inconsistent KPIs and delayed executive decisions.',
+    whatWeBuilt:
+      'A decoupled, event-driven telemetry dashboard pairing an asynchronous FastAPI data ingestor with an optimized PostgreSQL read-replica cluster and a sub-100ms React visualization layer.',
+    architectureDetails: [
+      {
+        layer: 'Ingestion & ETL',
+        tech: 'FastAPI + Celery + Redis',
+        description: 'Asynchronous workers consume, validate, and batch-normalize 50,000 hourly events into partitioned time-series schemas.',
+      },
+      {
+        layer: 'Storage & Querying',
+        tech: 'PostgreSQL 16 + Partitioned Timescale Tables',
+        description: 'Pre-computed rollup tables and index strategies reduce analytical p99 query latency from 45 seconds to 42 milliseconds.',
+      },
+      {
+        layer: 'UI & Visualization',
+        tech: 'React 19 + TypeScript + Canvas Charts',
+        description: 'Zero-bloat interactive line charts, cohort tables, and parametric filters with sub-second data streaming over WebSockets.',
+      },
+    ],
+    metrics: [
+      { label: 'Query Latency', value: '< 45ms', subtext: 'p99 across 10M records' },
+      { label: 'Ingestion Rate', value: '50k/hr', subtext: 'Zero data drop rate' },
+      { label: 'Sync Consistency', value: '100%', subtext: 'Automated atomic batches' },
+    ],
+    stackDisplay: 'Python 3.12, FastAPI, React 19, TypeScript, PostgreSQL 16, Redis',
+    deviconNames: ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis'],
+    features: [
+      'Multi-metric KPI cards with sparkline trend indicators',
+      'Real-time line, area, and stacked bar distribution charts',
+      'Parametric date-range filters with instant client-side caching',
+      'Asynchronous background CSV and PDF report generation',
+      'Strict role-based access control (RBAC) with audit logs',
+      'Automated data anomaly alerts routed to Slack and Webhooks',
+    ],
+    nextSlug: 'ecommerce-admin',
+    nextTitle: 'E-commerce Admin',
+  },
+  'ecommerce-admin': {
+    title: 'E-commerce Admin',
+    subtitle: 'High-Concurrency Multi-Storefront Inventory & Order Fulfillment Core',
+    category: 'Commerce Infrastructure',
+    image: '/images/work-ecommerce-admin.webp',
+    problem: 'Inventory sync failures, fragmented refund handling, and spreadsheet-driven manual order processing causing overselling.',
+    problemContext:
+      'Rapid catalog growth across multiple channels led to race conditions during flash promotions. Operations staff spent 20+ hours weekly manually reconciling inventory levels and cross-referencing payment processor chargebacks.',
+    whatWeBuilt:
+      'An enterprise back-office management system engineered with Django REST, robust database-level transactional row locking, and an intuitive fulfillment workflow dashboard.',
+    architectureDetails: [
+      {
+        layer: 'Transaction Safety',
+        tech: 'Django ORM + PostgreSQL Row-Level Locks',
+        description: 'Pessimistic concurrency locking prevents overselling during high-volume checkout surges across distributed storefronts.',
+      },
+      {
+        layer: 'Event Processing',
+        tech: 'Celery + Redis Broker',
+        description: 'Decoupled webhooks process Stripe payment intents, 3PL logistics dispatch, and instant stock deduction notifications in under 200ms.',
+      },
+      {
+        layer: 'Management Console',
+        tech: 'React 19 + TypeScript + Tailwind CSS',
+        description: 'Keyboard-first order triage interface with real-time inventory adjustments, batch label generation, and automated refund audits.',
+      },
+    ],
+    metrics: [
+      { label: 'Inventory Drift', value: '0.00%', subtext: 'Zero race conditions' },
+      { label: 'Webhook Latency', value: '180ms', subtext: 'Fulfillment dispatch' },
+      { label: 'Processing Speed', value: '4x', subtext: 'Reduction in manual clicks' },
+    ],
+    stackDisplay: 'Python, Django REST Framework, PostgreSQL, React, Redis, Docker',
+    deviconNames: ['Python', 'PostgreSQL', 'React', 'Redis', 'Docker'],
+    features: [
+      'High-throughput live order stream with instant fulfillment triage',
+      'Multi-warehouse inventory tracker with threshold-based restock triggers',
+      'Automated dispute and refund execution with gateway reconciliation',
+      'Faceted SKU search over 100,000 items in under 50 milliseconds',
+      'Granular operator permission policies with tamper-proof activity logs',
+      'Direct integration with major logistics shipping carriers and webhooks',
+    ],
+    nextSlug: 'crm-platform',
+    nextTitle: 'CRM Platform',
+  },
+  'crm-platform': {
+    title: 'CRM Platform',
+    subtitle: 'Pipeline Automation, Interaction History & Account Intelligence Engine',
+    category: 'Enterprise Systems',
+    image: '/images/work-crm-platform.webp',
+    problem: 'Siloed sales communications, untracked client touchpoints, and dropped follow-ups causing lost deal conversions.',
+    problemContext:
+      'Growing account management teams struggled with fragmented contact records dispersed across email inboxes, chat threads, and notes. Without an integrated timeline or automated reminders, critical contract renewals were consistently overlooked.',
+    whatWeBuilt:
+      'A dedicated relationship management platform featuring a responsive Kanban deal board, automated email synchronization workers, and intelligent reminder scheduling.',
+    architectureDetails: [
+      {
+        layer: 'Pipeline Engine',
+        tech: 'FastAPI + Asynchronous SQLAlchemy',
+        description: 'Sub-30ms deal card transitions with optimistic UI updates and server-side state validation.',
+      },
+      {
+        layer: 'Background Workers',
+        tech: 'Celery + Redis Task Queues',
+        description: 'Continuous background workers poll and sync bidirectional email threads, parse meeting schedules, and trigger contextual reminders.',
+      },
+      {
+        layer: 'Frontend Workspace',
+        tech: 'React 19 + TypeScript + Drag-and-Drop Core',
+        description: 'Fluid drag-and-drop opportunity board with keyboard shortcuts, instant search, and inline record editing.',
+      },
+    ],
+    metrics: [
+      { label: 'Search Speed', value: '< 25ms', subtext: 'Across 250k contacts' },
+      { label: 'Follow-up Reliability', value: '100%', subtext: 'Zero missed notifications' },
+      { label: 'Sync Pipeline', value: 'Real-time', subtext: 'Sub-second WebSocket updates' },
+    ],
+    stackDisplay: 'Python 3.12, FastAPI, PostgreSQL, React, TypeScript, Redis, Celery',
+    deviconNames: ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis'],
+    features: [
+      'Visual multi-stage sales pipeline with stage velocity tracking',
+      'Unified contact dossiers featuring chronologically organized interaction history',
+      'Rule-based automated task and follow-up assignment workflows',
+      'Full-text fuzzy search across contacts, accounts, and internal notes',
+      'Customizable custom fields, deal probability scoring, and team visibility',
+      'Secure tokenized API integrations for calendar and email synchronization',
+    ],
+    nextSlug: 'analytics-dashboard',
+    nextTitle: 'Analytics Dashboard',
+  },
+}
 
 export function WorkDetail() {
   const { slug } = useParams<{ slug: string }>()
-
-  // Data for the 3 verified projects
-  const projectData: Record<
-    string,
-    {
-      title: string
-      tagline: string
-      overview: string
-      image: string
-      stack: string[]
-      liveUrl?: string
-      githubUrl?: string
-      metrics: { label: string; value: string }[]
-      keyFeatures: string[]
-      technicalArchitecture: string
-      note?: string
-    }
-  > = {
-    sitescopia: {
-      title: 'SiteScopia',
-      tagline: 'Automated Website Compliance & Security Inspection Engine',
-      overview:
-        'SiteScopia is a high-speed website auditing platform that inspects domain endpoints across 38 distinct security, performance, and compliance checks. Built with an asynchronous FastAPI engine and React client, it returns detailed diagnostic breakdowns in an average of 142 milliseconds.',
-      image:
-        '/images/media-generation-sitescopia-dashboard-mock-0-7adb795b-9ffd-452c-a525-5c03f5c1d0f7.webp',
-      stack: ['FastAPI', 'Python 3.12', 'React 18', 'Pydantic v2', 'Tailwind CSS', 'Docker'],
-      liveUrl: 'https://sitescopia.arixpro.com',
-      githubUrl: 'https://github.com/devRaoRizwan',
-      metrics: [
-        { label: 'Checks Per Scan', value: '38 Checks' },
-        { label: 'Average Latency', value: '142.6ms' },
-        { label: 'Compliance Score', value: '34/38 Passed' },
-        { label: 'Architecture', value: 'Async Non-Blocking' },
-      ],
-      keyFeatures: [
-        'TLS 1.3 handshake and cipher suite verification',
-        'HTTP security headers validation (HSTS, CSP, X-Frame-Options, CORS)',
-        'DNS record hygiene and SPF/DMARC email security parsing',
-        'Interactive tabular report with actionable remediation guidance',
-      ],
-      technicalArchitecture:
-        'The backend is built with FastAPI utilizing httpx async HTTP client for concurrent socket polling. Every test executes concurrently across an event loop rather than serial HTTP round-trips, ensuring instantaneous report generation even when testing slow foreign endpoints.',
-    },
-    jobharvester: {
-      title: 'JobHarvester',
-      tagline: 'High-Scale Job Discovery & Automated Ingestion Pipeline',
-      overview:
-        'JobHarvester is a structured job board and data harvesting system designed to ingest, deduplicate, and index tech employment postings across diverse company career portals. Built with Django 5, PostgreSQL 16, and Celery distributed workers.',
-      image:
-        '/images/media-generation-jobharvester-board-mock-0-4ce00962-dbfa-4c30-9cc6-6df95f7d8b04.webp',
-      stack: ['Django 5', 'Python 3.12', 'PostgreSQL 16', 'Celery', 'Redis', 'RabbitMQ'],
-      liveUrl: 'https://jobharvester.arixpro.com',
-      githubUrl: 'https://github.com/devRaoRizwan',
-      metrics: [
-        { label: 'Queue Broker', value: 'Redis 7.2' },
-        { label: 'Ingestion Engine', value: 'Celery Distributed' },
-        { label: 'Relational DB', value: 'PostgreSQL 16' },
-        { label: 'API Framework', value: 'Django REST Framework' },
-      ],
-      note: 'Note on Live Status: The live indexing server is currently in active maintenance and displays a clean "No jobs yet" empty state. Per our engineering integrity rules, we do not fabricate synthetic live listings to pretend the production board is full.',
-      keyFeatures: [
-        'Distributed Celery worker queues with RabbitMQ backpressure control',
-        'PostgreSQL full-text search indexing with trigram matching for titles',
-        'Automated deduplication algorithm comparing canonical company domains',
-        'Redis-backed API rate limiting and token authentication',
-      ],
-      technicalArchitecture:
-        'Ingestion scrapers run as isolated Celery tasks triggered by beat schedules. Data passes through strict Pydantic parsing layers before database writes, isolating database locks and preventing malformed job entries from corrupting the relational schema.',
-    },
-    bomwatcher: {
-      title: 'BOMWatcher',
-      tagline: 'AI Supply-Chain Bill of Materials Risk Scanner',
-      overview:
-        'BOMWatcher is an enterprise supply-chain intelligence tool that analyzes electronics and software Bills of Materials. By querying manufacturer databases and applying RAG (Retrieval-Augmented Generation) models, it identifies end-of-life (EOL) hardware parts and software supply chain vulnerabilities.',
-      image:
-        '/images/media-generation-bomwatcher-scanner-mock-0-70ac7d75-3093-461b-b864-a208b80a2497.webp',
-      stack: ['FastAPI', 'Python 3.12', 'LLM / RAG', 'PostgreSQL', 'SQLAlchemy 2.0', 'Docker'],
-      liveUrl: 'https://bomwatcher.arixpro.com',
-      githubUrl: 'https://github.com/devRaoRizwan',
-      metrics: [
-        { label: 'Model Architecture', value: 'FastAPI + RAG' },
-        { label: 'Database', value: 'PostgreSQL + pgvector' },
-        { label: 'Part Catalogs', value: 'Component Lifecycle' },
-        { label: 'Deployment', value: 'Docker Containerized' },
-      ],
-      keyFeatures: [
-        'Automated BOM ingestion (CSV, JSON, and manufacturer exports)',
-        'Component lifecycle risk flagging (Active, NRND, EOL, Obsolete)',
-        'RAG-powered replacement recommendations with verified pin compatibility',
-        'Lead-time tracking and supply chain disruption warnings',
-      ],
-      technicalArchitecture:
-        'Combines structured relational queries with vector similarity search in PostgreSQL (pgvector). Component documentation is chunked and embedded, allowing the RAG agent to synthesize exact engineering alternatives when components are marked obsolete.',
-    },
-  }
-
-  const project = slug ? projectData[slug] : undefined
+  const project = slug ? PROJECTS_DATA[slug] : undefined
 
   if (!project) {
     return (
-      <div className="py-16 text-center">
-        <div className="mx-auto max-w-md">
-          <h2 className="font-sans text-[22px] font-semibold text-[#241044]">
-            Project Not Found
-          </h2>
-          <p className="mt-2 text-[#6B6578] font-sans text-[14px]">
-            The project you requested does not exist or has been moved.
+      <div className="py-24 text-center text-white">
+        <div className="mx-auto max-w-md px-6">
+          <h1 className="font-sans text-[26px] font-bold text-white">
+            System Case Study Not Found
+          </h1>
+          <p className="mt-3 text-[#C9C2E0]/80 font-sans text-[15px]">
+            The requested architecture case study does not exist or has been relocated.
           </p>
-          <Link to="/work" className="btn-primary mt-6">
-            Back to Work
-          </Link>
+          <div className="mt-8">
+            <Link to="/work" className="btn-primary">
+              Return to Work &amp; Systems
+            </Link>
+          </div>
         </div>
       </div>
     )
   }
 
-  // BOM sample table data for bomwatcher
-  const bomSampleData = [
-    {
-      partNumber: 'STM32F407VGT6',
-      description: 'MCU 32-bit ARM Cortex-M4 1MB Flash',
-      manufacturer: 'STMicroelectronics',
-      status: 'Active',
-      risk: 'Low',
-      leadTime: '12 Weeks',
-    },
-    {
-      partNumber: 'FT232RL-REEL',
-      description: 'USB to Serial UART Interface IC',
-      manufacturer: 'FTDI',
-      status: 'Active',
-      risk: 'Low',
-      leadTime: '8 Weeks',
-    },
-    {
-      partNumber: 'AT24C256C-SSHL-T',
-      description: 'EEPROM 256Kbit I2C 1MHz SOIC-8',
-      manufacturer: 'Microchip',
-      status: 'NRND',
-      risk: 'Medium',
-      leadTime: '24 Weeks',
-    },
-    {
-      partNumber: 'LM1117IMPX-3.3',
-      description: 'LDO Voltage Regulator 3.3V 800mA',
-      manufacturer: 'Texas Instruments',
-      status: 'Active',
-      risk: 'Low',
-      leadTime: '6 Weeks',
-    },
-  ]
-
-  const bomColumns = [
-    {
-      key: 'partNumber',
-      header: 'Part Number',
-      render: (item: (typeof bomSampleData)[0]) => (
-        <span className="font-mono font-medium text-[#241044]">{item.partNumber}</span>
-      ),
-    },
-    {
-      key: 'description',
-      header: 'Component Description',
-    },
-    {
-      key: 'manufacturer',
-      header: 'Manufacturer',
-    },
-    {
-      key: 'status',
-      header: 'Lifecycle',
-      render: (item: (typeof bomSampleData)[0]) => (
-        <span
-          className={`font-mono text-[12px] px-2 py-0.5 rounded-[4px] border ${
-            item.status === 'Active'
-              ? 'bg-[#EAF8EE] text-[#241044] border-[#C8EED3]'
-              : 'bg-[#FFF8E6] text-[#241044] border-[#FEEBC8]'
-          }`}
-        >
-          {item.status}
-        </span>
-      ),
-    },
-    {
-      key: 'leadTime',
-      header: 'Lead Time',
-      align: 'right' as const,
-      render: (item: (typeof bomSampleData)[0]) => (
-        <span className="font-mono tabular-nums text-[#241044]">{item.leadTime}</span>
-      ),
-    },
-  ]
-
   return (
-    <div className="w-full bg-white">
-      {/* Breadcrumb & Navigation */}
-      <div className="border-b border-[#E4DEF2] py-4 bg-[#F7F6FC]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 flex items-center justify-between">
+    <div className="w-full text-white selection:bg-[#8B5CF6]/30 selection:text-white">
+      {/* Top Breadcrumb Navigation */}
+      <div className="border-b border-white/[0.06] py-4 bg-black/40 backdrop-blur-md">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 flex items-center justify-between">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 font-sans text-[14px] font-semibold text-[#4A4458] hover:text-[#241044]"
+            className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-[#C9C2E0] hover:text-white transition-colors"
           >
-            <ArrowLeft className="size-4 text-[#241044]" />
-            <span>All Projects</span>
+            <ArrowLeft className="size-4" />
+            <span>Back to Work &amp; Systems</span>
           </Link>
-
-          <div className="flex items-center gap-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-1 font-sans text-[13px] font-medium text-[#315BDA] hover:underline"
-              >
-                <span>Live Demo</span>
-                <ArrowUpRight className="size-3.5" />
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-1 font-sans text-[13px] font-medium text-[#4A4458] hover:text-[#241044]"
-              >
-                <Github className="size-3.5 text-[#241044]" />
-                <span>GitHub Repository</span>
-              </a>
-            )}
-          </div>
+          <span className="font-mono text-[11px] font-bold text-[#A78BFA] uppercase tracking-wider bg-[#8B5CF6]/15 px-3 py-1 rounded-full border border-[#8B5CF6]/30">
+            {project.category}
+          </span>
         </div>
       </div>
 
-      {/* Main Project Header */}
-      <section className="py-12 border-b border-[#E4DEF2]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="flex flex-wrap items-center gap-3 mb-3">
-            <LiveBadge />
-            <span className="font-mono text-[12px] text-[#6B6578]">
-              Verified Production Build
-            </span>
-          </div>
-
-          <h1 className="font-sans text-[28px] font-semibold text-[#241044] sm:text-[32px] tracking-tight">
-            {project.title}
-          </h1>
-
-          <p className="mt-2 font-sans text-[16px] leading-relaxed text-[#4A4458]">
-            {project.tagline}
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.stack.map((s) => (
-              <StackBadge key={s}>{s}</StackBadge>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Hero UI Screenshot Container - Clean Frame, No Fake Browser Dots, Object Contain */}
-      <section className="py-12 border-b border-[#E4DEF2] bg-[#F7F6FC]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="rounded-[14px] border border-[#E4DEF2] bg-white p-4 sm:p-6 overflow-hidden flex items-center justify-center">
+      {/* Hero Visual Mockup Container */}
+      <section className="py-12 border-b border-white/[0.06] bg-[#07030E]">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+          <div className="w-full rounded-2xl border border-white/[0.12] bg-[#06020E] p-4 sm:p-8 flex items-center justify-center overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)]">
             <img
               src={project.image}
-              alt={`${project.title} Interface`}
-              width={1280}
-              height={720}
-              className="w-full max-h-[560px] object-contain rounded-[8px]"
+              alt={project.title}
+              width={1376}
+              height={768}
+              className="w-full max-h-[540px] object-contain rounded-xl"
               loading="eager"
             />
           </div>
         </div>
       </section>
 
-      {/* Note if applicable (e.g. JobHarvester integrity note) */}
-      {project.note && (
-        <section className="py-6 border-b border-[#E4DEF2] bg-[#FFFDF9]">
-          <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-            <div className="flex items-start gap-3 rounded-[8px] border border-[#E4DEF2] bg-white p-4">
-              <AlertTriangle className="size-5 text-[#241044] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-sans text-[14px] font-semibold text-[#241044]">
-                  Production Transparency Notice
-                </h4>
-                <p className="mt-1 font-sans text-[13px] leading-relaxed text-[#4A4458]">
-                  {project.note}
-                </p>
-              </div>
-            </div>
+      {/* Main Case Study Content */}
+      <section className="py-20">
+        <div className="mx-auto max-w-[960px] px-6 sm:px-8 space-y-16">
+          {/* Header Title & Subtitle */}
+          <div>
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+              Production Implementation
+            </span>
+            <h1 className="mt-2 font-sans text-[34px] sm:text-[44px] font-bold text-white tracking-tight">
+              {project.title}
+            </h1>
+            <p className="mt-3 font-sans text-[18px] text-[#C9C2E0]/85 leading-relaxed">
+              {project.subtitle}
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* Metrics Row */}
-      <section className="py-10 border-b border-[#E4DEF2]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {/* Key Production Metrics */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {project.metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-[8px] border border-[#E4DEF2] bg-[#F7F6FC] p-4 text-center sm:text-left"
+                className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-6 flex flex-col justify-between"
               >
-                <span className="block font-mono text-[12px] uppercase text-[#6B6578]">
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#8378A6]">
                   {m.label}
                 </span>
-                <span className="mt-1 block font-mono text-[18px] font-semibold text-[#241044] tabular-nums">
+                <span className="mt-2 font-mono text-[30px] font-bold text-[#10B981]">
                   {m.value}
+                </span>
+                <span className="mt-1 font-sans text-[13px] text-[#C9C2E0]/70">
+                  {m.subtext}
                 </span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Deep-Dive Technical Content */}
-      <section className="py-16">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            {/* Left Column: Architecture and Features */}
-            <div className="lg:col-span-7 space-y-8">
-              <div>
-                <h2 className="font-sans text-[22px] font-semibold text-[#241044]">
-                  System Overview
-                </h2>
-                <p className="mt-3 font-sans text-[15px] leading-relaxed text-[#4A4458]">
-                  {project.overview}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-sans text-[18px] font-semibold text-[#241044]">
-                  Engineering Architecture
-                </h3>
-                <p className="mt-2 font-sans text-[15px] leading-relaxed text-[#4A4458]">
-                  {project.technicalArchitecture}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-sans text-[18px] font-semibold text-[#241044]">
-                  Key Capabilities Delivered
-                </h3>
-                <ul className="mt-3 space-y-2.5 font-sans text-[14px] text-[#4A4458]">
-                  {project.keyFeatures.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Special live component embed for SiteScopia: DashboardMock */}
-              {slug === 'sitescopia' && (
-                <div className="mt-10">
-                  <h3 className="font-sans text-[18px] font-semibold text-[#241044] mb-4">
-                    Live Scan Engine Diagnostic (34/38 Passed)
-                  </h3>
-                  <DashboardMock />
-                </div>
-              )}
-
-              {/* Special component embed for JobHarvester: Honest EmptyState */}
-              {slug === 'jobharvester' && (
-                <div className="mt-10">
-                  <h3 className="font-sans text-[18px] font-semibold text-[#241044] mb-4">
-                    Live Board Maintenance State
-                  </h3>
-                  <EmptyState
-                    title="No jobs yet"
-                    description="The ingestion scraper has been paused for scheduled database re-indexing. New employment feeds will populate once the crawler runs."
-                    actionLabel="View Ingestion Pipeline Repo"
-                    onAction={() =>
-                      window.open('https://github.com/devRaoRizwan', '_blank')
-                    }
-                  />
-                </div>
-              )}
-
-              {/* Special component embed for BOMWatcher: BOM Table */}
-              {slug === 'bomwatcher' && (
-                <div className="mt-10">
-                  <h3 className="font-sans text-[18px] font-semibold text-[#241044] mb-4">
-                    Sample Component Lifecycle Table
-                  </h3>
-                  <Table
-                    columns={bomColumns}
-                    data={bomSampleData}
-                    keyField="partNumber"
-                  />
-                </div>
-              )}
+          {/* The Problem */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#120824]/60 p-8 sm:p-10 space-y-4">
+            <div className="flex items-center gap-2 text-[#A78BFA]">
+              <Activity className="size-5" />
+              <h2 className="font-sans text-[22px] font-bold text-white">
+                The Operational Problem
+              </h2>
             </div>
+            <p className="font-sans text-[17px] font-medium text-white leading-relaxed">
+              {project.problem}
+            </p>
+            <p className="font-sans text-[15px] leading-relaxed text-[#C9C2E0]/80">
+              {project.problemContext}
+            </p>
+          </div>
 
-            {/* Right Column: Project Meta Card & Action */}
-            <div className="lg:col-span-5">
-              <div className="sticky top-28 rounded-[14px] border border-[#E4DEF2] bg-[#F7F6FC] p-6 shadow-sm">
-                <span className="font-mono text-[12px] font-medium uppercase tracking-wider text-[#6336C5]">
-                  Project Specifications
-                </span>
-                <h4 className="mt-2 font-sans text-[18px] font-semibold text-[#241044]">
-                  Need a similar architecture?
-                </h4>
-                <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#6B6578]">
-                  We can design, engineer, and deploy a comparable system for your business with fixed milestones and zero technical debt.
-                </p>
-
-                <div className="mt-6 pt-5 border-t border-[#E4DEF2] space-y-3 font-sans text-[14px]">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#6B6578]">Timeline</span>
-                    <span className="font-medium text-[#241044]">4–8 Weeks</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#6B6578]">Ownership</span>
-                    <span className="font-medium text-[#241044]">100% Client IP</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#6B6578]">Lead Engineer</span>
-                    <span className="font-medium text-[#241044]">Rao Rizwan</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-5 border-t border-[#E4DEF2] flex flex-col gap-3">
-                  <Link to="/contact" className="btn-primary w-full justify-center">
-                    Discuss This System
-                  </Link>
-                  <a
-                    href="https://wa.me/923120418701?text=Hello%20ArixPro!%20I'd%20like%20to%20discuss%20a%20project%20similar%20to%20"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="btn-secondary w-full justify-center"
-                  >
-                    Quick WhatsApp Chat
-                  </a>
-                </div>
-              </div>
+          {/* What We Built */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-[#38BDF8]">
+              <Cpu className="size-5" />
+              <h2 className="font-sans text-[22px] font-bold text-white">
+                What We Built
+              </h2>
             </div>
+            <p className="font-sans text-[16px] leading-[1.65] text-[#C9C2E0]/85">
+              {project.whatWeBuilt}
+            </p>
+          </div>
+
+          {/* System Architecture Layers */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2 text-[#10B981]">
+              <Layers className="size-5" />
+              <h2 className="font-sans text-[22px] font-bold text-white">
+                System Architecture
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {project.architectureDetails.map((layer, idx) => (
+                <div
+                  key={layer.layer}
+                  className="rounded-xl border border-white/[0.08] bg-black/40 p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+                >
+                  <div className="max-w-xl">
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-[12px] font-bold text-[#A78BFA]">
+                        0{idx + 1} //
+                      </span>
+                      <h3 className="font-sans text-[17px] font-bold text-white">
+                        {layer.layer}
+                      </h3>
+                    </div>
+                    <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#C9C2E0]/80">
+                      {layer.description}
+                    </p>
+                  </div>
+                  <div className="shrink-0 sm:text-right">
+                    <span className="inline-block rounded-md bg-white/[0.05] px-3 py-1 font-mono text-[12px] font-medium text-[#38BDF8] border border-white/[0.08]">
+                      {layer.tech}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Verified Stack */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-[#FBBF24]">
+              <Database className="size-5" />
+              <h2 className="font-sans text-[22px] font-bold text-white">
+                Technology Stack
+              </h2>
+            </div>
+            <p className="font-mono text-[14px] text-[#8378A6]">
+              {project.stackDisplay}
+            </p>
+            <div className="p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02]">
+              <TechIcons names={project.deviconNames} />
+            </div>
+          </div>
+
+          {/* Delivered Capabilities */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-[#10B981]">
+              <ShieldCheck className="size-5" />
+              <h2 className="font-sans text-[22px] font-bold text-white">
+                Delivered Capabilities
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {project.features.map((feature) => (
+                <div
+                  key={feature}
+                  className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4"
+                >
+                  <CheckCircle2 className="size-4 text-[#10B981] shrink-0 mt-0.5" />
+                  <span className="font-sans text-[14px] font-medium text-white">
+                    {feature}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Next Project & CTA Navigation */}
+          <div className="pt-12 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6">
+            <Link
+              to={`/work/${project.nextSlug}`}
+              className="inline-flex items-center gap-2 font-sans text-[15px] font-semibold text-white hover:text-[#A78BFA] transition-colors"
+            >
+              <span>Next Architecture: {project.nextTitle}</span>
+              <ArrowRight className="size-4" />
+            </Link>
+
+            <Link to="/contact" className="btn-primary w-full sm:w-auto">
+              <span>Start a Project</span>
+              <ArrowUpRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>

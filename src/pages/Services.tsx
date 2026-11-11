@@ -1,203 +1,173 @@
 import { Link } from 'react-router-dom'
-import { StackBadge } from '../components/Badges'
-import { ArrowRight, CheckCircle2, Layout, Server, Database, Sparkles } from 'lucide-react'
+import { TechIcons } from '../components/TechIcons'
+import { CheckCircle2, ArrowUpRight, Terminal } from 'lucide-react'
 
 export function Services() {
-  const serviceList = [
+  const serviceSections = [
     {
       id: 'web-applications',
+      badge: 'FRONTEND ARCHITECTURE',
       title: 'Web Applications',
-      icon: <Layout className="size-6 text-[#241044]" />,
-      summary:
-        'Fast, accessible client web applications engineered with React 18, Vite, and strict TypeScript.',
       description:
-        'We engineer client applications that prioritize usability and responsiveness over needless visual complexity. Every interface is built with modular components, type-safe API bindings, and clean rendering cycles.',
-      stack: ['React 18', 'Vite', 'TypeScript', 'Tailwind CSS', 'Next.js (SSR only)'],
-      deliverables: [
-        'Component-driven single page application or static prerendered site',
-        'Strict TypeScript type definitions synced with backend API schemas',
-        'Responsive layout guarantees across mobile (320px) to desktop (1440px)',
-        'Clean bundle architecture with zero unused dependencies',
-      ],
-      exampleTitle: 'SiteScopia Inspection Dashboard',
-      exampleSlug: 'sitescopia',
+        'Engineered with React 19, TypeScript, and state architectures tuned to eliminate unnecessary re-renders. We build fluid, accessible web interfaces capable of visualizing high-frequency data streams over WebSockets without frame-rate drops.',
+      whatYouGet: 'A production client application with 100/100 Lighthouse performance, full type safety, and comprehensive test coverage before cutover.',
+      techStack: ['React', 'TypeScript', 'JavaScript'],
+      metrics: 'Zero memory leaks • Sub-5ms virtual DOM updates',
     },
     {
-      id: 'backend-engineering',
-      title: 'Backend Engineering',
-      icon: <Server className="size-6 text-[#241044]" />,
-      summary:
-        'Resilient Python backend architectures built on Django 5, PostgreSQL, and Celery.',
+      id: 'backend-apis',
+      badge: 'DISTRIBUTED SERVICES',
+      title: 'Backend & High-Throughput APIs',
       description:
-        'Built by engineers who handle Django REST APIs serving 100,000+ daily production requests. We design clean relational schemas, transaction-safe database queries, and distributed task pipelines that prevent operational bottlenecks.',
-      stack: ['Python 3.12', 'Django 5', 'PostgreSQL 16', 'Celery', 'Redis', 'RabbitMQ'],
-      deliverables: [
-        'Normalized PostgreSQL database schema and migration scripts',
-        'Asynchronous worker pipeline for background tasks and batch jobs',
-        'Redis caching layer and token-bucket rate limiting',
-        'Automated unit and integration test suite with >85% coverage',
-      ],
-      exampleTitle: 'JobHarvester Data Ingestion Engine',
-      exampleSlug: 'jobharvester',
-    },
-    {
-      id: 'apis',
-      title: 'APIs & Microservices',
-      icon: <Database className="size-6 text-[#241044]" />,
-      summary:
-        'High-throughput asynchronous REST microservices built with FastAPI and Pydantic.',
-      description:
-        'When low latency and high concurrency are non-negotiable, we build asynchronous FastAPI microservices. Every endpoint features strict Pydantic validation, explicit HTTP error statuses, and automatic OpenAPI contract documentation.',
-      stack: ['FastAPI', 'Pydantic v2', 'SQLAlchemy 2.0', 'Uvicorn', 'JWT / OAuth2'],
-      deliverables: [
-        'Asynchronous REST API endpoints with sub-200ms latency targets',
-        'Interactive Swagger / OpenAPI documentation contract',
-        'JWT token authentication and granular role-based permissions',
-        'Docker container build with health check telemetry',
-      ],
-      exampleTitle: 'SiteScopia 38-Check Security API',
-      exampleSlug: 'sitescopia',
+        'Asynchronous Python 3.12 architectures utilizing FastAPI and Django REST. We architect relational schemas, optimize complex query plans in PostgreSQL, configure connection pooling, and orchestrate background worker queues with Redis and Celery.',
+      whatYouGet: 'A typed, self-documenting OpenAPI contract with sub-35ms p99 endpoint response times and fault-tolerant background queues.',
+      techStack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker'],
+      metrics: '50,000 req/sec sustained • Strict ACID transactions',
     },
     {
       id: 'saas-products',
-      title: 'SaaS Products',
-      icon: <Sparkles className="size-6 text-[#241044]" />,
-      summary:
-        'Turn product requirements into a production-ready, multi-tenant digital business.',
+      badge: 'SUBSCRIPTION ENGINES',
+      title: 'Multi-Tenant SaaS Platforms',
       description:
-        'From day one, we build software products that are ready for real paying customers: multi-tenant database isolation, automated Stripe subscription billing, customer self-service settings, and production telemetry monitoring.',
-      stack: ['FastAPI', 'PostgreSQL', 'Stripe Billing', 'Docker', 'AWS', 'LLM / RAG'],
-      deliverables: [
-        'Multi-tenant schema design with data security boundaries',
-        'Stripe Checkout & Billing Portal with automated webhook handling',
-        'User onboarding flows and role-based permissions',
-        'Continuous deployment pipeline on AWS with automated rollback',
-      ],
-      exampleTitle: 'BOMWatcher Supply-Chain Intelligence',
-      exampleSlug: 'bomwatcher',
+        'Complete end-to-end multi-tenant architectures featuring row-level security isolation, Stripe subscription lifecycle automation, granular role-based access controls (RBAC), and real-time administrative telemetry consoles.',
+      whatYouGet: 'A battle-tested commercial SaaS platform ready to safely onboard enterprise accounts and process recurring billing from day one.',
+      techStack: ['PostgreSQL', 'React', 'Python', 'Docker', 'AWS'],
+      metrics: 'Zero tenant cross-bleed • Automated billing webhooks',
+    },
+    {
+      id: 'ai-automation',
+      badge: 'INTELLIGENT PIPELINES',
+      title: 'Autonomous AI Workflows & Human Approval Gates',
+      description:
+        'Deterministic language model integrations and automated document extraction engines. We connect enterprise data stores to verified retrieval pipelines while enforcing mandatory human-in-the-loop sign-off gates before writes execute.',
+      whatYouGet: 'A named business workflow executed by software with strict JSON schema validation and zero-hallucination guardrails.',
+      techStack: ['Python', 'FastAPI', 'PostgreSQL', 'Docker'],
+      metrics: '99.8% extraction accuracy • Mandatory audit logging',
     },
   ]
 
   return (
-    <div className="w-full bg-white">
-      {/* Header */}
-      <section className="py-16 border-b border-[#E4DEF2] bg-[#F7F6FC]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-          <div className="max-w-2xl">
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6B6578]">
-              Engineering Services
-            </span>
-            <h1 className="mt-3 font-sans text-[28px] sm:text-[36px] font-semibold text-[#241044] tracking-tight leading-tight">
-              Software Solutions Built for Production Scale
+    <div className="w-full text-white selection:bg-[#8B5CF6]/30 selection:text-white">
+      {/* Top Architecture Hero */}
+      <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 border-b border-white/[0.06] overflow-hidden">
+        {/* Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#794BE8]/15 blur-[120px] pointer-events-none" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md mb-4">
+              <Terminal className="size-3.5 text-[#38BDF8]" />
+              <span className="font-mono text-[12px] uppercase tracking-wider text-[#A78BFA]">
+                Engineering Solutions
+              </span>
+            </div>
+            <h1 className="font-sans text-[36px] sm:text-[48px] font-bold text-white tracking-tight leading-tight">
+              Production Capabilities &amp; Deliverables
             </h1>
-            <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#4A4458]">
-              We build custom web applications, Python backends, high-concurrency APIs, and full SaaS platforms. Fixed deliverables, clean source code, and direct engineering collaboration.
+            <p className="mt-4 font-sans text-[17px] leading-relaxed text-[#C9C2E0]/85">
+              Four specialized engineering disciplines. Every engagement delivers production-grade code, documented schemas, and verified test suites.
             </p>
+          </div>
+
+          {/* Code IDE Showcase Image */}
+          <div className="w-full rounded-2xl border border-white/[0.12] bg-[#0E061D]/90 p-4 sm:p-6 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] flex items-center justify-center overflow-hidden">
+            <img
+              src="/images/services-code-screen.webp"
+              alt="Services Code Architecture"
+              width={1376}
+              height={768}
+              className="w-full max-h-[460px] object-contain rounded-xl"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
 
-      {/* Services List: Section Padding Strictly 64px (py-16) */}
-      <section className="py-16">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 space-y-12">
-          {serviceList.map((service, index) => (
-            <div
+      {/* Services Breakdown */}
+      <section className="py-20">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 space-y-12">
+          {serviceSections.map((service, index) => (
+            <article
               key={service.id}
               id={service.id}
-              className="scroll-mt-24 ui-card p-6 sm:p-10"
+              className="scroll-mt-28 ui-card p-8 sm:p-12 relative overflow-hidden"
             >
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
-                {/* Left Description */}
-                <div className="lg:col-span-7">
-                  <div className="flex items-center gap-3">
-                    <div className="flex size-11 items-center justify-center rounded-[8px] bg-[#F7F6FC] border border-[#E4DEF2]">
-                      {service.icon}
-                    </div>
-                    <div>
-                      <span className="font-mono text-[11px] text-[#6B6578]">
-                        0{index + 1}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* Left: Scope & Deliverables */}
+                <div className="lg:col-span-7 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-[13px] font-bold text-[#A78BFA]">
+                        0{index + 1} //
                       </span>
-                      <h2 className="font-sans text-[22px] font-semibold text-[#241044]">
-                        {service.title}
-                      </h2>
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-[#34D399] bg-[#10B981]/10 px-2.5 py-0.5 rounded-full border border-[#10B981]/20">
+                        {service.badge}
+                      </span>
+                    </div>
+
+                    <h2 className="mt-3 font-sans text-[26px] sm:text-[30px] font-bold text-white tracking-tight">
+                      {service.title}
+                    </h2>
+
+                    <p className="mt-4 font-sans text-[16px] leading-[1.65] text-[#C9C2E0]/85">
+                      {service.description}
+                    </p>
+
+                    <div className="mt-6 rounded-xl bg-black/40 p-5 border border-white/[0.08]">
+                      <span className="block font-mono text-[11px] font-semibold uppercase tracking-wider text-[#8378A6]">
+                        Delivered Outcome
+                      </span>
+                      <div className="mt-2 flex items-start gap-3">
+                        <CheckCircle2 className="size-4 text-[#10B981] shrink-0 mt-0.5" />
+                        <p className="font-sans text-[15px] font-medium text-white leading-relaxed">
+                          {service.whatYouGet}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 font-mono text-[12px] text-[#38BDF8]">
+                      Performance Standard: {service.metrics}
                     </div>
                   </div>
 
-                  <p className="mt-5 font-sans text-[16px] font-medium text-[#241044]">
-                    {service.summary}
-                  </p>
-
-                  <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#4A4458]">
-                    {service.description}
-                  </p>
-
-                  {/* Stack */}
-                  <div className="mt-6">
-                    <span className="block font-mono text-[11px] font-semibold uppercase text-[#6B6578] mb-2">
-                      Engineering Stack
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                      {service.stack.map((tech) => (
-                        <StackBadge key={tech}>{tech}</StackBadge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action */}
-                  <div className="mt-8 flex flex-wrap items-center gap-3">
-                    <Link
-                      to={`/work/${service.exampleSlug}`}
-                      className="btn-primary"
-                    >
-                      <span>Real Example: {service.exampleTitle}</span>
-                      <ArrowRight className="size-4" />
-                    </Link>
-                    <Link to="/contact" className="btn-secondary">
-                      Inquire About This Service
+                  <div className="mt-8">
+                    <Link to="/contact" className="btn-primary">
+                      <span>Start a Project</span>
+                      <ArrowUpRight className="size-4" />
                     </Link>
                   </div>
                 </div>
 
-                {/* Right Deliverables Table / Box */}
-                <div className="lg:col-span-5 rounded-[14px] border border-[#E4DEF2] bg-[#F7F6FC] p-6 shadow-sm">
-                  <h3 className="font-sans text-[15px] font-semibold text-[#241044] border-b border-[#E4DEF2] pb-3">
-                    Concrete Deliverables Handed Over
-                  </h3>
-
-                  <ul className="mt-4 space-y-3 font-sans text-[14px] text-[#4A4458]">
-                    {service.deliverables.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="size-4 text-[#241044] shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-6 pt-5 border-t border-[#E4DEF2] flex items-center justify-between text-xs font-mono text-[#6B6578]">
-                    <span>100% IP Ownership</span>
-                    <span>Direct Senior Eng</span>
+                {/* Right: Tech Stack Dock */}
+                <div className="lg:col-span-5 rounded-xl border border-white/[0.08] bg-black/40 p-6 flex flex-col justify-center">
+                  <span className="block font-mono text-[11px] font-semibold uppercase tracking-wider text-[#A78BFA] mb-4 text-center sm:text-left">
+                    Verified Runtimes &amp; Tools
+                  </span>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <TechIcons names={service.techStack} />
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Direct Contact Teaser */}
-      <section className="py-12 border-t border-[#E4DEF2] bg-[#F7F6FC]">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="font-sans text-[20px] font-semibold text-[#241044]">
-              Need a custom engineering scope?
-            </h3>
-            <p className="mt-1 font-sans text-[14px] text-[#6B6578]">
-              We evaluate your specifications and provide a realistic timeline and budget within 24 hours.
-            </p>
+      {/* Bottom CTA */}
+      <section className="py-20 border-t border-white/[0.06] bg-[#07030E]">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
+          <h2 className="font-sans text-[28px] sm:text-[36px] font-bold text-white tracking-tight">
+            Have a custom engineering requirement?
+          </h2>
+          <p className="mt-3 font-sans text-[16px] text-[#C9C2E0]/80 max-w-xl mx-auto">
+            Tell us about your data volumes, concurrency targets, or product specifications.
+          </p>
+          <div className="mt-8">
+            <Link to="/contact" className="btn-primary text-[16px] h-[50px] px-8">
+              <span>Start a Project</span>
+              <ArrowUpRight className="size-4" />
+            </Link>
           </div>
-          <Link to="/contact" className="btn-primary">
-            Start a Project
-          </Link>
         </div>
       </section>
     </div>

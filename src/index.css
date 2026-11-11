@@ -1,22 +1,26 @@
 @import 'tailwindcss';
 
 :root {
-  --canvas: #FFFFFF;
-  --surface: #F7F6FC;
-  --ink: #241044;
-  --body: #4A4458;
-  --muted: #6B6578;
-  --hairline: #E4DEF2;
+  /* Dark Luxury & Deep Royal Tech Tokens */
+  --canvas: #090412;
+  --canvas-subtle: #0E071D;
+  --surface-card: rgba(255, 255, 255, 0.035);
+  --surface-card-hover: rgba(255, 255, 255, 0.06);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-hover: rgba(121, 75, 232, 0.45);
+
+  --ink: #FFFFFF;
+  --body: #C9C2E0;
+  --muted: #8378A6;
   
-  --purple: #6336C5;
-  --purple-hover: #4F2AA0;
-  --blue: #315BDA;
+  --purple-glow: rgba(121, 75, 232, 0.35);
+  --purple: #794BE8;
+  --purple-hover: #6336C5;
+  --blue-accent: #38BDF8;
+  --emerald-accent: #10B981;
 
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-
-  /* One shadow tier only, on hover and dropdowns */
-  --shadow-one: rgba(0, 0, 0, 0.02) 0 0 0 1px, rgba(0, 0, 0, 0.04) 0 2px 6px, rgba(0, 0, 0, 0.1) 0 4px 8px;
 }
 
 @theme {
@@ -24,37 +28,46 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --color-canvas: var(--canvas);
-  --color-surface: var(--surface);
+  --color-canvas-subtle: var(--canvas-subtle);
+  --color-surface-card: var(--surface-card);
+  --color-hairline: var(--hairline);
   --color-ink: var(--ink);
   --color-body: var(--body);
   --color-muted: var(--muted);
-  --color-hairline: var(--hairline);
   --color-purple: var(--purple);
   --color-purple-hover: var(--purple-hover);
-  --color-blue: var(--blue);
+  --color-blue: var(--blue-accent);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #FFFFFF;
-    color: #4A4458;
+    scroll-snap-type: y proximity;
+    background-color: #090412;
+    color: #C9C2E0;
     font-family: var(--font-sans);
+    color-scheme: dark;
   }
 
   body {
-    background-color: #FFFFFF;
-    color: #4A4458;
+    background-color: #090412;
+    color: #C9C2E0;
     font-family: var(--font-sans);
-    line-height: 1.5;
+    line-height: 1.6;
     font-size: 16px;
     font-weight: 400;
     overflow-x: hidden;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(121, 75, 232, 0.15), transparent),
+      radial-gradient(circle at 100% 40%, rgba(56, 189, 248, 0.05), transparent 400px),
+      radial-gradient(circle at 0% 70%, rgba(99, 54, 197, 0.08), transparent 500px);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #241044;
+    color: #FFFFFF;
     font-family: var(--font-sans);
+    letter-spacing: -0.025em;
   }
 
   code, pre, kbd, samp {
@@ -62,31 +75,33 @@
   }
 }
 
-/* Card standard - 14px, flat, 1px hairline border, one shadow tier on hover */
-.ui-card,
-.agency-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E4DEF2;
-  border-radius: 14px;
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+/* Glassmorphic Luxury Cards with Hairline Borders */
+.ui-card {
+  background-color: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
-.ui-card:hover,
-.agency-card:hover {
-  border-color: #6336C5;
-  box-shadow: var(--shadow-one);
+.ui-card:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(121, 75, 232, 0.45);
+  box-shadow: 0 8px 30px -10px rgba(121, 75, 232, 0.25), 0 0 1px 1px rgba(121, 75, 232, 0.3);
+  transform: translateY(-2px);
 }
 
-/* Button styles exact */
+/* Glowing Primary Button */
 .btn-primary {
-  background-color: #6336C5;
+  background: linear-gradient(135deg, #8B5CF6 0%, #6336C5 100%);
   color: #FFFFFF;
-  border-radius: 8px;
-  height: 48px;
-  min-height: 48px;
-  min-width: 48px;
-  padding: 0 24px;
-  font-size: 16px;
+  border-radius: 9999px;
+  height: 46px;
+  min-height: 46px;
+  padding: 0 26px;
+  font-size: 15px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -94,25 +109,28 @@
   gap: 8px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.15s ease;
-  border: none;
+  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
 }
 
 .btn-primary:hover {
-  background-color: #4F2AA0;
+  background: linear-gradient(135deg, #9D74FF 0%, #703DE3 100%);
+  box-shadow: 0 0 28px 0 rgba(139, 92, 246, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
 }
 
+/* Secondary Button with subtle glass reflection */
 .btn-secondary {
-  background-color: #FFFFFF;
-  color: #241044;
-  border: 1px solid #E4DEF2;
-  border-radius: 8px;
-  height: 48px;
-  min-height: 48px;
-  min-width: 48px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  height: 46px;
+  min-height: 46px;
   padding: 0 24px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -120,20 +138,268 @@
   gap: 8px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  background-color: #F7F6FC;
-  border-color: #241044;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
-/* Dark code window styling */
-.code-window-dark {
-  background-color: #241044 !important;
-  color: #FFFFFF !important;
-  border: 1px solid #381C6B;
-  border-radius: 14px;
-  font-family: var(--font-mono);
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090412;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(121, 75, 232, 0.4);
+}
+
+/* Pencil line drawing keyframe loop */
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 300;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -300;
+  }
+}
+
+@keyframes pencil-orbit {
+  0% {
+    transform: translate(190px, 150px) rotate(45deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(360px, 90px) rotate(75deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(445px, 235px) rotate(120deg);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(515px, 310px) rotate(160deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(190px, 150px) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+/* ========================================================================== */
+/* DAY SHIFT / LIGHT THEME (Carefully Crafted Luxury Light Studio)            */
+/* ========================================================================== */
+
+html, body {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.light,
+html.light body {
+  background-color: #F8F7FC !important;
+  color: #4A4064 !important;
+  color-scheme: light !important;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(121, 75, 232, 0.08), transparent),
+    radial-gradient(circle at 100% 40%, rgba(56, 189, 248, 0.04), transparent 400px),
+    radial-gradient(circle at 0% 70%, rgba(99, 54, 197, 0.04), transparent 500px) !important;
+}
+
+/* Day Mode: Headings and High-Contrast Text */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6,
+html.light .text-white {
+  color: #120826 !important;
+}
+
+/* Day Mode: High-Contrast Subtexts & Muted Metadata */
+html.light .text-\[\#C9C2E0\]\/90,
+html.light .text-\[\#C9C2E0\]\/85,
+html.light .text-\[\#C9C2E0\]\/80,
+html.light .text-\[\#C9C2E0\]\/75,
+html.light .text-\[\#C9C2E0\]\/70,
+html.light .text-\[\#C9C2E0\] {
+  color: #4A4064 !important;
+}
+
+html.light .text-\[\#8378A6\] {
+  color: #746B8E !important;
+}
+
+/* Day Mode: Section Backgrounds */
+html.light .bg-\[\#090412\],
+html.light .bg-\[\#0A0514\]\/40,
+html.light .bg-\[\#0A0514\]\/50 {
+  background-color: #F8F7FC !important;
+}
+
+/* Day Mode: Elevated Cards & Modals */
+html.light .bg-\[\#0C061A\],
+html.light .bg-\[\#0C061A\]\/80,
+html.light .bg-\[\#0C061A\]\/90,
+html.light .bg-\[\#0C061A\]\/95,
+html.light .bg-\[\#0E061E\]\/80,
+html.light .bg-\[\#0E061E\],
+html.light .bg-\[\#120824\]\/80,
+html.light .bg-\[\#120824\]\/90,
+html.light .ui-card {
+  background-color: #FFFFFF !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(18, 8, 38, 0.06), 0 1px 3px rgba(18, 8, 38, 0.04) !important;
+}
+
+html.light .ui-card:hover {
+  border-color: rgba(121, 75, 232, 0.45) !important;
+  box-shadow: 0 14px 40px -10px rgba(121, 75, 232, 0.15) !important;
+}
+
+/* Day Mode: Contain Mockup Wrapper in Shipped Systems */
+html.light .bg-\[\#06020E\] {
+  background-color: #F0EDF8 !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
+}
+
+/* Day Mode: Hairline Borders */
+html.light .border-white\/\[0\.06\],
+html.light .border-white\/\[0\.08\],
+html.light .border-white\/\[0\.1\],
+html.light .border-white\/\[0\.12\] {
+  border-color: rgba(18, 8, 38, 0.08) !important;
+}
+
+/* Day Mode: Subsurface Tag Chips & Translucent Badges */
+html.light .bg-white\/\[0\.02\],
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\] {
+  background-color: rgba(18, 8, 38, 0.035) !important;
+  color: #382E50 !important;
+}
+
+/* Day Mode: Filter Pills in Solution Finder */
+html.light .rounded-full.bg-white\/\[0\.04\] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(18, 8, 38, 0.1) !important;
+  color: #4A4064 !important;
+  box-shadow: 0 2px 8px rgba(18, 8, 38, 0.04) !important;
+}
+
+html.light .rounded-full.bg-white\/\[0\.04\]:hover {
+  background-color: #F4F1FA !important;
+  color: #120826 !important;
+}
+
+/* Day Mode: Search and Form Inputs */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #120826 !important;
+  border-color: rgba(18, 8, 38, 0.14) !important;
+  box-shadow: 0 2px 12px rgba(18, 8, 38, 0.04) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #8C84A3 !important;
+}
+
+/* Day Mode: Secondary Button */
+html.light .btn-secondary {
+  background-color: rgba(18, 8, 38, 0.04) !important;
+  color: #120826 !important;
+  border-color: rgba(18, 8, 38, 0.14) !important;
+}
+
+html.light .btn-secondary:hover {
+  background-color: rgba(18, 8, 38, 0.08) !important;
+  border-color: rgba(18, 8, 38, 0.25) !important;
+  color: #120826 !important;
+}
+
+/* Day Mode: Top Header */
+html.light header {
+  background-color: rgba(248, 247, 252, 0.9) !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(18, 8, 38, 0.04) !important;
+}
+
+html.light header a {
+  color: #4A4064;
+}
+
+html.light header a:hover {
+  color: #120826;
+}
+
+html.light header nav {
+  background-color: rgba(18, 8, 38, 0.04) !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
+}
+
+/* Day Mode: Footer */
+html.light footer {
+  background-color: #EDE8F5 !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
+}
+
+/* Day Mode: Pencil Schematic Drafting CAD Styling */
+html.light #hero .rounded-2xl.border.bg-\[\#0C061A\]\/95 {
+  background-color: #FFFFFF !important;
+  border-color: rgba(18, 8, 38, 0.1) !important;
+  box-shadow: 0 20px 60px -15px rgba(18, 8, 38, 0.08) !important;
+}
+
+html.light #hero text[fill="#FFFFFF"] {
+  fill: #120826 !important;
+}
+
+html.light #hero rect[fill="#140A28"],
+html.light #hero rect[fill="#0C061A"] {
+  fill: #F4F1FA !important;
+  stroke: #A78BFA !important;
+}
+
+html.light #hero rect[stroke="#FFFFFF"] {
+  stroke: #120826 !important;
+}
+
+html.light #hero path[stroke="rgba(255, 255, 255, 0.15)"] {
+  stroke: rgba(18, 8, 38, 0.15) !important;
+}
+
+/* Day Mode: Scrollbars */
+html.light ::-webkit-scrollbar-track {
+  background: #F8F7FC;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(18, 8, 38, 0.15);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(121, 75, 232, 0.5);
 }

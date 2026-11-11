@@ -20,18 +20,19 @@ export async function prerender(context?: { url?: string }): Promise<PrerenderRe
   )
 
   const pageTitles: Record<string, string> = {
-    '/': 'ArixPro | Software Development Company',
-    '/services': 'Engineering Services | ArixPro',
-    '/work': 'Production Work & Systems | ArixPro',
-    '/work/sitescopia': 'SiteScopia Website Analyzer | ArixPro',
-    '/work/jobharvester': 'JobHarvester Board | ArixPro',
-    '/work/bomwatcher': 'BOMWatcher AI Scanner | ArixPro',
-    '/process': 'Engineering Lifecycle & Delivery | ArixPro',
-    '/about': 'About Rao Rizwan | ArixPro',
+    '/': 'ArixPro | Software Company',
+    '/services': 'Services | ArixPro',
+    '/work': 'Work and Systems | ArixPro',
+    '/work/analytics-dashboard': 'Analytics Dashboard | ArixPro',
+    '/work/ecommerce-admin': 'E-commerce Admin | ArixPro',
+    '/work/crm-platform': 'CRM Platform | ArixPro',
+    '/process': 'How we build | ArixPro',
+    '/about': 'About ArixPro | Software Company',
+    '/careers': 'Careers | ArixPro Software Studio',
     '/contact': 'Start a Project | ArixPro',
   }
 
-  const pageTitle = pageTitles[currentUrl] || 'ArixPro | Software Development Company'
+  const pageTitle = pageTitles[currentUrl] || 'ArixPro | Software Company'
 
   const elements = new Set<HeadElement>([
     {
@@ -39,7 +40,7 @@ export async function prerender(context?: { url?: string }): Promise<PrerenderRe
       props: {
         name: 'description',
         content:
-          'ArixPro designs and engineers fast, secure backend systems, clean APIs, and modern web products for startups and global teams.',
+          'ArixPro builds web apps, APIs and SaaS products. Custom software, built clean, tested, and shipped.',
       },
     },
     {
@@ -54,7 +55,7 @@ export async function prerender(context?: { url?: string }): Promise<PrerenderRe
       props: {
         property: 'og:description',
         content:
-          'ArixPro designs and engineers fast, secure backend systems, clean APIs, and modern web products for startups and global teams.',
+          'ArixPro builds web apps, APIs and SaaS products. Custom software, built clean, tested, and shipped.',
       },
     },
   ])
@@ -65,11 +66,12 @@ export async function prerender(context?: { url?: string }): Promise<PrerenderRe
       '/',
       '/services',
       '/work',
-      '/work/sitescopia',
-      '/work/jobharvester',
-      '/work/bomwatcher',
+      '/work/analytics-dashboard',
+      '/work/ecommerce-admin',
+      '/work/crm-platform',
       '/process',
       '/about',
+      '/careers',
       '/contact',
     ]),
     head: {

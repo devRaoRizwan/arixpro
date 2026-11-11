@@ -1,190 +1,147 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Github, Linkedin, MessageSquare, Globe } from 'lucide-react'
+import { MapPin, Mail, ArrowUpRight, Linkedin, Instagram, Github } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-[#E4DEF2] bg-white pt-16 pb-16 text-[#4A4458]">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 lg:gap-12">
-          {/* Left Column: Logo, Description & Direct Contact Block */}
-          <div className="md:col-span-5 lg:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src="/images/arixpro-pomegranate.png"
-                alt="ArixPro"
-                width={36}
-                height={36}
-                className="size-9 object-contain"
-              />
-              <span className="font-sans text-[22px] font-bold tracking-tight text-[#6336C5]">
-                ArixPro
+    <footer className="w-full border-t border-white/[0.08] bg-[#07030E] py-12 text-[#C9C2E0]/80 relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[120px] bg-[#6336C5]/10 blur-[100px] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 pb-10 border-b border-white/[0.06]">
+          {/* Left Column: Brand & Google Maps Location Link */}
+          <div className="md:col-span-5 space-y-4">
+            <Link to="/" className="inline-flex items-center gap-2.5 group">
+              <div className="size-8 rounded-lg bg-white/[0.04] border border-white/[0.1] p-1 flex items-center justify-center">
+                <img
+                  src="/images/logo-pomegranate-transparent.png"
+                  alt="ArixPro"
+                  width={28}
+                  height={28}
+                  className="size-full object-contain"
+                />
+              </div>
+              <span className="font-sans text-[18px] font-bold text-white tracking-tight">
+                Arix<span className="text-[#A78BFA]">Pro</span>
               </span>
             </Link>
 
-            <p className="font-sans text-[14px] leading-relaxed text-[#4A4458]">
-              ArixPro builds web apps, APIs and SaaS.
-              <br />
-              Python, Django, FastAPI.
+            <p className="font-sans text-[14px] leading-relaxed text-[#C9C2E0]/70 max-w-sm">
+              Custom web applications, backend APIs, and multi-tenant software built for production scale.
             </p>
 
-            <div className="pt-2 space-y-2 font-sans text-[13px]">
-              <div>
-                <a
-                  href="https://wa.me/923120418701?text=Hello%20ArixPro!%20I'd%20like%20to%20discuss%20a%20software%20project."
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 text-[#4A4458] hover:text-[#6336C5] transition-colors"
-                >
-                  <MessageSquare className="size-3.5 text-[#241044]" />
-                  <span>WhatsApp +92 312 0418701</span>
-                </a>
-              </div>
+            {/* Clickable Google Maps Location Link (No flag logo) */}
+            <div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Kickstart+Phase+8+DHA+Lahore"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open location in Google Maps"
+                className="inline-flex items-start gap-2.5 text-[13px] text-[#C9C2E0]/85 hover:text-[#A78BFA] transition-colors group cursor-pointer"
+              >
+                <MapPin className="size-4 text-[#A78BFA] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <span className="group-hover:underline">
+                  Kickstart | Phase 8, DHA, Lahore, Pakistan
+                </span>
+              </a>
+            </div>
 
-              <div>
-                <Link
-                  to="/"
-                  className="inline-flex items-center gap-2 text-[#4A4458] hover:text-[#6336C5] transition-colors"
-                >
-                  <Globe className="size-3.5 text-[#241044]" />
-                  <span>arixpro.com</span>
-                </Link>
-              </div>
-
-              <div>
-                <a
-                  href="https://github.com/devRaoRizwan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 text-[#4A4458] hover:text-[#6336C5] transition-colors"
-                >
-                  <Github className="size-3.5 text-[#241044]" />
-                  <span>github.com/devRaoRizwan</span>
-                  <ArrowUpRight className="size-3 text-[#6B6578]" />
-                </a>
-              </div>
-
-              <div>
-                <a
-                  href="https://www.linkedin.com/in/raorixwan"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 text-[#4A4458] hover:text-[#6336C5] transition-colors"
-                >
-                  <Linkedin className="size-3.5 text-[#241044]" />
-                  <span>linkedin.com/in/raorixwan</span>
-                  <ArrowUpRight className="size-3 text-[#6B6578]" />
-                </a>
-              </div>
+            <div className="flex items-center gap-2 text-[13px] text-[#C9C2E0]/80">
+              <Mail className="size-4 text-[#A78BFA] shrink-0" />
+              <a href="mailto:contact@arixpro.com" className="hover:text-white transition-colors">
+                contact@arixpro.com
+              </a>
             </div>
           </div>
 
-          {/* 3 Link Columns Filling The Rest Of The Grid */}
-          <div className="md:col-span-7 lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {/* Column 1: Services */}
-            <div>
-              <h4 className="font-sans text-[13px] font-semibold uppercase tracking-wider text-[#241044]">
+          {/* Middle Column: Pages */}
+          <div className="md:col-span-4">
+            <h4 className="font-mono text-[11px] font-semibold uppercase tracking-wider text-white">
+              Company
+            </h4>
+            <div className="mt-4 grid grid-cols-2 gap-y-2.5 gap-x-6 font-sans text-[14px]">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <Link to="/services" className="hover:text-white transition-colors">
                 Services
-              </h4>
-              <ul className="mt-4 space-y-2.5 font-sans text-[14px]">
-                <li>
-                  <Link to="/services" className="hover:text-[#6336C5] transition-colors">
-                    Web Applications
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="hover:text-[#6336C5] transition-colors">
-                    Backend Engineering
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="hover:text-[#6336C5] transition-colors">
-                    APIs &amp; Microservices
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="hover:text-[#6336C5] transition-colors">
-                    SaaS Products
-                  </Link>
-                </li>
-              </ul>
+              </Link>
+              <Link to="/work" className="hover:text-white transition-colors">
+                Work
+              </Link>
+              <Link to="/process" className="hover:text-white transition-colors">
+                Process
+              </Link>
+              <Link to="/about" className="hover:text-white transition-colors">
+                About
+              </Link>
+              <Link
+                to="/careers"
+                className="hover:text-white text-[#A78BFA] font-medium transition-colors flex items-center gap-1.5"
+              >
+                <span>Careers</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#8B5CF6]/20 border border-[#8B5CF6]/30 text-[#C084FC]">
+                  Hiring
+                </span>
+              </Link>
             </div>
+          </div>
 
-            {/* Column 2: Work & Process */}
-            <div>
-              <h4 className="font-sans text-[13px] font-semibold uppercase tracking-wider text-[#241044]">
-                Work &amp; Process
-              </h4>
-              <ul className="mt-4 space-y-2.5 font-sans text-[14px]">
-                <li>
-                  <Link to="/work/sitescopia" className="hover:text-[#6336C5] transition-colors">
-                    SiteScopia Analyzer
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/work/jobharvester" className="hover:text-[#6336C5] transition-colors">
-                    JobHarvester Board
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/work/bomwatcher" className="hover:text-[#6336C5] transition-colors">
-                    BOMWatcher Scanner
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/process" className="hover:text-[#6336C5] transition-colors">
-                    Engineering Lifecycle
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3: Company */}
-            <div>
-              <h4 className="font-sans text-[13px] font-semibold uppercase tracking-wider text-[#241044]">
-                Company
-              </h4>
-              <ul className="mt-4 space-y-2.5 font-sans text-[14px]">
-                <li>
-                  <Link to="/about" className="hover:text-[#6336C5] transition-colors">
-                    About Rao Rizwan
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://devraorizwan.online"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="hover:text-[#6336C5] transition-colors inline-flex items-center gap-1"
-                  >
-                    <span>devraorizwan.online</span>
-                    <ArrowUpRight className="size-3 text-[#6B6578]" />
-                  </a>
-                </li>
-                <li>
-                  <Link to="/contact" className="hover:text-[#6336C5] transition-colors">
-                    Start a Project
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Right Column: Social Links with Real Brand Icons */}
+          <div className="md:col-span-3">
+            <h4 className="font-mono text-[11px] font-semibold uppercase tracking-wider text-white">
+              Connect
+            </h4>
+            <ul className="mt-4 space-y-2.5 font-sans text-[14px]">
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/arixpro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-[#C9C2E0]/80 hover:text-white transition-colors group"
+                >
+                  <span className="size-7 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#A78BFA] group-hover:text-white group-hover:border-[#0A66C2]/60 group-hover:bg-[#0A66C2]/20 transition-all">
+                    <Linkedin className="size-3.5" />
+                  </span>
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="size-3 text-[#8378A6] group-hover:text-white transition-colors" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/arixpro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-[#C9C2E0]/80 hover:text-white transition-colors group"
+                >
+                  <span className="size-7 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#A78BFA] group-hover:text-white group-hover:border-[#E4405F]/60 group-hover:bg-[#E4405F]/20 transition-all">
+                    <Instagram className="size-3.5" />
+                  </span>
+                  <span>Instagram</span>
+                  <ArrowUpRight className="size-3 text-[#8378A6] group-hover:text-white transition-colors" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/arixpro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-[#C9C2E0]/80 hover:text-white transition-colors group"
+                >
+                  <span className="size-7 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#A78BFA] group-hover:text-white group-hover:border-white/40 group-hover:bg-white/[0.1] transition-all">
+                    <Github className="size-3.5" />
+                  </span>
+                  <span>GitHub</span>
+                  <ArrowUpRight className="size-3 text-[#8378A6] group-hover:text-white transition-colors" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Legal & Copyright */}
-        <div className="mt-14 border-t border-[#E4DEF2] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-[13px] text-[#6B6578]">
-          <p>&copy;2026 ArixPro</p>
-          <div className="flex items-center gap-6">
-            <span>Production Architecture</span>
-            <span className="size-1 rounded-full bg-[#E4DEF2]" />
-            <a
-              href="https://github.com/devRaoRizwan"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-[#315BDA] hover:underline"
-            >
-              GitHub Source
-            </a>
-          </div>
+        {/* Bottom Bar: Copyright Only */}
+        <div className="pt-6 font-mono text-[12px] text-[#8378A6]">
+          <p>© {new Date().getFullYear()} ArixPro. All rights reserved.</p>
         </div>
       </div>
     </footer>

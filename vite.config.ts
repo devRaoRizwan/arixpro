@@ -17,9 +17,9 @@ export default defineConfig({
       additionalPrerenderRoutes: [
         '/services',
         '/work',
-        '/work/sitescopia',
-        '/work/jobharvester',
-        '/work/bomwatcher',
+        '/work/analytics-dashboard',
+        '/work/ecommerce-admin',
+        '/work/crm-platform',
         '/process',
         '/about',
         '/contact',
