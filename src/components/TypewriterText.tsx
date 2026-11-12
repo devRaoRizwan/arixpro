@@ -30,7 +30,7 @@ export function TypewriterText() {
     if (!isDeleting && subIndex === currentWord.length) {
       const timeout = setTimeout(() => {
         setIsDeleting(true)
-      }, 1900)
+      }, 2400)
       return () => clearTimeout(timeout)
     }
 
@@ -39,12 +39,12 @@ export function TypewriterText() {
       const timeout = setTimeout(() => {
         setIsDeleting(false)
         setWordIndex((prev) => (prev + 1) % WORDS.length)
-      }, 250)
+      }, 380)
       return () => clearTimeout(timeout)
     }
 
-    // Typing cadence (70-95ms) vs Erasing cadence (35ms)
-    const speed = isDeleting ? 38 : 75 + Math.random() * 20
+    // Typing cadence (slower: ~125-150ms) vs Erasing cadence (~65ms)
+    const speed = isDeleting ? 65 : 130 + Math.random() * 25
 
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (isDeleting ? -1 : 1))
@@ -58,13 +58,14 @@ export function TypewriterText() {
 
   return (
     <span className="inline-flex items-baseline font-sans font-bold tracking-tight ml-2.5 sm:ml-3.5 whitespace-nowrap">
-      <span className="bg-gradient-to-r from-[#C084FC] via-[#A78BFA] to-[#38BDF8] bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(167,139,250,0.4)]">
+      {/* Solely Royal Purple color for auto complete text */}
+      <span className="text-[#7C3AED] dark:text-[#A78BFA] drop-shadow-[0_2px_16px_rgba(124,58,237,0.35)]">
         {displayed}
       </span>
-      {/* Sleek Terminal / Auto-completer Cursor */}
+      {/* Sleek Royal Purple Terminal Cursor */}
       <span
-        className={`inline-block w-[3px] h-[0.85em] bg-[#38BDF8] ml-1.5 align-middle rounded-full transition-opacity duration-100 ${
-          blink ? 'opacity-100 shadow-[0_0_10px_#38BDF8]' : 'opacity-0'
+        className={`inline-block w-[3px] h-[0.85em] bg-[#7C3AED] dark:bg-[#A78BFA] ml-1.5 align-middle rounded-full transition-opacity duration-100 ${
+          blink ? 'opacity-100 shadow-[0_0_12px_rgba(124,58,237,0.6)]' : 'opacity-0'
         }`}
         aria-hidden="true"
       />

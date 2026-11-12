@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { TechIcons } from '../components/TechIcons'
+import { TechSphere } from '../components/TechSphere'
 import { PencilSchematic } from '../components/PencilSchematic'
 import { TypewriterText } from '../components/TypewriterText'
 import { SolutionFinder } from '../components/SolutionFinder'
@@ -222,8 +222,8 @@ export function Home() {
               </h2>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl bg-white/[0.02] border border-white/[0.08]">
-              <TechIcons />
+            <div className="py-6 sm:py-8 px-4 sm:px-6 rounded-3xl bg-white/[0.02] border border-white/[0.08] overflow-hidden">
+              <TechSphere />
             </div>
           </div>
 

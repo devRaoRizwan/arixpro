@@ -84,9 +84,9 @@ export function Navbar() {
             <ThemeToggle />
 
             <div className="hidden md:flex items-center">
-              <Link to="/contact" className="btn-primary text-[13px] h-[36px] px-4">
-                <span>Start a Project</span>
-                <ArrowUpRight className="size-3.5" />
+              <Link to="/contact" className="btn-primary text-[13px] h-[36px] px-4 text-white">
+                <span className="text-white font-medium">Start a Project</span>
+                <ArrowUpRight className="size-3.5 text-white shrink-0" />
               </Link>
             </div>
 
@@ -135,10 +135,10 @@ export function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="btn-primary w-full justify-center"
+                  className="btn-primary w-full justify-center text-white"
                 >
-                  <span>Start a Project</span>
-                  <ArrowUpRight className="size-4" />
+                  <span className="text-white font-medium">Start a Project</span>
+                  <ArrowUpRight className="size-4 text-white shrink-0" />
                 </Link>
               </div>
             </nav>

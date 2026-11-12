@@ -206,7 +206,7 @@
 }
 
 /* ========================================================================== */
-/* DAY SHIFT / LIGHT THEME (Carefully Crafted Luxury Light Studio)            */
+/* DAY SHIFT / LIGHT THEME (Carefully Crafted Pure White Studio - DEFAULT)    */
 /* ========================================================================== */
 
 html, body {
@@ -214,14 +214,13 @@ html, body {
 }
 
 html.light,
-html.light body {
-  background-color: #F8F7FC !important;
-  color: #4A4064 !important;
+html.light body,
+html:not(.dark),
+html:not(.dark) body {
+  background-color: #FFFFFF !important;
+  color: #382E50 !important;
   color-scheme: light !important;
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(121, 75, 232, 0.08), transparent),
-    radial-gradient(circle at 100% 40%, rgba(56, 189, 248, 0.04), transparent 400px),
-    radial-gradient(circle at 0% 70%, rgba(99, 54, 197, 0.04), transparent 500px) !important;
+  background-image: none !important;
 }
 
 /* Day Mode: Headings and High-Contrast Text */
@@ -231,7 +230,14 @@ html.light h3,
 html.light h4,
 html.light h5,
 html.light h6,
-html.light .text-white {
+html.light .text-white,
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6,
+html:not(.dark) .text-white {
   color: #120826 !important;
 }
 
@@ -241,19 +247,42 @@ html.light .text-\[\#C9C2E0\]\/85,
 html.light .text-\[\#C9C2E0\]\/80,
 html.light .text-\[\#C9C2E0\]\/75,
 html.light .text-\[\#C9C2E0\]\/70,
-html.light .text-\[\#C9C2E0\] {
+html.light .text-\[\#C9C2E0\],
+html:not(.dark) .text-\[\#C9C2E0\]\/90,
+html:not(.dark) .text-\[\#C9C2E0\]\/85,
+html:not(.dark) .text-\[\#C9C2E0\]\/80,
+html:not(.dark) .text-\[\#C9C2E0\]\/75,
+html:not(.dark) .text-\[\#C9C2E0\]\/70,
+html:not(.dark) .text-\[\#C9C2E0\] {
   color: #4A4064 !important;
 }
 
-html.light .text-\[\#8378A6\] {
-  color: #746B8E !important;
+html.light .text-\[\#8378A6\],
+html:not(.dark) .text-\[\#8378A6\] {
+  color: #6D28D9 !important;
+}
+
+html.light .text-\[\#A78BFA\],
+html:not(.dark) .text-\[\#A78BFA\] {
+  color: #7C3AED !important;
 }
 
 /* Day Mode: Section Backgrounds */
 html.light .bg-\[\#090412\],
 html.light .bg-\[\#0A0514\]\/40,
-html.light .bg-\[\#0A0514\]\/50 {
-  background-color: #F8F7FC !important;
+html.light .bg-\[\#0A0514\]\/50,
+html:not(.dark) .bg-\[\#090412\],
+html:not(.dark) .bg-\[\#0A0514\]\/40,
+html:not(.dark) .bg-\[\#0A0514\]\/50 {
+  background-color: #FFFFFF !important;
+}
+
+/* Ambient glow opacity in light mode */
+html.light #hero .blur-\[140px\],
+html.light #hero .blur-\[120px\],
+html:not(.dark) #hero .blur-\[140px\],
+html:not(.dark) #hero .blur-\[120px\] {
+  opacity: 0.12 !important;
 }
 
 /* Day Mode: Elevated Cards & Modals */
@@ -265,20 +294,33 @@ html.light .bg-\[\#0E061E\]\/80,
 html.light .bg-\[\#0E061E\],
 html.light .bg-\[\#120824\]\/80,
 html.light .bg-\[\#120824\]\/90,
-html.light .ui-card {
+html.light .bg-\[\#0A0414\],
+html.light .ui-card,
+html:not(.dark) .bg-\[\#0C061A\],
+html:not(.dark) .bg-\[\#0C061A\]\/80,
+html:not(.dark) .bg-\[\#0C061A\]\/90,
+html:not(.dark) .bg-\[\#0C061A\]\/95,
+html:not(.dark) .bg-\[\#0E061E\]\/80,
+html:not(.dark) .bg-\[\#0E061E\],
+html:not(.dark) .bg-\[\#120824\]\/80,
+html:not(.dark) .bg-\[\#120824\]\/90,
+html:not(.dark) .bg-\[\#0A0414\],
+html:not(.dark) .ui-card {
   background-color: #FFFFFF !important;
   border-color: rgba(18, 8, 38, 0.08) !important;
-  box-shadow: 0 10px 30px -10px rgba(18, 8, 38, 0.06), 0 1px 3px rgba(18, 8, 38, 0.04) !important;
+  box-shadow: 0 4px 20px -2px rgba(18, 8, 38, 0.05), 0 1px 3px rgba(18, 8, 38, 0.03) !important;
 }
 
-html.light .ui-card:hover {
-  border-color: rgba(121, 75, 232, 0.45) !important;
-  box-shadow: 0 14px 40px -10px rgba(121, 75, 232, 0.15) !important;
+html.light .ui-card:hover,
+html:not(.dark) .ui-card:hover {
+  border-color: rgba(124, 58, 237, 0.45) !important;
+  box-shadow: 0 14px 40px -10px rgba(124, 58, 237, 0.12) !important;
 }
 
-/* Day Mode: Contain Mockup Wrapper in Shipped Systems */
-html.light .bg-\[\#06020E\] {
-  background-color: #F0EDF8 !important;
+/* Day Mode: Image/Mockup Containers on White */
+html.light .bg-\[\#06020E\],
+html:not(.dark) .bg-\[\#06020E\] {
+  background-color: #F8F6FD !important;
   border-color: rgba(18, 8, 38, 0.08) !important;
 }
 
@@ -286,7 +328,11 @@ html.light .bg-\[\#06020E\] {
 html.light .border-white\/\[0\.06\],
 html.light .border-white\/\[0\.08\],
 html.light .border-white\/\[0\.1\],
-html.light .border-white\/\[0\.12\] {
+html.light .border-white\/\[0\.12\],
+html:not(.dark) .border-white\/\[0\.06\],
+html:not(.dark) .border-white\/\[0\.08\],
+html:not(.dark) .border-white\/\[0\.1\],
+html:not(.dark) .border-white\/\[0\.12\] {
   border-color: rgba(18, 8, 38, 0.08) !important;
 }
 
@@ -294,112 +340,295 @@ html.light .border-white\/\[0\.12\] {
 html.light .bg-white\/\[0\.02\],
 html.light .bg-white\/\[0\.03\],
 html.light .bg-white\/\[0\.04\],
-html.light .bg-white\/\[0\.05\] {
-  background-color: rgba(18, 8, 38, 0.035) !important;
-  color: #382E50 !important;
+html.light .bg-white\/\[0\.05\],
+html:not(.dark) .bg-white\/\[0\.02\],
+html:not(.dark) .bg-white\/\[0\.03\],
+html:not(.dark) .bg-white\/\[0\.04\],
+html:not(.dark) .bg-white\/\[0\.05\] {
+  background-color: #F5F3FA !important;
+  color: #1E1535 !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
 }
 
 /* Day Mode: Filter Pills in Solution Finder */
-html.light .rounded-full.bg-white\/\[0\.04\] {
+html.light .rounded-full.bg-white\/\[0\.04\],
+html:not(.dark) .rounded-full.bg-white\/\[0\.04\] {
   background-color: #FFFFFF !important;
-  border-color: rgba(18, 8, 38, 0.1) !important;
+  border-color: rgba(18, 8, 38, 0.12) !important;
   color: #4A4064 !important;
   box-shadow: 0 2px 8px rgba(18, 8, 38, 0.04) !important;
 }
 
-html.light .rounded-full.bg-white\/\[0\.04\]:hover {
-  background-color: #F4F1FA !important;
+html.light .rounded-full.bg-white\/\[0\.04\]:hover,
+html:not(.dark) .rounded-full.bg-white\/\[0\.04\]:hover {
+  background-color: #F5F3FF !important;
   color: #120826 !important;
 }
 
 /* Day Mode: Search and Form Inputs */
 html.light input,
 html.light textarea,
-html.light select {
+html.light select,
+html:not(.dark) input,
+html:not(.dark) textarea,
+html:not(.dark) select {
   background-color: #FFFFFF !important;
   color: #120826 !important;
-  border-color: rgba(18, 8, 38, 0.14) !important;
-  box-shadow: 0 2px 12px rgba(18, 8, 38, 0.04) !important;
+  border-color: rgba(18, 8, 38, 0.15) !important;
+  box-shadow: 0 1px 4px rgba(18, 8, 38, 0.04) !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus,
+html:not(.dark) input:focus,
+html:not(.dark) textarea:focus,
+html:not(.dark) select:focus {
+  border-color: #7C3AED !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
 }
 
 html.light input::placeholder,
-html.light textarea::placeholder {
+html.light textarea::placeholder,
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
   color: #8C84A3 !important;
 }
 
 /* Day Mode: Secondary Button */
-html.light .btn-secondary {
-  background-color: rgba(18, 8, 38, 0.04) !important;
+html.light .btn-secondary,
+html:not(.dark) .btn-secondary {
+  background-color: #FFFFFF !important;
   color: #120826 !important;
-  border-color: rgba(18, 8, 38, 0.14) !important;
+  border: 1.5px solid rgba(18, 8, 38, 0.14) !important;
+  box-shadow: 0 2px 8px -2px rgba(18, 8, 38, 0.05) !important;
 }
 
-html.light .btn-secondary:hover {
-  background-color: rgba(18, 8, 38, 0.08) !important;
-  border-color: rgba(18, 8, 38, 0.25) !important;
+html.light .btn-secondary:hover,
+html:not(.dark) .btn-secondary:hover {
+  background-color: #F8F6FD !important;
+  border-color: #7C3AED !important;
   color: #120826 !important;
 }
 
 /* Day Mode: Top Header */
-html.light header {
-  background-color: rgba(248, 247, 252, 0.9) !important;
+html.light header,
+html:not(.dark) header {
+  background-color: rgba(255, 255, 255, 0.9) !important;
   border-color: rgba(18, 8, 38, 0.08) !important;
   box-shadow: 0 4px 20px -2px rgba(18, 8, 38, 0.04) !important;
 }
 
-html.light header a {
+html.light header nav a,
+html:not(.dark) header nav a {
   color: #4A4064;
 }
 
-html.light header a:hover {
+html.light header nav a:hover,
+html:not(.dark) header nav a:hover {
   color: #120826;
 }
 
-html.light header nav {
+/* All Buttons Text & Icons: Strictly White in All Modes */
+.btn-primary,
+.btn-primary *,
+a.btn-primary,
+a.btn-primary *,
+button.btn-primary,
+button.btn-primary *,
+header .btn-primary,
+header .btn-primary *,
+header a.btn-primary,
+header a.btn-primary *,
+html.light .btn-primary,
+html.light .btn-primary *,
+html.light header .btn-primary,
+html.light header .btn-primary *,
+html.light a.btn-primary,
+html.light a.btn-primary *,
+html:not(.dark) .btn-primary,
+html:not(.dark) .btn-primary *,
+html:not(.dark) header .btn-primary,
+html:not(.dark) header .btn-primary *,
+html:not(.dark) a.btn-primary,
+html:not(.dark) a.btn-primary * {
+  color: #FFFFFF !important;
+}
+
+.btn-primary svg,
+.btn-primary svg path,
+header .btn-primary svg,
+header .btn-primary svg path,
+html.light .btn-primary svg,
+html.light .btn-primary svg path,
+html.light header .btn-primary svg,
+html.light header .btn-primary svg path,
+html:not(.dark) .btn-primary svg,
+html:not(.dark) .btn-primary svg path,
+html:not(.dark) header .btn-primary svg,
+html:not(.dark) header .btn-primary svg path {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover,
+.btn-primary:hover *,
+a.btn-primary:hover,
+a.btn-primary:hover *,
+button.btn-primary:hover,
+button.btn-primary:hover *,
+header .btn-primary:hover,
+header .btn-primary:hover *,
+header a.btn-primary:hover,
+header a.btn-primary:hover *,
+html.light .btn-primary:hover,
+html.light .btn-primary:hover *,
+html.light header .btn-primary:hover,
+html.light header .btn-primary:hover *,
+html:not(.dark) .btn-primary:hover,
+html:not(.dark) .btn-primary:hover *,
+html:not(.dark) header .btn-primary:hover,
+html:not(.dark) header .btn-primary:hover * {
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover svg,
+.btn-primary:hover svg path,
+header .btn-primary:hover svg,
+header .btn-primary:hover svg path,
+html.light .btn-primary:hover svg,
+html.light .btn-primary:hover svg path,
+html.light header .btn-primary:hover svg,
+html.light header .btn-primary:hover svg path,
+html:not(.dark) .btn-primary:hover svg,
+html:not(.dark) .btn-primary:hover svg path,
+html:not(.dark) header .btn-primary:hover svg,
+html:not(.dark) header .btn-primary:hover svg path {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+html.light header nav,
+html:not(.dark) header nav {
   background-color: rgba(18, 8, 38, 0.04) !important;
   border-color: rgba(18, 8, 38, 0.08) !important;
 }
 
 /* Day Mode: Footer */
-html.light footer {
-  background-color: #EDE8F5 !important;
+html.light footer,
+html:not(.dark) footer {
+  background-color: #F8F6FD !important;
   border-color: rgba(18, 8, 38, 0.08) !important;
 }
 
-/* Day Mode: Pencil Schematic Drafting CAD Styling */
-html.light #hero .rounded-2xl.border.bg-\[\#0C061A\]\/95 {
+/* Day Mode: Pencil Schematic CAD Drafting Blueprint on Pure White */
+html.light #hero .rounded-2xl.border.bg-\[\#0C061A\]\/95,
+html:not(.dark) #hero .rounded-2xl.border.bg-\[\#0C061A\]\/95 {
   background-color: #FFFFFF !important;
   border-color: rgba(18, 8, 38, 0.1) !important;
   box-shadow: 0 20px 60px -15px rgba(18, 8, 38, 0.08) !important;
 }
 
-html.light #hero text[fill="#FFFFFF"] {
+html.light #hero .border-b.border-white\/\[0\.08\],
+html:not(.dark) #hero .border-b.border-white\/\[0\.08\] {
+  background-color: #FAF8FE !important;
+  border-color: rgba(18, 8, 38, 0.08) !important;
+}
+
+html.light #hero .min-h-\[380px\],
+html:not(.dark) #hero .min-h-\[380px\] {
+  background-image: radial-gradient(rgba(18, 8, 38, 0.07) 1px, transparent 1px) !important;
+}
+
+html.light #hero text[fill="#FFFFFF"],
+html:not(.dark) #hero text[fill="#FFFFFF"] {
   fill: #120826 !important;
+  font-weight: 700 !important;
 }
 
 html.light #hero rect[fill="#140A28"],
-html.light #hero rect[fill="#0C061A"] {
-  fill: #F4F1FA !important;
-  stroke: #A78BFA !important;
+html:not(.dark) #hero rect[fill="#140A28"] {
+  fill: #F8F6FD !important;
+  stroke: #CBD5E1 !important;
 }
 
-html.light #hero rect[stroke="#FFFFFF"] {
-  stroke: #120826 !important;
+html.light #hero rect[fill="#0C061A"],
+html:not(.dark) #hero rect[fill="#0C061A"] {
+  fill: #FFFFFF !important;
+  stroke: #E2E8F0 !important;
 }
 
-html.light #hero path[stroke="rgba(255, 255, 255, 0.15)"] {
-  stroke: rgba(18, 8, 38, 0.15) !important;
+html.light #hero rect[fill="#090314"],
+html:not(.dark) #hero rect[fill="#090314"] {
+  fill: #FFFFFF !important;
+}
+
+html.light #hero line[stroke="#C9C2E0"],
+html:not(.dark) #hero line[stroke="#C9C2E0"] {
+  stroke: #6D28D9 !important;
+  stroke-opacity: 0.45 !important;
+}
+
+html.light #hero path[stroke="rgba(255, 255, 255, 0.15)"],
+html:not(.dark) #hero path[stroke="rgba(255, 255, 255, 0.15)"] {
+  stroke: rgba(18, 8, 38, 0.12) !important;
+}
+
+/* Day Mode: High-Impact Closing CTA Banner in Luxury Obsidian Violet */
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 {
+  background: linear-gradient(135deg, #180C35 0%, #0E0620 100%) !important;
+  border-color: rgba(124, 58, 237, 0.35) !important;
+  box-shadow: 0 20px 60px -15px rgba(124, 58, 237, 0.25) !important;
+}
+
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 h2,
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 span,
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 p,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 h2,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 span,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 p {
+  color: #FFFFFF !important;
+}
+
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6336C5 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.45) !important;
+}
+
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary *,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary * {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover {
+  background: linear-gradient(135deg, #9D74FF 0%, #703DE3 100%) !important;
+  box-shadow: 0 0 28px 0 rgba(139, 92, 246, 0.65) !important;
+}
+
+html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover *,
+html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover * {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
 }
 
 /* Day Mode: Scrollbars */
-html.light ::-webkit-scrollbar-track {
-  background: #F8F7FC;
+html.light ::-webkit-scrollbar-track,
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #FFFFFF;
 }
 
-html.light ::-webkit-scrollbar-thumb {
+html.light ::-webkit-scrollbar-thumb,
+html:not(.dark) ::-webkit-scrollbar-thumb {
   background: rgba(18, 8, 38, 0.15);
 }
 
-html.light ::-webkit-scrollbar-thumb:hover {
-  background: rgba(121, 75, 232, 0.5);
+html.light ::-webkit-scrollbar-thumb:hover,
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
 }
