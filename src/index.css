@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   /* Dark Luxury & Deep Royal Tech Tokens */
@@ -20,12 +21,12 @@
   --emerald-accent: #10B981;
 
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @theme {
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --color-canvas: var(--canvas);
   --color-canvas-subtle: var(--canvas-subtle);
@@ -40,9 +41,12 @@
 }
 
 @layer base {
+  *, *::before, *::after {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
     background-color: #090412;
     color: #C9C2E0;
     font-family: var(--font-sans);
@@ -93,7 +97,7 @@
   transform: translateY(-2px);
 }
 
-/* Glowing Primary Button */
+/* Primary Button (Intuitive Luxury Glow Shadow on Hover) */
 .btn-primary {
   background: linear-gradient(135deg, #8B5CF6 0%, #6336C5 100%);
   color: #FFFFFF;
@@ -109,19 +113,22 @@
   gap: 8px;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px -2px rgba(124, 58, 237, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
+  outline: none;
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #9D74FF 0%, #703DE3 100%);
-  box-shadow: 0 0 28px 0 rgba(139, 92, 246, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  transform: translateY(-1px);
+  box-shadow: 0 10px 28px -3px rgba(124, 58, 237, 0.5), 0 3px 10px -2px rgba(124, 58, 237, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  outline: none !important;
+  transform: translateY(-1.5px);
 }
 
-/* Secondary Button with subtle glass reflection */
+/* Secondary Button (Tactile Elevation Shadow on Hover) */
 .btn-secondary {
   background-color: rgba(255, 255, 255, 0.05);
   color: #FFFFFF;
@@ -139,15 +146,19 @@
   cursor: pointer;
   white-space: nowrap;
   backdrop-filter: blur(8px);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  outline: none;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: rgba(167, 139, 250, 0.5) !important;
+  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.28), 0 2px 6px -1px rgba(0, 0, 0, 0.4) !important;
   color: #FFFFFF;
-  transform: translateY(-1px);
+  outline: none !important;
+  transform: translateY(-1.5px);
 }
 
 /* Custom Scrollbars */
@@ -317,11 +328,152 @@ html:not(.dark) .ui-card:hover {
   box-shadow: 0 14px 40px -10px rgba(124, 58, 237, 0.12) !important;
 }
 
+/* Day Mode: Tech Stack 3D Orbit Tiles (Pure White) */
+html.light .tech-sphere-tile,
+html:not(.dark) .tech-sphere-tile {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 14px rgba(18, 8, 38, 0.06) !important;
+}
+
+/* App Text in Light Theme: Deep Pure Black */
+html.light .tech-sphere-tile span,
+html:not(.dark) .tech-sphere-tile span {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+html.dark .tech-sphere-tile span {
+  color: #FFFFFF !important;
+}
+
+html.light .tech-sphere-tile.is-hovered,
+html:not(.dark) .tech-sphere-tile.is-hovered {
+  background-color: #FFFFFF !important;
+  border-color: #94A3B8 !important;
+  box-shadow: 0 10px 25px -4px rgba(18, 8, 38, 0.12) !important;
+}
+
+/* Dark Mode: Tech Stack 3D Orbit Tiles */
+html.dark .tech-sphere-tile {
+  background-color: rgba(14, 6, 30, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: none !important;
+}
+
+html.dark .tech-sphere-tile.is-hovered {
+  background-color: #1E1238 !important;
+  border-color: rgba(139, 92, 246, 0.8) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Orbit Hover Tooltip: Black on White in Light Theme, White in Dark Theme */
+html.light .tech-sphere-tooltip,
+html:not(.dark) .tech-sphere-tooltip {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12) !important;
+}
+
+html.dark .tech-sphere-tooltip {
+  background-color: #120824 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Day Mode: Tech Stack Tabs (Black Text in Light Theme) */
+html.light .tech-stack-tab,
+html:not(.dark) .tech-stack-tab {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+html.light .tech-stack-tab:hover,
+html:not(.dark) .tech-stack-tab:hover {
+  background-color: #F1F5F9 !important;
+  color: #000000 !important;
+  border-color: #94A3B8 !important;
+}
+
+html.light .tech-stack-tab.is-active,
+html:not(.dark) .tech-stack-tab.is-active {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: 1px solid #7C3AED !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25) !important;
+}
+
+html.light #technology-cta .drag-hint,
+html:not(.dark) #technology-cta .drag-hint {
+  color: #0F172A !important;
+}
+
+html.dark .tech-stack-tab {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(201, 194, 224, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .tech-stack-tab:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .tech-stack-tab.is-active {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: 1px solid #A78BFA !important;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Day Mode: Tech Grid Badges (Pure White in Day Mode) */
+html.light .tech-badge-card,
+html:not(.dark) .tech-badge-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 2px 8px rgba(18, 8, 38, 0.04) !important;
+}
+
+html.light .tech-badge-card:hover,
+html:not(.dark) .tech-badge-card:hover {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 8px 20px -3px rgba(18, 8, 38, 0.08) !important;
+}
+
+html.dark .tech-badge-card {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+html.dark .tech-badge-card:hover {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.2) !important;
+}
+
 /* Day Mode: Image/Mockup Containers on White */
 html.light .bg-\[\#06020E\],
 html:not(.dark) .bg-\[\#06020E\] {
   background-color: #F8F6FD !important;
   border-color: rgba(18, 8, 38, 0.08) !important;
+}
+
+/* Remove all section horizontal boundary dividing lines across the site */
+section {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+header {
+  border-bottom-width: 0 !important;
+  border-bottom-color: transparent !important;
 }
 
 /* Day Mode: Hairline Borders */
@@ -395,20 +547,24 @@ html:not(.dark) textarea::placeholder {
   color: #8C84A3 !important;
 }
 
-/* Day Mode: Secondary Button */
+/* Day Mode: Secondary Button (Tactile elevation shadow on hover) */
 html.light .btn-secondary,
 html:not(.dark) .btn-secondary {
   background-color: #FFFFFF !important;
   color: #120826 !important;
-  border: 1.5px solid rgba(18, 8, 38, 0.14) !important;
-  box-shadow: 0 2px 8px -2px rgba(18, 8, 38, 0.05) !important;
+  border: 1.5px solid rgba(18, 8, 38, 0.12) !important;
+  box-shadow: 0 1px 3px rgba(18, 8, 38, 0.05) !important;
+  outline: none !important;
 }
 
 html.light .btn-secondary:hover,
 html:not(.dark) .btn-secondary:hover {
-  background-color: #F8F6FD !important;
+  background-color: #FFFFFF !important;
   border-color: #7C3AED !important;
-  color: #120826 !important;
+  color: #7C3AED !important;
+  box-shadow: 0 8px 22px -3px rgba(18, 8, 38, 0.08), 0 2px 6px -1px rgba(18, 8, 38, 0.04) !important;
+  transform: translateY(-1.5px);
+  outline: none !important;
 }
 
 /* Day Mode: Top Header */
@@ -444,6 +600,36 @@ html:not(.dark) header .btn-primary *,
 html:not(.dark) a.btn-primary,
 html:not(.dark) a.btn-primary * {
   color: #FFFFFF !important;
+}
+
+/* Primary Button Hover: Intuitive Royal Purple Luminous Shadow */
+.btn-primary:hover,
+button.btn-primary:hover,
+a.btn-primary:hover,
+header .btn-primary:hover,
+header a.btn-primary:hover,
+html.light .btn-primary:hover,
+html.light a.btn-primary:hover,
+html.light button.btn-primary:hover,
+html.light header .btn-primary:hover,
+html:not(.dark) .btn-primary:hover,
+html:not(.dark) a.btn-primary:hover,
+html:not(.dark) button.btn-primary:hover,
+html:not(.dark) header .btn-primary:hover {
+  box-shadow: 0 10px 28px -3px rgba(124, 58, 237, 0.45), 0 3px 10px -2px rgba(124, 58, 237, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  outline: none !important;
+  transform: translateY(-1.5px);
+}
+
+/* Secondary Button Hover: Intuitive Smooth Lift Shadow in Dark Mode */
+html.dark .btn-secondary:hover,
+html.dark button.btn-secondary:hover,
+html.dark a.btn-secondary:hover {
+  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.28), 0 2px 6px -1px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(167, 139, 250, 0.4) !important;
+  outline: none !important;
+  transform: translateY(-1.5px);
 }
 
 .btn-primary svg,
@@ -624,114 +810,155 @@ html.dark header .fixed a:not(.btn-primary):hover {
   background-color: rgba(255, 255, 255, 0.04) !important;
 }
 
-/* Dark Theme Footer */
+/* Dark Theme Footer / Bottom Nav */
 html.dark footer {
   background-color: #07030E !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Day Mode: Footer */
+/* Day Mode: Footer / Bottom Navigation (Pure White with Crisp Top Border) */
 html.light footer,
 html:not(.dark) footer {
-  background-color: #F8F6FD !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
-}
-
-/* Day Mode: Pencil Schematic CAD Drafting Blueprint on Pure White */
-html.light #hero .rounded-2xl.border.bg-\[\#0C061A\]\/95,
-html:not(.dark) #hero .rounded-2xl.border.bg-\[\#0C061A\]\/95 {
   background-color: #FFFFFF !important;
-  border-color: rgba(18, 8, 38, 0.1) !important;
-  box-shadow: 0 20px 60px -15px rgba(18, 8, 38, 0.08) !important;
+  border-top: 1px solid #E2E8F0 !important;
 }
 
-html.light #hero .border-b.border-white\/\[0\.08\],
-html:not(.dark) #hero .border-b.border-white\/\[0\.08\] {
-  background-color: #FAF8FE !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
+html.light footer .border-b,
+html:not(.dark) footer .border-b {
+  border-color: rgba(18, 8, 38, 0.06) !important;
 }
 
-html.light #hero .min-h-\[380px\],
-html:not(.dark) #hero .min-h-\[380px\] {
-  background-image: radial-gradient(rgba(18, 8, 38, 0.07) 1px, transparent 1px) !important;
+html.light footer p,
+html:not(.dark) footer p {
+  color: #475569 !important;
 }
 
-html.light #hero text[fill="#FFFFFF"],
-html:not(.dark) #hero text[fill="#FFFFFF"] {
+html.light footer a:not(:hover),
+html:not(.dark) footer a:not(:hover) {
+  color: #334155 !important;
+}
+
+html.light footer a:hover,
+html:not(.dark) footer a:hover {
+  color: #7C3AED !important;
+}
+
+html.light footer .bg-white\/\[0\.04\],
+html:not(.dark) footer .bg-white\/\[0\.04\] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Schematic Blueprint: Sharp High-Contrast Colors for White and Black BG (Zero Shadows, No Outer Box) */
+
+/* Sharp Purple Node (Backends & Servers) */
+.schematic-purple-stroke {
+  stroke: #7C3AED !important;
+}
+html.dark .schematic-purple-stroke {
+  stroke: #A78BFA !important;
+}
+
+/* Sharp Sky / Cyan Node (Monitors & Frontend) */
+.schematic-sky-stroke {
+  stroke: #0284C7 !important;
+}
+html.dark .schematic-sky-stroke {
+  stroke: #38BDF8 !important;
+}
+
+/* Sharp Emerald Node (Production Apps & Mobile) */
+.schematic-emerald-stroke {
+  stroke: #059669 !important;
+}
+html.dark .schematic-emerald-stroke {
+  stroke: #10B981 !important;
+}
+
+/* Node Text Titles */
+.schematic-title-text {
   fill: #120826 !important;
   font-weight: 700 !important;
 }
-
-html.light #hero rect[fill="#140A28"],
-html:not(.dark) #hero rect[fill="#140A28"] {
-  fill: #F8F6FD !important;
-  stroke: #CBD5E1 !important;
-}
-
-html.light #hero rect[fill="#0C061A"],
-html:not(.dark) #hero rect[fill="#0C061A"] {
+html.dark .schematic-title-text {
   fill: #FFFFFF !important;
-  stroke: #E2E8F0 !important;
+  font-weight: 700 !important;
 }
 
-html.light #hero rect[fill="#090314"],
-html:not(.dark) #hero rect[fill="#090314"] {
+/* Inner Units & Surfaces */
+.schematic-unit-bg {
+  fill: #F8FAFC !important;
+}
+html.dark .schematic-unit-bg {
+  fill: #140A28 !important;
+}
+
+.schematic-surface-bg {
   fill: #FFFFFF !important;
 }
-
-html.light #hero line[stroke="#C9C2E0"],
-html:not(.dark) #hero line[stroke="#C9C2E0"] {
-  stroke: #6D28D9 !important;
-  stroke-opacity: 0.45 !important;
+html.dark .schematic-surface-bg {
+  fill: #0C061A !important;
 }
 
-html.light #hero path[stroke="rgba(255, 255, 255, 0.15)"],
-html:not(.dark) #hero path[stroke="rgba(255, 255, 255, 0.15)"] {
-  stroke: rgba(18, 8, 38, 0.12) !important;
+/* Subtle Structural Wireframe Lines */
+.schematic-neutral-stroke {
+  stroke: #94A3B8 !important;
+}
+html.dark .schematic-neutral-stroke {
+  stroke: #C9C2E0 !important;
 }
 
-/* Day Mode: High-Impact Closing CTA Banner in Luxury Obsidian Violet */
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 {
-  background: linear-gradient(135deg, #180C35 0%, #0E0620 100%) !important;
-  border-color: rgba(124, 58, 237, 0.35) !important;
-  box-shadow: 0 20px 60px -15px rgba(124, 58, 237, 0.25) !important;
+.schematic-guide-path {
+  stroke: rgba(18, 8, 38, 0.18) !important;
+}
+html.dark .schematic-guide-path {
+  stroke: rgba(255, 255, 255, 0.2) !important;
 }
 
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 h2,
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 span,
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 p,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 h2,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 span,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 p {
-  color: #FFFFFF !important;
+/* Pill Tags (REST / API & WebSocket) */
+.schematic-tag-sky-text {
+  fill: #0284C7 !important;
+}
+html.dark .schematic-tag-sky-text {
+  fill: #38BDF8 !important;
 }
 
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary {
-  background: linear-gradient(135deg, #8B5CF6 0%, #6336C5 100%) !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.45) !important;
+.schematic-tag-emerald-text {
+  fill: #059669 !important;
+}
+html.dark .schematic-tag-emerald-text {
+  fill: #34D399 !important;
 }
 
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary *,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary * {
-  color: #FFFFFF !important;
-  stroke: #FFFFFF !important;
+/* Sample Wireframe Lines in Cards */
+.schematic-sample-purple {
+  fill: #7C3AED !important;
+}
+html.dark .schematic-sample-purple {
+  fill: #A78BFA !important;
 }
 
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover {
-  background: linear-gradient(135deg, #9D74FF 0%, #703DE3 100%) !important;
-  box-shadow: 0 0 28px 0 rgba(139, 92, 246, 0.65) !important;
+.schematic-sample-sky {
+  fill: #0284C7 !important;
+}
+html.dark .schematic-sample-sky {
+  fill: #38BDF8 !important;
 }
 
-html.light #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover *,
-html:not(.dark) #technology-cta .rounded-3xl.bg-\[\#120824\]\/90 .btn-primary:hover * {
-  color: #FFFFFF !important;
-  stroke: #FFFFFF !important;
+.schematic-sample-emerald {
+  fill: #059669 !important;
 }
+html.dark .schematic-sample-emerald {
+  fill: #10B981 !important;
+}
+
+.schematic-sample-muted {
+  fill: #64748B !important;
+}
+html.dark .schematic-sample-muted {
+  fill: #94A3B8 !important;
+}
+
 
 /* Day Mode: Scrollbars */
 html.light ::-webkit-scrollbar-track,

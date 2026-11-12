@@ -167,7 +167,7 @@ export function Work() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 border-t border-white/[0.06] bg-[#07030E]">
+      <section className="py-20 bg-[#07030E]">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
           <h2 className="font-sans text-[28px] sm:text-[34px] font-bold text-white tracking-tight">
             Need a similar architecture built?

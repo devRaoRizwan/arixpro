@@ -107,7 +107,7 @@ export function Careers() {
       </section>
 
       {/* 2. Engineering Culture & Values */}
-      <section className="py-16 sm:py-20 border-t border-white/[0.06] bg-[#0A0514]/40">
+      <section className="py-16 sm:py-20 bg-[#0A0514]/40">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-xl mx-auto text-center mb-12">
             <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#A78BFA]">
@@ -140,7 +140,7 @@ export function Careers() {
       </section>
 
       {/* 3. Open Roles */}
-      <section className="py-18 sm:py-24 border-t border-white/[0.06]">
+      <section className="py-18 sm:py-24">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
@@ -216,7 +216,7 @@ export function Careers() {
       </section>
 
       {/* 4. General Application Callout */}
-      <section className="py-16 sm:py-20 border-t border-white/[0.06] bg-[#0A0514]/40 text-center">
+      <section className="py-16 sm:py-20 bg-[#0A0514]/40 text-center">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-2xl mx-auto rounded-3xl border border-white/[0.1] bg-[#120824]/80 p-8 sm:p-12">
             <h2 className="font-sans text-[24px] sm:text-[30px] font-bold text-white tracking-tight">

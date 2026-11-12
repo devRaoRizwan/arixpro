@@ -32,8 +32,8 @@ export function Navbar() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? 'h-[68px] sm:h-[72px] bg-[#090412]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.5)]'
-            : 'h-[76px] sm:h-[82px] bg-transparent border-b border-white/[0.05]'
+            ? 'h-[68px] sm:h-[72px] bg-[#090412]/90 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5)]'
+            : 'h-[76px] sm:h-[82px] bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-12">

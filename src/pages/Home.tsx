@@ -71,7 +71,7 @@ export function Home() {
       {/* 1. Page 1: Hero Section (Full Viewport Height) */}
       <section
         id="hero"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-12 sm:py-20 overflow-hidden snap-start scroll-mt-20"
+        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-12 sm:py-20 overflow-hidden scroll-mt-20"
       >
         {/* Ambient Top Glows */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#794BE8]/15 blur-[140px] pointer-events-none" />
@@ -113,7 +113,7 @@ export function Home() {
       {/* 2. Page 2: Interactive Solution Finder (Full Page Height, Centered & Spacious) */}
       <section
         id="what-we-build"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 border-t border-white/[0.06] bg-[#0A0514]/50 snap-start scroll-mt-20"
+        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 bg-[#0A0514]/50 scroll-mt-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
@@ -132,7 +132,7 @@ export function Home() {
       {/* 3. Page 3: Real Shipped Work (Full Page Height, Centered 3-Column Grid) */}
       <section
         id="shipped-systems"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 border-t border-white/[0.06] snap-start scroll-mt-20"
+        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 scroll-mt-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
@@ -205,47 +205,21 @@ export function Home() {
         </div>
       </section>
 
-      {/* 4. Page 4: Tech Stack & Closing CTA */}
+      {/* 4. Page 4: Tech Stack Foundation */}
       <section
         id="technology-cta"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 border-t border-white/[0.06] bg-[#0A0514]/40 snap-start scroll-mt-20"
+        className="relative flex flex-col justify-center py-16 sm:py-20 bg-[#0A0514]/40 scroll-mt-20"
       >
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full space-y-16 sm:space-y-20">
-          {/* Top Half: Standard Open Runtimes */}
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="text-center">
             <div className="max-w-lg mx-auto mb-8 sm:mb-10">
-              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#A78BFA]">
-                Technology Foundation
-              </span>
-              <h2 className="mt-1.5 font-sans text-[26px] sm:text-[32px] font-bold text-white tracking-tight">
-                Standard Open Runtimes
+              <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-white tracking-tight">
+                Technologies We Build With
               </h2>
             </div>
 
-            <div className="py-6 sm:py-8 px-4 sm:px-6 rounded-3xl bg-white/[0.02] border border-white/[0.08] overflow-hidden">
+            <div className="w-full">
               <TechSphere />
-            </div>
-          </div>
-
-          {/* Bottom Half: High-Impact Closing CTA Banner */}
-          <div className="rounded-3xl border border-white/[0.12] bg-[#120824]/90 p-8 sm:p-14 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-[0_20px_80px_-20px_rgba(121,75,232,0.3)]">
-            <div className="max-w-2xl">
-              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#34D399]">
-                Start Your Project
-              </span>
-              <h2 className="mt-2.5 font-sans text-[28px] sm:text-[38px] font-bold text-white tracking-tight leading-tight">
-                Start Your Next System
-              </h2>
-              <p className="mt-3 font-sans text-[15px] sm:text-[16px] text-[#C9C2E0]/80">
-                Send us what your business needs. We review your requirements and reply with a transparent engineering proposal.
-              </p>
-            </div>
-
-            <div className="shrink-0 w-full sm:w-auto">
-              <Link to="/contact" className="btn-primary text-[15px] h-[52px] px-9 w-full sm:w-auto">
-                <span>Contact Engineering</span>
-                <ArrowUpRight className="size-4" />
-              </Link>
             </div>
           </div>
         </div>

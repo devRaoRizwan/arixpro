@@ -130,7 +130,7 @@ export function SolutionFinder() {
               }}
               className={`px-5 py-2.5 rounded-full text-[13px] sm:text-[14px] font-medium transition-all ${
                 isActive
-                  ? 'bg-[#8B5CF6] text-white shadow-[0_0_24px_rgba(139,92,246,0.4)]'
+                  ? 'bg-[#8B5CF6] text-white'
                   : 'bg-white/[0.04] text-[#C9C2E0]/80 hover:bg-white/[0.08] hover:text-white border border-white/[0.06]'
               }`}
             >
