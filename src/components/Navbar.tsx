@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Navbar() {
@@ -31,31 +32,29 @@ export function Navbar() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? 'h-[54px] bg-[#090412]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.5)]'
-            : 'h-[62px] bg-transparent border-b border-white/[0.05]'
+            ? 'h-[68px] sm:h-[72px] bg-[#090412]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_24px_rgba(0,0,0,0.5)]'
+            : 'h-[76px] sm:h-[82px] bg-transparent border-b border-white/[0.05]'
         }`}
       >
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 sm:px-10 lg:px-12">
           {/* Brand Logo & Wordmark */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="relative size-7 sm:size-8 flex items-center justify-center rounded-lg bg-white/[0.04] border border-white/[0.1] p-1 transition-all group-hover:border-[#8B5CF6]/50 group-hover:shadow-[0_0_12px_rgba(139,92,246,0.3)]">
-              <img
-                src="/images/logo-pomegranate-transparent.png"
-                alt="ArixPro"
-                width={26}
-                height={26}
-                className="size-full object-contain"
-              />
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/images/logo-pomegranate-transparent.png"
+              alt="ArixPro"
+              width={34}
+              height={34}
+              className="size-8 sm:size-9 object-contain transition-transform group-hover:scale-105"
+            />
             <div className="flex flex-col">
-              <span className="font-sans text-[17px] sm:text-[18px] font-bold text-white tracking-tight">
+              <span className="font-sans text-[18px] sm:text-[20px] font-bold text-white tracking-tight leading-none">
                 Arix<span className="text-[#A78BFA]">Pro</span>
               </span>
             </div>
           </Link>
 
-          {/* Center Navigation Links */}
-          <nav className="hidden md:flex items-center gap-0.5 p-1 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md">
+          {/* Center Navigation Links: Pure White Capsule in Day Mode, Deep Black Capsule in Dark Mode + Smooth Sliding Highlight */}
+          <nav className="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-white dark:bg-[#0C061A] border border-slate-200/90 dark:border-white/[0.08] shadow-[0_2px_14px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md relative">
             {navLinks.map((link) => {
               const isActive =
                 link.href === '/'
@@ -67,24 +66,32 @@ export function Navbar() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className={`px-3.5 py-1 rounded-full font-sans text-[13px] font-medium transition-all ${
+                  className={`relative px-4 py-1.5 rounded-full font-sans text-[13.5px] font-medium transition-colors ${
                     isActive
-                      ? 'bg-white/[0.1] text-white shadow-sm border border-white/[0.12]'
-                      : 'text-[#C9C2E0]/80 hover:text-white hover:bg-white/[0.04]'
+                      ? 'text-slate-900 dark:text-white font-semibold'
+                      : 'text-slate-600 hover:text-slate-950 dark:text-[#C9C2E0]/80 dark:hover:text-white'
                   }`}
                 >
-                  {link.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavPill"
+                      data-active-pill="true"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      className="absolute inset-0 rounded-full bg-slate-100 dark:bg-white/[0.1] border border-slate-200/80 dark:border-white/[0.14]"
+                    />
+                  )}
+                  <span className="relative z-10">{link.label}</span>
                 </Link>
               )
             })}
           </nav>
 
           {/* Right Actions: Day/Night Theme Toggle + Action CTA */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex items-center gap-3 sm:gap-3.5">
             <ThemeToggle />
 
             <div className="hidden md:flex items-center">
-              <Link to="/contact" className="btn-primary text-[13px] h-[36px] px-4 text-white">
+              <Link to="/contact" className="btn-primary text-[14px] h-[40px] px-5 text-white">
                 <span className="text-white font-medium">Start a Project</span>
                 <ArrowUpRight className="size-3.5 text-white shrink-0" />
               </Link>
@@ -95,10 +102,10 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="flex size-8 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.04] text-white hover:bg-white/[0.08] transition-colors"
+                className="flex size-9 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.04] text-white hover:bg-white/[0.08] transition-colors"
                 aria-label="Toggle navigation"
               >
-                {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+                {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
               </button>
             </div>
           </div>
@@ -106,7 +113,7 @@ export function Navbar() {
 
         {/* Mobile Dropdown Menu */}
         {mobileOpen && (
-          <div className="fixed inset-x-0 top-[54px] z-50 border-b border-white/[0.1] bg-[#090412]/95 backdrop-blur-2xl px-6 py-6 shadow-2xl md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="fixed inset-x-0 top-[68px] sm:top-[72px] z-50 border-b border-white/[0.1] bg-[#090412]/95 backdrop-blur-2xl px-6 py-6 shadow-2xl md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => {
                 const isActive =
@@ -122,8 +129,8 @@ export function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={`px-4 py-3 rounded-xl font-sans text-[16px] font-medium transition-colors ${
                       isActive
-                        ? 'bg-white/[0.1] text-white border border-white/[0.12]'
-                        : 'text-[#C9C2E0] hover:text-white hover:bg-white/[0.04]'
+                        ? 'bg-slate-100 dark:bg-white/[0.1] text-slate-900 dark:text-white border border-slate-200/80 dark:border-white/[0.12]'
+                        : 'text-slate-600 dark:text-[#C9C2E0] hover:text-slate-950 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/[0.04]'
                     }`}
                   >
                     {link.label}

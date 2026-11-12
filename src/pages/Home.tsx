@@ -71,7 +71,7 @@ export function Home() {
       {/* 1. Page 1: Hero Section (Full Viewport Height) */}
       <section
         id="hero"
-        className="relative min-h-[calc(100vh-62px)] flex flex-col justify-center py-12 sm:py-20 overflow-hidden snap-start scroll-mt-16"
+        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-12 sm:py-20 overflow-hidden snap-start scroll-mt-20"
       >
         {/* Ambient Top Glows */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#794BE8]/15 blur-[140px] pointer-events-none" />

@@ -12,15 +12,13 @@ export function Footer() {
           {/* Left Column: Brand & Google Maps Location Link */}
           <div className="md:col-span-5 space-y-4">
             <Link to="/" className="inline-flex items-center gap-2.5 group">
-              <div className="size-8 rounded-lg bg-white/[0.04] border border-white/[0.1] p-1 flex items-center justify-center">
-                <img
-                  src="/images/logo-pomegranate-transparent.png"
-                  alt="ArixPro"
-                  width={28}
-                  height={28}
-                  className="size-full object-contain"
-                />
-              </div>
+              <img
+                src="/images/logo-pomegranate-transparent.png"
+                alt="ArixPro"
+                width={28}
+                height={28}
+                className="size-7 sm:size-8 object-contain transition-transform group-hover:scale-105"
+              />
               <span className="font-sans text-[18px] font-bold text-white tracking-tight">
                 Arix<span className="text-[#A78BFA]">Pro</span>
               </span>

@@ -419,15 +419,6 @@ html:not(.dark) header {
   box-shadow: 0 4px 20px -2px rgba(18, 8, 38, 0.04) !important;
 }
 
-html.light header nav a,
-html:not(.dark) header nav a {
-  color: #4A4064;
-}
-
-html.light header nav a:hover,
-html:not(.dark) header nav a:hover {
-  color: #120826;
-}
 
 /* All Buttons Text & Icons: Strictly White in All Modes */
 .btn-primary,
@@ -510,8 +501,133 @@ html:not(.dark) header .btn-primary:hover svg path {
 
 html.light header nav,
 html:not(.dark) header nav {
-  background-color: rgba(18, 8, 38, 0.04) !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light header nav a,
+html:not(.dark) header nav a {
+  color: #475569 !important;
+}
+
+html.light header nav a:hover,
+html:not(.dark) header nav a:hover {
+  color: #0F172A !important;
+}
+
+/* Day Mode: Pure Neutral Active Sliding Indicator (Zero Purple Tint) */
+html.light header nav [data-active-pill="true"],
+html:not(.dark) header nav [data-active-pill="true"] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Day Mode: Mobile Dropdown Menu */
+html.light header .fixed,
+html:not(.dark) header .fixed {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light header .fixed a:not(.btn-primary),
+html:not(.dark) header .fixed a:not(.btn-primary) {
+  color: #475569 !important;
+}
+
+html.light header .fixed a:not(.btn-primary):hover,
+html:not(.dark) header .fixed a:not(.btn-primary):hover {
+  color: #0F172A !important;
+  background-color: #F8FAFC !important;
+}
+
+/* Day Mode: Wordmark */
+html.light header a[href="/"] span,
+html:not(.dark) header a[href="/"] span {
+  color: #0F172A !important;
+}
+
+html.light header a[href="/"] span span,
+html:not(.dark) header a[href="/"] span span {
+  color: #7C3AED !important;
+}
+
+/* Dark Theme: Original Pure Black Luxury Styling */
+html.dark,
+html.dark body {
+  background-color: #090412 !important;
+  color: #C9C2E0 !important;
+  color-scheme: dark !important;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(121, 75, 232, 0.15), transparent),
+    radial-gradient(circle at 100% 40%, rgba(56, 189, 248, 0.05), transparent 400px),
+    radial-gradient(circle at 0% 70%, rgba(99, 54, 197, 0.08), transparent 500px) !important;
+  background-attachment: fixed !important;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #FFFFFF !important;
+}
+
+html.dark header {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Dark Theme Capsule: Original Pure Black */
+html.dark header nav {
+  background-color: #0C061A !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark header nav a {
+  color: rgba(201, 194, 224, 0.8) !important;
+}
+
+html.dark header nav a:hover {
+  color: #FFFFFF !important;
+}
+
+/* Dark Theme Active Sliding Pill */
+html.dark header nav [data-active-pill="true"] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.dark header a[href="/"] span {
+  color: #FFFFFF !important;
+}
+
+html.dark header a[href="/"] span span {
+  color: #A78BFA !important;
+}
+
+/* Dark Theme: Mobile Dropdown */
+html.dark header .fixed {
+  background-color: #090412 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9) !important;
+}
+
+html.dark header .fixed a:not(.btn-primary) {
+  color: #C9C2E0 !important;
+}
+
+html.dark header .fixed a:not(.btn-primary):hover {
+  color: #FFFFFF !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Dark Theme Footer */
+html.dark footer {
+  background-color: #07030E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Day Mode: Footer */
