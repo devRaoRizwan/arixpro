@@ -1,24 +1,23 @@
 @import 'tailwindcss';
-@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Dark Luxury & Deep Royal Tech Tokens */
-  --canvas: #090412;
-  --canvas-subtle: #0E071D;
-  --surface-card: rgba(255, 255, 255, 0.035);
-  --surface-card-hover: rgba(255, 255, 255, 0.06);
-  --hairline: rgba(255, 255, 255, 0.08);
-  --hairline-hover: rgba(121, 75, 232, 0.45);
+  /* AI Fiesta Inspired Pristine Light Theme Tokens */
+  --canvas: #FFFFFF;
+  --canvas-subtle: #F8FAFC;
+  --surface-card: #FFFFFF;
+  --surface-card-hover: #FFFFFF;
+  --hairline: #E2E8F0;
+  --hairline-hover: #CBD5E1;
 
-  --ink: #FFFFFF;
-  --body: #C9C2E0;
-  --muted: #8378A6;
+  --ink: #0A0A0A;
+  --body: #475569;
+  --muted: #64748B;
   
-  --purple-glow: rgba(121, 75, 232, 0.35);
-  --purple: #794BE8;
-  --purple-hover: #6336C5;
-  --blue-accent: #38BDF8;
-  --emerald-accent: #10B981;
+  --purple-glow: rgba(99, 54, 197, 0.12);
+  --purple: #6336C5;
+  --purple-hover: #5229AB;
+  --blue-accent: #0284C7;
+  --emerald-accent: #059669;
 
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -47,29 +46,24 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #090412;
-    color: #C9C2E0;
+    background-color: #FFFFFF;
+    color: #0F172A;
     font-family: var(--font-sans);
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
-    background-color: #090412;
-    color: #C9C2E0;
+    background-color: #FFFFFF;
+    color: #334155;
     font-family: var(--font-sans);
     line-height: 1.6;
     font-size: 16px;
     font-weight: 400;
     overflow-x: hidden;
-    background-image: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(121, 75, 232, 0.15), transparent),
-      radial-gradient(circle at 100% 40%, rgba(56, 189, 248, 0.05), transparent 400px),
-      radial-gradient(circle at 0% 70%, rgba(99, 54, 197, 0.08), transparent 500px);
-    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF;
+    color: #0A0A0A;
     font-family: var(--font-sans);
     letter-spacing: -0.025em;
   }
@@ -79,33 +73,32 @@
   }
 }
 
-/* Glassmorphic Luxury Cards with Hairline Borders */
+/* AI Fiesta Pristine Floating Cards */
 .ui-card {
-  background-color: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px -4px rgba(15, 23, 42, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 .ui-card:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-  border-color: rgba(121, 75, 232, 0.45);
-  box-shadow: 0 8px 30px -10px rgba(121, 75, 232, 0.25), 0 0 1px 1px rgba(121, 75, 232, 0.3);
+  background-color: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 14px 35px -8px rgba(15, 23, 42, 0.08);
   transform: translateY(-2px);
 }
 
-/* Primary Button (Intuitive Luxury Glow Shadow on Hover) */
+/* AI Fiesta Primary Pill Button */
 .btn-primary {
-  background: linear-gradient(135deg, #8B5CF6 0%, #6336C5 100%);
-  color: #FFFFFF;
+  background: #0F172A;
+  color: #FFFFFF !important;
   border-radius: 9999px;
-  height: 46px;
-  min-height: 46px;
-  padding: 0 26px;
-  font-size: 15px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 24px;
+  font-size: 14.5px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -113,31 +106,44 @@
   gap: 8px;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 2px 10px -2px rgba(124, 58, 237, 0.25);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
   text-decoration: none;
   outline: none;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #9D74FF 0%, #703DE3 100%);
-  box-shadow: 0 10px 28px -3px rgba(124, 58, 237, 0.5), 0 3px 10px -2px rgba(124, 58, 237, 0.3) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  outline: none !important;
+  background: #1E293B;
+  box-shadow: 0 8px 20px -3px rgba(15, 23, 42, 0.3) !important;
   transform: translateY(-1.5px);
+  outline: none !important;
 }
 
-/* Secondary Button (Tactile Elevation Shadow on Hover) */
+.btn-primary,
+.btn-primary *,
+a.btn-primary,
+a.btn-primary *,
+button.btn-primary,
+button.btn-primary * {
+  color: #FFFFFF !important;
+}
+
+.btn-primary svg,
+.btn-primary svg path {
+  stroke: #FFFFFF !important;
+}
+
+/* AI Fiesta Secondary Pill Button */
 .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #FFFFFF;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0;
   border-radius: 9999px;
-  height: 46px;
-  min-height: 46px;
+  height: 44px;
+  min-height: 44px;
   padding: 0 24px;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -145,325 +151,122 @@
   gap: 8px;
   cursor: pointer;
   white-space: nowrap;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   outline: none;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.09);
-  border-color: rgba(167, 139, 250, 0.5) !important;
-  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.28), 0 2px 6px -1px rgba(0, 0, 0, 0.4) !important;
-  color: #FFFFFF;
-  outline: none !important;
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
   transform: translateY(-1.5px);
+  outline: none !important;
 }
 
-/* Custom Scrollbars */
+/* Custom Clean Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090412;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: #E2E8F0;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(121, 75, 232, 0.4);
+  background: #CBD5E1;
 }
 
-/* Pencil line drawing keyframe loop */
-@keyframes draw-line {
-  0% {
-    stroke-dashoffset: 300;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: -300;
-  }
-}
-
-@keyframes pencil-orbit {
-  0% {
-    transform: translate(190px, 150px) rotate(45deg);
-    opacity: 1;
-  }
-  30% {
-    transform: translate(360px, 90px) rotate(75deg);
-    opacity: 1;
-  }
-  60% {
-    transform: translate(445px, 235px) rotate(120deg);
-    opacity: 1;
-  }
-  90% {
-    transform: translate(515px, 310px) rotate(160deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(190px, 150px) rotate(45deg);
-    opacity: 1;
-  }
-}
-
-/* ========================================================================== */
-/* DAY SHIFT / LIGHT THEME (Carefully Crafted Pure White Studio - DEFAULT)    */
-/* ========================================================================== */
-
-html, body {
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-html.light,
-html.light body,
-html:not(.dark),
-html:not(.dark) body {
+/* Day Mode Containers & Card Overrides */
+.bg-\[\#0C061A\],
+.bg-\[\#0C061A\]\/80,
+.bg-\[\#0C061A\]\/90,
+.bg-\[\#0C061A\]\/95,
+.bg-\[\#0E061E\]\/80,
+.bg-\[\#0E061E\],
+.bg-\[\#120824\]\/80,
+.bg-\[\#120824\]\/90,
+.bg-\[\#0A0414\],
+.bg-\[\#07030E\],
+.bg-\[\#090412\] {
   background-color: #FFFFFF !important;
-  color: #382E50 !important;
-  color-scheme: light !important;
-  background-image: none !important;
+  border-color: #E2E8F0 !important;
 }
 
-/* Day Mode: Headings and High-Contrast Text */
-html.light h1,
-html.light h2,
-html.light h3,
-html.light h4,
-html.light h5,
-html.light h6,
-html.light .text-white,
-html:not(.dark) h1,
-html:not(.dark) h2,
-html:not(.dark) h3,
-html:not(.dark) h4,
-html:not(.dark) h5,
-html:not(.dark) h6,
-html:not(.dark) .text-white {
-  color: #120826 !important;
-}
-
-/* Day Mode: High-Contrast Subtexts & Muted Metadata */
-html.light .text-\[\#C9C2E0\]\/90,
-html.light .text-\[\#C9C2E0\]\/85,
-html.light .text-\[\#C9C2E0\]\/80,
-html.light .text-\[\#C9C2E0\]\/75,
-html.light .text-\[\#C9C2E0\]\/70,
-html.light .text-\[\#C9C2E0\],
-html:not(.dark) .text-\[\#C9C2E0\]\/90,
-html:not(.dark) .text-\[\#C9C2E0\]\/85,
-html:not(.dark) .text-\[\#C9C2E0\]\/80,
-html:not(.dark) .text-\[\#C9C2E0\]\/75,
-html:not(.dark) .text-\[\#C9C2E0\]\/70,
-html:not(.dark) .text-\[\#C9C2E0\] {
-  color: #4A4064 !important;
-}
-
-html.light .text-\[\#8378A6\],
-html:not(.dark) .text-\[\#8378A6\] {
-  color: #6D28D9 !important;
-}
-
-html.light .text-\[\#A78BFA\],
-html:not(.dark) .text-\[\#A78BFA\] {
-  color: #7C3AED !important;
-}
-
-/* Day Mode: Section Backgrounds */
-html.light .bg-\[\#090412\],
-html.light .bg-\[\#0A0514\]\/40,
-html.light .bg-\[\#0A0514\]\/50,
-html:not(.dark) .bg-\[\#090412\],
-html:not(.dark) .bg-\[\#0A0514\]\/40,
-html:not(.dark) .bg-\[\#0A0514\]\/50 {
-  background-color: #FFFFFF !important;
-}
-
-/* Ambient glow opacity in light mode */
-html.light #hero .blur-\[140px\],
-html.light #hero .blur-\[120px\],
-html:not(.dark) #hero .blur-\[140px\],
-html:not(.dark) #hero .blur-\[120px\] {
-  opacity: 0.12 !important;
-}
-
-/* Day Mode: Elevated Cards & Modals */
-html.light .bg-\[\#0C061A\],
-html.light .bg-\[\#0C061A\]\/80,
-html.light .bg-\[\#0C061A\]\/90,
-html.light .bg-\[\#0C061A\]\/95,
-html.light .bg-\[\#0E061E\]\/80,
-html.light .bg-\[\#0E061E\],
-html.light .bg-\[\#120824\]\/80,
-html.light .bg-\[\#120824\]\/90,
-html.light .bg-\[\#0A0414\],
-html.light .ui-card,
-html:not(.dark) .bg-\[\#0C061A\],
-html:not(.dark) .bg-\[\#0C061A\]\/80,
-html:not(.dark) .bg-\[\#0C061A\]\/90,
-html:not(.dark) .bg-\[\#0C061A\]\/95,
-html:not(.dark) .bg-\[\#0E061E\]\/80,
-html:not(.dark) .bg-\[\#0E061E\],
-html:not(.dark) .bg-\[\#120824\]\/80,
-html:not(.dark) .bg-\[\#120824\]\/90,
-html:not(.dark) .bg-\[\#0A0414\],
-html:not(.dark) .ui-card {
-  background-color: #FFFFFF !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
-  box-shadow: 0 4px 20px -2px rgba(18, 8, 38, 0.05), 0 1px 3px rgba(18, 8, 38, 0.03) !important;
-}
-
-html.light .ui-card:hover,
-html:not(.dark) .ui-card:hover {
-  border-color: rgba(124, 58, 237, 0.45) !important;
-  box-shadow: 0 14px 40px -10px rgba(124, 58, 237, 0.12) !important;
-}
-
-/* Day Mode: Tech Stack 3D Orbit Tiles (Pure White) */
-html.light .tech-sphere-tile,
-html:not(.dark) .tech-sphere-tile {
+/* Tech Stack 3D Orbit Tiles (Pure White) */
+.tech-sphere-tile {
   background-color: #FFFFFF !important;
   border: 1px solid #E2E8F0 !important;
-  box-shadow: 0 4px 14px rgba(18, 8, 38, 0.06) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
 }
 
-/* App Text in Light Theme: Deep Pure Black */
-html.light .tech-sphere-tile span,
-html:not(.dark) .tech-sphere-tile span {
+.tech-sphere-tile span {
   color: #000000 !important;
   font-weight: 600 !important;
 }
 
-html.dark .tech-sphere-tile span {
-  color: #FFFFFF !important;
-}
-
-html.light .tech-sphere-tile.is-hovered,
-html:not(.dark) .tech-sphere-tile.is-hovered {
+.tech-sphere-tile.is-hovered {
   background-color: #FFFFFF !important;
   border-color: #94A3B8 !important;
-  box-shadow: 0 10px 25px -4px rgba(18, 8, 38, 0.12) !important;
+  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.1) !important;
 }
 
-/* Dark Mode: Tech Stack 3D Orbit Tiles */
-html.dark .tech-sphere-tile {
-  background-color: rgba(14, 6, 30, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: none !important;
-}
-
-html.dark .tech-sphere-tile.is-hovered {
-  background-color: #1E1238 !important;
-  border-color: rgba(139, 92, 246, 0.8) !important;
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4) !important;
-}
-
-/* Orbit Hover Tooltip: Black on White in Light Theme, White in Dark Theme */
-html.light .tech-sphere-tooltip,
-html:not(.dark) .tech-sphere-tooltip {
+/* Orbit Hover Tooltip: Clean White Box with Black Text */
+.tech-sphere-tooltip {
   background-color: #FFFFFF !important;
   color: #000000 !important;
   border: 1px solid #CBD5E1 !important;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1) !important;
 }
 
-html.dark .tech-sphere-tooltip {
-  background-color: #120824 !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Day Mode: Tech Stack Tabs (Black Text in Light Theme) */
-html.light .tech-stack-tab,
-html:not(.dark) .tech-stack-tab {
+/* Tech Stack Floating Pill Filter Tabs (AI Fiesta Style) */
+.tech-stack-tab {
   background-color: #F8FAFC !important;
-  color: #0F172A !important;
-  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 9999px !important;
 }
 
-html.light .tech-stack-tab:hover,
-html:not(.dark) .tech-stack-tab:hover {
+.tech-stack-tab:hover {
   background-color: #F1F5F9 !important;
-  color: #000000 !important;
-  border-color: #94A3B8 !important;
-}
-
-html.light .tech-stack-tab.is-active,
-html:not(.dark) .tech-stack-tab.is-active {
-  background-color: #7C3AED !important;
-  color: #FFFFFF !important;
-  border: 1px solid #7C3AED !important;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25) !important;
-}
-
-html.light #technology-cta .drag-hint,
-html:not(.dark) #technology-cta .drag-hint {
   color: #0F172A !important;
+  border-color: #CBD5E1 !important;
 }
 
-html.dark .tech-stack-tab {
-  background-color: rgba(255, 255, 255, 0.04) !important;
-  color: rgba(201, 194, 224, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-html.dark .tech-stack-tab:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
+.tech-stack-tab.is-active {
+  background-color: #0F172A !important;
   color: #FFFFFF !important;
+  border: 1px solid #0F172A !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2) !important;
 }
 
-html.dark .tech-stack-tab.is-active {
-  background-color: #7C3AED !important;
-  color: #FFFFFF !important;
-  border: 1px solid #A78BFA !important;
-  box-shadow: 0 0 16px rgba(124, 58, 237, 0.4) !important;
-}
-
-/* Day Mode: Tech Grid Badges (Pure White in Day Mode) */
-html.light .tech-badge-card,
-html:not(.dark) .tech-badge-card {
+/* Grid Badges */
+.tech-badge-card {
   background-color: #FFFFFF !important;
   border: 1px solid #E2E8F0 !important;
-  box-shadow: 0 2px 8px rgba(18, 8, 38, 0.04) !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
 }
 
-html.light .tech-badge-card:hover,
-html:not(.dark) .tech-badge-card:hover {
+.tech-badge-card:hover {
   background-color: #FFFFFF !important;
   border-color: #CBD5E1 !important;
-  box-shadow: 0 8px 20px -3px rgba(18, 8, 38, 0.08) !important;
+  box-shadow: 0 8px 20px -3px rgba(15, 23, 42, 0.08) !important;
 }
 
-html.dark .tech-badge-card {
-  background-color: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: none !important;
+/* Image/Mockup Containers on White */
+.bg-\[\#06020E\] {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
 }
 
-html.dark .tech-badge-card:hover {
-  background-color: rgba(255, 255, 255, 0.07) !important;
-  border-color: rgba(139, 92, 246, 0.5) !important;
-  box-shadow: 0 0 16px rgba(139, 92, 246, 0.2) !important;
-}
-
-/* Day Mode: Image/Mockup Containers on White */
-html.light .bg-\[\#06020E\],
-html:not(.dark) .bg-\[\#06020E\] {
-  background-color: #F8F6FD !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
-}
-
-/* Remove all section horizontal boundary dividing lines across the site */
+/* Remove all section horizontal boundary dividing lines */
 section {
   border-top-width: 0 !important;
   border-bottom-width: 0 !important;
@@ -471,507 +274,183 @@ section {
   border-bottom-color: transparent !important;
 }
 
-header {
-  border-bottom-width: 0 !important;
-  border-bottom-color: transparent !important;
-}
-
-/* Day Mode: Hairline Borders */
-html.light .border-white\/\[0\.06\],
-html.light .border-white\/\[0\.08\],
-html.light .border-white\/\[0\.1\],
-html.light .border-white\/\[0\.12\],
-html:not(.dark) .border-white\/\[0\.06\],
-html:not(.dark) .border-white\/\[0\.08\],
-html:not(.dark) .border-white\/\[0\.1\],
-html:not(.dark) .border-white\/\[0\.12\] {
-  border-color: rgba(18, 8, 38, 0.08) !important;
-}
-
-/* Day Mode: Subsurface Tag Chips & Translucent Badges */
-html.light .bg-white\/\[0\.02\],
-html.light .bg-white\/\[0\.03\],
-html.light .bg-white\/\[0\.04\],
-html.light .bg-white\/\[0\.05\],
-html:not(.dark) .bg-white\/\[0\.02\],
-html:not(.dark) .bg-white\/\[0\.03\],
-html:not(.dark) .bg-white\/\[0\.04\],
-html:not(.dark) .bg-white\/\[0\.05\] {
-  background-color: #F5F3FA !important;
-  color: #1E1535 !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
-}
-
-/* Day Mode: Filter Pills in Solution Finder */
-html.light .rounded-full.bg-white\/\[0\.04\],
-html:not(.dark) .rounded-full.bg-white\/\[0\.04\] {
-  background-color: #FFFFFF !important;
-  border-color: rgba(18, 8, 38, 0.12) !important;
-  color: #4A4064 !important;
-  box-shadow: 0 2px 8px rgba(18, 8, 38, 0.04) !important;
-}
-
-html.light .rounded-full.bg-white\/\[0\.04\]:hover,
-html:not(.dark) .rounded-full.bg-white\/\[0\.04\]:hover {
-  background-color: #F5F3FF !important;
-  color: #120826 !important;
-}
-
-/* Day Mode: Search and Form Inputs */
-html.light input,
-html.light textarea,
-html.light select,
-html:not(.dark) input,
-html:not(.dark) textarea,
-html:not(.dark) select {
-  background-color: #FFFFFF !important;
-  color: #120826 !important;
-  border-color: rgba(18, 8, 38, 0.15) !important;
-  box-shadow: 0 1px 4px rgba(18, 8, 38, 0.04) !important;
-}
-
-html.light input:focus,
-html.light textarea:focus,
-html.light select:focus,
-html:not(.dark) input:focus,
-html:not(.dark) textarea:focus,
-html:not(.dark) select:focus {
-  border-color: #7C3AED !important;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
-}
-
-html.light input::placeholder,
-html.light textarea::placeholder,
-html:not(.dark) input::placeholder,
-html:not(.dark) textarea::placeholder {
-  color: #8C84A3 !important;
-}
-
-/* Day Mode: Secondary Button (Tactile elevation shadow on hover) */
-html.light .btn-secondary,
-html:not(.dark) .btn-secondary {
-  background-color: #FFFFFF !important;
-  color: #120826 !important;
-  border: 1.5px solid rgba(18, 8, 38, 0.12) !important;
-  box-shadow: 0 1px 3px rgba(18, 8, 38, 0.05) !important;
-  outline: none !important;
-}
-
-html.light .btn-secondary:hover,
-html:not(.dark) .btn-secondary:hover {
-  background-color: #FFFFFF !important;
-  border-color: #7C3AED !important;
-  color: #7C3AED !important;
-  box-shadow: 0 8px 22px -3px rgba(18, 8, 38, 0.08), 0 2px 6px -1px rgba(18, 8, 38, 0.04) !important;
-  transform: translateY(-1.5px);
-  outline: none !important;
-}
-
-/* Day Mode: Top Header */
-html.light header,
-html:not(.dark) header {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(18, 8, 38, 0.08) !important;
-  box-shadow: 0 4px 20px -2px rgba(18, 8, 38, 0.04) !important;
-}
-
-
-/* All Buttons Text & Icons: Strictly White in All Modes */
-.btn-primary,
-.btn-primary *,
-a.btn-primary,
-a.btn-primary *,
-button.btn-primary,
-button.btn-primary *,
-header .btn-primary,
-header .btn-primary *,
-header a.btn-primary,
-header a.btn-primary *,
-html.light .btn-primary,
-html.light .btn-primary *,
-html.light header .btn-primary,
-html.light header .btn-primary *,
-html.light a.btn-primary,
-html.light a.btn-primary *,
-html:not(.dark) .btn-primary,
-html:not(.dark) .btn-primary *,
-html:not(.dark) header .btn-primary,
-html:not(.dark) header .btn-primary *,
-html:not(.dark) a.btn-primary,
-html:not(.dark) a.btn-primary * {
-  color: #FFFFFF !important;
-}
-
-/* Primary Button Hover: Intuitive Royal Purple Luminous Shadow */
-.btn-primary:hover,
-button.btn-primary:hover,
-a.btn-primary:hover,
-header .btn-primary:hover,
-header a.btn-primary:hover,
-html.light .btn-primary:hover,
-html.light a.btn-primary:hover,
-html.light button.btn-primary:hover,
-html.light header .btn-primary:hover,
-html:not(.dark) .btn-primary:hover,
-html:not(.dark) a.btn-primary:hover,
-html:not(.dark) button.btn-primary:hover,
-html:not(.dark) header .btn-primary:hover {
-  box-shadow: 0 10px 28px -3px rgba(124, 58, 237, 0.45), 0 3px 10px -2px rgba(124, 58, 237, 0.25) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  outline: none !important;
-  transform: translateY(-1.5px);
-}
-
-/* Secondary Button Hover: Intuitive Smooth Lift Shadow in Dark Mode */
-html.dark .btn-secondary:hover,
-html.dark button.btn-secondary:hover,
-html.dark a.btn-secondary:hover {
-  box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.28), 0 2px 6px -1px rgba(0, 0, 0, 0.4) !important;
-  border-color: rgba(167, 139, 250, 0.4) !important;
-  outline: none !important;
-  transform: translateY(-1.5px);
-}
-
-.btn-primary svg,
-.btn-primary svg path,
-header .btn-primary svg,
-header .btn-primary svg path,
-html.light .btn-primary svg,
-html.light .btn-primary svg path,
-html.light header .btn-primary svg,
-html.light header .btn-primary svg path,
-html:not(.dark) .btn-primary svg,
-html:not(.dark) .btn-primary svg path,
-html:not(.dark) header .btn-primary svg,
-html:not(.dark) header .btn-primary svg path {
-  stroke: #FFFFFF !important;
-  color: #FFFFFF !important;
-}
-
-.btn-primary:hover,
-.btn-primary:hover *,
-a.btn-primary:hover,
-a.btn-primary:hover *,
-button.btn-primary:hover,
-button.btn-primary:hover *,
-header .btn-primary:hover,
-header .btn-primary:hover *,
-header a.btn-primary:hover,
-header a.btn-primary:hover *,
-html.light .btn-primary:hover,
-html.light .btn-primary:hover *,
-html.light header .btn-primary:hover,
-html.light header .btn-primary:hover *,
-html:not(.dark) .btn-primary:hover,
-html:not(.dark) .btn-primary:hover *,
-html:not(.dark) header .btn-primary:hover,
-html:not(.dark) header .btn-primary:hover * {
-  color: #FFFFFF !important;
-}
-
-.btn-primary:hover svg,
-.btn-primary:hover svg path,
-header .btn-primary:hover svg,
-header .btn-primary:hover svg path,
-html.light .btn-primary:hover svg,
-html.light .btn-primary:hover svg path,
-html.light header .btn-primary:hover svg,
-html.light header .btn-primary:hover svg path,
-html:not(.dark) .btn-primary:hover svg,
-html:not(.dark) .btn-primary:hover svg path,
-html:not(.dark) header .btn-primary:hover svg,
-html:not(.dark) header .btn-primary:hover svg path {
-  stroke: #FFFFFF !important;
-  color: #FFFFFF !important;
-}
-
-html.light header nav,
-html:not(.dark) header nav {
-  background-color: #FFFFFF !important;
-  border-color: #E2E8F0 !important;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04) !important;
-}
-
-html.light header nav a,
-html:not(.dark) header nav a {
-  color: #475569 !important;
-}
-
-html.light header nav a:hover,
-html:not(.dark) header nav a:hover {
-  color: #0F172A !important;
-}
-
-/* Day Mode: Pure Neutral Active Sliding Indicator (Zero Purple Tint) */
-html.light header nav [data-active-pill="true"],
-html:not(.dark) header nav [data-active-pill="true"] {
-  background-color: #F1F5F9 !important;
+/* Hairline Borders */
+.border-white\/\[0\.06\],
+.border-white\/\[0\.08\],
+.border-white\/\[0\.1\],
+.border-white\/\[0\.12\] {
   border-color: #E2E8F0 !important;
 }
 
-/* Day Mode: Mobile Dropdown Menu */
-html.light header .fixed,
-html:not(.dark) header .fixed {
-  background-color: #FFFFFF !important;
-  border-color: #E2E8F0 !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
-}
-
-html.light header .fixed a:not(.btn-primary),
-html:not(.dark) header .fixed a:not(.btn-primary) {
-  color: #475569 !important;
-}
-
-html.light header .fixed a:not(.btn-primary):hover,
-html:not(.dark) header .fixed a:not(.btn-primary):hover {
-  color: #0F172A !important;
+/* Subsurface Tag Chips & Translucent Badges */
+.bg-white\/\[0\.02\],
+.bg-white\/\[0\.03\],
+.bg-white\/\[0\.04\],
+.bg-white\/\[0\.05\] {
   background-color: #F8FAFC !important;
-}
-
-/* Day Mode: Wordmark */
-html.light header a[href="/"] span,
-html:not(.dark) header a[href="/"] span {
-  color: #0F172A !important;
-}
-
-html.light header a[href="/"] span span,
-html:not(.dark) header a[href="/"] span span {
-  color: #7C3AED !important;
-}
-
-/* Dark Theme: Original Pure Black Luxury Styling */
-html.dark,
-html.dark body {
-  background-color: #090412 !important;
-  color: #C9C2E0 !important;
-  color-scheme: dark !important;
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(121, 75, 232, 0.15), transparent),
-    radial-gradient(circle at 100% 40%, rgba(56, 189, 248, 0.05), transparent 400px),
-    radial-gradient(circle at 0% 70%, rgba(99, 54, 197, 0.08), transparent 500px) !important;
-  background-attachment: fixed !important;
-}
-
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4,
-html.dark h5,
-html.dark h6 {
-  color: #FFFFFF !important;
-}
-
-html.dark header {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* Dark Theme Capsule: Original Pure Black */
-html.dark header nav {
-  background-color: #0C061A !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6) !important;
-}
-
-html.dark header nav a {
-  color: rgba(201, 194, 224, 0.8) !important;
-}
-
-html.dark header nav a:hover {
-  color: #FFFFFF !important;
-}
-
-/* Dark Theme Active Sliding Pill */
-html.dark header nav [data-active-pill="true"] {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.14) !important;
-}
-
-html.dark header a[href="/"] span {
-  color: #FFFFFF !important;
-}
-
-html.dark header a[href="/"] span span {
-  color: #A78BFA !important;
-}
-
-/* Dark Theme: Mobile Dropdown */
-html.dark header .fixed {
-  background-color: #090412 !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9) !important;
-}
-
-html.dark header .fixed a:not(.btn-primary) {
-  color: #C9C2E0 !important;
-}
-
-html.dark header .fixed a:not(.btn-primary):hover {
-  color: #FFFFFF !important;
-  background-color: rgba(255, 255, 255, 0.04) !important;
-}
-
-/* Dark Theme Footer / Bottom Nav */
-html.dark footer {
-  background-color: #07030E !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-/* Day Mode: Footer / Bottom Navigation (Pure White with Crisp Top Border) */
-html.light footer,
-html:not(.dark) footer {
-  background-color: #FFFFFF !important;
-  border-top: 1px solid #E2E8F0 !important;
-}
-
-html.light footer .border-b,
-html:not(.dark) footer .border-b {
-  border-color: rgba(18, 8, 38, 0.06) !important;
-}
-
-html.light footer p,
-html:not(.dark) footer p {
-  color: #475569 !important;
-}
-
-html.light footer a:not(:hover),
-html:not(.dark) footer a:not(:hover) {
-  color: #334155 !important;
-}
-
-html.light footer a:hover,
-html:not(.dark) footer a:hover {
-  color: #7C3AED !important;
-}
-
-html.light footer .bg-white\/\[0\.04\],
-html:not(.dark) footer .bg-white\/\[0\.04\] {
-  background-color: #F1F5F9 !important;
+  color: #1E293B !important;
   border-color: #E2E8F0 !important;
 }
 
-/* Schematic Blueprint: Sharp High-Contrast Colors for White and Black BG (Zero Shadows, No Outer Box) */
+/* Filter Pills in Solution Finder */
+.rounded-full.bg-white\/\[0\.04\] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #475569 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+}
 
-/* Sharp Purple Node (Backends & Servers) */
+.rounded-full.bg-white\/\[0\.04\]:hover {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Search and Form Inputs */
+input,
+textarea,
+select {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #0F172A !important;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Schematic Blueprint: Clean High-Contrast Vector Lines for White Canvas */
 .schematic-purple-stroke {
-  stroke: #7C3AED !important;
-}
-html.dark .schematic-purple-stroke {
-  stroke: #A78BFA !important;
+  stroke: #6336C5 !important;
 }
 
-/* Sharp Sky / Cyan Node (Monitors & Frontend) */
 .schematic-sky-stroke {
   stroke: #0284C7 !important;
 }
-html.dark .schematic-sky-stroke {
-  stroke: #38BDF8 !important;
-}
 
-/* Sharp Emerald Node (Production Apps & Mobile) */
 .schematic-emerald-stroke {
   stroke: #059669 !important;
 }
-html.dark .schematic-emerald-stroke {
-  stroke: #10B981 !important;
-}
 
-/* Node Text Titles */
 .schematic-title-text {
-  fill: #120826 !important;
-  font-weight: 700 !important;
-}
-html.dark .schematic-title-text {
-  fill: #FFFFFF !important;
+  fill: #0F172A !important;
   font-weight: 700 !important;
 }
 
-/* Inner Units & Surfaces */
 .schematic-unit-bg {
   fill: #F8FAFC !important;
-}
-html.dark .schematic-unit-bg {
-  fill: #140A28 !important;
 }
 
 .schematic-surface-bg {
   fill: #FFFFFF !important;
 }
-html.dark .schematic-surface-bg {
-  fill: #0C061A !important;
-}
 
-/* Subtle Structural Wireframe Lines */
 .schematic-neutral-stroke {
-  stroke: #94A3B8 !important;
-}
-html.dark .schematic-neutral-stroke {
-  stroke: #C9C2E0 !important;
+  stroke: #CBD5E1 !important;
 }
 
 .schematic-guide-path {
-  stroke: rgba(18, 8, 38, 0.18) !important;
-}
-html.dark .schematic-guide-path {
-  stroke: rgba(255, 255, 255, 0.2) !important;
+  stroke: rgba(15, 23, 42, 0.12) !important;
 }
 
-/* Pill Tags (REST / API & WebSocket) */
 .schematic-tag-sky-text {
   fill: #0284C7 !important;
-}
-html.dark .schematic-tag-sky-text {
-  fill: #38BDF8 !important;
 }
 
 .schematic-tag-emerald-text {
   fill: #059669 !important;
 }
-html.dark .schematic-tag-emerald-text {
-  fill: #34D399 !important;
-}
 
-/* Sample Wireframe Lines in Cards */
 .schematic-sample-purple {
-  fill: #7C3AED !important;
-}
-html.dark .schematic-sample-purple {
-  fill: #A78BFA !important;
+  fill: #6336C5 !important;
 }
 
 .schematic-sample-sky {
   fill: #0284C7 !important;
 }
-html.dark .schematic-sample-sky {
-  fill: #38BDF8 !important;
-}
 
 .schematic-sample-emerald {
   fill: #059669 !important;
 }
-html.dark .schematic-sample-emerald {
-  fill: #10B981 !important;
-}
 
 .schematic-sample-muted {
-  fill: #64748B !important;
-}
-html.dark .schematic-sample-muted {
   fill: #94A3B8 !important;
 }
 
-
-/* Day Mode: Scrollbars */
-html.light ::-webkit-scrollbar-track,
-html:not(.dark) ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+/* Footer / Bottom Navigation (AI Fiesta Clean White Layout) */
+footer {
+  background-color: #FFFFFF !important;
+  border-top: 1px solid #E2E8F0 !important;
 }
 
-html.light ::-webkit-scrollbar-thumb,
-html:not(.dark) ::-webkit-scrollbar-thumb {
-  background: rgba(18, 8, 38, 0.15);
+footer .border-b {
+  border-color: #F1F5F9 !important;
 }
 
-html.light ::-webkit-scrollbar-thumb:hover,
-html:not(.dark) ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.5);
+footer p {
+  color: #64748B !important;
+}
+
+footer a:not(:hover) {
+  color: #475569 !important;
+}
+
+footer a:hover {
+  color: #0F172A !important;
+}
+
+footer .bg-white\/\[0\.04\] {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Hand-Drawn Blueprint Sketch Keyframe Animations */
+@keyframes pencil-orbit {
+  0% {
+    transform: translate(220px, 185px) rotate(45deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(380px, 120px) rotate(80deg);
+    opacity: 1;
+  }
+  65% {
+    transform: translate(490px, 190px) rotate(125deg);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(615px, 250px) rotate(160deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(220px, 185px) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -120;
+    opacity: 0;
+  }
 }

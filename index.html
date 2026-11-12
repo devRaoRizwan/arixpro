@@ -28,20 +28,10 @@
     <script>
       (function () {
         try {
-          var params = new URLSearchParams(window.location.search);
-          var paramTheme = params.get('theme');
-          var saved = paramTheme || localStorage.getItem('theme');
-          if (saved === 'dark') {
-            document.documentElement.classList.remove('light');
-            document.documentElement.classList.add('dark');
-            document.documentElement.setAttribute('data-theme', 'dark');
-            if (paramTheme) localStorage.setItem('theme', 'dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.classList.add('light');
-            document.documentElement.setAttribute('data-theme', 'light');
-            if (paramTheme) localStorage.setItem('theme', 'light');
-          }
+          localStorage.removeItem('theme');
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
         } catch (e) {}
       })();
     </script>

@@ -216,8 +216,8 @@ export function TechSphere() {
 
   return (
     <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center select-none">
-      {/* 4 Reduced Category Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-6 px-2">
+      {/* 4 Clean Category Filter Tabs (AI Fiesta Floating Pill Style) */}
+      <div className="inline-flex p-1 rounded-full bg-white border border-slate-200/90 shadow-xs mb-8">
         {CATEGORY_TABS.map((tab) => {
           const isActive = selectedCategory === tab.key
           return (
@@ -225,8 +225,10 @@ export function TechSphere() {
               key={tab.key}
               type="button"
               onClick={() => setSelectedCategory(tab.key)}
-              className={`tech-stack-tab px-4 py-1.5 rounded-full font-mono text-[12px] sm:text-[13px] font-semibold transition-all cursor-pointer ${
-                isActive ? 'is-active' : ''
+              className={`px-4 py-1.5 rounded-full font-sans text-[13px] font-medium transition-all cursor-pointer ${
+                isActive
+                  ? 'bg-slate-950 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
               }`}
             >
               <span>{tab.label}</span>

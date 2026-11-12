@@ -94,21 +94,21 @@ export function SolutionFinder() {
 
   return (
     <div className="w-full">
-      {/* Search Input Bar (Spacious, Intuitive & Clean) */}
+      {/* Search Input Bar (AI Fiesta Floating Pill Style) */}
       <div className="relative max-w-2xl mx-auto">
         <div className="relative flex items-center">
-          <Search className="absolute left-5 size-4 text-[#A78BFA] pointer-events-none" />
+          <Search className="absolute left-5 size-4 text-slate-400 pointer-events-none" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search what you need (e.g. portal, stripe, inventory, sync)..."
-            className="w-full h-[52px] pl-12 pr-12 rounded-full border border-white/[0.12] bg-[#0C061A]/90 text-[15px] text-white placeholder:text-[#8378A6] focus:outline-none focus:border-[#8B5CF6] focus:ring-1 focus:ring-[#8B5CF6]/50 transition-all shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+            className="w-full h-[52px] pl-12 pr-12 rounded-full border border-slate-200 bg-white text-[15px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/5 transition-all shadow-xs"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-4 p-1.5 rounded-full text-[#8378A6] hover:text-white transition-colors"
+              className="absolute right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-900 transition-colors"
               aria-label="Clear search"
             >
               <X className="size-4" />
@@ -117,8 +117,8 @@ export function SolutionFinder() {
         </div>
       </div>
 
-      {/* Quick-Select Filter Pills */}
-      <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+      {/* Quick-Select Filter Pills (Floating Pill Tabs) */}
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
         {SOLUTIONS.map((item) => {
           const isActive = activeSolution.id === item.id
           return (
@@ -128,10 +128,10 @@ export function SolutionFinder() {
                 setSelectedId(item.id)
                 setSearchQuery('')
               }}
-              className={`px-5 py-2.5 rounded-full text-[13px] sm:text-[14px] font-medium transition-all ${
+              className={`px-4.5 py-2 rounded-full text-[13.5px] font-medium transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-[#8B5CF6] text-white'
-                  : 'bg-white/[0.04] text-[#C9C2E0]/80 hover:bg-white/[0.08] hover:text-white border border-white/[0.06]'
+                  ? 'bg-slate-950 text-white shadow-xs'
+                  : 'bg-white text-slate-600 hover:text-slate-950 hover:bg-slate-50 border border-slate-200/90 shadow-xs'
               }`}
             >
               {item.label}
@@ -140,34 +140,34 @@ export function SolutionFinder() {
         })}
       </div>
 
-      {/* Spacious Focused Result Card (Elegant 2-Column Horizontal Studio) */}
+      {/* Spacious Focused Result Card (Clean White Studio) */}
       <div className="mt-10 max-w-5xl mx-auto">
-        <div className="rounded-3xl border border-white/[0.12] bg-[#0E061E]/80 backdrop-blur-xl p-8 sm:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)]">
+        <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-12 shadow-[0_10px_30px_-5px_rgba(15,23,42,0.05)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left 7 cols: Category, Title, Plain Summary */}
             <div className="lg:col-span-7">
-              <span className="inline-block font-mono text-[12px] font-bold text-[#A78BFA] uppercase tracking-wider px-3.5 py-1.5 rounded-md bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 mb-4">
+              <span className="inline-block font-mono text-[11.5px] font-bold text-[#6336C5] uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-[#6336C5]/10 border border-[#6336C5]/20 mb-4">
                 {activeSolution.category}
               </span>
 
-              <h3 className="font-sans text-[24px] sm:text-[32px] font-bold text-white tracking-tight leading-tight">
+              <h3 className="font-sans text-[24px] sm:text-[32px] font-bold text-slate-950 tracking-tight leading-tight">
                 {activeSolution.title}
               </h3>
 
-              <p className="mt-3.5 font-sans text-[16px] leading-relaxed text-[#C9C2E0]/90">
+              <p className="mt-3.5 font-sans text-[16px] leading-relaxed text-slate-600">
                 {activeSolution.summary}
               </p>
             </div>
 
             {/* Right 5 cols: Highlights checklist + Action Button */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6 pt-6 lg:pt-0 lg:pl-8 lg:border-l border-white/[0.08]">
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6 pt-6 lg:pt-0 lg:pl-8 lg:border-l border-slate-200">
               <div className="space-y-2.5">
                 {activeSolution.highlights.map((highlight) => (
                   <div
                     key={highlight}
-                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-[13px] font-mono text-[#E4DEF2]"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[13.5px] font-sans text-slate-800"
                   >
-                    <Check className="size-4 text-[#10B981] shrink-0" />
+                    <Check className="size-4 text-[#059669] shrink-0" />
                     <span>{highlight}</span>
                   </div>
                 ))}
@@ -175,7 +175,7 @@ export function SolutionFinder() {
 
               <Link
                 to={activeSolution.href}
-                className="btn-primary w-full h-[48px] text-[14px] flex items-center justify-center gap-2"
+                className="btn-primary w-full h-[46px] text-[14px] flex items-center justify-center gap-2 rounded-full"
               >
                 <span>Build This System</span>
                 <ArrowUpRight className="size-4" />

@@ -58,13 +58,13 @@ export function TypewriterText() {
 
   return (
     <span className="inline-flex items-baseline font-sans font-bold tracking-tight ml-2.5 sm:ml-3.5 whitespace-nowrap">
-      {/* Crisp Solid Royal Purple color for auto complete text (No shadow) */}
-      <span className="text-[#7C3AED] dark:text-[#A78BFA]">
+      {/* Crisp Solid Royal Purple color for auto complete text */}
+      <span className="text-[#6336C5]">
         {displayed}
       </span>
       {/* Crisp Royal Purple Terminal Cursor */}
       <span
-        className={`inline-block w-[3px] h-[0.85em] bg-[#7C3AED] dark:bg-[#A78BFA] ml-1.5 align-middle rounded-full transition-opacity duration-100 ${
+        className={`inline-block w-[3px] h-[0.85em] bg-[#6336C5] ml-1.5 align-middle rounded-full transition-opacity duration-100 ${
           blink ? 'opacity-100' : 'opacity-0'
         }`}
         aria-hidden="true"

@@ -45,7 +45,7 @@ const ROLES: Role[] = [
     type: 'Full-time',
     location: 'Lahore / Remote Flexible',
     team: 'Design Engineering',
-    desc: 'Craft ultra-fast, responsive web interfaces, interactive data telemetry canvas charts, and polished dark luxury user experiences.',
+    desc: 'Craft ultra-fast, responsive web interfaces, interactive data telemetry canvas charts, and polished, accessible user experiences.',
     requirements: [
       'Exceptional eye for design detail, typography rhythm, and micro-interactions',
       'Proficiency with modern React, Tailwind CSS, and headless UI patterns',
@@ -56,22 +56,22 @@ const ROLES: Role[] = [
 
 const PERKS = [
   {
-    icon: <Terminal className="size-5 text-[#A78BFA]" />,
+    icon: <Terminal className="size-5 text-[#6336C5]" />,
     title: 'Autonomous Engineering',
     desc: 'Direct architectural ownership without layers of non-technical middlemen or unnecessary meetings.',
   },
   {
-    icon: <Code className="size-5 text-[#38BDF8]" />,
+    icon: <Code className="size-5 text-[#0284C7]" />,
     title: 'Modern Production Stack',
     desc: 'React 19, TypeScript, Python 3.12, FastAPI, PostgreSQL, and Docker. Zero legacy technical debt.',
   },
   {
-    icon: <MapPin className="size-5 text-[#10B981]" />,
+    icon: <MapPin className="size-5 text-[#059669]" />,
     title: 'Kickstart DHA Phase 8',
     desc: 'Modern collaborative workspace in Lahore equipped with ergonomic setups and high-speed fiber internet.',
   },
   {
-    icon: <Sparkles className="size-5 text-[#FBBF24]" />,
+    icon: <Sparkles className="size-5 text-[#D97706]" />,
     title: 'Competitive Compensation',
     desc: 'Above-market base pay, performance bonuses, and transparent career advancement.',
   },
@@ -85,35 +85,35 @@ export function Careers() {
   })
 
   return (
-    <div className="w-full text-white selection:bg-[#8B5CF6]/30 selection:text-white">
+    <div className="w-full text-slate-900 bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
       {/* 1. Hero Header */}
-      <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-[#794BE8]/15 blur-[140px] pointer-events-none" />
+      <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden border-b border-slate-100">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-purple-100/50 to-transparent blur-[120px] pointer-events-none" />
 
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] font-mono text-[#A78BFA] mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[12px] font-mono text-[#6336C5] mb-6 shadow-xs font-semibold">
             <Briefcase className="size-3.5" />
             <span>Join Our Engineering Team</span>
           </div>
 
-          <h1 className="font-sans text-[36px] sm:text-[50px] lg:text-[60px] font-bold text-white tracking-tight leading-[1.15] max-w-4xl mx-auto">
+          <h1 className="font-sans text-[36px] sm:text-[50px] lg:text-[60px] font-bold text-slate-950 tracking-tight leading-[1.15] max-w-4xl mx-auto">
             Build High-Impact Systems With Us
           </h1>
 
-          <p className="mt-6 font-sans text-[17px] sm:text-[19px] leading-[1.65] text-[#C9C2E0]/85 max-w-2xl mx-auto">
+          <p className="mt-6 font-sans text-[17px] sm:text-[19px] leading-[1.65] text-slate-600 max-w-2xl mx-auto">
             We are an independent software studio based at Kickstart, DHA Phase 8, Lahore. We look for autonomous engineers who take pride in writing clean, well-tested code and shipping production systems.
           </p>
         </div>
       </section>
 
       {/* 2. Engineering Culture & Values */}
-      <section className="py-16 sm:py-20 bg-[#0A0514]/40">
+      <section className="py-16 sm:py-20 bg-slate-50/60">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-xl mx-auto text-center mb-12">
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#6336C5]">
               Culture &amp; Philosophy
             </span>
-            <h2 className="mt-2 font-sans text-[28px] sm:text-[34px] font-bold text-white tracking-tight">
+            <h2 className="mt-2 font-sans text-[28px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
               Why Engineers Choose ArixPro
             </h2>
           </div>
@@ -122,14 +122,14 @@ export function Careers() {
             {PERKS.map((perk) => (
               <div
                 key={perk.title}
-                className="p-6 rounded-2xl border border-white/[0.08] bg-[#0C061A]/80 flex flex-col justify-between"
+                className="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col justify-between shadow-xs"
               >
                 <div>
-                  <div className="size-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center mb-4">
+                  <div className="size-10 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center mb-4">
                     {perk.icon}
                   </div>
-                  <h3 className="font-sans text-[18px] font-bold text-white">{perk.title}</h3>
-                  <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#C9C2E0]/70">
+                  <h3 className="font-sans text-[18px] font-bold text-slate-950">{perk.title}</h3>
+                  <p className="mt-2 font-sans text-[14px] leading-relaxed text-slate-600">
                     {perk.desc}
                   </p>
                 </div>
@@ -140,18 +140,18 @@ export function Careers() {
       </section>
 
       {/* 3. Open Roles */}
-      <section className="py-18 sm:py-24">
+      <section className="py-18 sm:py-24 bg-white">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#6336C5]">
                 Available Positions
               </span>
-              <h2 className="mt-2 font-sans text-[28px] sm:text-[36px] font-bold text-white tracking-tight">
+              <h2 className="mt-2 font-sans text-[28px] sm:text-[36px] font-bold text-slate-950 tracking-tight">
                 Current Openings
               </h2>
             </div>
-            <span className="font-mono text-[13px] text-[#8378A6]">
+            <span className="font-mono text-[13px] text-slate-500">
               {ROLES.length} open technical roles
             </span>
           </div>
@@ -160,32 +160,32 @@ export function Careers() {
             {ROLES.map((role) => (
               <article
                 key={role.id}
-                className="rounded-2xl border border-white/[0.08] bg-[#0E061E]/80 p-6 sm:p-8 hover:border-[#8B5CF6]/40 transition-all shadow-[0_12px_40px_-15px_rgba(0,0,0,0.7)]"
+                className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 hover:border-slate-300 transition-all shadow-xs"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/[0.06]">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-100">
                   <div>
                     <div className="flex flex-wrap items-center gap-2.5 mb-2">
-                      <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#C084FC]">
+                      <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-[#6336C5]/10 border border-[#6336C5]/20 text-[#6336C5] font-semibold">
                         {role.team}
                       </span>
-                      <span className="font-mono text-[11px] text-[#8378A6] flex items-center gap-1">
+                      <span className="font-mono text-[11px] text-slate-500 flex items-center gap-1">
                         <Clock className="size-3" />
                         {role.type}
                       </span>
-                      <span className="font-mono text-[11px] text-[#8378A6] flex items-center gap-1">
+                      <span className="font-mono text-[11px] text-slate-500 flex items-center gap-1">
                         <MapPin className="size-3" />
                         {role.location}
                       </span>
                     </div>
 
-                    <h3 className="font-sans text-[22px] sm:text-[26px] font-bold text-white tracking-tight">
+                    <h3 className="font-sans text-[22px] sm:text-[26px] font-bold text-slate-950 tracking-tight">
                       {role.title}
                     </h3>
                   </div>
 
                   <a
                     href={`mailto:careers@arixpro.com?subject=Application:%20${encodeURIComponent(role.title)}`}
-                    className="btn-primary text-[14px] h-[44px] px-6 shrink-0 self-start lg:self-auto"
+                    className="btn-primary text-[14px] h-[40px] px-6 shrink-0 self-start lg:self-auto rounded-full"
                   >
                     <span>Apply for Role</span>
                     <ArrowUpRight className="size-4" />
@@ -193,17 +193,17 @@ export function Careers() {
                 </div>
 
                 <div className="mt-6">
-                  <p className="font-sans text-[15px] leading-relaxed text-[#C9C2E0]/85">
+                  <p className="font-sans text-[15px] leading-relaxed text-slate-600">
                     {role.desc}
                   </p>
 
                   <div className="mt-5 space-y-2">
-                    <span className="block font-mono text-[11px] uppercase tracking-wider text-[#A78BFA] mb-2">
+                    <span className="block font-mono text-[11px] uppercase tracking-wider text-[#6336C5] font-semibold mb-2">
                       What We Look For:
                     </span>
                     {role.requirements.map((req) => (
-                      <div key={req} className="flex items-start gap-2.5 text-[14px] text-[#C9C2E0]/80">
-                        <CheckCircle2 className="size-4 text-[#10B981] shrink-0 mt-0.5" />
+                      <div key={req} className="flex items-start gap-2.5 text-[14px] text-slate-700">
+                        <CheckCircle2 className="size-4 text-[#059669] shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </div>
                     ))}
@@ -216,25 +216,25 @@ export function Careers() {
       </section>
 
       {/* 4. General Application Callout */}
-      <section className="py-16 sm:py-20 bg-[#0A0514]/40 text-center">
+      <section className="py-16 sm:py-20 bg-slate-50/60 text-center border-t border-slate-100">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mx-auto rounded-3xl border border-white/[0.1] bg-[#120824]/80 p-8 sm:p-12">
-            <h2 className="font-sans text-[24px] sm:text-[30px] font-bold text-white tracking-tight">
+          <div className="max-w-2xl mx-auto rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-sm">
+            <h2 className="font-sans text-[24px] sm:text-[30px] font-bold text-slate-950 tracking-tight">
               Don’t see your exact role?
             </h2>
-            <p className="mt-3 font-sans text-[15px] leading-relaxed text-[#C9C2E0]/80">
+            <p className="mt-3 font-sans text-[15px] leading-relaxed text-slate-600">
               We always make room for exceptional engineers. Send your GitHub, portfolio, or resume directly to our engineering team.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="mailto:careers@arixpro.com?subject=General%20Engineering%20Inquiry"
-                className="btn-primary text-[15px] h-[48px] px-7"
+                className="btn-primary text-[15px] h-[46px] px-7 rounded-full"
               >
                 <span>Email careers@arixpro.com</span>
                 <ArrowUpRight className="size-4" />
               </a>
-              <Link to="/contact" className="btn-secondary text-[15px] h-[48px] px-7">
+              <Link to="/contact" className="btn-secondary text-[15px] h-[46px] px-7 rounded-full">
                 <span>Contact Us</span>
               </Link>
             </div>

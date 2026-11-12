@@ -12,7 +12,7 @@ import { Contact } from './pages/Contact'
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#090412] text-[#C9C2E0] font-sans antialiased selection:bg-[#8B5CF6]/30 selection:text-white flex flex-col justify-between">
+    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-[#6336C5]/15 selection:text-[#6336C5] flex flex-col justify-between">
       <Navbar />
       <main id="main" className="flex-1">
         <Routes>

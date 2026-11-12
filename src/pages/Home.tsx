@@ -34,7 +34,7 @@ const systems = [
 ]
 
 export function Home() {
-  // Page-based scroll: When user is on page 1 (hero) and scrolls downward a bit, smoothly glide into page 2
+  // Page-based smooth scroll helper
   useEffect(() => {
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash)
@@ -48,7 +48,6 @@ export function Home() {
     let isThrottled = false
 
     const handleWheel = (e: WheelEvent) => {
-      // If user is at or near the top of the hero and moves wheel downwards:
       if (window.scrollY < 80 && e.deltaY > 15 && !isThrottled) {
         isThrottled = true
         e.preventDefault()
@@ -67,60 +66,59 @@ export function Home() {
   }, [])
 
   return (
-    <div className="w-full text-white selection:bg-[#8B5CF6]/30 selection:text-white">
+    <div className="w-full text-slate-900 bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
       {/* 1. Page 1: Hero Section (Full Viewport Height) */}
       <section
         id="hero"
         className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-12 sm:py-20 overflow-hidden scroll-mt-20"
       >
-        {/* Ambient Top Glows */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#794BE8]/15 blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/4 right-0 w-[500px] h-[350px] bg-[#38BDF8]/10 blur-[120px] pointer-events-none" />
+        {/* Subtle ambient light gradient at top (AI Fiesta Style) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-purple-100/50 via-purple-50/20 to-transparent blur-[90px] pointer-events-none" />
 
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Left Column: Headline with Typewriter & Direct CTAs */}
             <div className="lg:col-span-6 flex flex-col justify-center">
-              <h1 className="font-sans text-[38px] sm:text-[50px] lg:text-[58px] xl:text-[64px] font-bold text-white tracking-tight leading-[1.15]">
+              <h1 className="font-sans text-[38px] sm:text-[50px] lg:text-[58px] xl:text-[64px] font-bold text-slate-950 tracking-tight leading-[1.12]">
                 <span>We Build</span>
                 <TypewriterText />
-                <span className="block mt-1 sm:mt-2 text-white">That Scale.</span>
+                <span className="block mt-1 sm:mt-2 text-slate-950">That Scale.</span>
               </h1>
 
-              <p className="mt-6 font-sans text-[17px] sm:text-[20px] leading-[1.65] text-[#C9C2E0]/90 max-w-xl">
+              <p className="mt-6 font-sans text-[17px] sm:text-[20px] leading-[1.65] text-slate-600 max-w-xl">
                 Custom software, built clean, tested, and shipped to production.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-                <Link to="/contact" className="btn-primary text-[16px] h-[52px] px-8">
+                <Link to="/contact" className="btn-primary text-[15px] h-[48px] px-7">
                   <span>Build With Us</span>
                   <ArrowUpRight className="size-4" />
                 </Link>
-                <Link to="/work" className="btn-secondary text-[16px] h-[52px] px-8">
+                <Link to="/work" className="btn-secondary text-[15px] h-[48px] px-7">
                   <span>View Shipped Systems</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Column: Servers, Monitors & Mobiles Blueprint */}
-            <div className="lg:col-span-6">
+            {/* Right Column: Hand-Sketched Architectural Blueprint */}
+            <div className="lg:col-span-6 flex items-center justify-center">
               <PencilSchematic />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Page 2: Interactive Solution Finder (Full Page Height, Centered & Spacious) */}
+      {/* 2. Page 2: Interactive Solution Finder (Clean Off-White Surface) */}
       <section
         id="what-we-build"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 bg-[#0A0514]/50 scroll-mt-20"
+        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 bg-slate-50/60 scroll-mt-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <h2 className="font-sans text-[30px] sm:text-[40px] font-bold text-white tracking-tight">
+            <h2 className="font-sans text-[30px] sm:text-[40px] font-bold text-slate-950 tracking-tight">
               What does your business need?
             </h2>
-            <p className="mt-2.5 text-[15px] sm:text-[16px] text-[#C9C2E0]/75">
+            <p className="mt-2.5 text-[15px] sm:text-[16px] text-slate-600">
               Search what you want to achieve or select a core capability.
             </p>
           </div>
@@ -129,24 +127,24 @@ export function Home() {
         </div>
       </section>
 
-      {/* 3. Page 3: Real Shipped Work (Full Page Height, Centered 3-Column Grid) */}
+      {/* 3. Page 3: Real Shipped Work (Clean White Canvas) */}
       <section
         id="shipped-systems"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 scroll-mt-20"
+        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 bg-white scroll-mt-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
-              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
                 Case Studies
               </span>
-              <h2 className="mt-2.5 font-sans text-[30px] sm:text-[40px] font-bold text-white tracking-tight">
+              <h2 className="mt-2.5 font-sans text-[30px] sm:text-[40px] font-bold text-slate-950 tracking-tight">
                 Shipped Systems
               </h2>
             </div>
             <Link
               to="/work"
-              className="font-sans text-[15px] font-semibold text-[#A78BFA] hover:text-white inline-flex items-center gap-2 transition-colors"
+              className="font-sans text-[15px] font-semibold text-[#6336C5] hover:text-slate-950 inline-flex items-center gap-2 transition-colors"
             >
               <span>View all projects</span>
               <ArrowRight className="size-4" />
@@ -157,12 +155,12 @@ export function Home() {
             {systems.map((system) => (
               <article
                 key={system.slug}
-                className="ui-card flex flex-col justify-between overflow-hidden group hover:border-[#8B5CF6]/40 transition-all"
+                className="ui-card flex flex-col justify-between overflow-hidden group transition-all"
               >
                 {/* Contain Image */}
                 <Link
                   to={`/work/${system.slug}`}
-                  className="block w-full bg-[#06020E] p-6 border-b border-white/[0.08] flex items-center justify-center overflow-hidden"
+                  className="block w-full bg-slate-50/80 p-6 border-b border-slate-100 flex items-center justify-center overflow-hidden"
                 >
                   <img
                     src={system.image}
@@ -174,29 +172,29 @@ export function Home() {
                   />
                 </Link>
 
-                <div className="p-6 sm:p-7 flex flex-1 flex-col justify-between">
+                <div className="p-6 sm:p-7 flex flex-1 flex-col justify-between bg-white">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="font-mono text-[12px] font-bold text-[#10B981]">
+                      <span className="font-mono text-[12px] font-bold text-[#059669]">
                         {system.metric}
                       </span>
-                      <span className="font-mono text-[11px] text-[#8378A6] uppercase tracking-wider">
+                      <span className="font-mono text-[11px] text-slate-500 uppercase tracking-wider">
                         {system.tag}
                       </span>
                     </div>
 
-                    <h3 className="font-sans text-[20px] font-bold text-white group-hover:text-[#A78BFA] transition-colors">
+                    <h3 className="font-sans text-[20px] font-bold text-slate-950 group-hover:text-[#6336C5] transition-colors">
                       <Link to={`/work/${system.slug}`}>{system.title}</Link>
                     </h3>
 
-                    <p className="mt-2.5 font-sans text-[14px] leading-relaxed text-[#C9C2E0]/80">
+                    <p className="mt-2.5 font-sans text-[14px] leading-relaxed text-slate-600">
                       {system.description}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
-                    <span className="font-mono text-[12px] text-[#8378A6]">Inspect architecture</span>
-                    <ArrowRight className="size-4 text-[#A78BFA] transition-transform group-hover:translate-x-1" />
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="font-mono text-[12px] text-slate-500">Inspect architecture</span>
+                    <ArrowRight className="size-4 text-[#6336C5] transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </article>
@@ -208,12 +206,12 @@ export function Home() {
       {/* 4. Page 4: Tech Stack Foundation */}
       <section
         id="technology-cta"
-        className="relative flex flex-col justify-center py-16 sm:py-20 bg-[#0A0514]/40 scroll-mt-20"
+        className="relative flex flex-col justify-center py-16 sm:py-20 bg-slate-50/60 scroll-mt-20"
       >
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
           <div className="text-center">
             <div className="max-w-lg mx-auto mb-8 sm:mb-10">
-              <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-white tracking-tight">
+              <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
                 Technologies We Build With
               </h2>
             </div>

@@ -1,18 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { TechIcons } from '../components/TechIcons'
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  CheckCircle2,
-  Layers,
-  Cpu,
-  Database,
-  Activity,
-  ShieldCheck,
-} from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck, Database, Layers, Activity, Cpu } from 'lucide-react'
 
-interface ProjectDetailData {
+interface ProjectDetail {
   title: string
   subtitle: string
   category: string
@@ -37,15 +27,15 @@ interface ProjectDetailData {
   nextTitle: string
 }
 
-const PROJECTS_DATA: Record<string, ProjectDetailData> = {
+const PROJECTS_DATA: Record<string, ProjectDetail> = {
   'analytics-dashboard': {
     title: 'Analytics Dashboard',
-    subtitle: 'Unified Operational Telemetry & High-Throughput Aggregation Engine',
-    category: 'Operational Intelligence',
+    subtitle: 'High-Concurrency Real-Time Querying & Telemetry Aggregation Engine',
+    category: 'Telemetry & Analytics',
     image: '/images/work-analytics-dashboard.webp',
-    problem: 'Data lives in 3 disparate silos, queries take up to 45 seconds, and executives lack trusted real-time visibility.',
+    problem: 'Slow SQL execution times, cold-start latency, and lack of live updates paralyzing executive decision workflows.',
     problemContext:
-      'The organization previously relied on manual CSV dumps across three isolated internal databases. High query overhead caused database locks during business hours, leading to inconsistent KPIs and delayed executive decisions.',
+      'The client was relying on legacy batch queries running directly on operational production replicas. Reports took up to 45 seconds to generate, triggering database lock contention and providing stale data to leadership.',
     whatWeBuilt:
       'A decoupled, event-driven telemetry dashboard pairing an asynchronous FastAPI data ingestor with an optimized PostgreSQL read-replica cluster and a sub-100ms React visualization layer.',
     architectureDetails: [
@@ -181,16 +171,16 @@ export function WorkDetail() {
 
   if (!project) {
     return (
-      <div className="py-24 text-center text-white">
+      <div className="py-24 text-center text-slate-900 bg-white">
         <div className="mx-auto max-w-md px-6">
-          <h1 className="font-sans text-[26px] font-bold text-white">
+          <h1 className="font-sans text-[26px] font-bold text-slate-950">
             System Case Study Not Found
           </h1>
-          <p className="mt-3 text-[#C9C2E0]/80 font-sans text-[15px]">
+          <p className="mt-3 text-slate-600 font-sans text-[15px]">
             The requested architecture case study does not exist or has been relocated.
           </p>
           <div className="mt-8">
-            <Link to="/work" className="btn-primary">
+            <Link to="/work" className="btn-primary rounded-full">
               Return to Work &amp; Systems
             </Link>
           </div>
@@ -200,27 +190,27 @@ export function WorkDetail() {
   }
 
   return (
-    <div className="w-full text-white selection:bg-[#8B5CF6]/30 selection:text-white">
+    <div className="w-full text-slate-900 bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
       {/* Top Breadcrumb Navigation */}
-      <div className="border-b border-white/[0.06] py-4 bg-black/40 backdrop-blur-md">
+      <div className="border-b border-slate-100 py-4 bg-slate-50/80 backdrop-blur-md">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 flex items-center justify-between">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-[#C9C2E0] hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-slate-600 hover:text-slate-950 transition-colors"
           >
             <ArrowLeft className="size-4" />
             <span>Back to Work &amp; Systems</span>
           </Link>
-          <span className="font-mono text-[11px] font-bold text-[#A78BFA] uppercase tracking-wider bg-[#8B5CF6]/15 px-3 py-1 rounded-full border border-[#8B5CF6]/30">
+          <span className="font-mono text-[11px] font-bold text-[#6336C5] uppercase tracking-wider bg-[#6336C5]/10 px-3 py-1 rounded-full border border-[#6336C5]/20">
             {project.category}
           </span>
         </div>
       </div>
 
       {/* Hero Visual Mockup Container */}
-      <section className="py-12 border-b border-white/[0.06] bg-[#07030E]">
+      <section className="py-12 border-b border-slate-100 bg-slate-50/70">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="w-full rounded-2xl border border-white/[0.12] bg-[#06020E] p-4 sm:p-8 flex items-center justify-center overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)]">
+          <div className="w-full rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 flex items-center justify-center overflow-hidden shadow-xs">
             <img
               src={project.image}
               alt={project.title}
@@ -238,13 +228,13 @@ export function WorkDetail() {
         <div className="mx-auto max-w-[960px] px-6 sm:px-8 space-y-16">
           {/* Header Title & Subtitle */}
           <div>
-            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#A78BFA]">
+            <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
               Production Implementation
             </span>
-            <h1 className="mt-2 font-sans text-[34px] sm:text-[44px] font-bold text-white tracking-tight">
+            <h1 className="mt-2 font-sans text-[34px] sm:text-[44px] font-bold text-slate-950 tracking-tight">
               {project.title}
             </h1>
-            <p className="mt-3 font-sans text-[18px] text-[#C9C2E0]/85 leading-relaxed">
+            <p className="mt-3 font-sans text-[18px] text-slate-600 leading-relaxed">
               {project.subtitle}
             </p>
           </div>
@@ -254,15 +244,15 @@ export function WorkDetail() {
             {project.metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-6 flex flex-col justify-between"
+                className="rounded-xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between"
               >
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[#8378A6]">
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500">
                   {m.label}
                 </span>
-                <span className="mt-2 font-mono text-[30px] font-bold text-[#10B981]">
+                <span className="mt-2 font-mono text-[30px] font-bold text-[#059669]">
                   {m.value}
                 </span>
-                <span className="mt-1 font-sans text-[13px] text-[#C9C2E0]/70">
+                <span className="mt-1 font-sans text-[13px] text-slate-500">
                   {m.subtext}
                 </span>
               </div>
@@ -270,39 +260,39 @@ export function WorkDetail() {
           </div>
 
           {/* The Problem */}
-          <div className="rounded-2xl border border-white/[0.08] bg-[#120824]/60 p-8 sm:p-10 space-y-4">
-            <div className="flex items-center gap-2 text-[#A78BFA]">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-8 sm:p-10 space-y-4">
+            <div className="flex items-center gap-2 text-[#6336C5]">
               <Activity className="size-5" />
-              <h2 className="font-sans text-[22px] font-bold text-white">
+              <h2 className="font-sans text-[22px] font-bold text-slate-950">
                 The Operational Problem
               </h2>
             </div>
-            <p className="font-sans text-[17px] font-medium text-white leading-relaxed">
+            <p className="font-sans text-[17px] font-medium text-slate-900 leading-relaxed">
               {project.problem}
             </p>
-            <p className="font-sans text-[15px] leading-relaxed text-[#C9C2E0]/80">
+            <p className="font-sans text-[15px] leading-relaxed text-slate-600">
               {project.problemContext}
             </p>
           </div>
 
           {/* What We Built */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[#38BDF8]">
+            <div className="flex items-center gap-2 text-[#0284C7]">
               <Cpu className="size-5" />
-              <h2 className="font-sans text-[22px] font-bold text-white">
+              <h2 className="font-sans text-[22px] font-bold text-slate-950">
                 What We Built
               </h2>
             </div>
-            <p className="font-sans text-[16px] leading-[1.65] text-[#C9C2E0]/85">
+            <p className="font-sans text-[16px] leading-[1.65] text-slate-600">
               {project.whatWeBuilt}
             </p>
           </div>
 
           {/* System Architecture Layers */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2 text-[#10B981]">
+            <div className="flex items-center gap-2 text-[#059669]">
               <Layers className="size-5" />
-              <h2 className="font-sans text-[22px] font-bold text-white">
+              <h2 className="font-sans text-[22px] font-bold text-slate-950">
                 System Architecture
               </h2>
             </div>
@@ -310,23 +300,23 @@ export function WorkDetail() {
               {project.architectureDetails.map((layer, idx) => (
                 <div
                   key={layer.layer}
-                  className="rounded-xl border border-white/[0.08] bg-black/40 p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+                  className="rounded-xl border border-slate-200 bg-slate-50/80 p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4"
                 >
                   <div className="max-w-xl">
                     <div className="flex items-center gap-2.5">
-                      <span className="font-mono text-[12px] font-bold text-[#A78BFA]">
+                      <span className="font-mono text-[12px] font-bold text-[#6336C5]">
                         0{idx + 1} //
                       </span>
-                      <h3 className="font-sans text-[17px] font-bold text-white">
+                      <h3 className="font-sans text-[17px] font-bold text-slate-950">
                         {layer.layer}
                       </h3>
                     </div>
-                    <p className="mt-2 font-sans text-[14px] leading-relaxed text-[#C9C2E0]/80">
+                    <p className="mt-2 font-sans text-[14px] leading-relaxed text-slate-600">
                       {layer.description}
                     </p>
                   </div>
                   <div className="shrink-0 sm:text-right">
-                    <span className="inline-block rounded-md bg-white/[0.05] px-3 py-1 font-mono text-[12px] font-medium text-[#38BDF8] border border-white/[0.08]">
+                    <span className="inline-block rounded-md bg-white px-3 py-1 font-mono text-[12px] font-medium text-[#0284C7] border border-slate-200 shadow-xs">
                       {layer.tech}
                     </span>
                   </div>
@@ -337,25 +327,25 @@ export function WorkDetail() {
 
           {/* Verified Stack */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[#FBBF24]">
+            <div className="flex items-center gap-2 text-[#D97706]">
               <Database className="size-5" />
-              <h2 className="font-sans text-[22px] font-bold text-white">
+              <h2 className="font-sans text-[22px] font-bold text-slate-950">
                 Technology Stack
               </h2>
             </div>
-            <p className="font-mono text-[14px] text-[#8378A6]">
+            <p className="font-mono text-[14px] text-slate-600">
               {project.stackDisplay}
             </p>
-            <div className="p-8 rounded-2xl border border-white/[0.08] bg-white/[0.02]">
+            <div className="p-8 rounded-2xl border border-slate-200 bg-slate-50/50">
               <TechIcons names={project.deviconNames} />
             </div>
           </div>
 
           {/* Delivered Capabilities */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[#10B981]">
+            <div className="flex items-center gap-2 text-[#059669]">
               <ShieldCheck className="size-5" />
-              <h2 className="font-sans text-[22px] font-bold text-white">
+              <h2 className="font-sans text-[22px] font-bold text-slate-950">
                 Delivered Capabilities
               </h2>
             </div>
@@ -363,10 +353,10 @@ export function WorkDetail() {
               {project.features.map((feature) => (
                 <div
                   key={feature}
-                  className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4"
+                  className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-xs"
                 >
-                  <CheckCircle2 className="size-4 text-[#10B981] shrink-0 mt-0.5" />
-                  <span className="font-sans text-[14px] font-medium text-white">
+                  <CheckCircle2 className="size-4 text-[#059669] shrink-0 mt-0.5" />
+                  <span className="font-sans text-[14px] font-medium text-slate-900">
                     {feature}
                   </span>
                 </div>
@@ -375,16 +365,16 @@ export function WorkDetail() {
           </div>
 
           {/* Next Project & CTA Navigation */}
-          <div className="pt-12 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="pt-12 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
             <Link
               to={`/work/${project.nextSlug}`}
-              className="inline-flex items-center gap-2 font-sans text-[15px] font-semibold text-white hover:text-[#A78BFA] transition-colors"
+              className="inline-flex items-center gap-2 font-sans text-[15px] font-semibold text-slate-950 hover:text-[#6336C5] transition-colors"
             >
               <span>Next Architecture: {project.nextTitle}</span>
               <ArrowRight className="size-4" />
             </Link>
 
-            <Link to="/contact" className="btn-primary w-full sm:w-auto">
+            <Link to="/contact" className="btn-primary w-full sm:w-auto rounded-full">
               <span>Start a Project</span>
               <ArrowUpRight className="size-4" />
             </Link>

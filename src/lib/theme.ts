@@ -3,11 +3,11 @@ export type Theme = 'light' | 'dark'
 export const THEME_STORAGE_KEY = 'arixpro-theme'
 
 /** Theme used on a first visit. Switch to 'dark' to make the site dark-first. */
-export const DEFAULT_THEME: Theme = 'dark'
+export const DEFAULT_THEME: Theme = 'light'
 
 const THEME_COLOR: Record<Theme, string> = {
-  light: '#f7f8fa',
-  dark: '#06080a',
+  light: '#FFFFFF',
+  dark: '#FFFFFF',
 }
 
 export function isTheme(value: unknown): value is Theme {
