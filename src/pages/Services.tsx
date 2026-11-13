@@ -425,37 +425,6 @@ export function Services() {
           </div>
         </div>
       </section>
-
-      {/* 5. Direct Contact Box */}
-      <section className="py-20 sm:py-28 bg-white text-center">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="font-sans text-[30px] sm:text-[40px] font-bold text-slate-950 tracking-tight leading-tight">
-              Have a project in mind?
-            </h2>
-
-            <p className="mt-3.5 font-sans text-[16px] sm:text-[17px] text-slate-600 leading-relaxed">
-              Tell us what you want to achieve and your target launch date. We will review your requirements and reply within 24 hours with a fixed quote.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                to="/contact"
-                className="btn-primary text-[15px] h-[48px] px-8 rounded-full shadow-xs hover:shadow-md transition-all inline-flex items-center gap-2 active:scale-[0.98]"
-              >
-                <span>Talk to an Engineer</span>
-                <ArrowUpRight className="size-4" />
-              </Link>
-              <Link
-                to="/work"
-                className="btn-secondary text-[15px] h-[48px] px-8 rounded-full border border-slate-200 shadow-xs hover:border-slate-300 transition-all active:scale-[0.98]"
-              >
-                <span>View Shipped Work</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
