@@ -1,12 +1,10 @@
 import { useSeo } from '../lib/useSeo'
 import {
   Check,
-  CreditCard,
-  FileCheck,
+  FileText,
   GitBranch,
   Globe,
   KeyRound,
-  Lock,
   MessageSquare,
   ShieldCheck,
   Video,
@@ -77,38 +75,42 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Artifact Card: Scope Document */}
+              {/* Step 01 Deliverable Box */}
               <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <FileCheck className="size-4 text-[#6336C5]" />
-                    <span className="font-mono text-[12px] font-semibold text-slate-800">
-                      Scope_Agreement.pdf
+                    <FileText className="size-4 text-slate-700" />
+                    <span className="font-sans text-[13px] font-semibold text-slate-900">
+                      Scope &amp; Architecture Spec
                     </span>
                   </div>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    <Check className="size-3" />
-                    Approved
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 01 Deliverable
                   </span>
                 </div>
 
-                <div className="p-4 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                <div className="p-5 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                     <span className="text-slate-500">Pricing Model</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Guaranteed Fixed Quote</span>
+                    <span className="font-medium text-slate-900">Guaranteed Fixed Quote</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                     <span className="text-slate-500">Milestone Timeline</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Agreed Delivery Dates</span>
+                    <span className="font-medium text-slate-900">Agreed Delivery Dates</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                     <span className="text-slate-500">Database &amp; Flows</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Locked Schema</span>
+                    <span className="font-medium text-slate-900">Locked Relational Schema</span>
                   </div>
-                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
-                    <div className="size-1.5 rounded-full bg-emerald-500" />
-                    <span>Signed off 100% before any code is written</span>
+                  <div className="flex items-center justify-between pt-0.5">
+                    <span className="text-slate-500">Scope Certainty</span>
+                    <span className="font-medium text-slate-900">Zero Surprise Add-ons</span>
                   </div>
+                </div>
+
+                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
+                  <span>Client Sign-off</span>
+                  <span className="font-semibold text-slate-900">Required before writing code</span>
                 </div>
               </div>
             </div>
@@ -150,41 +152,42 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Artifact Card: Staging Window */}
+              {/* Step 02 Deliverable Box */}
               <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-4 py-2.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <div className="size-2 rounded-full bg-slate-300" />
-                    <div className="size-2 rounded-full bg-slate-300" />
-                    <div className="size-2 rounded-full bg-slate-300" />
+                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Globe className="size-4 text-slate-700" />
+                    <span className="font-sans text-[13px] font-semibold text-slate-900">
+                      Working Staging Link
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-slate-200 text-[11.5px] font-mono text-slate-600">
-                    <Lock className="size-3 text-emerald-600" />
-                    <span>staging.yourproject.com</span>
-                  </div>
-                  <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
-                    <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Live
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 02 Deliverable
                   </span>
                 </div>
 
-                <div className="p-4 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                <div className="p-5 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">First Working Build</span>
+                    <span className="font-medium text-slate-900">Live on Day 7</span>
+                  </div>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                     <span className="text-slate-500">Deployment Cadence</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Every Git Commit</span>
+                    <span className="font-medium text-slate-900">Updated on Every Commit</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
                     <span className="text-slate-500">Testing Devices</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">iOS, Android &amp; Desktop</span>
+                    <span className="font-medium text-slate-900">iOS, Android &amp; Desktop</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                  <div className="flex items-center justify-between pt-0.5">
                     <span className="text-slate-500">Access Security</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Password Protected</span>
+                    <span className="font-medium text-slate-900 font-mono text-[12px]">staging.yourproject.com</span>
                   </div>
-                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
-                    <div className="size-1.5 rounded-full bg-emerald-500" />
-                    <span>Clickable software delivered on Day 7</span>
-                  </div>
+                </div>
+
+                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
+                  <span>Review Format</span>
+                  <span className="font-semibold text-slate-900">Clickable link + weekly video demo</span>
                 </div>
               </div>
             </div>
@@ -226,49 +229,42 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Artifact Card: Preflight Audit */}
+              {/* Step 03 Deliverable Box */}
               <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="size-4 text-[#6336C5]" />
-                    <span className="font-mono text-[12px] font-semibold text-slate-800">
-                      Preflight_Audit_Log
+                    <ShieldCheck className="size-4 text-slate-700" />
+                    <span className="font-sans text-[13px] font-semibold text-slate-900">
+                      Integrations &amp; Quality Audit
                     </span>
                   </div>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    <Check className="size-3" />
-                    100% Passed
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 03 Deliverable
                   </span>
                 </div>
 
-                <div className="p-4 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <div className="flex items-center gap-2">
-                      <CreditCard className="size-3.5 text-slate-400" />
-                      <span className="text-slate-600">Stripe Webhooks</span>
-                    </div>
-                    <span className="font-semibold text-emerald-700 font-mono text-[11px] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
-                      Verified 200 OK
-                    </span>
+                <div className="p-5 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">Payment Gateway</span>
+                    <span className="font-medium text-slate-900">Live Stripe Webhook Handlers</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <div className="flex items-center gap-2">
-                      <GitBranch className="size-3.5 text-slate-400" />
-                      <span className="text-slate-600">Test Coverage</span>
-                    </div>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Core Logic Passing</span>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">Test Coverage</span>
+                    <span className="font-medium text-slate-900">Core Business Logic Automated</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <div className="flex items-center gap-2">
-                      <Globe className="size-3.5 text-slate-400" />
-                      <span className="text-slate-600">Speed Benchmark</span>
-                    </div>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">&lt; 800ms Load Time</span>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">Speed Benchmark</span>
+                    <span className="font-medium text-slate-900 font-mono text-[12px]">&lt; 800ms Mobile Latency</span>
                   </div>
-                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
-                    <div className="size-1.5 rounded-full bg-emerald-500" />
-                    <span>All production gates cleared before deployment</span>
+                  <div className="flex items-center justify-between pt-0.5">
+                    <span className="text-slate-500">Security Clearance</span>
+                    <span className="font-medium text-slate-900">SQL &amp; Auth Sanitization Verified</span>
                   </div>
+                </div>
+
+                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
+                  <span>Launch Gate</span>
+                  <span className="font-semibold text-slate-900">100% checks cleared before cutover</span>
                 </div>
               </div>
             </div>
@@ -310,38 +306,42 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Artifact Card: Ownership Transfer */}
+              {/* Step 04 Deliverable Box */}
               <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <KeyRound className="size-4 text-[#6336C5]" />
-                    <span className="font-mono text-[12px] font-semibold text-slate-800">
-                      Ownership_Transfer
+                    <KeyRound className="size-4 text-slate-700" />
+                    <span className="font-sans text-[13px] font-semibold text-slate-900">
+                      Production &amp; IP Handover
                     </span>
                   </div>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-50 text-[#6336C5] border border-purple-200">
-                    <Check className="size-3" />
-                    100% Client IP
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 04 Deliverable
                   </span>
                 </div>
 
-                <div className="p-4 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <span className="text-slate-500">Git Repository</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Full Admin Transfer</span>
+                <div className="p-5 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">Code Ownership</span>
+                    <span className="font-medium text-slate-900">100% Git Repository Transfer</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <span className="text-slate-500">Domain &amp; SSL</span>
-                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Live on Custom Domain</span>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">Domain &amp; Infrastructure</span>
+                    <span className="font-medium text-slate-900">Live Custom Domain + SSL</span>
                   </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
-                    <span className="text-slate-500">Bug Warranty</span>
-                    <span className="font-semibold text-emerald-700 font-mono text-[12px]">30 Days Proactive Free</span>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                    <span className="text-slate-500">Post-Launch Warranty</span>
+                    <span className="font-medium text-slate-900">30-Day Proactive Bug Fixes</span>
                   </div>
-                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
-                    <div className="size-1.5 rounded-full bg-emerald-500" />
-                    <span>Zero vendor lock-in; you own every single asset</span>
+                  <div className="flex items-center justify-between pt-0.5">
+                    <span className="text-slate-500">Proprietary Lock-in</span>
+                    <span className="font-medium text-slate-900">Zero · 100% Client Owned</span>
                   </div>
+                </div>
+
+                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
+                  <span>Handover Status</span>
+                  <span className="font-semibold text-slate-900">Full ownership transferred on Day 1</span>
                 </div>
               </div>
             </div>
