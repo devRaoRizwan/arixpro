@@ -8,7 +8,6 @@ import {
   Gauge,
   ShoppingBag,
   Check,
-  Minus,
   ArrowUpRight,
   Clock,
   Laptop,
@@ -146,49 +145,6 @@ const BLUEPRINTS: Record<ProjectCategory, ProjectBlueprint> = {
     ],
   },
 }
-
-const comparisonRows = [
-  {
-    feature: 'Page Load Speed',
-    detail: 'Real-world speed on mobile connections',
-    arixpro: 'Sub-second (< 800ms custom code)',
-    agency: '2 – 4s (heavy corporate frameworks)',
-    freelancer: 'Unpredictable (varies by freelancer)',
-    builder: '3 – 6s (theme bloat & plugin lag)',
-  },
-  {
-    feature: 'Source Code Ownership',
-    detail: 'Who holds the intellectual property',
-    arixpro: '100% full transfer on day one',
-    agency: 'Often locked behind licensing fees',
-    freelancer: 'Transferred, but often undocumented',
-    builder: 'Zero ownership (rented platform)',
-  },
-  {
-    feature: 'Pricing Model',
-    detail: 'How you are quoted and billed',
-    arixpro: 'Guaranteed fixed price & milestones',
-    agency: 'Retainers ($20k+) + billable hours',
-    freelancer: 'Hourly billing or scope creep disputes',
-    builder: 'Monthly fees + transaction cut',
-  },
-  {
-    feature: 'Communication & Team',
-    detail: 'Who you actually speak with daily',
-    arixpro: 'Direct access to senior builder',
-    agency: 'Account managers & sales reps',
-    freelancer: 'Direct, but risk of ghosting',
-    builder: 'Automated chatbots and forums',
-  },
-  {
-    feature: 'Custom Business Logic',
-    detail: 'Tailoring to your exact workflows',
-    arixpro: 'Bespoke code tailored to your ops',
-    agency: 'Possible, but takes 4+ months',
-    freelancer: 'Limited to their personal skillset',
-    builder: 'Strictly limited to app store plugins',
-  },
-]
 
 export function Services() {
   const [activeTab, setActiveTab] = useState<ProjectCategory>('local-business')
@@ -414,146 +370,8 @@ export function Services() {
         </div>
       </section>
 
-      {/* 3. Honest Comparison Table (Subtle Depth & Clean Polish) */}
+      {/* 3. What We Refuse to Do (Tactile Cards with Hover Lift) */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mb-10">
-            <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
-              Why business owners choose ArixPro over traditional options.
-            </h2>
-            <p className="mt-2 text-[15px] text-slate-600 leading-relaxed">
-              Most clients come to us after getting burned by \$20,000+ agency retainers or slow, fragile page builders.
-            </p>
-          </div>
-
-          {/* Clean Elevated Table Container */}
-          <div className="border border-slate-200 rounded-3xl bg-white shadow-[0_15px_40px_-15px_rgba(15,23,42,0.05)] overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse font-sans min-w-[760px]">
-                <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50/80 text-slate-800">
-                    <th className="py-5 px-6 font-mono text-[11.5px] uppercase tracking-wider text-slate-500 font-semibold w-[26%]">
-                      Standard
-                    </th>
-
-                    {/* ArixPro Column Header */}
-                    <th className="py-5 px-6 bg-slate-100/70 border-x border-slate-200 w-[24%]">
-                      <div className="flex items-center gap-2">
-                        <span className="px-3 py-1 rounded-full bg-slate-950 text-white font-sans text-[12px] font-bold shadow-xs">
-                          ArixPro
-                        </span>
-                        <span className="font-mono text-[11px] font-semibold text-[#6336C5] uppercase tracking-wider">
-                          Custom
-                        </span>
-                      </div>
-                    </th>
-
-                    <th className="py-5 px-6 text-slate-700 w-[17%]">
-                      <span className="font-sans text-[13.5px] font-bold text-slate-900 block">
-                        Traditional Agency
-                      </span>
-                      <span className="font-sans text-[11.5px] text-slate-500">
-                        $20k+ retainers
-                      </span>
-                    </th>
-
-                    <th className="py-5 px-6 text-slate-700 w-[17%]">
-                      <span className="font-sans text-[13.5px] font-bold text-slate-900 block">
-                        Fiverr / Upwork
-                      </span>
-                      <span className="font-sans text-[11.5px] text-slate-500">
-                        Freelancers
-                      </span>
-                    </th>
-
-                    <th className="py-5 px-6 text-slate-700 w-[16%]">
-                      <span className="font-sans text-[13.5px] font-bold text-slate-900 block">
-                        Wix / WordPress
-                      </span>
-                      <span className="font-sans text-[11.5px] text-slate-500">
-                        DIY page builders
-                      </span>
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody className="divide-y divide-slate-100 text-[13.5px]">
-                  {comparisonRows.map((row, idx) => (
-                    <tr
-                      key={idx}
-                      className="hover:bg-slate-50/60 transition-colors duration-150"
-                    >
-                      {/* Metric Name */}
-                      <td className="py-4.5 px-6">
-                        <span className="font-sans text-[14px] font-bold text-slate-950 block">
-                          {row.feature}
-                        </span>
-                        <span className="font-sans text-[12px] text-slate-500 block mt-0.5">
-                          {row.detail}
-                        </span>
-                      </td>
-
-                      {/* ArixPro Column */}
-                      <td className="py-4.5 px-6 bg-slate-50/40 border-x border-slate-200">
-                        <div className="flex items-start gap-2">
-                          <div className="size-4.5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 shadow-2xs">
-                            <Check className="size-2.5 stroke-[3]" />
-                          </div>
-                          <span className="font-medium text-slate-950 leading-snug">
-                            {row.arixpro}
-                          </span>
-                        </div>
-                      </td>
-
-                      {/* Traditional Agency */}
-                      <td className="py-4.5 px-6 text-slate-600">
-                        <div className="flex items-start gap-2">
-                          <Minus className="size-3.5 text-slate-400 shrink-0 mt-1" />
-                          <span className="leading-snug">{row.agency}</span>
-                        </div>
-                      </td>
-
-                      {/* Freelancers */}
-                      <td className="py-4.5 px-6 text-slate-600">
-                        <div className="flex items-start gap-2">
-                          <Minus className="size-3.5 text-slate-400 shrink-0 mt-1" />
-                          <span className="leading-snug">{row.freelancer}</span>
-                        </div>
-                      </td>
-
-                      {/* DIY Builders */}
-                      <td className="py-4.5 px-6 text-slate-600">
-                        <div className="flex items-start gap-2">
-                          <Minus className="size-3.5 text-slate-400 shrink-0 mt-1" />
-                          <span className="leading-snug">{row.builder}</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Bottom Note */}
-            <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[12.5px] text-slate-600">
-              <div className="flex items-center gap-1.5">
-                <Check className="size-3.5 text-emerald-600" />
-                <span>All ArixPro builds include guaranteed milestones and full repository handover.</span>
-              </div>
-              <Link
-                to="/contact"
-                className="font-semibold text-[#6336C5] hover:text-slate-950 inline-flex items-center gap-1 transition-colors"
-              >
-                <span>Have a question? Contact us</span>
-                <ArrowUpRight className="size-3" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. What We Refuse to Do (Tactile Cards with Hover Lift) */}
-      <section className="py-16 sm:py-24 bg-slate-50/60 border-b border-slate-200/80">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-xl mx-auto text-center mb-12">
             <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
