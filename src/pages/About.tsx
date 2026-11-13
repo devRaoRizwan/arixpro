@@ -1,227 +1,141 @@
 import { Link } from 'react-router-dom'
 import { useSeo } from '../lib/useSeo'
-import {
-  ArrowUpRight,
-  Clock,
-  Shield,
-  ShieldCheck,
-  Terminal,
-} from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 export function About() {
   useSeo({
-    title: 'About Us · ArixPro Software Studio',
+    title: 'About ArixPro · Software Studio',
     description:
-      'We are a small, independent software studio. We take on 1–2 builds at a time and work directly with founders to build clean, dependable web applications.',
+      'ArixPro is an independent software studio building web apps, APIs, and SaaS platforms. Direct engineering collaboration with Python, Django, FastAPI, React, and PostgreSQL.',
     path: '/about',
   })
 
-  const weeklyCadence = [
+  const stats = [
+    { value: '100k+', label: 'Daily API Requests Handled' },
+    { value: '38 Checks', label: 'Automated Audit per Scan' },
+    { value: 'Python 3.12', label: 'Strictly Typed Backends' },
+    { value: '100%', label: 'Codebase & IP Ownership' },
+  ]
+
+  const pillars = [
     {
-      day: 'Monday',
-      title: 'Priorities & Milestones',
-      desc: 'We review the exact features being shipped this week in a direct async channel. No long, draining meetings—just clear, agreed goals.',
+      title: 'Direct Engineer Access',
+      desc: 'You work directly with the developers writing your backend and frontend. No account managers, no ticket queues, and no telephone games.',
     },
     {
-      day: 'Mid-Week',
-      title: 'Direct Code & Progress',
-      desc: 'You see automated staging updates as features are finished. When you have a question, you message the engineer writing the code.',
+      title: 'Fixed-Price Architecture',
+      desc: 'Every project starts with a verified database schema and locked milestone pricing. We take on full delivery responsibility with zero hourly surprises.',
     },
     {
-      day: 'Friday',
-      title: 'Working Link & Video Demo',
-      desc: 'You get a private staging URL to test real features on your phone, paired with a short 3-minute video walkthrough of what was completed.',
+      title: '100% Client Codebase Ownership',
+      desc: 'All source code, Dockerfiles, and database schemas are pushed directly to your private GitHub repository from day one. Zero proprietary lock-in.',
     },
   ]
 
-  const houseRules = [
+  const products = [
     {
-      num: '01',
-      rule: 'The builder talks directly to the founder.',
-      detail: 'No account managers or project coordinators playing telephone. When you have feedback or an idea, you talk directly to the engineer writing your code.',
+      name: 'SiteScopia',
+      domain: 'Technical SEO & Site Architecture Audit',
+      stack: 'Python 3.12 · FastAPI · Redis · React 18',
+      summary: 'Automated technical auditing engine running 38 structural checks per scan with sub-second report generation.',
     },
     {
-      num: '02',
-      rule: 'Guaranteed fixed quotes. No hourly billing.',
-      detail: 'Hourly billing rewards slow work. We agree on the scope and lock in a fixed price. If a feature takes longer than expected, that is our responsibility.',
+      name: 'JobHarvester',
+      domain: 'Multi-Source Job Aggregation & Parsing',
+      stack: 'Django 5.x · PostgreSQL 16 · Celery · Redis',
+      summary: 'Asynchronous worker fleet aggregating and deduplicating listings across distributed queues with zero state drift.',
     },
     {
-      num: '03',
-      rule: 'Clickable software by Day 7.',
-      detail: 'We never disappear for two months behind closed doors. You get a private staging URL to click through functional software within the first week.',
-    },
-    {
-      num: '04',
-      rule: 'You own 100% of the code on Day 1.',
-      detail: 'The GitHub repository, database, and cloud accounts are in your name. We don’t hold code hostage, charge licensing fees, or lock you into proprietary hosting.',
+      name: 'BOMWatcher',
+      domain: 'Bill-of-Materials & Supply Chain Tracking',
+      stack: 'FastAPI · PostgreSQL 16 · LLM / RAG · React 18',
+      summary: 'Automated electronic component cross-referencing and inventory lifecycle monitoring engine.',
     },
   ]
 
-  const founderQuestions = [
+  const toolkit = [
     {
-      q: 'What does working with you feel like day-to-day?',
-      a: 'Like having senior developers in-house without the 6-month recruiting cycle or overhead. We chat in a private channel, share staging links frequently, and answer questions without corporate delay.',
+      tech: 'Python 3.12 & FastAPI',
+      domain: 'Backend Services',
+      capability: 'High-throughput async REST APIs & workers',
+      app: 'SiteScopia, BOMWatcher',
     },
     {
-      q: 'What happens if we need to adjust features mid-build?',
-      a: 'Software naturally evolves once you start clicking real screens. If an adjustment is minor, we handle it on the fly. If it’s a brand-new addition, we give you a clear fixed quote before touching code.',
+      tech: 'Django 5.x & DRF',
+      domain: 'Application Core',
+      capability: 'Relational data models & Celery background jobs',
+      app: 'JobHarvester',
     },
     {
-      q: 'What happens after launch day?',
-      a: 'Launch day isn’t goodbye. Every build includes 30 days of proactive post-launch support. We monitor the application and fix any unexpected bugs immediately at zero extra cost.',
+      tech: 'React 18 & TypeScript',
+      domain: 'Frontend Interfaces',
+      capability: 'Single-page web applications with sub-second updates',
+      app: 'All Client Builds',
+    },
+    {
+      tech: 'PostgreSQL 16 & Redis',
+      domain: 'Storage & Cache',
+      capability: 'Strict relational schemas, row locks & distributed caching',
+      app: 'Production Fleet',
     },
   ]
 
   return (
-    <div className="w-full text-slate-900 bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
-      {/* 1. Header (Warm, Personal, Grounded) */}
-      <section className="pt-14 pb-10 sm:pt-16 sm:pb-12 border-b border-slate-200">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+    <div className="w-full text-[#4A4458] bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
+      {/* 1. Hero Section */}
+      <section className="py-16 border-b border-[#E4DEF2]">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 mb-3.5">
-              <Terminal className="size-3.5 text-[#6336C5]" />
-              <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-slate-600">
-                ArixPro Studio · Est. 2021
-              </span>
-            </div>
-            <h1 className="font-sans text-[26px] sm:text-[32px] lg:text-[36px] font-bold text-slate-950 tracking-tight leading-[1.2]">
-              A small studio of engineers who build software for founders.
+            <span className="font-sans text-[12px] font-semibold text-[#6B6578] uppercase tracking-wider block mb-2">
+              About ArixPro
+            </span>
+            <h1 className="font-sans text-[28px] font-semibold text-[#241044] tracking-tight leading-[1.2]">
+              We build web apps, APIs, and SaaS platforms that scale.
             </h1>
-            <p className="mt-3 font-sans text-[14.5px] sm:text-[15.5px] text-slate-600 leading-relaxed">
-              No sales reps. No account managers. Just the developers who actually write your code.
+            <p className="mt-3 font-sans text-[16px] text-[#4A4458] leading-relaxed">
+              ArixPro is an independent software studio. We take on 1–2 client projects at a time, work directly with founders, and build production systems using Python, Django, FastAPI, React, and PostgreSQL.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* 2. A Note from the Studio (Bespoke Editorial Letterhead / Studio Memo) */}
-      <section className="py-12 sm:py-16 bg-slate-50/50 border-b border-slate-200">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-4xl mx-auto rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
-            {/* Memo Letterhead Bar */}
-            <div className="px-6 sm:px-8 py-4 bg-slate-50/80 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className="size-7 rounded-lg bg-[#6336C5]/10 border border-[#6336C5]/20 flex items-center justify-center text-[#6336C5] font-mono text-[12px] font-bold">
-                  AP
-                </div>
-                <div>
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-900 block leading-tight">
-                    A Note From The Studio
-                  </span>
-                  <span className="font-mono text-[10px] text-slate-500">
-                    Dispatched by the Engineering Team · Ref: Studio Protocol
-                  </span>
-                </div>
-              </div>
-
-              <span className="font-mono text-[10px] uppercase font-semibold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-3xs">
-                Public Manifesto
-              </span>
-            </div>
-
-            {/* Memo Body Content */}
-            <div className="p-7 sm:p-10 space-y-7">
-              {/* Thesis Pull Quote */}
-              <div className="relative pl-5 border-l-2 border-[#6336C5]">
-                <p className="font-sans text-[16px] sm:text-[17.5px] font-medium text-slate-950 leading-relaxed">
-                  “Most software agencies operate like talent brokers: a partner sells the dream, and passes the build to someone who wasn't in the room. We built ArixPro around one rule: the person you talk to is the person writing your code.”
+          {/* Unified Stats Strip */}
+          <div className="mt-12 pt-8 border-t border-[#E4DEF2] grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((s) => (
+              <div key={s.label} className="space-y-1">
+                <p className="font-sans text-[28px] font-semibold text-[#241044] tracking-tight">
+                  {s.value}
+                </p>
+                <p className="font-sans text-[14px] text-[#6B6578]">
+                  {s.label}
                 </p>
               </div>
-
-              {/* Two-Column Grounded Contrast */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-1">
-                <div className="space-y-2 p-5 rounded-xl bg-slate-50/70 border border-slate-200/80">
-                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-slate-500 block">
-                    The Agency Breakdown
-                  </span>
-                  <p className="font-sans text-[13px] text-slate-600 leading-relaxed">
-                    When communication is filtered through non-technical account managers, small adjustments take weeks. Budgets swell, codebases get tangled in fragile page-builder plugins, and founders end up trapped paying monthly retainer ransoms.
-                  </p>
-                </div>
-
-                <div className="space-y-2 p-5 rounded-xl bg-purple-50/30 border border-purple-200/60">
-                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-[#6336C5] block">
-                    The Studio Standard
-                  </span>
-                  <p className="font-sans text-[13px] text-slate-700 leading-relaxed">
-                    We take on just 1 or 2 builds at a time. We give them our full engineering attention, deliver working staging builds every 7 days, and transfer 100% of the repository, database, and accounts to you on launch day.
-                  </p>
-                </div>
-              </div>
-
-              {/* 4 Concrete Commitments Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Capacity</span>
-                  <span className="font-sans text-[12.5px] font-bold text-slate-900">Max 2 Builds</span>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Channel</span>
-                  <span className="font-sans text-[12.5px] font-bold text-slate-900">Direct Slack/Async</span>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Cadence</span>
-                  <span className="font-sans text-[12.5px] font-bold text-slate-900">Weekly Staging</span>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Ownership</span>
-                  <span className="font-sans text-[12.5px] font-bold text-slate-900">100% Client IP</span>
-                </div>
-              </div>
-
-              {/* Memo Signature Strip */}
-              <div className="pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
-                <div className="space-y-0.5">
-                  <p className="font-sans text-[13px] font-bold text-slate-950">
-                    The Engineering Team at ArixPro
-                  </p>
-                  <p className="font-mono text-[11px] text-slate-500">
-                    Independent Software Studio · Direct to Founder
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
-                  <ShieldCheck className="size-3.5 text-[#059669]" />
-                  <span>Zero Brokerage · Direct Builders</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 3. How a Week Actually Runs (Real-Life Studio Cadence) */}
-      <section className="py-12 sm:py-16 bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mb-8">
-            <div className="flex items-center gap-2 text-[#6336C5] mb-1">
-              <Clock className="size-4" />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider">
-                Weekly Rhythm
-              </span>
-            </div>
-            <h2 className="font-sans text-[21px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
-              How a typical week looks when we build together.
+      {/* 2. How We Work & Engineering Philosophy */}
+      <section className="py-16 bg-[#F7F6FC] border-b border-[#E4DEF2]">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-sans text-[22px] font-medium text-[#241044] tracking-tight">
+              Direct engineering without agency bloat.
             </h2>
-            <p className="mt-1.5 text-[13.5px] text-slate-600">
-              Transparent, asynchronous communication designed to keep momentum high without useless meetings.
+            <p className="mt-2 font-sans text-[16px] text-[#4A4458] leading-relaxed">
+              Most software agencies operate as sales organizations with offshore development teams. ArixPro was built on the opposite standard: senior engineers collaborating directly with founders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {weeklyCadence.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {pillars.map((p) => (
               <div
-                key={item.day}
-                className="p-5 rounded-xl border border-slate-200 bg-slate-50/60 space-y-2"
+                key={p.title}
+                className="p-6 rounded-[14px] border border-[#E4DEF2] bg-white flex flex-col justify-between space-y-3"
               >
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#6336C5] bg-white px-2 py-0.5 rounded border border-slate-200/80 inline-block">
-                  {item.day}
-                </span>
-                <h3 className="font-sans text-[15px] font-bold text-slate-950">
-                  {item.title}
+                <h3 className="font-sans text-[17px] font-semibold text-[#241044]">
+                  {p.title}
                 </h3>
-                <p className="font-sans text-[13px] text-slate-600 leading-relaxed">
-                  {item.desc}
+                <p className="font-sans text-[15px] text-[#4A4458] leading-relaxed">
+                  {p.desc}
                 </p>
               </div>
             ))}
@@ -229,102 +143,120 @@ export function About() {
         </div>
       </section>
 
-      {/* 4. Our 4 Studio Rules */}
-      <section className="py-12 sm:py-16 bg-slate-50/50 border-b border-slate-200">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mb-8">
-            <div className="flex items-center gap-2 text-[#6336C5] mb-1">
-              <Shield className="size-4" />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider">
-                Studio Standards
-              </span>
-            </div>
-            <h2 className="font-sans text-[21px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
-              The four rules we never break.
+      {/* 3. Shipped Systems & Live Implementations */}
+      <section className="py-16 bg-white border-b border-[#E4DEF2]">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-sans text-[22px] font-medium text-[#241044] tracking-tight">
+              Production platforms we build and maintain.
             </h2>
-            <p className="mt-1.5 text-[13.5px] text-slate-600">
-              Clear operating boundaries that protect your budget, timeline, and intellectual property.
+            <p className="mt-2 font-sans text-[16px] text-[#4A4458] leading-relaxed">
+              Real software architectures operating in production with verified throughput and reliability.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {houseRules.map((r) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {products.map((p) => (
               <div
-                key={r.num}
-                className="p-5 sm:p-6 rounded-xl border border-slate-200 bg-white shadow-2xs space-y-2"
+                key={p.name}
+                className="p-6 rounded-[14px] border border-[#E4DEF2] bg-white flex flex-col justify-between space-y-4"
               >
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[12px] font-bold text-[#6336C5]">
-                    {r.num}
-                  </span>
-                  <span className="text-slate-300">·</span>
-                  <h3 className="font-sans text-[14.5px] sm:text-[15px] font-bold text-slate-950">
-                    {r.rule}
-                  </h3>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-sans text-[18px] font-semibold text-[#241044]">
+                      {p.name}
+                    </h3>
+                    <span className="font-mono text-[11px] text-[#6B6578] uppercase">
+                      Live
+                    </span>
+                  </div>
+                  <p className="font-sans text-[13px] text-[#6336C5] font-medium">
+                    {p.domain}
+                  </p>
+                  <p className="font-sans text-[14.5px] text-[#4A4458] leading-relaxed">
+                    {p.summary}
+                  </p>
                 </div>
-                <p className="font-sans text-[13px] text-slate-600 leading-relaxed pl-5">
-                  {r.detail}
-                </p>
+                <div className="pt-3 border-t border-[#E4DEF2] font-mono text-[12px] text-[#6B6578]">
+                  {p.stack}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Candid Founder Q&A */}
-      <section className="py-12 sm:py-16 bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mb-8">
-            <h2 className="font-sans text-[21px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
-              Questions founders usually ask us.
+      {/* 4. Verified Engineering Toolkit Table */}
+      <section className="py-16 bg-[#F7F6FC] border-b border-[#E4DEF2]">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-sans text-[22px] font-medium text-[#241044] tracking-tight">
+              Verified engineering stack.
             </h2>
-            <p className="mt-1.5 text-[13.5px] text-slate-600">
-              Honest answers on how we collaborate, handle changes, and support projects after launch.
+            <p className="mt-2 font-sans text-[16px] text-[#4A4458] leading-relaxed">
+              Production tooling selected strictly for stability, type safety, and maintainability.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {founderQuestions.map((q) => (
-              <div
-                key={q.q}
-                className="p-5 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2"
-              >
-                <h3 className="font-sans text-[14px] font-bold text-slate-950 leading-snug">
-                  {q.q}
-                </h3>
-                <p className="font-sans text-[12.5px] sm:text-[13px] text-slate-600 leading-relaxed">
-                  {q.a}
-                </p>
-              </div>
-            ))}
+          <div className="rounded-[14px] border border-[#E4DEF2] bg-white overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-[#E4DEF2] bg-white text-[12px] font-semibold text-[#6B6578] uppercase tracking-wider">
+                    <th className="py-3.5 px-6">Technology</th>
+                    <th className="py-3.5 px-6">Domain</th>
+                    <th className="py-3.5 px-6">Capability</th>
+                    <th className="py-3.5 px-6">Production Application</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#E4DEF2] text-[14px]">
+                  {toolkit.map((row) => (
+                    <tr key={row.tech} className="hover:bg-[#F7F6FC] transition-colors">
+                      <td className="py-3.5 px-6 font-semibold text-[#241044] whitespace-nowrap">
+                        {row.tech}
+                      </td>
+                      <td className="py-3.5 px-6 text-[#4A4458] whitespace-nowrap">
+                        {row.domain}
+                      </td>
+                      <td className="py-3.5 px-6 text-[#4A4458]">
+                        {row.capability}
+                      </td>
+                      <td className="py-3.5 px-6 text-[#6336C5] font-medium whitespace-nowrap">
+                        {row.app}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6. Direct Conversation Prompt */}
-      <section className="py-14 sm:py-16 bg-slate-50/50">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
-          <div className="max-w-md mx-auto space-y-3">
-            <h2 className="font-sans text-[21px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
-              Have an idea or a system you need built?
+      {/* 5. Closing CTA */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12 text-center">
+          <div className="max-w-xl mx-auto space-y-4">
+            <h2 className="font-sans text-[26px] font-semibold text-[#241044] tracking-tight">
+              Have a project in mind?
             </h2>
-            <p className="font-sans text-[13.5px] text-slate-600 leading-relaxed">
-              No sales pitches, no pressure. Just an honest conversation with an engineer about what you’re trying to build and what it would take.
+            <p className="font-sans text-[16px] text-[#4A4458] leading-relaxed">
+              Tell us about your requirements. An engineer will review your specifications and reply within one business day with an honest technical assessment.
             </p>
-            <div className="pt-2 flex items-center justify-center gap-3">
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#0A0A0A] font-sans text-[13px] font-semibold text-white shadow-2xs hover:bg-slate-800 transition-colors"
+                className="inline-flex items-center gap-2 h-[48px] px-6 rounded-[8px] bg-[#241044] font-sans text-[14px] font-medium text-white hover:bg-[#1a0b32] transition-colors"
               >
-                <span>Talk with an engineer</span>
-                <ArrowUpRight className="size-3.5 text-white/80" />
+                <span>Talk to an Engineer</span>
+                <ArrowUpRight className="size-4" />
               </Link>
               <Link
                 to="/work"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white border border-slate-200 font-sans text-[13px] font-semibold text-slate-800 shadow-2xs hover:bg-slate-50 transition-colors"
+                className="inline-flex items-center gap-2 h-[48px] px-6 rounded-[8px] bg-white border border-[#E4DEF2] font-sans text-[14px] font-medium text-[#241044] hover:bg-[#F7F6FC] transition-colors"
               >
-                <span>View shipped work</span>
-                <ArrowUpRight className="size-3.5 text-slate-500" />
+                <span>View Shipped Work</span>
+                <ArrowUpRight className="size-4 text-[#6B6578]" />
               </Link>
             </div>
           </div>
