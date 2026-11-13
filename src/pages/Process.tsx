@@ -1,9 +1,14 @@
 import { useSeo } from '../lib/useSeo'
 import {
   Check,
+  CreditCard,
+  FileCheck,
   GitBranch,
+  Globe,
+  KeyRound,
   Lock,
   MessageSquare,
+  ShieldCheck,
   Video,
 } from 'lucide-react'
 
@@ -31,206 +36,313 @@ export function Process() {
         </div>
       </section>
 
-      {/* 2. Four Simplified, Concrete Steps */}
+      {/* 2. Four Concrete Milestone Steps */}
       <section className="py-16 sm:py-20 bg-slate-50/50">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 space-y-12 sm:space-y-16 max-w-5xl">
-          {/* STEP 01 */}
-          <div className="p-7 sm:p-10 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-7 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                  01
-                </span>
-                <span className="text-slate-300">|</span>
-                <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                  Days 1 – 3
-                </span>
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+          <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+            {/* STEP 01 */}
+            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                    01
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                    Days 1 – 3
+                  </span>
+                </div>
+
+                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
+                  Scope &amp; Fixed-Price Agreement
+                </h2>
+
+                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
+                  We review your requirements, map out the customer flow, and define database models. Before writing code, you receive an exact milestone schedule and a guaranteed quote.
+                </p>
+
+                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Feature list &amp; user flow specification</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Database schema &amp; third-party integration plan</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Guaranteed fixed quote with agreed delivery dates</span>
+                  </li>
+                </ul>
               </div>
 
-              <h2 className="font-sans text-[22px] sm:text-[26px] font-bold text-slate-950 tracking-tight">
-                Scope &amp; Fixed-Price Agreement
-              </h2>
+              {/* Artifact Card: Scope Document */}
+              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
+                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <FileCheck className="size-4 text-[#6336C5]" />
+                    <span className="font-mono text-[12px] font-semibold text-slate-800">
+                      Scope_Agreement.pdf
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <Check className="size-3" />
+                    Approved
+                  </span>
+                </div>
 
-              <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                We review your goals, map out the customer flow, and define the database schema. Before writing code, you receive an exact milestone schedule and a guaranteed fixed quote.
-              </p>
-
-              <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Feature list &amp; user flow specification</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Database schema &amp; integration plan</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Guaranteed fixed quote with agreed delivery dates</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="md:col-span-5 p-5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3 text-[13px]">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
-                Deliverable
-              </span>
-              <p className="font-semibold text-slate-900">
-                Written project specification &amp; fixed milestone schedule.
-              </p>
-              <div className="pt-2 border-t border-slate-200/60 font-sans text-[12px] text-slate-500">
-                You review and approve the exact scope before development begins.
+                <div className="p-4 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Pricing Model</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Guaranteed Fixed Quote</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Milestone Timeline</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Agreed Delivery Dates</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Database &amp; Flows</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Locked Schema</span>
+                  </div>
+                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
+                    <div className="size-1.5 rounded-full bg-emerald-500" />
+                    <span>Signed off 100% before any code is written</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* STEP 02 */}
-          <div className="p-7 sm:p-10 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-7 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                  02
-                </span>
-                <span className="text-slate-300">|</span>
-                <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                  Weeks 1 – 2
-                </span>
+            {/* STEP 02 */}
+            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                    02
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                    Weeks 1 – 2
+                  </span>
+                </div>
+
+                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
+                  Core Build &amp; Working Staging Link
+                </h2>
+
+                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
+                  We set up the database, authentication, and core interface. You receive a private password-protected staging URL on day 7 to click through real, functional software.
+                </p>
+
+                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Live staging environment updated on every commit</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Real database queries and authentication flows</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Weekly video demo walkthrough showing progress</span>
+                  </li>
+                </ul>
               </div>
 
-              <h2 className="font-sans text-[22px] sm:text-[26px] font-bold text-slate-950 tracking-tight">
-                Core Build &amp; Working Staging Link
-              </h2>
+              {/* Artifact Card: Staging Window */}
+              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
+                <div className="px-4 py-2.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="size-2 rounded-full bg-slate-300" />
+                    <div className="size-2 rounded-full bg-slate-300" />
+                    <div className="size-2 rounded-full bg-slate-300" />
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-slate-200 text-[11.5px] font-mono text-slate-600">
+                    <Lock className="size-3 text-emerald-600" />
+                    <span>staging.yourproject.com</span>
+                  </div>
+                  <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
+                    <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Live
+                  </span>
+                </div>
 
-              <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                We set up the database, authentication, and core interface. You receive a private password-protected staging URL on day 7 to click through real, functional software.
-              </p>
-
-              <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Live staging environment updated on every commit</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Real database queries and authentication flows</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Weekly video demo showing newly completed features</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="md:col-span-5 p-5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3 text-[13px]">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
-                Deliverable
-              </span>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-200 font-mono text-[12px] text-slate-700">
-                <Lock className="size-3.5 text-[#059669]" />
-                <span>staging.yourproject.com</span>
-              </div>
-              <p className="text-[12px] text-slate-500">
-                Interactive preview you can test directly on your phone or computer.
-              </p>
-            </div>
-          </div>
-
-          {/* STEP 03 */}
-          <div className="p-7 sm:p-10 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-7 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                  03
-                </span>
-                <span className="text-slate-300">|</span>
-                <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                  Weeks 2 – 4
-                </span>
-              </div>
-
-              <h2 className="font-sans text-[22px] sm:text-[26px] font-bold text-slate-950 tracking-tight">
-                Integrations, Payments &amp; Testing
-              </h2>
-
-              <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                We connect payment gateways (Stripe), email/SMS notifications, and background queues. Automated test suites verify that every user workflow behaves properly before launch.
-              </p>
-
-              <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Live Stripe checkout with verified payment webhooks</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Automated test suites covering core business logic</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Mobile performance optimization (&lt; 800ms load times)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="md:col-span-5 p-5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3 text-[13px]">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
-                Deliverable
-              </span>
-              <p className="font-semibold text-slate-900">
-                Complete system verified with passing tests &amp; real payments.
-              </p>
-              <div className="pt-2 border-t border-slate-200/60 font-sans text-[12px] text-slate-500">
-                Tested against real-world mobile speeds and edge cases.
+                <div className="p-4 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Deployment Cadence</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Every Git Commit</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Testing Devices</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">iOS, Android &amp; Desktop</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Access Security</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Password Protected</span>
+                  </div>
+                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
+                    <div className="size-1.5 rounded-full bg-emerald-500" />
+                    <span>Clickable software delivered on Day 7</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* STEP 04 */}
-          <div className="p-7 sm:p-10 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-7 space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                  04
-                </span>
-                <span className="text-slate-300">|</span>
-                <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                  Launch Day &amp; Beyond
-                </span>
+            {/* STEP 03 */}
+            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                    03
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                    Weeks 2 – 4
+                  </span>
+                </div>
+
+                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
+                  Integrations, Payments &amp; Testing
+                </h2>
+
+                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
+                  We connect payment gateways (Stripe), email/SMS notifications, and background queues. Automated test suites verify that every user workflow behaves properly before launch.
+                </p>
+
+                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Live Stripe checkout with verified payment webhooks</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Automated test suites covering core business logic</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Mobile performance optimization (&lt; 800ms load times)</span>
+                  </li>
+                </ul>
               </div>
 
-              <h2 className="font-sans text-[22px] sm:text-[26px] font-bold text-slate-950 tracking-tight">
-                Launch, Full Handover &amp; 30-Day Support
-              </h2>
+              {/* Artifact Card: Preflight Audit */}
+              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
+                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="size-4 text-[#6336C5]" />
+                    <span className="font-mono text-[12px] font-semibold text-slate-800">
+                      Preflight_Audit_Log
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <Check className="size-3" />
+                    100% Passed
+                  </span>
+                </div>
 
-              <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                We deploy to your custom domain, set up SSL encryption, and transfer 100% of the Git repository and cloud accounts to your team. We then monitor the system and fix any issues free for 30 days.
-              </p>
-
-              <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>Custom domain routing with SSL certificate and CDN caching</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>100% full transfer of code repositories &amp; cloud accounts</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="size-4 text-[#059669] shrink-0" />
-                  <span>30-day post-launch warranty covering proactive bug fixes</span>
-                </li>
-              </ul>
+                <div className="p-4 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <CreditCard className="size-3.5 text-slate-400" />
+                      <span className="text-slate-600">Stripe Webhooks</span>
+                    </div>
+                    <span className="font-semibold text-emerald-700 font-mono text-[11px] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+                      Verified 200 OK
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <GitBranch className="size-3.5 text-slate-400" />
+                      <span className="text-slate-600">Test Coverage</span>
+                    </div>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Core Logic Passing</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <Globe className="size-3.5 text-slate-400" />
+                      <span className="text-slate-600">Speed Benchmark</span>
+                    </div>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">&lt; 800ms Load Time</span>
+                  </div>
+                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
+                    <div className="size-1.5 rounded-full bg-emerald-500" />
+                    <span>All production gates cleared before deployment</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="md:col-span-5 p-5 rounded-xl bg-purple-50/40 border border-purple-200/70 space-y-3 text-[13px]">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#6336C5] block">
-                Deliverable
-              </span>
-              <p className="font-semibold text-slate-900">
-                Live production site + 100% code ownership.
-              </p>
-              <div className="pt-2 border-t border-purple-100 font-sans text-[12px] text-slate-600">
-                Zero proprietary lock-in. You own everything from day one.
+            {/* STEP 04 */}
+            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                    04
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                    Launch Day &amp; Beyond
+                  </span>
+                </div>
+
+                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
+                  Launch, Full Handover &amp; 30-Day Support
+                </h2>
+
+                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
+                  We deploy to your custom domain, set up SSL encryption, and transfer 100% of the Git repository and cloud accounts to your team. We then monitor the system and fix any issues free for 30 days.
+                </p>
+
+                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>Custom domain routing with SSL certificate and CDN caching</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>100% full transfer of code repositories &amp; cloud accounts</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Check className="size-4 text-[#059669] shrink-0" />
+                    <span>30-day post-launch warranty covering proactive bug fixes</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Artifact Card: Ownership Transfer */}
+              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
+                <div className="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <KeyRound className="size-4 text-[#6336C5]" />
+                    <span className="font-mono text-[12px] font-semibold text-slate-800">
+                      Ownership_Transfer
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-50 text-[#6336C5] border border-purple-200">
+                    <Check className="size-3" />
+                    100% Client IP
+                  </span>
+                </div>
+
+                <div className="p-4 space-y-3 text-[12.5px]">
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Git Repository</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Full Admin Transfer</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Domain &amp; SSL</span>
+                    <span className="font-semibold text-slate-900 font-mono text-[12px]">Live on Custom Domain</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Bug Warranty</span>
+                    <span className="font-semibold text-emerald-700 font-mono text-[12px]">30 Days Proactive Free</span>
+                  </div>
+                  <div className="pt-1 flex items-center gap-2 text-[11.5px] text-slate-500">
+                    <div className="size-1.5 rounded-full bg-emerald-500" />
+                    <span>Zero vendor lock-in; you own every single asset</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -345,3 +457,4 @@ export function Process() {
 }
 
 export default Process
+
