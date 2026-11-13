@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useSeo } from '../lib/useSeo'
-import { ArrowUpRight, Clock, MessageSquare, Shield, Terminal } from 'lucide-react'
+import {
+  ArrowUpRight,
+  Clock,
+  Shield,
+  ShieldCheck,
+  Terminal,
+} from 'lucide-react'
 
 export function About() {
   useSeo({
@@ -88,35 +94,97 @@ export function About() {
         </div>
       </section>
 
-      {/* 2. A Note from the Studio (Authentic, Real Human Letter) */}
+      {/* 2. A Note from the Studio (Bespoke Editorial Letterhead / Studio Memo) */}
       <section className="py-12 sm:py-16 bg-slate-50/50 border-b border-slate-200">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-3xl rounded-2xl border border-slate-200 bg-white p-7 sm:p-9 shadow-xs space-y-6">
-            <div className="flex items-center gap-2 text-[#6336C5]">
-              <MessageSquare className="size-4" />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider">
-                A Note From The Studio
+          <div className="max-w-4xl mx-auto rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+            {/* Memo Letterhead Bar */}
+            <div className="px-6 sm:px-8 py-4 bg-slate-50/80 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="size-7 rounded-lg bg-[#6336C5]/10 border border-[#6336C5]/20 flex items-center justify-center text-[#6336C5] font-mono text-[12px] font-bold">
+                  AP
+                </div>
+                <div>
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-900 block leading-tight">
+                    A Note From The Studio
+                  </span>
+                  <span className="font-mono text-[10px] text-slate-500">
+                    Dispatched by the Engineering Team · Ref: Studio Protocol
+                  </span>
+                </div>
+              </div>
+
+              <span className="font-mono text-[10px] uppercase font-semibold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-md shadow-3xs">
+                Public Manifesto
               </span>
             </div>
 
-            <div className="space-y-4 font-sans text-[14px] sm:text-[14.5px] text-slate-700 leading-[1.75]">
-              <p>
-                Most software agencies operate like talent brokers: a senior partner signs you up with a slick presentation, collects a five-figure retainer, and then hands the work off to junior developers or overseas contractors who weren’t in the room.
-              </p>
-              <p>
-                When something breaks or needs adjusting, you have to explain it to an account manager who writes a ticket for someone else. Communication crawls, budgets swell, and the finished codebase is often a fragile tangle of page-builder plugins that no one wants to touch.
-              </p>
-              <p>
-                We built ArixPro to be the opposite. We’re an independent engineering studio. When you hire us, the people you talk with on day one are the exact engineers designing your database, wiring your payments, and writing your frontend code.
-              </p>
-              <p>
-                We don’t take on dozens of projects at once. We take 1 or 2 builds at a time. We give them our full attention, deliver working software every single week, and transfer 100% of the code on launch day.
-              </p>
-            </div>
+            {/* Memo Body Content */}
+            <div className="p-7 sm:p-10 space-y-7">
+              {/* Thesis Pull Quote */}
+              <div className="relative pl-5 border-l-2 border-[#6336C5]">
+                <p className="font-sans text-[16px] sm:text-[17.5px] font-medium text-slate-950 leading-relaxed">
+                  “Most software agencies operate like talent brokers: a partner sells the dream, and passes the build to someone who wasn't in the room. We built ArixPro around one rule: the person you talk to is the person writing your code.”
+                </p>
+              </div>
 
-            <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[12px] text-slate-500 font-sans">
-              <span className="font-semibold text-slate-900">The Engineering Team at ArixPro</span>
-              <span className="font-mono text-[11px]">Direct &amp; Independent</span>
+              {/* Two-Column Grounded Contrast */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-1">
+                <div className="space-y-2 p-5 rounded-xl bg-slate-50/70 border border-slate-200/80">
+                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-slate-500 block">
+                    The Agency Breakdown
+                  </span>
+                  <p className="font-sans text-[13px] text-slate-600 leading-relaxed">
+                    When communication is filtered through non-technical account managers, small adjustments take weeks. Budgets swell, codebases get tangled in fragile page-builder plugins, and founders end up trapped paying monthly retainer ransoms.
+                  </p>
+                </div>
+
+                <div className="space-y-2 p-5 rounded-xl bg-purple-50/30 border border-purple-200/60">
+                  <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-[#6336C5] block">
+                    The Studio Standard
+                  </span>
+                  <p className="font-sans text-[13px] text-slate-700 leading-relaxed">
+                    We take on just 1 or 2 builds at a time. We give them our full engineering attention, deliver working staging builds every 7 days, and transfer 100% of the repository, database, and accounts to you on launch day.
+                  </p>
+                </div>
+              </div>
+
+              {/* 4 Concrete Commitments Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
+                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Capacity</span>
+                  <span className="font-sans text-[12.5px] font-bold text-slate-900">Max 2 Builds</span>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
+                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Channel</span>
+                  <span className="font-sans text-[12.5px] font-bold text-slate-900">Direct Slack/Async</span>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
+                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Cadence</span>
+                  <span className="font-sans text-[12.5px] font-bold text-slate-900">Weekly Staging</span>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/70 text-center">
+                  <span className="font-mono text-[10px] text-slate-400 uppercase block font-semibold">Ownership</span>
+                  <span className="font-sans text-[12.5px] font-bold text-slate-900">100% Client IP</span>
+                </div>
+              </div>
+
+              {/* Memo Signature Strip */}
+              <div className="pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4">
+                <div className="space-y-0.5">
+                  <p className="font-sans text-[13px] font-bold text-slate-950">
+                    The Engineering Team at ArixPro
+                  </p>
+                  <p className="font-mono text-[11px] text-slate-500">
+                    Independent Software Studio · Direct to Founder
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
+                  <ShieldCheck className="size-3.5 text-[#059669]" />
+                  <span>Zero Brokerage · Direct Builders</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
