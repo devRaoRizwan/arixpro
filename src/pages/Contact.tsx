@@ -1,13 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { CheckCircle2, ArrowUpRight, Shield, MessageSquare } from 'lucide-react'
 
+const SERVICE_LABELS: Record<string, string> = {
+  'local-business': 'Online Presence & Booking Engine (Barbers, Clinics, Restaurants)',
+  'saas-product': 'Custom SaaS Platform / Web Application',
+  'internal-ops': 'Internal Operations Dashboard / Admin Panel',
+  ecommerce: 'Bespoke E-Commerce Store',
+  portals: 'Customer & Client Portal',
+  'admin-panels': 'Internal Admin & Operations Panel',
+  'saas-platforms': 'Subscription & SaaS Platform',
+  'api-integrations': 'Custom APIs & System Integrations',
+  automations: 'Business Workflow Automations',
+}
+
 export function Contact() {
+  const [searchParams] = useSearchParams()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [projectDetails, setProjectDetails] = useState('')
   const [budget, setBudget] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service')
+    if (serviceParam && SERVICE_LABELS[serviceParam]) {
+      setProjectDetails(`I want to scope a project for: ${SERVICE_LABELS[serviceParam]}.\n\nHere are some initial details: `)
+    }
+  }, [searchParams])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

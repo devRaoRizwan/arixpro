@@ -256,7 +256,7 @@ export function Services() {
                   key={catKey}
                   type="button"
                   onClick={() => setActiveTab(catKey)}
-                  className={`p-5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between relative overflow-hidden ${
+                  className={`p-5 rounded-2xl border text-left transition-all duration-100 ease-out active:scale-[0.98] select-none cursor-pointer flex flex-col justify-between relative overflow-hidden ${
                     isSelected
                       ? 'bg-white border-[#6336C5] shadow-[0_4px_20px_-4px_rgba(99,54,197,0.15)] ring-2 ring-[#6336C5]/20'
                       : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-xs'
