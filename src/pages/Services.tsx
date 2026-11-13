@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSeo } from '../lib/useSeo'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Store,
   Layers,
@@ -201,21 +202,24 @@ export function Services() {
   })
 
   return (
-    <div className="w-full text-slate-900 bg-white selection:bg-slate-900 selection:text-white">
-      {/* 1. Clean, Honest Header with Integrated Segmented Control */}
-      <section className="pt-16 pb-12 sm:pt-20 sm:pb-16 border-b border-slate-200">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
+    <div className="w-full text-slate-900 bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
+      {/* 1. Header with Gliding Segmented Control */}
+      <section className="relative pt-16 pb-12 sm:pt-20 sm:pb-16 border-b border-slate-200/80 overflow-hidden">
+        {/* Subtle ambient light gradient at top (AI Fiesta Style) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[320px] bg-gradient-to-b from-purple-100/40 via-purple-50/15 to-transparent blur-[110px] pointer-events-none" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[56px] font-bold text-slate-950 tracking-tight leading-[1.1]">
+            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[56px] font-bold text-slate-950 tracking-tight leading-[1.12]">
               Software we build &amp; deliver.
             </h1>
             <p className="mt-4 font-sans text-[17px] sm:text-[19px] text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              From local business booking engines to full-stack SaaS and internal operations tools. Custom code, fixed pricing, and 100% code ownership.
+              From local business booking engines to full-stack SaaS and internal operations tools. Custom code, fixed pricing, and 100% full ownership.
             </p>
           </div>
 
-          {/* Clean Segmented Control Switcher */}
-          <div className="mt-10 inline-flex flex-wrap justify-center p-1.5 rounded-2xl bg-slate-100 border border-slate-200 max-w-full">
+          {/* Smooth Gliding Segmented Pill Switcher (Matches Navbar Capsule) */}
+          <div className="mt-10 inline-flex flex-wrap justify-center p-1.5 rounded-full bg-slate-100/80 border border-slate-200/80 backdrop-blur-md shadow-xs max-w-full relative">
             {(Object.keys(BLUEPRINTS) as ProjectCategory[]).map((catKey) => {
               const item = BLUEPRINTS[catKey]
               const Icon = item.icon
@@ -226,14 +230,27 @@ export function Services() {
                   key={catKey}
                   type="button"
                   onClick={() => setActiveTab(catKey)}
-                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-sans text-[13.5px] sm:text-[14px] font-medium transition-all duration-100 ease-out active:scale-[0.98] cursor-pointer select-none ${
+                  className={`relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full font-sans text-[13.5px] sm:text-[14px] font-medium transition-colors duration-200 cursor-pointer select-none ${
                     isSelected
-                      ? 'bg-white text-slate-950 font-semibold shadow-xs border border-slate-200/80'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                      ? 'text-slate-950 font-semibold'
+                      : 'text-slate-600 hover:text-slate-950'
                   }`}
                 >
-                  <Icon className={`size-4 ${isSelected ? 'text-slate-950' : 'text-slate-500'}`} />
-                  <span>{item.name}</span>
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeServiceTab"
+                      transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+                      className="absolute inset-0 rounded-full bg-white border border-slate-200/90 shadow-xs"
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Icon
+                      className={`size-4 transition-colors ${
+                        isSelected ? 'text-[#6336C5]' : 'text-slate-500'
+                      }`}
+                    />
+                    <span>{item.name}</span>
+                  </span>
                 </button>
               )
             })}
@@ -241,125 +258,164 @@ export function Services() {
         </div>
       </section>
 
-      {/* 2. Active Specification Blueprint */}
-      <section className="py-12 sm:py-16 bg-slate-50/60 border-b border-slate-200">
+      {/* 2. Smoothly Animated Active Blueprint Presentation */}
+      <section className="py-12 sm:py-16 bg-slate-50/50 border-b border-slate-200/80">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="rounded-2xl border border-slate-200 bg-white p-7 sm:p-10 shadow-xs">
-            {/* Top Bar */}
-            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-200">
-              <div>
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
-                  Project Specification
-                </span>
-                <h2 className="mt-1 font-sans text-[24px] sm:text-[30px] font-bold text-slate-950 tracking-tight">
-                  {current.label}
-                </h2>
-                <p className="mt-1.5 font-sans text-[14.5px] text-slate-600">
-                  <span className="font-medium text-slate-900">For who: </span>
-                  {current.forWho}
-                </p>
-                <p className="mt-3 font-sans text-[15px] text-slate-700 leading-relaxed max-w-3xl">
-                  {current.summary}
-                </p>
-              </div>
-
-              {/* Timeline Pill */}
-              <div className="shrink-0 p-4 rounded-xl bg-slate-50 border border-slate-200 text-left lg:text-right">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-slate-500 block">
-                  Typical Turnaround
-                </span>
-                <span className="font-sans text-[18px] font-bold text-slate-950 flex items-center gap-1.5 lg:justify-end mt-0.5">
-                  <Clock className="size-4 text-slate-700" />
-                  <span>{current.timeline}</span>
-                </span>
-                <span className="font-mono text-[11px] text-emerald-600 font-semibold block mt-0.5">
-                  Guaranteed Fixed Quote
-                </span>
-              </div>
-            </div>
-
-            {/* 3 Balanced Columns */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Column 1: Customer Frontend */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                  <Laptop className="size-4 text-slate-700" />
-                  <h3 className="font-sans text-[14.5px] font-bold text-slate-950">
-                    01. Customer Experience
-                  </h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {current.frontend.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-[13.5px] text-slate-700 leading-snug">
-                      <div className="size-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
-                        <Check className="size-2.5 stroke-[3]" />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Column 2: Business Backend */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                  <Server className="size-4 text-slate-700" />
-                  <h3 className="font-sans text-[14.5px] font-bold text-slate-950">
-                    02. Business Engine
-                  </h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {current.backend.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-[13.5px] text-slate-700 leading-snug">
-                      <div className="size-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
-                        <Check className="size-2.5 stroke-[3]" />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Column 3: Complete Handover */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200">
-                  <ShieldCheck className="size-4 text-slate-700" />
-                  <h3 className="font-sans text-[14.5px] font-bold text-slate-950">
-                    03. Launch &amp; Ownership
-                  </h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {current.handover.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-[13.5px] text-slate-700 leading-snug">
-                      <div className="size-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
-                        <Check className="size-2.5 stroke-[3]" />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="font-sans text-[13.5px] text-slate-600">
-                Fixed quote provided upfront based on your exact requirements. Zero hourly surprises.
-              </div>
-              <Link
-                to={`/contact?service=${activeTab}`}
-                className="btn-primary text-[14px] h-[44px] px-6 rounded-full inline-flex items-center gap-2 shrink-0"
+          <div className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-11 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.05)] overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="space-y-8"
               >
-                <span>Request a Scope for this Build</span>
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
+                {/* Top Bar with Specifications */}
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                  <div className="max-w-3xl">
+                    <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
+                      Blueprint Specification
+                    </span>
+                    <h2 className="mt-1 font-sans text-[24px] sm:text-[30px] font-bold text-slate-950 tracking-tight">
+                      {current.label}
+                    </h2>
+                    <p className="mt-1.5 font-sans text-[14.5px] text-slate-600">
+                      <span className="font-semibold text-slate-900">For who: </span>
+                      {current.forWho}
+                    </p>
+                    <p className="mt-3 font-sans text-[15px] text-slate-700 leading-relaxed bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/60 max-w-3xl">
+                      {current.summary}
+                    </p>
+                  </div>
+
+                  {/* Timeline Badge */}
+                  <div className="shrink-0 p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-purple-50/20 border border-slate-200 text-left lg:text-right min-w-[200px]">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-slate-500 block">
+                      Turnaround
+                    </span>
+                    <span className="font-sans text-[19px] font-bold text-slate-950 flex items-center gap-1.5 lg:justify-end mt-0.5">
+                      <Clock className="size-4.5 text-[#6336C5]" />
+                      <span>{current.timeline}</span>
+                    </span>
+                    <span className="font-mono text-[11px] text-[#059669] font-semibold block mt-0.5">
+                      Guaranteed Fixed Quote
+                    </span>
+                  </div>
+                </div>
+
+                {/* 3 Balanced Architectural Pillar Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Pillar 1: Customer Frontend */}
+                  <div className="p-6 rounded-2xl bg-gradient-to-b from-slate-50/80 to-white border border-slate-200/80 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-all">
+                    <div>
+                      <div className="flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-200/70">
+                        <div className="size-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-800 shadow-2xs">
+                          <Laptop className="size-4" />
+                        </div>
+                        <div>
+                          <span className="font-mono text-[10.5px] font-semibold uppercase tracking-wider text-slate-500 block">
+                            Pillar 01
+                          </span>
+                          <h3 className="font-sans text-[14.5px] font-bold text-slate-950">
+                            Customer Experience
+                          </h3>
+                        </div>
+                      </div>
+                      <ul className="space-y-3">
+                        {current.frontend.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-[13.5px] text-slate-700 leading-snug">
+                            <div className="size-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
+                              <Check className="size-2.5 stroke-[3]" />
+                            </div>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Pillar 2: Business Backend */}
+                  <div className="p-6 rounded-2xl bg-gradient-to-b from-slate-50/80 to-white border border-slate-200/80 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-all">
+                    <div>
+                      <div className="flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-200/70">
+                        <div className="size-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-800 shadow-2xs">
+                          <Server className="size-4" />
+                        </div>
+                        <div>
+                          <span className="font-mono text-[10.5px] font-semibold uppercase tracking-wider text-slate-500 block">
+                            Pillar 02
+                          </span>
+                          <h3 className="font-sans text-[14.5px] font-bold text-slate-950">
+                            Business Engine
+                          </h3>
+                        </div>
+                      </div>
+                      <ul className="space-y-3">
+                        {current.backend.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-[13.5px] text-slate-700 leading-snug">
+                            <div className="size-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
+                              <Check className="size-2.5 stroke-[3]" />
+                            </div>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Pillar 3: Launch & Ownership */}
+                  <div className="p-6 rounded-2xl bg-gradient-to-b from-purple-50/25 to-white border border-purple-200/70 flex flex-col justify-between shadow-2xs hover:border-purple-300 transition-all">
+                    <div>
+                      <div className="flex items-center gap-2.5 pb-3 mb-4 border-b border-purple-200/60">
+                        <div className="size-8 rounded-lg bg-white border border-purple-200 flex items-center justify-center text-[#6336C5] shadow-2xs">
+                          <ShieldCheck className="size-4" />
+                        </div>
+                        <div>
+                          <span className="font-mono text-[10.5px] font-semibold uppercase tracking-wider text-[#6336C5] block">
+                            Pillar 03
+                          </span>
+                          <h3 className="font-sans text-[14.5px] font-bold text-slate-950">
+                            Launch &amp; Ownership
+                          </h3>
+                        </div>
+                      </div>
+                      <ul className="space-y-3">
+                        {current.handover.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-[13.5px] text-slate-800 leading-snug">
+                            <div className="size-4 rounded-full bg-purple-100 text-[#6336C5] flex items-center justify-center shrink-0 mt-0.5">
+                              <Check className="size-2.5 stroke-[3]" />
+                            </div>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="font-sans text-[13.5px] text-slate-600">
+                    <span className="font-semibold text-slate-900">Fixed Milestone Pricing: </span>
+                    Includes full source code transfer, staging previews, and zero vendor lock-in.
+                  </div>
+                  <Link
+                    to={`/contact?service=${activeTab}`}
+                    className="btn-primary text-[14px] h-[44px] px-7 rounded-full inline-flex items-center gap-2 shrink-0 shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
+                  >
+                    <span>Request a Scope for this Build</span>
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
-      {/* 3. Honest Comparison Table (Clean Neutral Palette) */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
+      {/* 3. Honest Comparison Table (Subtle Depth & Clean Polish) */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-2xl mb-10">
             <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
@@ -370,29 +426,29 @@ export function Services() {
             </p>
           </div>
 
-          {/* Clean Neutral Table Container */}
-          <div className="border border-slate-200 rounded-2xl bg-white shadow-xs overflow-hidden">
+          {/* Clean Elevated Table Container */}
+          <div className="border border-slate-200 rounded-3xl bg-white shadow-[0_15px_40px_-15px_rgba(15,23,42,0.05)] overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse font-sans min-w-[760px]">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50/70 text-slate-800">
-                    <th className="py-4.5 px-6 font-mono text-[11.5px] uppercase tracking-wider text-slate-500 font-semibold w-[26%]">
+                  <tr className="border-b border-slate-200 bg-slate-50/80 text-slate-800">
+                    <th className="py-5 px-6 font-mono text-[11.5px] uppercase tracking-wider text-slate-500 font-semibold w-[26%]">
                       Standard
                     </th>
 
-                    {/* ArixPro Column */}
-                    <th className="py-4.5 px-6 bg-slate-100/70 border-x border-slate-200 w-[24%]">
+                    {/* ArixPro Column Header */}
+                    <th className="py-5 px-6 bg-slate-100/70 border-x border-slate-200 w-[24%]">
                       <div className="flex items-center gap-2">
-                        <span className="px-3 py-1 rounded-full bg-slate-950 text-white font-sans text-[12px] font-bold">
+                        <span className="px-3 py-1 rounded-full bg-slate-950 text-white font-sans text-[12px] font-bold shadow-xs">
                           ArixPro
                         </span>
-                        <span className="font-mono text-[11px] font-semibold text-slate-600 uppercase tracking-wider">
+                        <span className="font-mono text-[11px] font-semibold text-[#6336C5] uppercase tracking-wider">
                           Custom
                         </span>
                       </div>
                     </th>
 
-                    <th className="py-4.5 px-6 text-slate-700 w-[17%]">
+                    <th className="py-5 px-6 text-slate-700 w-[17%]">
                       <span className="font-sans text-[13.5px] font-bold text-slate-900 block">
                         Traditional Agency
                       </span>
@@ -401,7 +457,7 @@ export function Services() {
                       </span>
                     </th>
 
-                    <th className="py-4.5 px-6 text-slate-700 w-[17%]">
+                    <th className="py-5 px-6 text-slate-700 w-[17%]">
                       <span className="font-sans text-[13.5px] font-bold text-slate-900 block">
                         Fiverr / Upwork
                       </span>
@@ -410,7 +466,7 @@ export function Services() {
                       </span>
                     </th>
 
-                    <th className="py-4.5 px-6 text-slate-700 w-[16%]">
+                    <th className="py-5 px-6 text-slate-700 w-[16%]">
                       <span className="font-sans text-[13.5px] font-bold text-slate-900 block">
                         Wix / WordPress
                       </span>
@@ -423,7 +479,10 @@ export function Services() {
 
                 <tbody className="divide-y divide-slate-100 text-[13.5px]">
                   {comparisonRows.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                    <tr
+                      key={idx}
+                      className="hover:bg-slate-50/60 transition-colors duration-150"
+                    >
                       {/* Metric Name */}
                       <td className="py-4.5 px-6">
                         <span className="font-sans text-[14px] font-bold text-slate-950 block">
@@ -435,9 +494,9 @@ export function Services() {
                       </td>
 
                       {/* ArixPro Column */}
-                      <td className="py-4.5 px-6 bg-slate-50/50 border-x border-slate-200">
+                      <td className="py-4.5 px-6 bg-slate-50/40 border-x border-slate-200">
                         <div className="flex items-start gap-2">
-                          <div className="size-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
+                          <div className="size-4.5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 shadow-2xs">
                             <Check className="size-2.5 stroke-[3]" />
                           </div>
                           <span className="font-medium text-slate-950 leading-snug">
@@ -476,14 +535,14 @@ export function Services() {
             </div>
 
             {/* Bottom Note */}
-            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[12.5px] text-slate-600">
+            <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[12.5px] text-slate-600">
               <div className="flex items-center gap-1.5">
                 <Check className="size-3.5 text-emerald-600" />
                 <span>All ArixPro builds include guaranteed milestones and full repository handover.</span>
               </div>
               <Link
                 to="/contact"
-                className="font-semibold text-slate-900 hover:text-slate-600 inline-flex items-center gap-1"
+                className="font-semibold text-[#6336C5] hover:text-slate-950 inline-flex items-center gap-1 transition-colors"
               >
                 <span>Have a question? Contact us</span>
                 <ArrowUpRight className="size-3" />
@@ -493,8 +552,8 @@ export function Services() {
         </div>
       </section>
 
-      {/* 4. What We Refuse to Do (Crisp Neutral Cards) */}
-      <section className="py-16 sm:py-24 bg-slate-50/60 border-b border-slate-200">
+      {/* 4. What We Refuse to Do (Tactile Cards with Hover Lift) */}
+      <section className="py-16 sm:py-24 bg-slate-50/60 border-b border-slate-200/80">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-xl mx-auto text-center mb-12">
             <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
@@ -506,42 +565,42 @@ export function Services() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-            <div className="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-              <h3 className="font-sans text-[16px] font-bold text-slate-950 flex items-center gap-2">
+            <div className="p-7 rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+              <h3 className="font-sans text-[16.5px] font-bold text-slate-950 flex items-center gap-2">
                 <span className="text-rose-500 font-bold">✕</span>
                 <span>No Bloated WordPress Themes</span>
               </h3>
-              <p className="mt-2 font-sans text-[14px] text-slate-600 leading-relaxed">
+              <p className="mt-2.5 font-sans text-[14px] text-slate-600 leading-relaxed">
                 We write clean custom code. Zero conflicting plugins that create security vulnerabilities and crash when updated.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-              <h3 className="font-sans text-[16px] font-bold text-slate-950 flex items-center gap-2">
+            <div className="p-7 rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+              <h3 className="font-sans text-[16.5px] font-bold text-slate-950 flex items-center gap-2">
                 <span className="text-rose-500 font-bold">✕</span>
                 <span>No Monthly Code Hostage Fees</span>
               </h3>
-              <p className="mt-2 font-sans text-[14px] text-slate-600 leading-relaxed">
+              <p className="mt-2.5 font-sans text-[14px] text-slate-600 leading-relaxed">
                 You own your software 100%. All source code, cloud credentials, and domain records are yours from day one.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-              <h3 className="font-sans text-[16px] font-bold text-slate-950 flex items-center gap-2">
+            <div className="p-7 rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+              <h3 className="font-sans text-[16.5px] font-bold text-slate-950 flex items-center gap-2">
                 <span className="text-rose-500 font-bold">✕</span>
                 <span>No Junior Handoffs</span>
               </h3>
-              <p className="mt-2 font-sans text-[14px] text-slate-600 leading-relaxed">
+              <p className="mt-2.5 font-sans text-[14px] text-slate-600 leading-relaxed">
                 You never get passed off to an intern or an offshore subcontractor. You speak directly with the engineer writing your software.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
-              <h3 className="font-sans text-[16px] font-bold text-slate-950 flex items-center gap-2">
+            <div className="p-7 rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-slate-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+              <h3 className="font-sans text-[16.5px] font-bold text-slate-950 flex items-center gap-2">
                 <span className="text-rose-500 font-bold">✕</span>
                 <span>No Open-Ended Hourly Traps</span>
               </h3>
-              <p className="mt-2 font-sans text-[14px] text-slate-600 leading-relaxed">
+              <p className="mt-2.5 font-sans text-[14px] text-slate-600 leading-relaxed">
                 We work on fixed price milestones. If a feature takes longer than expected, that is on our shoulders—never added to your bill.
               </p>
             </div>
@@ -564,14 +623,14 @@ export function Services() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="btn-primary text-[15px] h-[48px] px-8 rounded-full shadow-xs hover:shadow-md transition-all inline-flex items-center gap-2"
+                className="btn-primary text-[15px] h-[48px] px-8 rounded-full shadow-xs hover:shadow-md transition-all inline-flex items-center gap-2 active:scale-[0.98]"
               >
                 <span>Talk to an Engineer</span>
                 <ArrowUpRight className="size-4" />
               </Link>
               <Link
                 to="/work"
-                className="btn-secondary text-[15px] h-[48px] px-8 rounded-full border border-slate-200 shadow-xs hover:border-slate-300 transition-all"
+                className="btn-secondary text-[15px] h-[48px] px-8 rounded-full border border-slate-200 shadow-xs hover:border-slate-300 transition-all active:scale-[0.98]"
               >
                 <span>View Shipped Work</span>
               </Link>
