@@ -1,10 +1,11 @@
 import { useSeo } from '../lib/useSeo'
 import {
   Check,
+  CreditCard,
   FileText,
   GitBranch,
   Globe,
-  KeyRound,
+  Lock,
   MessageSquare,
   ShieldCheck,
   Video,
@@ -23,7 +24,7 @@ export function Process() {
       {/* 1. Header (Clean, Direct, Zero Slop) */}
       <section className="pt-16 pb-12 sm:pt-20 sm:pb-16 border-b border-slate-200">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 text-center">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.1]">
               How projects run.
             </h1>
@@ -34,39 +35,104 @@ export function Process() {
         </div>
       </section>
 
-      {/* 2. Four Concrete Milestone Steps */}
+      {/* 2. Broad Four-Milestone Grid with Visual Artifacts */}
       <section className="py-16 sm:py-20 bg-slate-50/50">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+          {/* Broad Horizontal Milestone Roadmap Tracker */}
+          <div className="mb-10 sm:mb-12 pb-8 border-b border-slate-200">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+              <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs space-y-1">
+                <span className="font-mono text-[11px] font-bold text-[#6336C5]">PHASE 01</span>
+                <p className="font-sans text-[14px] font-bold text-slate-950">Scope &amp; Agreement</p>
+                <p className="font-mono text-[11.5px] text-slate-500">Days 1 – 3</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs space-y-1">
+                <span className="font-mono text-[11px] font-bold text-[#6336C5]">PHASE 02</span>
+                <p className="font-sans text-[14px] font-bold text-slate-950">Working Staging Link</p>
+                <p className="font-mono text-[11.5px] text-slate-500">Weeks 1 – 2</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs space-y-1">
+                <span className="font-mono text-[11px] font-bold text-[#6336C5]">PHASE 03</span>
+                <p className="font-sans text-[14px] font-bold text-slate-950">Integrations &amp; Testing</p>
+                <p className="font-mono text-[11.5px] text-slate-500">Weeks 2 – 4</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs space-y-1">
+                <span className="font-mono text-[11px] font-bold text-[#6336C5]">PHASE 04</span>
+                <p className="font-sans text-[14px] font-bold text-slate-950">Launch &amp; Handover</p>
+                <p className="font-mono text-[11.5px] text-slate-500">Launch Day &amp; Beyond</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 2x2 Broad Responsive Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
             {/* STEP 01 */}
-            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                    01
-                  </span>
-                  <span className="text-slate-300">|</span>
-                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                    Days 1 – 3
+            <div className="p-7 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                      01
+                    </span>
+                    <span className="text-slate-300">|</span>
+                    <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                      Days 1 – 3
+                    </span>
+                  </div>
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 01 Deliverable
                   </span>
                 </div>
 
-                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
-                  Scope &amp; Fixed-Price Agreement
-                </h2>
+                <div>
+                  <h2 className="font-sans text-[22px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
+                    Scope &amp; Fixed-Price Agreement
+                  </h2>
+                  <p className="mt-2 font-sans text-[14.5px] text-slate-600 leading-relaxed">
+                    We review your requirements, map customer user flows, and define relational data models. Before writing code, you approve a guaranteed fixed quote.
+                  </p>
+                </div>
 
-                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                  We review your requirements, map out the customer flow, and define database models. Before writing code, you receive an exact milestone schedule and a guaranteed quote.
-                </p>
+                {/* Graphic 01: Architecture & Scope Schematic */}
+                <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-3">
+                  <div className="grid grid-cols-3 gap-2.5 text-center">
+                    <div className="p-3 rounded-lg bg-white border border-slate-200/80 shadow-2xs">
+                      <div className="size-6 mx-auto mb-1.5 rounded bg-slate-50 flex items-center justify-center">
+                        <img src="/icons/figma.svg" alt="Figma" className="size-3.5" />
+                      </div>
+                      <div className="font-sans text-[11.5px] font-semibold text-slate-800">User Flows</div>
+                      <div className="font-mono text-[10px] text-slate-400">Wireframes</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-white border border-slate-200/80 shadow-2xs">
+                      <div className="size-6 mx-auto mb-1.5 rounded bg-slate-50 flex items-center justify-center">
+                        <img src="/icons/postgresql.svg" alt="PostgreSQL" className="size-3.5" />
+                      </div>
+                      <div className="font-sans text-[11.5px] font-semibold text-slate-800">Data Models</div>
+                      <div className="font-mono text-[10px] text-slate-400">PostgreSQL</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-white border border-slate-200/80 shadow-2xs">
+                      <div className="size-6 mx-auto mb-1.5 rounded bg-slate-50 flex items-center justify-center">
+                        <FileText className="size-3.5 text-slate-700" />
+                      </div>
+                      <div className="font-sans text-[11.5px] font-semibold text-slate-800">Fixed Quote</div>
+                      <div className="font-mono text-[10px] text-slate-400">Guaranteed</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-white border border-slate-200/80 text-[11.5px]">
+                    <span className="text-slate-500">Sign-off Condition</span>
+                    <span className="font-semibold text-slate-900">100% agreement before build starts</span>
+                  </div>
+                </div>
 
-                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                {/* 3 Checklist Specifications */}
+                <ul className="pt-1 space-y-2 text-[13.5px] text-slate-700">
                   <li className="flex items-center gap-2.5">
                     <Check className="size-4 text-[#059669] shrink-0" />
-                    <span>Feature list &amp; user flow specification</span>
+                    <span>Feature list &amp; user journey specification</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="size-4 text-[#059669] shrink-0" />
-                    <span>Database schema &amp; third-party integration plan</span>
+                    <span>Database schema &amp; integration plan</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <Check className="size-4 text-[#059669] shrink-0" />
@@ -75,68 +141,67 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Step 01 Deliverable Box */}
-              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <FileText className="size-4 text-slate-700" />
-                    <span className="font-sans text-[13px] font-semibold text-slate-900">
-                      Scope &amp; Architecture Spec
-                    </span>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
-                    Phase 01 Deliverable
-                  </span>
-                </div>
-
-                <div className="p-5 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Pricing Model</span>
-                    <span className="font-medium text-slate-900">Guaranteed Fixed Quote</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Milestone Timeline</span>
-                    <span className="font-medium text-slate-900">Agreed Delivery Dates</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Database &amp; Flows</span>
-                    <span className="font-medium text-slate-900">Locked Relational Schema</span>
-                  </div>
-                  <div className="flex items-center justify-between pt-0.5">
-                    <span className="text-slate-500">Scope Certainty</span>
-                    <span className="font-medium text-slate-900">Zero Surprise Add-ons</span>
-                  </div>
-                </div>
-
-                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
-                  <span>Client Sign-off</span>
-                  <span className="font-semibold text-slate-900">Required before writing code</span>
-                </div>
+              {/* Bottom Condition Strip */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[12px] text-slate-600">
+                <span>Client Sign-off</span>
+                <span className="font-semibold text-slate-900">Required before writing code</span>
               </div>
             </div>
 
             {/* STEP 02 */}
-            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                    02
-                  </span>
-                  <span className="text-slate-300">|</span>
-                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                    Weeks 1 – 2
+            <div className="p-7 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                      02
+                    </span>
+                    <span className="text-slate-300">|</span>
+                    <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                      Weeks 1 – 2
+                    </span>
+                  </div>
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 02 Deliverable
                   </span>
                 </div>
 
-                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
-                  Core Build &amp; Working Staging Link
-                </h2>
+                <div>
+                  <h2 className="font-sans text-[22px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
+                    Core Build &amp; Working Staging Link
+                  </h2>
+                  <p className="mt-2 font-sans text-[14.5px] text-slate-600 leading-relaxed">
+                    We configure the database, authentication, and core interface. On Day 7, you receive a private password-protected staging URL to test real software in your browser.
+                  </p>
+                </div>
 
-                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                  We set up the database, authentication, and core interface. You receive a private password-protected staging URL on day 7 to click through real, functional software.
-                </p>
+                {/* Graphic 02: Staging Browser Window Preview */}
+                <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-2xs">
+                  <div className="px-3.5 py-2 bg-slate-100 border-b border-slate-200 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <div className="size-2 rounded-full bg-slate-300" />
+                      <div className="size-2 rounded-full bg-slate-300" />
+                      <div className="size-2 rounded-full bg-slate-300" />
+                    </div>
+                    <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white border border-slate-200 text-[11px] font-mono text-slate-600">
+                      <Lock className="size-2.5 text-slate-500" />
+                      <span>staging.yourproject.com</span>
+                    </div>
+                    <span className="font-mono text-[10px] uppercase font-semibold text-slate-500">Day 7 Build</span>
+                  </div>
+                  <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                    <img
+                      src="/images/work-analytics-dashboard.webp"
+                      alt="Staging environment preview"
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                </div>
 
-                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                {/* 3 Checklist Specifications */}
+                <ul className="pt-1 space-y-2 text-[13.5px] text-slate-700">
                   <li className="flex items-center gap-2.5">
                     <Check className="size-4 text-[#059669] shrink-0" />
                     <span>Live staging environment updated on every commit</span>
@@ -152,68 +217,67 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Step 02 Deliverable Box */}
-              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Globe className="size-4 text-slate-700" />
-                    <span className="font-sans text-[13px] font-semibold text-slate-900">
-                      Working Staging Link
-                    </span>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
-                    Phase 02 Deliverable
-                  </span>
-                </div>
-
-                <div className="p-5 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">First Working Build</span>
-                    <span className="font-medium text-slate-900">Live on Day 7</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Deployment Cadence</span>
-                    <span className="font-medium text-slate-900">Updated on Every Commit</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Testing Devices</span>
-                    <span className="font-medium text-slate-900">iOS, Android &amp; Desktop</span>
-                  </div>
-                  <div className="flex items-center justify-between pt-0.5">
-                    <span className="text-slate-500">Access Security</span>
-                    <span className="font-medium text-slate-900 font-mono text-[12px]">staging.yourproject.com</span>
-                  </div>
-                </div>
-
-                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
-                  <span>Review Format</span>
-                  <span className="font-semibold text-slate-900">Clickable link + weekly video demo</span>
-                </div>
+              {/* Bottom Condition Strip */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[12px] text-slate-600">
+                <span>Review Format</span>
+                <span className="font-semibold text-slate-900">Clickable link + weekly video demo</span>
               </div>
             </div>
 
             {/* STEP 03 */}
-            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                    03
-                  </span>
-                  <span className="text-slate-300">|</span>
-                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                    Weeks 2 – 4
+            <div className="p-7 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                      03
+                    </span>
+                    <span className="text-slate-300">|</span>
+                    <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                      Weeks 2 – 4
+                    </span>
+                  </div>
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 03 Deliverable
                   </span>
                 </div>
 
-                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
-                  Integrations, Payments &amp; Testing
-                </h2>
+                <div>
+                  <h2 className="font-sans text-[22px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
+                    Integrations, Payments &amp; Testing
+                  </h2>
+                  <p className="mt-2 font-sans text-[14.5px] text-slate-600 leading-relaxed">
+                    We connect payment gateways (Stripe), email/SMS notifications, and background queues. Automated test suites verify every user workflow before launch.
+                  </p>
+                </div>
 
-                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                  We connect payment gateways (Stripe), email/SMS notifications, and background queues. Automated test suites verify that every user workflow behaves properly before launch.
-                </p>
+                {/* Graphic 03: Verification Matrix */}
+                <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5">
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs text-[12px]">
+                    <div className="flex items-center gap-2">
+                      <CreditCard className="size-3.5 text-slate-600" />
+                      <span className="font-medium text-slate-850">Stripe Webhooks</span>
+                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 font-medium">Verified 200 OK</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs text-[12px]">
+                    <div className="flex items-center gap-2">
+                      <img src="/icons/react.svg" alt="React" className="size-3.5" />
+                      <span className="font-medium text-slate-850">Automated Test Suites</span>
+                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 font-medium">100% Passing</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs text-[12px]">
+                    <div className="flex items-center gap-2">
+                      <Globe className="size-3.5 text-slate-600" />
+                      <span className="font-medium text-slate-850">Speed Benchmark</span>
+                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 font-medium">&lt; 800ms Latency</span>
+                  </div>
+                </div>
 
-                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                {/* 3 Checklist Specifications */}
+                <ul className="pt-1 space-y-2 text-[13.5px] text-slate-700">
                   <li className="flex items-center gap-2.5">
                     <Check className="size-4 text-[#059669] shrink-0" />
                     <span>Live Stripe checkout with verified payment webhooks</span>
@@ -229,68 +293,67 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Step 03 Deliverable Box */}
-              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="size-4 text-slate-700" />
-                    <span className="font-sans text-[13px] font-semibold text-slate-900">
-                      Integrations &amp; Quality Audit
-                    </span>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
-                    Phase 03 Deliverable
-                  </span>
-                </div>
-
-                <div className="p-5 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Payment Gateway</span>
-                    <span className="font-medium text-slate-900">Live Stripe Webhook Handlers</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Test Coverage</span>
-                    <span className="font-medium text-slate-900">Core Business Logic Automated</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Speed Benchmark</span>
-                    <span className="font-medium text-slate-900 font-mono text-[12px]">&lt; 800ms Mobile Latency</span>
-                  </div>
-                  <div className="flex items-center justify-between pt-0.5">
-                    <span className="text-slate-500">Security Clearance</span>
-                    <span className="font-medium text-slate-900">SQL &amp; Auth Sanitization Verified</span>
-                  </div>
-                </div>
-
-                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
-                  <span>Launch Gate</span>
-                  <span className="font-semibold text-slate-900">100% checks cleared before cutover</span>
-                </div>
+              {/* Bottom Condition Strip */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[12px] text-slate-600">
+                <span>Launch Gate</span>
+                <span className="font-semibold text-slate-900">100% checks cleared before cutover</span>
               </div>
             </div>
 
             {/* STEP 04 */}
-            <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-[13px] font-bold text-[#6336C5]">
-                    04
-                  </span>
-                  <span className="text-slate-300">|</span>
-                  <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                    Launch Day &amp; Beyond
+            <div className="p-7 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-xs flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[13px] font-bold text-[#6336C5]">
+                      04
+                    </span>
+                    <span className="text-slate-300">|</span>
+                    <span className="font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                      Launch Day &amp; Beyond
+                    </span>
+                  </div>
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-0.5 rounded-md">
+                    Phase 04 Deliverable
                   </span>
                 </div>
 
-                <h2 className="font-sans text-[22px] sm:text-[25px] font-bold text-slate-950 tracking-tight">
-                  Launch, Full Handover &amp; 30-Day Support
-                </h2>
+                <div>
+                  <h2 className="font-sans text-[22px] sm:text-[24px] font-bold text-slate-950 tracking-tight">
+                    Launch, Full Handover &amp; 30-Day Support
+                  </h2>
+                  <p className="mt-2 font-sans text-[14.5px] text-slate-600 leading-relaxed">
+                    We deploy to your custom domain, configure SSL encryption, and transfer 100% of the Git repository and cloud accounts to your team with a 30-day warranty.
+                  </p>
+                </div>
 
-                <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                  We deploy to your custom domain, set up SSL encryption, and transfer 100% of the Git repository and cloud accounts to your team. We then monitor the system and fix any issues free for 30 days.
-                </p>
+                {/* Graphic 04: IP Transfer Vault */}
+                <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5">
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs text-[12px]">
+                    <div className="flex items-center gap-2">
+                      <img src="/icons/github.svg" alt="GitHub" className="size-3.5" />
+                      <span className="font-medium text-slate-850">Git Repository</span>
+                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 font-medium">Full Admin Transfer</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs text-[12px]">
+                    <div className="flex items-center gap-2">
+                      <Globe className="size-3.5 text-slate-600" />
+                      <span className="font-medium text-slate-850">Domain &amp; Infrastructure</span>
+                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 font-medium">Live Custom Domain</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs text-[12px]">
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="size-3.5 text-slate-600" />
+                      <span className="font-medium text-slate-850">Post-Launch Warranty</span>
+                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 font-medium">30 Days Proactive Free</span>
+                  </div>
+                </div>
 
-                <ul className="pt-2 space-y-2 text-[13.5px] text-slate-700">
+                {/* 3 Checklist Specifications */}
+                <ul className="pt-1 space-y-2 text-[13.5px] text-slate-700">
                   <li className="flex items-center gap-2.5">
                     <Check className="size-4 text-[#059669] shrink-0" />
                     <span>Custom domain routing with SSL certificate and CDN caching</span>
@@ -306,53 +369,20 @@ export function Process() {
                 </ul>
               </div>
 
-              {/* Step 04 Deliverable Box */}
-              <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-                <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <KeyRound className="size-4 text-slate-700" />
-                    <span className="font-sans text-[13px] font-semibold text-slate-900">
-                      Production &amp; IP Handover
-                    </span>
-                  </div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-slate-500 bg-white border border-slate-200 px-2.5 py-0.5 rounded-md">
-                    Phase 04 Deliverable
-                  </span>
-                </div>
-
-                <div className="p-5 space-y-3 text-[12.5px]">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Code Ownership</span>
-                    <span className="font-medium text-slate-900">100% Git Repository Transfer</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Domain &amp; Infrastructure</span>
-                    <span className="font-medium text-slate-900">Live Custom Domain + SSL</span>
-                  </div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                    <span className="text-slate-500">Post-Launch Warranty</span>
-                    <span className="font-medium text-slate-900">30-Day Proactive Bug Fixes</span>
-                  </div>
-                  <div className="flex items-center justify-between pt-0.5">
-                    <span className="text-slate-500">Proprietary Lock-in</span>
-                    <span className="font-medium text-slate-900">Zero · 100% Client Owned</span>
-                  </div>
-                </div>
-
-                <div className="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 text-[12px] text-slate-600 flex items-center justify-between">
-                  <span>Handover Status</span>
-                  <span className="font-semibold text-slate-900">Full ownership transferred on Day 1</span>
-                </div>
+              {/* Bottom Condition Strip */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[12px] text-slate-600">
+                <span>Handover Status</span>
+                <span className="font-semibold text-slate-900">Full ownership transferred on Day 1</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Communication Standards */}
+      {/* 3. Communication Standards (Broad Full-Width Grid) */}
       <section className="py-16 sm:py-20 bg-white border-t border-slate-200">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mb-10">
+          <div className="max-w-3xl mb-10">
             <h2 className="font-sans text-[26px] sm:text-[32px] font-bold text-slate-950 tracking-tight">
               How we communicate during the build.
             </h2>
@@ -361,7 +391,7 @@ export function Process() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
               <div className="size-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-800 mb-4">
                 <MessageSquare className="size-4 text-[#6336C5]" />
@@ -401,10 +431,10 @@ export function Process() {
         </div>
       </section>
 
-      {/* 4. Practical FAQs */}
+      {/* 4. Practical FAQs (Broad Full-Width Grid) */}
       <section className="py-16 sm:py-20 bg-slate-50/60 border-t border-slate-200">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
-          <div className="max-w-2xl mb-10">
+          <div className="max-w-3xl mb-10">
             <h2 className="font-sans text-[26px] sm:text-[32px] font-bold text-slate-950 tracking-tight">
               Frequently asked questions.
             </h2>
@@ -413,7 +443,7 @@ export function Process() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-xl border border-slate-200 bg-white shadow-xs">
               <h3 className="font-sans text-[15.5px] font-bold text-slate-950 leading-snug">
                 What if we need to adjust features during the build?
@@ -457,4 +487,3 @@ export function Process() {
 }
 
 export default Process
-
