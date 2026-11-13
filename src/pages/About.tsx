@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import { useSeo } from '../lib/useSeo'
 import {
   ArrowUpRight,
+  Check,
   Cpu,
   GitBranch,
   ShieldCheck,
-  Sparkles,
   Users,
 } from 'lucide-react'
 
@@ -71,12 +71,6 @@ export function About() {
       <section className="pt-16 pb-12 sm:pt-20 sm:pb-16 border-b border-slate-200">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200/60 mb-4">
-              <Sparkles className="size-3.5 text-[#6336C5]" />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#6336C5]">
-                Independent Software Studio
-              </span>
-            </div>
             <h1 className="font-sans text-[30px] sm:text-[38px] lg:text-[44px] font-bold text-slate-950 tracking-tight leading-[1.15]">
               Engineering reliable software for ambitious businesses.
             </h1>
@@ -105,27 +99,44 @@ export function About() {
       <section className="py-16 sm:py-20 bg-slate-50/50 border-b border-slate-200">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-5 space-y-3">
+            <div className="lg:col-span-5 space-y-4">
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#6336C5]">
-                Our Story
+                How ArixPro Started
               </span>
               <h2 className="font-sans text-[24px] sm:text-[28px] font-bold text-slate-950 tracking-tight leading-snug">
-                Why we started ArixPro.
+                Born out of hands-on engineering rescue work.
               </h2>
-              <p className="font-sans text-[15px] text-slate-600 leading-relaxed">
-                We founded ArixPro to provide an honest alternative to traditional agency bloat.
+              <p className="font-sans text-[14.5px] text-slate-600 leading-relaxed">
+                Before ArixPro was a formal studio, our engineers were brought in to rescue stalled builds—crashing booking engines, desynced inventory databases, and fragile agency handoffs.
               </p>
+              <div className="pt-2 space-y-2.5 text-[13px] text-slate-700">
+                <div className="flex items-center gap-2">
+                  <Check className="size-3.5 text-[#059669] shrink-0" />
+                  <span>Senior engineers who write the code speak directly with you</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="size-3.5 text-[#059669] shrink-0" />
+                  <span>Guaranteed milestone quotes with zero hourly budget creep</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="size-3.5 text-[#059669] shrink-0" />
+                  <span>100% full repository &amp; cloud transfer on launch day</span>
+                </div>
+              </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-5 font-sans text-[15px] text-slate-600 leading-[1.75]">
+            <div className="lg:col-span-7 space-y-4 font-sans text-[14.5px] text-slate-600 leading-[1.75]">
               <p>
-                After years of working inside growing tech companies and traditional software agencies, we repeatedly saw the same fundamental problem: clients paying premium retainers to agencies that promised senior talent, only to have their projects handed off to junior developers playing telephone through non-technical account managers.
+                In 2021, we kept getting hired by founders whose projects had ground to a halt. A medical booking system that collapsed during peak scheduling hours because an agency used fragile frontend hacks instead of database transactions. An e-commerce inventory sync that desynced records across channels. A custom internal tool quoted at four weeks that was on month seven with zero working staging links.
               </p>
               <p>
-                Delivery schedules slipped, codebases became bloated with fragile page-builder dependencies, and founders were trapped paying recurring retainer fees just to keep their applications online.
+                In almost every case, the root cause wasn't lack of budget—it was the disconnect between the people selling the project and the people building it. Generalist digital agencies took the contract, outsourced the implementation, and layered on non-technical account managers who couldn't read an error log or audit a database query.
               </p>
               <p>
-                ArixPro was built on an opposite standard: <strong className="font-semibold text-slate-950">direct collaboration with senior engineers who take complete ownership of the build</strong>. We take on 1–2 projects at a time, quote guaranteed fixed milestones, and ship working code every single week.
+                We started ArixPro to provide an honest, engineering-first standard: <strong className="font-semibold text-slate-950">direct collaboration with senior engineers who take complete ownership of the architecture</strong>.
+              </p>
+              <p>
+                We scope the data models and API contracts properly upfront so we can guarantee a fixed price. We deliver a clickable staging link every Friday so you test real progress on your own devices. And on launch day, you own 100% of the source code, database, and infrastructure—with zero proprietary lock-in.
               </p>
             </div>
           </div>
