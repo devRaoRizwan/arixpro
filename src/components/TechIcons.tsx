@@ -26,7 +26,7 @@ function TechIconBadge({ item }: { item: TechIconItem }) {
   const [failed, setFailed] = useState(false)
 
   return (
-    <div className="group flex flex-col items-center justify-center gap-2.5 p-2 rounded-xl transition-all hover:bg-white/[0.05] min-w-[72px]">
+    <div className="group flex flex-col items-center justify-center gap-2 p-2.5 rounded-xl transition-all hover:bg-slate-100/80 border border-transparent hover:border-slate-200 min-w-[76px]">
       <div className="size-9 flex items-center justify-center transition-transform group-hover:scale-110">
         {!failed ? (
           <img
@@ -34,17 +34,17 @@ function TechIconBadge({ item }: { item: TechIconItem }) {
             alt={item.name}
             width={32}
             height={32}
-            className="size-8 object-contain"
+            className="size-7 object-contain"
             loading="lazy"
             onError={() => setFailed(true)}
           />
         ) : (
-          <span className="font-mono text-[13px] font-bold text-[#A78BFA]">
+          <span className="font-mono text-[13px] font-bold text-[#6336C5]">
             {item.name.slice(0, 2).toUpperCase()}
           </span>
         )}
       </div>
-      <span className="font-mono text-[12px] text-[#C9C2E0]/80 group-hover:text-white transition-colors text-center whitespace-nowrap">
+      <span className="font-mono text-[12px] text-slate-600 group-hover:text-slate-950 font-medium transition-colors text-center whitespace-nowrap">
         {item.name}
       </span>
     </div>
