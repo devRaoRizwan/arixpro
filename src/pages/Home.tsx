@@ -4,6 +4,7 @@ import { TechSphere } from '../components/TechSphere'
 import { PencilSchematic } from '../components/PencilSchematic'
 import { TypewriterText } from '../components/TypewriterText'
 import { SolutionFinder } from '../components/SolutionFinder'
+import { useSeo } from '../lib/useSeo'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 
 const systems = [
@@ -34,6 +35,13 @@ const systems = [
 ]
 
 export function Home() {
+  useSeo({
+    title: 'ArixPro | Custom software studio',
+    description:
+      'ArixPro builds custom web applications, SaaS platforms, internal tools, and API integrations for growing businesses.',
+    path: '/',
+  })
+
   // Page-based smooth scroll helper
   useEffect(() => {
     if (window.location.hash) {

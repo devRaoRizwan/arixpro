@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSeo } from '../lib/useSeo'
 import { ArrowRight, ArrowUpRight, Cpu } from 'lucide-react'
 
 interface WorkProject {
@@ -43,6 +44,12 @@ const WORK_PROJECTS: WorkProject[] = [
 ]
 
 export function Work() {
+  useSeo({
+    title: 'Work | ArixPro',
+    description: 'Explore case studies for custom dashboards, commerce systems, and CRM platforms built by ArixPro.',
+    path: '/work',
+  })
+
   const [filter, setFilter] = useState('All')
 
   const filterOptions = ['All', 'Dashboards', 'Admin Panels', 'SaaS Platforms']

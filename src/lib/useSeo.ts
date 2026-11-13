@@ -5,7 +5,7 @@ export type SeoOptions = {
   /** Full <title> text. Pass the whole thing; the brand suffix is added here. */
   title: string
   description: string
-  /** Path only, e.g. `/courses/python`. */
+  /** Path only, e.g. `/services`. */
   path?: string
   /** Keeps the page out of search results while still following its links.
    *  For thin pages that would otherwise compete with a real one. */
@@ -16,17 +16,21 @@ export type ResolvedSeo = {
   title: string
   description: string
   url?: string
+  image?: string
 }
 
 /** Single source for the head values, so the prerender and the client agree. */
 export function resolveSeo({ title, description, path }: SeoOptions): ResolvedSeo {
+  const url = path ? `${siteConfig.url}${path}` : siteConfig.url
+
   return {
     title:
       title === siteConfig.name
         ? `${siteConfig.name} | ${siteConfig.tagline}`
         : `${title} | ${siteConfig.name}`,
     description,
-    url: path ? `${siteConfig.url}${path}` : undefined,
+    url,
+    image: siteConfig.ogImage,
   }
 }
 
@@ -77,8 +81,6 @@ export function useSeo(options: SeoOptions) {
   useEffect(() => {
     const resolved = resolveSeo({ title, description, path })
 
-    /* Removed rather than set to "index", so navigating away from a noindex
-       page does not leave the tag behind on the next one. */
     const robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]')
     if (noindex) setMeta('name', 'robots', 'noindex, follow')
     else if (robots) robots.remove()
@@ -87,18 +89,19 @@ export function useSeo(options: SeoOptions) {
     setMeta('name', 'description', resolved.description)
     setMeta('property', 'og:title', resolved.title)
     setMeta('property', 'og:description', resolved.description)
+    setMeta('property', 'og:url', resolved.url ?? siteConfig.url)
+    setMeta('property', 'og:image', resolved.image ?? siteConfig.ogImage)
     setMeta('name', 'twitter:title', resolved.title)
     setMeta('name', 'twitter:description', resolved.description)
+    setMeta('name', 'twitter:image', resolved.image ?? siteConfig.ogImage)
+    setMeta('name', 'twitter:card', 'summary_large_image')
 
-    if (resolved.url) {
-      setMeta('property', 'og:url', resolved.url)
-      let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
-      if (!canonical) {
-        canonical = document.createElement('link')
-        canonical.rel = 'canonical'
-        document.head.appendChild(canonical)
-      }
-      canonical.href = resolved.url
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.rel = 'canonical'
+      document.head.appendChild(canonical)
     }
+    canonical.href = resolved.url ?? siteConfig.url
   }, [title, description, path, noindex])
 }

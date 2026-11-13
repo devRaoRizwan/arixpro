@@ -22,6 +22,7 @@ export default defineConfig({
         '/work/crm-platform',
         '/process',
         '/about',
+        '/careers',
         '/contact',
       ],
     }),

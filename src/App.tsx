@@ -9,6 +9,7 @@ import { Process } from './pages/Process'
 import { About } from './pages/About'
 import { Careers } from './pages/Careers'
 import { Contact } from './pages/Contact'
+import { NotFound } from './pages/NotFound'
 
 export function App() {
   return (
@@ -24,7 +25,8 @@ export function App() {
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<Home />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
