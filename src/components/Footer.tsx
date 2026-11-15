@@ -8,9 +8,9 @@ export default function Footer() {
       <div className="container footer__inner">
         <div className="footer__top">
           <div className="footer__brand">
-            <Logo />
+            <Logo isFooter />
             <p className="footer__copy">
-              Backend-first software house, Lahore, Pakistan.
+              Backend-first software studio, Lahore, Pakistan.
             </p>
             <p className="footer__copy">
               <a href={`mailto:${site.email}`}>{site.email}</a>

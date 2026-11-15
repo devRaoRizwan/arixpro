@@ -47,7 +47,7 @@ export default function Navbar() {
     <>
       <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="banner">
         <div className="container navbar__inner">
-          <Logo animated />
+          <Logo />
           <nav aria-label="Main navigation">
             <ul className="navbar__nav" role="list">
               {site.nav.map((item) => (

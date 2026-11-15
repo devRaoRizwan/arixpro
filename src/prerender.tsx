@@ -7,12 +7,12 @@ export async function prerender({ url }: { url: string }) {
   const html = renderToString(<App url={url} />)
 
   const seo = getCapturedSeo()
-  const title = seo?.title || 'ArixPro | Backend-first software house in Lahore'
+  const title = seo?.title || 'ArixPro | Backend-first software studio in Lahore'
   const description =
     seo?.description ||
-    'ArixPro is a software house that builds Python backends, APIs and SaaS platforms for startups and growing businesses.'
+    'ArixPro is a custom software studio that builds Python backends, APIs and SaaS platforms for startups and growing businesses.'
   const canonical = seo?.canonical || `https://arixpro.com${url === '/' ? '' : url}`
-  const ogImage = seo?.ogImage || 'https://arixpro.com/logo-app-icon.svg'
+  const ogImage = seo?.ogImage || 'https://arixpro.com/og-image.png'
 
   const elements = new Set<Record<string, unknown>>([
     { type: 'meta', props: { name: 'description', content: description } },

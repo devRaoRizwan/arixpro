@@ -1,179 +1,155 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import {
+  ArrowRight,
+  Bot,
+  Workflow,
+  Server,
+  Layers,
+  Globe,
+  Zap,
+  Check,
+} from 'lucide-react'
 import { useSeo } from '../hooks/useSeo'
-import { services } from '../data/services'
+import { services, type Service } from '../data/services'
 import ClosingCta from '../components/ClosingCta'
+
+const iconComponents: Record<
+  Service['icon'],
+  React.ComponentType<{ size?: number; className?: string }>
+> = {
+  Bot,
+  Workflow,
+  Server,
+  Layers,
+  Globe,
+  Zap,
+}
 
 export default function Services() {
   useSeo({
-    title: 'Services | ArixPro',
+    title: 'Services & Capabilities | ArixPro',
     description:
-      'Three offers, fixed quotes, full code ownership. We are backend-first on purpose: it is the work we can prove, and the work we do best.',
+      'Custom automation and web crawling, high-throughput Python pipelines, bespoke backend APIs, and modern full-stack web applications with direct engineer review and full code ownership.',
     canonical: 'https://arixpro.com/services',
   })
 
   return (
     <>
-      {/* Page Header */}
-      <section className="section" style={{ paddingTop: '80px', paddingBottom: '40px' }} aria-labelledby="services-page-title">
+      {/* Services offerings */}
+      <section className="section section--dots" aria-labelledby="services-page-title">
         <div className="container">
-          <p className="section-label">Services</p>
-          <h1 id="services-page-title">What we build</h1>
-          <p style={{ marginTop: '20px', fontSize: '1.125rem', color: 'var(--body-text)', maxWidth: '64ch' }}>
-            Three offers, fixed quotes, and full code ownership. We are backend-first
-            on purpose: it is the work we can prove, and the work we do best.
-          </p>
-        </div>
-      </section>
+          <div className="section-heading">
+            <p className="section-label">Engineering Capabilities</p>
+            <h1 id="services-page-title">What we engineer &amp; deliver</h1>
+            <p
+              className="section-note"
+              style={{
+                marginTop: '20px',
+                fontSize: '1.125rem',
+                color: 'var(--body-text)',
+                maxWidth: '68ch',
+              }}
+            >
+              Specialized software engineering for businesses that need rock-solid data crawlers,
+              automated Python pipelines, resilient backends, or modern full-stack web applications.
+              Every system is delivered with clean architecture, direct engineering review, and full code ownership.
+            </p>
+          </div>
 
-      {/* 3 Services as full blocks */}
-      <section className="section section--dots" style={{ paddingTop: 0 }} aria-label="Service offerings">
-        <div className="container">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            {services.map((service, idx) => (
-              <div
-                key={service.slug}
-                className="card"
-                style={{ padding: '40px', background: 'var(--paper)' }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-start',
-                    flexWrap: 'wrap',
-                    gap: '16px',
-                    borderBottom: '1px solid var(--line)',
-                    paddingBottom: '24px',
-                  }}
-                >
+          <div className="services-grid">
+            {services.map((service) => {
+              const IconComp = iconComponents[service.icon]
+              return (
+                <article key={service.slug} className="service-card">
                   <div>
-                    <p
-                      className="mono"
-                      style={{
-                        fontSize: '0.75rem',
-                        color: 'var(--violet)',
-                        fontWeight: 600,
-                        letterSpacing: '0.08em',
-                        marginBottom: '8px',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      0{idx + 1} · Core Service
-                    </p>
-                    <h2 style={{ fontSize: '1.75rem' }}>{service.name}</h2>
-                  </div>
-                  <div className="mono" style={{ textAlign: 'right' }}>
-                    <div
-                      style={{
-                        fontSize: '1.25rem',
-                        fontWeight: 700,
-                        color: 'var(--ink)',
-                      }}
-                    >
-                      {service.price}
+                    <div className="service-card__top">
+                      <div className="service-card__icon" aria-hidden="true">
+                        <IconComp size={22} />
+                      </div>
+                      <span className="mono service-card__badge">Capability</span>
                     </div>
-                    <div
-                      style={{
-                        fontSize: '0.8125rem',
-                        color: 'var(--muted)',
-                        marginTop: '4px',
-                      }}
-                    >
-                      Timeline: {service.timeline}
+
+                    <h2 className="service-card__title">{service.name}</h2>
+                    <p className="service-card__desc">{service.outcome}</p>
+
+                    <div className="service-card__deliverables-wrap">
+                      <p className="mono service-card__section-label">What we deliver</p>
+                      <ul className="service-card__deliverables">
+                        {service.deliverables.map((item, idx) => (
+                          <li key={idx}>
+                            <Check size={15} className="service-card__check" aria-hidden="true" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                </div>
 
-                <p
-                  style={{
-                    marginTop: '24px',
-                    fontSize: '1.0625rem',
-                    color: 'var(--body-text)',
-                    maxWidth: 'none',
-                  }}
-                >
-                  {service.outcome}
-                </p>
+                  <div className="service-card__footer">
+                    <div>
+                      <p className="mono service-card__section-label" style={{ marginBottom: '8px' }}>
+                        Core Stack
+                      </p>
+                      <div className="service-card__stack">
+                        {service.stack.map((tech) => (
+                          <span key={tech} className="pill pill--sm">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                <div style={{ marginTop: '28px' }}>
-                  <p
-                    className="mono"
-                    style={{
-                      fontSize: '0.6875rem',
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      color: 'var(--muted)',
-                      marginBottom: '12px',
-                      fontWeight: 600,
-                    }}
-                  >
-                    What you receive in scope
-                  </p>
-                  <ul className="service-deliverables">
-                    {service.deliverables.map((item, dIdx) => (
-                      <li key={dIdx}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div style={{ marginTop: '36px' }}>
-                  <Link
-                    to={`/contact?service=${service.slug}`}
-                    className="btn btn-primary"
-                  >
-                    Start with this <ArrowRight size={16} className="btn-arrow" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+                    <Link
+                      to={`/contact?service=${service.slug}`}
+                      className="btn btn-primary service-card__cta"
+                    >
+                      Scope this project <ArrowRight size={15} className="btn-arrow" />
+                    </Link>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* Rescue & Scale Audit Band */}
-      <section className="section section--ink" aria-labelledby="audit-band-heading">
+      {/* Engineering Consultation Band */}
+      <section className="section section--ink" aria-labelledby="consult-heading">
         <div className="container">
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '32px',
-            }}
-          >
+          <div className="services-cta-banner">
             <div style={{ maxWidth: '64ch' }}>
               <p className="section-label" style={{ marginBottom: '12px' }}>
-                Rescue &amp; Scale Audit
+                Direct Engineering Review
               </p>
               <h2
-                id="audit-band-heading"
+                id="consult-heading"
                 style={{ color: 'var(--paper)', marginBottom: '16px' }}
               >
-                Not sure which you need?
+                Have a custom technical challenge?
               </h2>
               <p
                 style={{
-                  color: 'rgba(250,250,248,0.8)',
+                  color: 'rgba(250,250,248,0.82)',
                   fontSize: '1.0625rem',
+                  lineHeight: 1.6,
                 }}
               >
-                Start with a Rescue &amp; Scale audit: a fixed $750, credited
-                against any fix we do afterwards.
+                Whether you need a bespoke scraping cluster, an event-driven worker pipeline, or a full
+                web platform from scratch, talk directly with an engineer to review feasibility, architecture,
+                and scope.
               </p>
             </div>
             <div>
               <Link
-                to="/contact?service=rescue-scale"
+                to="/contact"
                 className="btn btn-primary"
                 style={{
-                  background: '#ffffff',
+                  background: 'var(--paper)',
                   color: 'var(--ink)',
-                  borderColor: '#ffffff',
+                  borderColor: 'var(--paper)',
                 }}
               >
-                Book an audit <ArrowRight size={16} className="btn-arrow" />
+                Start a project discussion <ArrowRight size={16} className="btn-arrow" />
               </Link>
             </div>
           </div>

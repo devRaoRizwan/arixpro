@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import { site } from '../data/site';
 import { useSeo } from '../hooks/useSeo';
@@ -9,7 +10,7 @@ export default function Work() {
   useSeo({
     title: 'Work | ArixPro',
     description:
-      'Our own products, designed and built end-to-end by this studio: public, live, and inspectable. No confidential-client theatre.',
+      'Production software and systems engineered end-to-end by ArixPro: security tooling, data aggregators, and automated audit pipelines.',
     canonical: `${site.url}/work`,
   });
 
@@ -17,91 +18,61 @@ export default function Work() {
     <div>
       <section className="section" aria-labelledby="work-heading">
         <div className="container">
-          <div style={{ marginBottom: '48px' }}>
-            <p className="section-label">Work</p>
+          <div className="section-heading" style={{ marginBottom: '56px' }}>
+            <p className="section-label">Selected Work</p>
             <h1 id="work-heading">Products we built</h1>
-            <p
-              className="section-note"
-              style={{
-                marginTop: '16px',
-                maxWidth: '68ch',
-                fontSize: '1.125rem',
-                color: 'var(--body-text)',
-              }}
-            >
-              Our own products, designed and built end-to-end by this studio: public, live, and
-              inspectable. No confidential-client theatre.
+            <p className="section-note">
+              Real production systems designed, architected, and built end-to-end by this studio.
+              Click any project to deep dive into its architecture and implementation.
             </p>
           </div>
 
-          <div className="project-list" style={{ marginTop: '48px' }}>
-            {projects.map((project, idx) => (
+          <div className="work-grid">
+            {projects.map((project) => (
               <article
                 key={project.slug}
-                className="project-row"
+                className="work-card-minimal"
                 aria-labelledby={`proj-${project.slug}`}
                 onClick={(e) => {
                   if ((e.target as HTMLElement).closest('a, button')) return;
                   navigate(`/work/${project.slug}`);
                 }}
               >
-                <div className="project-row__header">
-                  <div>
-                    <span className="mono project-row__num" style={{ fontSize: '0.8125rem', fontWeight: 600 }}>
-                      0{idx + 1}
-                    </span>
-                    <h2 id={`proj-${project.slug}`} style={{ fontSize: '1.5rem', fontWeight: 700, marginTop: '4px' }}>
-                      <Link to={`/work/${project.slug}`} style={{ color: 'var(--ink)' }}>
-                        {project.name}
-                      </Link>{' '}
-                      <span style={{ fontWeight: 400, color: 'var(--muted)', fontSize: '1.125rem' }}>· {project.tagline}</span>
+                <div>
+                  <div className="work-card-minimal__identity">
+                    {project.logo && (
+                      <img
+                        src={project.logo}
+                        alt=""
+                        className="work-card-minimal__logo"
+                        width={38}
+                        height={38}
+                        loading="lazy"
+                      />
+                    )}
+                    <h2 id={`proj-${project.slug}`} className="work-card-minimal__title">
+                      <Link to={`/work/${project.slug}`}>{project.name}</Link>
                     </h2>
                   </div>
-                  <Link
-                    to={`/work/${project.slug}`}
-                    className="btn btn-outline"
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.8125rem',
-                      fontWeight: 600,
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    How it's built →
-                  </Link>
+
+                  <p className="work-card-minimal__desc">{project.brief}</p>
                 </div>
 
-                <div className="project-stack">{project.stack.join(' · ')}</div>
-
-                <p
-                  style={{
-                    marginTop: '12px',
-                    color: 'var(--body-text)',
-                    fontSize: '1rem',
-                    lineHeight: '1.6',
-                    maxWidth: '68ch',
-                  }}
-                >
-                  {project.description}
-                </p>
-
-                <div className="arch-box" aria-label={`Architecture for ${project.name}`}>
-                  <div className="arch-box__header" aria-hidden="true">
-                    <span className="arch-box__bullet" />
-                    <span className="arch-box__tag">FLOW</span>
-                  </div>
-                  <div className="arch-box__body">
-                    {project.architecture.map((line, aIdx) => (
-                      <div key={aIdx}>
-                        {line.split('→').map((part, pIdx, arr) => (
-                          <span key={pIdx}>
-                            {part}
-                            {pIdx < arr.length - 1 && <span className="arch-arrow"> → </span>}
-                          </span>
-                        ))}
-                      </div>
+                <div className="work-card-minimal__bottom">
+                  <div className="work-card-minimal__stack">
+                    {project.stack.map((item) => (
+                      <span key={item} className="work-card-minimal__pill">
+                        {item}
+                      </span>
                     ))}
                   </div>
+
+                  <Link
+                    to={`/work/${project.slug}`}
+                    className="work-card-minimal__link"
+                  >
+                    Deep dive architecture <ArrowRight size={15} className="btn-arrow" />
+                  </Link>
                 </div>
               </article>
             ))}

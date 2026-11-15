@@ -1,6 +1,6 @@
 # ArixPro
 
-Backend-first software house in Lahore, Pakistan, working worldwide. Builds Python backends, APIs and SaaS platforms for startups and growing businesses.
+Backend-first software studio in Lahore, Pakistan, working worldwide. Builds Python backends, APIs and SaaS platforms for startups and growing businesses.
 
 ## Stack
 

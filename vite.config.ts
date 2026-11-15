@@ -19,7 +19,6 @@ export default defineConfig({
         '/work/jobharvester',
         '/work/bomwatcher',
         '/work/sitescopia',
-        '/work/jobbr',
         '/process',
         '/about',
         '/contact',

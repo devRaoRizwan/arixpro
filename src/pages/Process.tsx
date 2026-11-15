@@ -90,20 +90,18 @@ export default function Process() {
           <div className="phase-list" role="list">
             {PHASES.map((phase, idx) => (
               <article className="phase" key={phase.step} role="listitem">
-                <div className="phase__header">
-                  <div className="process-step__badge mono" aria-hidden="true">
+                <div className="phase__step-header">
+                  <span className="process-step__badge mono" aria-hidden="true">
                     0{idx + 1}
-                  </div>
-                  <div>
-                    <span className="phase__meta">
-                      {phase.step} · {phase.timeframe}
-                    </span>
-                    <h2 style={{ fontSize: '1.35rem', marginTop: '8px' }}>
-                      {phase.title}
-                    </h2>
-                  </div>
+                  </span>
+                  <span className="phase__meta">
+                    {phase.step} · {phase.timeframe}
+                  </span>
                 </div>
-                <p style={{ color: 'var(--body-text)', lineHeight: 1.6 }}>
+                <h2 className="phase__title" style={{ fontSize: '1.35rem', marginTop: '12px' }}>
+                  {phase.title}
+                </h2>
+                <p className="phase__desc" style={{ color: 'var(--body-text)', lineHeight: 1.6, marginTop: '12px' }}>
                   {phase.description}
                 </p>
                 <div className="phase__receives">
@@ -135,7 +133,7 @@ export default function Process() {
                 marginBottom: '12px',
               }}
             >
-              HOW WE SHIP FAST
+              ENGINEERING STANDARDS
             </div>
             <p
               style={{
@@ -146,7 +144,7 @@ export default function Process() {
                 margin: 0,
               }}
             >
-              We build with AI tooling — Claude and Claude Code — inside our workflow: scaffolding, tests and review passes. Every line is reviewed, tested and owned by us. You're hiring two engineers; the AI is how two engineers ship like five.
+              Every build follows automated test suites, type validation, and continuous staging deployments. You interact directly with the engineers writing and shipping your software — no middlemen, no handoff surprises.
             </p>
           </div>
         </div>

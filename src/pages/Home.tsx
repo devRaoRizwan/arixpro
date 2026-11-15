@@ -1,20 +1,44 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowRight, Server, Database, Zap, Cloud, Layout } from 'lucide-react'
+import {
+  ArrowRight,
+  Server,
+  Database,
+  Zap,
+  Cloud,
+  Layout,
+  Bot,
+  Workflow,
+  Layers,
+  Globe,
+  Check,
+} from 'lucide-react'
 import TechIcon from '../components/TechIcon'
 import { useSeo } from '../hooks/useSeo'
-import { services } from '../data/services'
+import { services, type Service } from '../data/services'
 import { projects } from '../data/projects'
 import { faqs } from '../data/faq'
 import SectionHeading from '../components/SectionHeading'
 import ClosingCta from '../components/ClosingCta'
 import Reveal from '../components/Reveal'
 
+const iconComponents: Record<
+  Service['icon'],
+  React.ComponentType<{ size?: number; className?: string }>
+> = {
+  Bot,
+  Workflow,
+  Server,
+  Layers,
+  Globe,
+  Zap,
+}
+
 export default function Home() {
   useSeo({
-    title: 'ArixPro | Backend-first software house in Lahore',
+    title: 'ArixPro | Backend-first software studio in Lahore',
     description:
-      "ArixPro is a software house that builds Python backends, APIs and SaaS platforms for startups and growing businesses. Designed properly, shipped on a fixed quote, and handed over with all the code. It's yours.",
+      "ArixPro is a custom software studio that builds Python backends, APIs and SaaS platforms for startups and growing businesses. Designed properly, shipped on a fixed quote, and handed over with all the code. It's yours.",
     canonical: 'https://arixpro.com/',
   })
 
@@ -30,29 +54,30 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="hero" aria-labelledby="hero-heading">
-        <svg
-          className="hero__watermark"
-          viewBox="0 0 72 72"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M14 58 L36 14 L58 58"
-            stroke="currentColor"
-            strokeWidth="8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M23 44 H57"
-            stroke="currentColor"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          <circle cx="63" cy="44" r="4.5" fill="currentColor" />
-        </svg>
-
         <div className="container">
+          <div className="hero__sign-wrap" aria-hidden="true">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/brand/arixpro-sign.png"
+              className="hero__sign-video"
+            >
+              <source src="/brand/arixpro-sign-animation-hero.webm" type="video/webm" />
+              <img
+                src="/brand/arixpro-sign-animation-hero.gif"
+                alt=""
+                className="hero__sign-fallback"
+              />
+            </video>
+            <img
+              src="/brand/arixpro-sign.png"
+              alt=""
+              className="hero__sign-static"
+            />
+          </div>
+
           <p className="hero__label">
             Software Studio
           </p>
@@ -78,7 +103,7 @@ export default function Home() {
           </div>
 
           <p className="hero__sub">
-            ArixPro is a software house that builds Python backends, APIs and
+            ArixPro is a software studio that builds Python backends, APIs and
             SaaS platforms for startups and growing businesses. Designed properly,
             shipped on a fixed quote, and handed over with complete code ownership. It's
             yours.
@@ -104,12 +129,10 @@ export default function Home() {
             </div>
             <div>
               <span className="method">GET</span>{' '}
-              https://jobharvester-backend-3bto.onrender.com/api/v1/jobs/
+              https://api.jobharvester.com/v1/jobs/
             </div>
             <div style={{ marginTop: '8px' }}>
-              Response &#123; &quot;count&quot;:{' '}
-              <span className="green">1658</span>, &quot;status&quot;:{' '}
-              <span className="green">&quot;200 OK&quot;</span> &#125;
+              Response &#123; &quot;count&quot;: <span className="green">1658</span>, &quot;status&quot;: <span className="green">&quot;200 OK&quot;</span> &#125;
             </div>
             <div className="comment" style={{ marginTop: '12px' }}>
               1,658 live Pakistan tech jobs, crawled and de-duplicated · Counted 15 Nov 2026
@@ -150,115 +173,145 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 01 Services */}
+      {/* Services */}
       <section className="section section--dots" id="services" aria-labelledby="services-heading">
         <div className="container">
           <Reveal>
-            <SectionHeading number="01" label="Services" title="What we build" />
-            <div className="services-list">
-              {services.map((service, idx) => (
-                <div className="service-row" key={service.slug}>
-                  <div className="service-num">0{idx + 1}</div>
-                  <div>
-                    <h3>{service.name}</h3>
-                    <p style={{ marginTop: '8px' }}>{service.outcome}</p>
-                    <ul className="service-deliverables">
-                      {service.deliverables.map((item, dIdx) => (
-                        <li key={dIdx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="service-meta">
-                    <strong>{service.price}</strong>
-                    <span>{service.timeline}</span>
-                  </div>
-                </div>
-              ))}
+            <SectionHeading
+              label="Capabilities"
+              title="What we build"
+              note="From automated web scrapers and high-throughput Python pipelines to custom APIs and full-stack web applications."
+            />
+            <div className="services-grid">
+              {services.map((service) => {
+                const IconComp = iconComponents[service.icon]
+                return (
+                  <article key={service.slug} className="service-card">
+                    <div>
+                      <div className="service-card__top">
+                        <div className="service-card__icon" aria-hidden="true">
+                          <IconComp size={22} />
+                        </div>
+                        <span className="mono service-card__badge">Capability</span>
+                      </div>
+
+                      <h3 className="service-card__title">{service.name}</h3>
+                      <p className="service-card__desc">{service.outcome}</p>
+
+                      <div className="service-card__deliverables-wrap">
+                        <p className="mono service-card__section-label">What we deliver</p>
+                        <ul className="service-card__deliverables">
+                          {service.deliverables.map((item, idx) => (
+                            <li key={idx}>
+                              <Check size={15} className="service-card__check" aria-hidden="true" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="service-card__footer">
+                      <div>
+                        <p className="mono service-card__section-label" style={{ marginBottom: '8px' }}>
+                          Core Stack
+                        </p>
+                        <div className="service-card__stack">
+                          {service.stack.map((tech) => (
+                            <span key={tech} className="pill pill--sm">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <Link
+                        to={`/contact?service=${service.slug}`}
+                        className="btn btn-primary service-card__cta"
+                      >
+                        Scope this project <ArrowRight size={15} className="btn-arrow" />
+                      </Link>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+            <div style={{ marginTop: '40px', textAlign: 'center' }}>
+              <Link to="/services" className="btn btn-outline">
+                Explore all engineering capabilities <ArrowRight size={16} className="btn-arrow" />
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 02 Selected Work */}
+      {/* Selected Work */}
       <section className="section" id="work" aria-labelledby="work-heading">
         <div className="container">
           <Reveal>
             <SectionHeading
-              number="02"
               label="Selected Work"
               title="Products we built"
               note="Our own products, designed and built end-to-end by this studio: public, live, and inspectable. No confidential-client theatre."
             />
-            <div className="projects-list">
-              {projects.map((project, idx) => (
-                <div
-                  className="project-row"
+            <div className="home-projects-grid">
+              {projects.map((project) => (
+                <article
                   key={project.slug}
+                  className="home-project-card"
                   onClick={(e) => {
                     if ((e.target as HTMLElement).closest('a')) return
                     navigate(`/work/${project.slug}`)
                   }}
                 >
-                  <div className="project-row__header">
-                    <div>
-                      <span className="mono project-row__num" style={{ fontSize: '0.8125rem', fontWeight: 600 }}>
-                        0{idx + 1}
-                      </span>
-                      <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginTop: '4px' }}>
-                        <Link to={`/work/${project.slug}`} style={{ color: 'var(--ink)' }}>
-                          {project.name}
-                        </Link>{' '}
-                        <span
-                          className="muted"
-                          style={{ fontWeight: 400, fontSize: '1rem' }}
-                        >
-                          · {project.tagline}
-                        </span>
+                  <div>
+                    <div className="home-project-card__identity">
+                      {project.logo && (
+                        <img
+                          src={project.logo}
+                          alt=""
+                          width={32}
+                          height={32}
+                          className="home-project-card__logo"
+                          loading="lazy"
+                        />
+                      )}
+                      <h3 className="home-project-card__title">
+                        <Link to={`/work/${project.slug}`}>{project.name}</Link>
                       </h3>
-                      <p className="project-stack">{project.stack.join(' · ')}</p>
                     </div>
+
+                    <p className="home-project-card__desc">{project.brief}</p>
+                  </div>
+
+                  <div className="home-project-card__bottom">
+                    <div className="home-project-card__stack">
+                      {project.stack.map((item) => (
+                        <span key={item} className="home-project-card__pill">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
                     <Link
                       to={`/work/${project.slug}`}
-                      className="mono"
-                      style={{ fontSize: '0.875rem', whiteSpace: 'nowrap', fontWeight: 600 }}
+                      className="home-project-card__link mono"
                     >
-                      How it's built →
+                      Case study →
                     </Link>
                   </div>
-                  <p style={{ marginTop: '8px' }}>{project.description}</p>
-                  {project.architecture && project.architecture.length > 0 && (
-                    <div className="arch-box" aria-label={`Architecture for ${project.name}`}>
-                      <div className="arch-box__header" aria-hidden="true">
-                        <span className="arch-box__bullet" />
-                        <span className="arch-box__tag">FLOW</span>
-                      </div>
-                      <div className="arch-box__body">
-                        {project.architecture.map((line, aIdx) => (
-                          <div key={aIdx}>
-                            {line.split('→').map((part, pIdx, arr) => (
-                              <span key={pIdx}>
-                                {part}
-                                {pIdx < arr.length - 1 && <span className="arch-arrow"> → </span>}
-                              </span>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
+                </article>
               ))}
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 03 How We Work */}
+      {/* How We Work */}
       <section className="section section--dots" id="process" aria-labelledby="process-heading">
         <div className="container">
           <Reveal>
             <SectionHeading
-              number="03"
               label="How We Work"
               title="Fixed quote. Weekly proof."
               note="You talk directly to the engineer building your system. No account managers, and no telephone game."
@@ -376,12 +429,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 04 FAQ */}
+      {/* FAQ */}
       <section className="section" id="faq" aria-labelledby="faq-heading">
         <div className="container">
           <Reveal>
             <SectionHeading
-              number="04"
               label="FAQ"
               title="Questions clients usually ask"
             />

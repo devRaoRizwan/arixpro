@@ -1,26 +1,36 @@
 import { useSeo } from '../hooks/useSeo';
 import ClosingCta from '../components/ClosingCta';
 
-const PRINCIPLES = [
+const ABOUT_POINTS = [
   {
     title: 'Direct engineer access',
     description:
-      'You work directly with the engineer writing your code. Zero account managers, zero sales fluff, and zero telephone games.',
+      'You communicate directly with the engineer writing your code. Zero account managers, zero sales layers, and zero translation loss.',
   },
   {
     title: 'Complete code ownership',
     description:
-      'Every repository, database schema and deployment pipeline belongs to you from day one. No proprietary lock-in, no monthly software ransom.',
+      'Every repository, database schema, and deployment pipeline belongs to you on launch. Full intellectual property transfer, zero lock-in.',
   },
   {
-    title: 'Fixed quotes, honestly scoped',
+    title: 'Guaranteed fixed quotes',
     description:
-      'A guaranteed fixed quote before we write code. If a feature takes longer than we estimated, that is on our shoulders: never added to your bill.',
+      'Clear scope and fixed pricing agreed upfront before any code is written. If a feature takes longer, it is never added to your bill.',
   },
   {
-    title: 'Post-launch reliability',
+    title: 'Focused studio capacity',
     description:
-      'Every project includes 30 days of post-launch bug fixes and monitoring at no extra cost. We stand by the code we ship.',
+      'We deliberately stay compact and take on a limited number of systems at a time, ensuring each build gets undivided attention.',
+  },
+  {
+    title: 'Weekly working builds',
+    description:
+      'Private staging environment running real software with real database queries from week 1, updated on every milestone.',
+  },
+  {
+    title: '30-day post-launch warranty',
+    description:
+      'Every build includes 30 days of bug fixes, performance monitoring, and handoff support at no extra cost.',
   },
 ];
 
@@ -28,7 +38,7 @@ export default function About() {
   useSeo({
     title: 'About | ArixPro',
     description:
-      'ArixPro is an independent, backend-first software studio in Lahore. We design, build and maintain Python backends, APIs and SaaS platforms, and we would rather be honestly small than impressively fake.',
+      'ArixPro is an independent, backend-first software studio in Lahore. We design, build, and maintain Python backends, APIs, and SaaS platforms.',
     canonical: 'https://arixpro.com/about',
   });
 
@@ -38,53 +48,26 @@ export default function About() {
         <div className="container">
           <div className="section-heading">
             <p className="section-label">About</p>
-            <h1 id="about-heading">Small studio. Senior people.</h1>
+            <h1 id="about-heading">Small team. Direct to code.</h1>
             <p
               className="section-note"
               style={{ fontSize: '1.125rem', marginTop: '20px', maxWidth: '64ch' }}
             >
               ArixPro is an independent, backend-first software studio in Lahore.
-              We design, build and maintain Python backends, APIs and SaaS
-              platforms, and we would rather be honestly small than
-              impressively fake.
+              We design, build, and maintain Python backends, APIs, and SaaS
+              platforms.
             </p>
           </div>
 
-          <div className="studio-story" style={{ marginTop: '72px' }}>
-            <div className="section-heading" style={{ marginBottom: '28px' }}>
-              <p className="section-label">THE STUDIO</p>
-              <h2>Built to stay small. Built to stay close to code.</h2>
-            </div>
-
-            <div className="studio-story__body">
-              <p className="studio-story__lead">
-                ArixPro was built on a straightforward belief: the engineers who scope your architecture should be the engineers who write the code, run the migrations, and deploy to production.
-              </p>
-              <p>
-                We do not maintain sales layers, account managers, or junior benches. When you hire ArixPro, there is zero translation loss between your product requirements and the backend that powers them. Every database schema, API endpoint, and background queue is designed and built directly by senior engineers.
-              </p>
-              <p>
-                We keep the studio deliberately compact so we never take on more projects than we can give our full attention. For teams building serious backends, that focus is not a compromise — it is the competitive advantage.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="principles-heading">
-        <div className="container">
-          <div className="section-heading">
-            <p className="section-label">How We Operate</p>
-            <h2 id="principles-heading">Studio Principles</h2>
-          </div>
-
-          <div className="principles-grid">
-            {PRINCIPLES.map((principle) => (
-              <div className="principle" key={principle.title}>
-                <h3 style={{ fontSize: '1.0625rem', marginBottom: '10px' }}>
-                  {principle.title}
-                </h3>
-                <p style={{ lineHeight: 1.6 }}>{principle.description}</p>
+          <div className="principles-grid" role="list">
+            {ABOUT_POINTS.map((point) => (
+              <div className="principle" key={point.title} role="listitem">
+                <h2 style={{ fontSize: '1.125rem', marginBottom: '8px', fontWeight: 600 }}>
+                  {point.title}
+                </h2>
+                <p style={{ lineHeight: 1.6, color: 'var(--body-text)', fontSize: '0.9375rem' }}>
+                  {point.description}
+                </p>
               </div>
             ))}
           </div>
