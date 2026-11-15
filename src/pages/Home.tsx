@@ -54,11 +54,12 @@ export default function Home() {
 
         <div className="container">
           <p className="hero__label">
-            Software House · Backend-First · Lahore, PK · Working Worldwide
+            Software Studio
           </p>
+
           <h1 id="hero-heading">
             Backends that don't{' '}
-            <span style={{ color: 'var(--violet-soft)' }}>break</span> when you
+            <span style={{ color: 'var(--violet)' }}>break</span> when you
             grow.
           </h1>
 

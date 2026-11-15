@@ -506,6 +506,59 @@ p a:not(.btn):not(.footer__socials a):hover,
   text-decoration: none;
 }
 
+.logo__sign-wrap {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  width: auto;
+  aspect-ratio: 1080 / 560;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo__sign-video {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1080 / 560;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.logo__sign-fallback {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1080 / 560;
+  object-fit: contain;
+  display: block;
+}
+
+.logo__sign-static {
+  display: none;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1080 / 560;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo__sign-video {
+    display: none !important;
+  }
+  .logo__sign-static {
+    display: block !important;
+  }
+}
+
+.logo__sign-img {
+  height: 30px;
+  width: auto;
+  aspect-ratio: 1080 / 560;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
 .logo__wordmark {
   font-family: var(--font-heading);
   font-size: 1.25rem;
@@ -522,10 +575,10 @@ p a:not(.btn):not(.footer__socials a):hover,
 /* --- Hero Section --- */
 .hero {
   position: relative;
-  background-color: var(--ink);
+  background-color: var(--paper);
   overflow: hidden;
   padding: 112px 0 96px;
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .hero::before {
@@ -533,8 +586,8 @@ p a:not(.btn):not(.footer__socials a):hover,
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(250, 250, 248, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(250, 250, 248, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(16, 16, 20, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 16, 20, 0.035) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
@@ -553,14 +606,14 @@ p a:not(.btn):not(.footer__socials a):hover,
   top: -15%;
   height: 130%;
   width: auto;
-  color: rgba(250, 250, 248, 0.045);
+  color: rgba(16, 16, 20, 0.035);
   pointer-events: none;
   z-index: 0;
   user-select: none;
 }
 
 .hero h1 {
-  color: var(--paper);
+  color: var(--ink);
   font-size: clamp(3rem, 6.5vw, 4.9rem);
   letter-spacing: -0.02em;
   line-height: 1.02;
@@ -572,8 +625,8 @@ p a:not(.btn):not(.footer__socials a):hover,
   gap: 14px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(250, 250, 248, 0.6);
+  font-weight: 600;
+  color: var(--violet);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 24px;
@@ -622,7 +675,7 @@ p a:not(.btn):not(.footer__socials a):hover,
 
 .hero__sub {
   font-size: 1.125rem;
-  color: rgba(250, 250, 248, 0.8);
+  color: var(--body-text);
   margin-top: 24px;
   max-width: 58ch;
   line-height: 1.65;
@@ -636,15 +689,26 @@ p a:not(.btn):not(.footer__socials a):hover,
 }
 
 .hero .btn-primary {
-  background: #ffffff;
-  color: var(--ink);
-  border-color: #ffffff;
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
 }
 
 .hero .btn-primary:hover {
   background: var(--violet);
   color: #ffffff;
   border-color: var(--violet);
+}
+
+.hero .btn-outline-light {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.hero .btn-outline-light:hover {
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 /* Terminal / Code Inspector Panel */
