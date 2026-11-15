@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Linkedin, Github } from 'lucide-react'
 import Logo from './Logo'
 import { site } from '../data/site'
 
@@ -28,37 +27,11 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
-
-          <div className="footer__socials">
-            {site.socials.linkedin && (
-              <a
-                href={site.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="ArixPro on LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-            )}
-            {site.socials.github && (
-              <a
-                href={site.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Rao Rizwan on GitHub"
-              >
-                <Github size={20} />
-              </a>
-            )}
-          </div>
         </div>
 
         <div className="footer__bottom">
           <p className="mono">© 2026 ArixPro. All rights reserved.</p>
         </div>
-      </div>
-      <div className="footer__wordmark-strip" aria-hidden="true">
-        <span className="footer__giant-wordmark">ArixPro.</span>
       </div>
     </footer>
   )
