@@ -1,57 +1,34 @@
 <!doctype html>
-<html lang="en" class="light" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#FFFFFF" />
-    <meta name="description" content="ArixPro builds custom web applications, SaaS platforms, internal tools, and API integrations for growing businesses." />
-
-    <title>ArixPro | Custom software studio</title>
-    <link rel="icon" type="image/png" href="/images/logo-pomegranate-transparent.png" />
-    <link rel="apple-touch-icon" href="/images/logo-pomegranate-transparent.png" />
-    <link rel="canonical" href="https://arixpro.com/" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="ArixPro" />
-    <meta property="og:title" content="ArixPro | Custom software studio" />
-    <meta property="og:description" content="ArixPro builds custom web applications, SaaS platforms, internal tools, and API integrations for growing businesses." />
-    <meta property="og:url" content="https://arixpro.com/" />
-    <meta property="og:image" content="https://arixpro.com/og-image.png" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ArixPro | Custom software studio" />
-    <meta name="twitter:description" content="ArixPro builds custom web applications, SaaS platforms, internal tools, and API integrations for growing businesses." />
-    <meta name="twitter:image" content="https://arixpro.com/og-image.png" />
-
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101014" />
+    <title>ArixPro | Backend-first software house in Lahore</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-    />
-
-    <script>
-      (function () {
-        try {
-          localStorage.removeItem('theme');
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-          document.documentElement.setAttribute('data-theme', 'light');
-        } catch (e) {}
-      })();
-    </script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ArixPro",
-        "url": "https://arixpro.com/",
-        "description": "Custom software studio building web applications, internal tools, SaaS platforms, APIs, and business systems."
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ArixPro",
+      "url": "https://arixpro.com",
+      "email": "contact@arixpro.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressCountry": "PK"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Rao Rizwan"
       }
+    }
     </script>
   </head>
-  <body class="bg-white dark:bg-[#090412] text-[#120826] dark:text-[#C9C2E0] font-sans antialiased">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

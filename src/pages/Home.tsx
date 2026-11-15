@@ -1,237 +1,364 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { TechSphere } from '../components/TechSphere'
-import { PencilSchematic } from '../components/PencilSchematic'
-import { TypewriterText } from '../components/TypewriterText'
-import { SolutionFinder } from '../components/SolutionFinder'
-import { useSeo } from '../lib/useSeo'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
+import { useSeo } from '../hooks/useSeo'
+import { services } from '../data/services'
+import { projects } from '../data/projects'
+import { faqs } from '../data/faq'
+import SectionHeading from '../components/SectionHeading'
+import ClosingCta from '../components/ClosingCta'
+import Reveal from '../components/Reveal'
 
-const systems = [
-  {
-    slug: 'analytics-dashboard',
-    title: 'Analytics Dashboard',
-    image: '/images/work-analytics-dashboard.webp',
-    metric: '< 45ms query latency',
-    tag: 'Web Analytics',
-    description: 'High-throughput dashboard with live WebSocket charts and sub-second metrics.',
-  },
-  {
-    slug: 'ecommerce-admin',
-    title: 'E-commerce Admin',
-    image: '/images/work-ecommerce-admin.webp',
-    metric: '0.00% inventory drift',
-    tag: 'Order Management',
-    description: 'Multi-channel inventory management, order processing, and warehouse sync.',
-  },
-  {
-    slug: 'crm-platform',
-    title: 'CRM Platform',
-    image: '/images/work-crm-platform.webp',
-    metric: '250k indexed accounts',
-    tag: 'Customer Records',
-    description: 'Opportunity pipeline, background email sync, and instant customer search.',
-  },
-]
-
-export function Home() {
+export default function Home() {
   useSeo({
-    title: 'ArixPro | Custom software studio',
+    title: 'ArixPro | Backend-first software house in Lahore',
     description:
-      'ArixPro builds custom web applications, SaaS platforms, internal tools, and API integrations for growing businesses.',
-    path: '/',
+      "ArixPro is a software house that builds Python backends, APIs and SaaS platforms for startups and growing businesses. Designed properly, shipped on a fixed quote, and handed over with all the code. It's yours.",
+    canonical: 'https://arixpro.com/',
   })
 
-  // Page-based smooth scroll helper
-  useEffect(() => {
-    if (window.location.hash) {
-      const el = document.querySelector(window.location.hash)
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' })
-        }, 150)
-      }
-    }
+  const navigate = useNavigate()
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const toggleFaq = (idx: number) => {
+    setOpenFaq((prev) => (prev === idx ? null : idx))
+  }
 
-    let isThrottled = false
-
-    const handleWheel = (e: WheelEvent) => {
-      if (window.scrollY < 80 && e.deltaY > 15 && !isThrottled) {
-        isThrottled = true
-        e.preventDefault()
-        const next = document.getElementById('what-we-build')
-        if (next) {
-          next.scrollIntoView({ behavior: 'smooth' })
-        }
-        setTimeout(() => {
-          isThrottled = false
-        }, 900)
-      }
-    }
-
-    window.addEventListener('wheel', handleWheel, { passive: false })
-    return () => window.removeEventListener('wheel', handleWheel)
-  }, [])
+  const homeFaqs = faqs.slice(0, 4)
 
   return (
-    <div className="w-full text-slate-900 bg-white selection:bg-[#6336C5]/15 selection:text-[#6336C5]">
-      {/* 1. Page 1: Hero Section (Full Viewport Height) */}
-      <section
-        id="hero"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-12 sm:py-20 overflow-hidden scroll-mt-20"
-      >
-        {/* Subtle ambient light gradient at top (AI Fiesta Style) */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-purple-100/50 via-purple-50/20 to-transparent blur-[90px] pointer-events-none" />
+    <>
+      {/* Hero Section */}
+      <section className="hero" aria-labelledby="hero-heading">
+        <svg
+          className="hero__watermark"
+          viewBox="0 0 72 72"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M14 58 L36 14 L58 58"
+            stroke="currentColor"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M23 44 H57"
+            stroke="currentColor"
+            strokeWidth="6"
+            strokeLinecap="round"
+          />
+          <circle cx="63" cy="44" r="4.5" fill="currentColor" />
+        </svg>
 
-        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* Left Column: Headline with Typewriter & Direct CTAs */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              <h1 className="font-sans text-[38px] sm:text-[50px] lg:text-[58px] xl:text-[64px] font-bold text-slate-950 tracking-tight leading-[1.12]">
-                <span>We Build</span>
-                <TypewriterText />
-                <span className="block mt-1 sm:mt-2 text-slate-950">That Scale.</span>
-              </h1>
+        <div className="container">
+          <p className="hero__label">
+            Software House · Backend-First · Lahore, PK · Working Worldwide
+          </p>
+          <h1 id="hero-heading">
+            Backends that don't{' '}
+            <span style={{ color: 'var(--violet-soft)' }}>break</span> when you
+            grow.
+          </h1>
 
-              <p className="mt-6 font-sans text-[17px] sm:text-[20px] leading-[1.65] text-slate-600 max-w-xl">
-                Custom software, built clean, tested, and shipped to production.
-              </p>
-
-              <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-                <Link to="/contact" className="btn-primary text-[15px] h-[48px] px-7">
-                  <span>Build With Us</span>
-                  <ArrowUpRight className="size-4" />
-                </Link>
-                <Link to="/work" className="btn-secondary text-[15px] h-[48px] px-7">
-                  <span>View Shipped Systems</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column: Hand-Sketched Architectural Blueprint */}
-            <div className="lg:col-span-6 flex items-center justify-center">
-              <PencilSchematic />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Page 2: Interactive Solution Finder (Clean Off-White Surface) */}
-      <section
-        id="what-we-build"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 bg-slate-50/60 scroll-mt-20"
-      >
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <h2 className="font-sans text-[30px] sm:text-[40px] font-bold text-slate-950 tracking-tight">
-              What does your business need?
-            </h2>
-            <p className="mt-2.5 text-[15px] sm:text-[16px] text-slate-600">
-              Search what you want to achieve or select a core capability.
-            </p>
+          <div className="hero__route-line" aria-hidden="true">
+            <svg viewBox="0 0 600 24" fill="none" preserveAspectRatio="none">
+              <circle cx="4" cy="4" r="3.5" fill="#5B2EE5" />
+              <path
+                className="hero__route-path"
+                d="M 4 4 H 280 L 300 20 H 596"
+                stroke="#5B2EE5"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <circle cx="596" cy="20" r="3.5" fill="#5B2EE5" />
+            </svg>
           </div>
 
-          <SolutionFinder />
-        </div>
-      </section>
-
-      {/* 3. Page 3: Real Shipped Work (Clean White Canvas) */}
-      <section
-        id="shipped-systems"
-        className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 sm:py-24 bg-white scroll-mt-20"
-      >
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
-            <div>
-              <span className="font-mono text-[12px] font-semibold uppercase tracking-wider text-[#6336C5]">
-                Case Studies
-              </span>
-              <h2 className="mt-2.5 font-sans text-[30px] sm:text-[40px] font-bold text-slate-950 tracking-tight">
-                Shipped Systems
-              </h2>
-            </div>
-            <Link
-              to="/work"
-              className="font-sans text-[15px] font-semibold text-[#6336C5] hover:text-slate-950 inline-flex items-center gap-2 transition-colors"
-            >
-              <span>View all projects</span>
-              <ArrowRight className="size-4" />
+          <p className="hero__sub">
+            ArixPro is a software house that builds Python backends, APIs and
+            SaaS platforms for startups and growing businesses. Designed properly,
+            shipped on a fixed quote, and handed over with complete code ownership. It's
+            yours.
+          </p>
+          <div className="hero__actions">
+            <Link to="/contact" className="btn btn-primary">
+              Start a project <ArrowRight size={16} className="btn-arrow" />
+            </Link>
+            <Link to="/work" className="btn btn-outline-light">
+              See our work
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {systems.map((system) => (
-              <article
-                key={system.slug}
-                className="ui-card flex flex-col justify-between overflow-hidden group transition-all"
-              >
-                {/* Contain Image */}
-                <Link
-                  to={`/work/${system.slug}`}
-                  className="block w-full bg-slate-50/80 p-6 border-b border-slate-100 flex items-center justify-center overflow-hidden"
-                >
-                  <img
-                    src={system.image}
-                    alt={system.title}
-                    width={800}
-                    height={500}
-                    className="w-full h-[180px] sm:h-[200px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                </Link>
+          {/* Terminal / Live API Code Inspector */}
+          <div className="code-panel" role="region" aria-label="Live API verification">
+            <div className="code-panel__header">
+              <div className="code-panel__dots" aria-hidden="true">
+                <span className="code-panel__dot" />
+                <span className="code-panel__dot" />
+                <span className="code-panel__dot" />
+              </div>
+              <span className="mono">api.jobharvester.com · Live system inspection</span>
+            </div>
+            <div>
+              <span className="method">GET</span>{' '}
+              https://jobharvester-backend.arixpro.com/api/v1/jobs/
+            </div>
+            <div style={{ marginTop: '8px' }}>
+              Response &#123; &quot;count&quot;:{' '}
+              <span className="green">1658</span>, &quot;status&quot;:{' '}
+              <span className="green">&quot;200 OK&quot;</span> &#125;
+            </div>
+            <div className="comment" style={{ marginTop: '12px' }}>
+              1,658 live Pakistan tech jobs, crawled and de-duplicated · Counted 15 Nov 2026
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="p-6 sm:p-7 flex flex-1 flex-col justify-between bg-white">
+      {/* Proof Strip */}
+      <div className="proof-strip">
+        <div className="container">
+          <div className="proof-strip__inner">
+            <div className="proof-item">
+              <div className="proof-item__stat">100k+ daily requests</div>
+              <div className="proof-item__label">
+                Django APIs in production, the founder's engineering record
+              </div>
+            </div>
+            <div className="proof-item">
+              <div className="proof-item__stat">4 active products</div>
+              <div className="proof-item__label">
+                Designed, built and maintained end-to-end by this studio
+              </div>
+            </div>
+            <div className="proof-item">
+              <div className="proof-item__stat">100% code ownership</div>
+              <div className="proof-item__label">
+                Repository, cloud accounts and IP transferred on launch day
+              </div>
+            </div>
+            <div className="proof-item">
+              <div className="proof-item__stat">Fixed quotes</div>
+              <div className="proof-item__label">
+                No hourly billing; the price we agree is the price you pay
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 01 Services */}
+      <section className="section section--dots" id="services" aria-labelledby="services-heading">
+        <div className="container">
+          <Reveal>
+            <SectionHeading number="01" label="Services" title="What we build" />
+            <div className="services-list">
+              {services.map((service, idx) => (
+                <div className="service-row" key={service.slug}>
+                  <div className="service-num">0{idx + 1}</div>
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="font-mono text-[12px] font-bold text-[#059669]">
-                        {system.metric}
-                      </span>
-                      <span className="font-mono text-[11px] text-slate-500 uppercase tracking-wider">
-                        {system.tag}
-                      </span>
-                    </div>
-
-                    <h3 className="font-sans text-[20px] font-bold text-slate-950 group-hover:text-[#6336C5] transition-colors">
-                      <Link to={`/work/${system.slug}`}>{system.title}</Link>
-                    </h3>
-
-                    <p className="mt-2.5 font-sans text-[14px] leading-relaxed text-slate-600">
-                      {system.description}
-                    </p>
+                    <h3>{service.name}</h3>
+                    <p style={{ marginTop: '8px' }}>{service.outcome}</p>
+                    <ul className="service-deliverables">
+                      {service.deliverables.map((item, dIdx) => (
+                        <li key={dIdx}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="font-mono text-[12px] text-slate-500">Inspect architecture</span>
-                    <ArrowRight className="size-4 text-[#6336C5] transition-transform group-hover:translate-x-1" />
+                  <div className="service-meta">
+                    <strong>{service.price}</strong>
+                    <span>{service.timeline}</span>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* 4. Page 4: Tech Stack Foundation */}
-      <section
-        id="technology-cta"
-        className="relative flex flex-col justify-center py-16 sm:py-20 bg-slate-50/60 scroll-mt-20"
-      >
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12 w-full">
-          <div className="text-center">
-            <div className="max-w-lg mx-auto mb-8 sm:mb-10">
-              <h2 className="font-sans text-[26px] sm:text-[34px] font-bold text-slate-950 tracking-tight">
-                Technologies We Build With
-              </h2>
+      {/* 02 Selected Work */}
+      <section className="section" id="work" aria-labelledby="work-heading">
+        <div className="container">
+          <Reveal>
+            <SectionHeading
+              number="02"
+              label="Selected Work"
+              title="Products we built"
+              note="Our own products, designed and built end-to-end by this studio: public, live, and inspectable. No confidential-client theatre."
+            />
+            <div className="projects-list">
+              {projects.map((project, idx) => (
+                <div
+                  className="project-row"
+                  key={project.slug}
+                  onClick={(e) => {
+                    if ((e.target as HTMLElement).closest('a')) return
+                    navigate(`/work/${project.slug}`)
+                  }}
+                >
+                  <div className="project-row__header">
+                    <div>
+                      <span className="mono project-row__num" style={{ fontSize: '0.8125rem', fontWeight: 600 }}>
+                        0{idx + 1}
+                      </span>
+                      <h3 style={{ marginTop: '4px' }}>
+                        {project.name}{' '}
+                        <span
+                          className="muted"
+                          style={{ fontWeight: 400, fontSize: '1rem' }}
+                        >
+                          · {project.tagline}
+                        </span>
+                      </h3>
+                      <p className="project-stack">{project.stack.join(' · ')}</p>
+                    </div>
+                    <Link
+                      to={`/work/${project.slug}`}
+                      className="mono"
+                      style={{ fontSize: '0.875rem', whiteSpace: 'nowrap', fontWeight: 600 }}
+                    >
+                      How it's built →
+                    </Link>
+                  </div>
+                  <p style={{ marginTop: '8px' }}>{project.description}</p>
+                  {project.architecture && project.architecture.length > 0 && (
+                    <div className="arch-box" aria-label={`Architecture for ${project.name}`}>
+                      <div className="arch-box__header" aria-hidden="true">
+                        <span className="arch-box__bullet" />
+                        <span className="arch-box__tag">FLOW</span>
+                      </div>
+                      <div className="arch-box__body">
+                        {project.architecture.map((line, aIdx) => (
+                          <div key={aIdx}>
+                            {line.split('→').map((part, pIdx, arr) => (
+                              <span key={pIdx}>
+                                {part}
+                                {pIdx < arr.length - 1 && <span className="arch-arrow"> → </span>}
+                              </span>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-
-            <div className="w-full">
-              <TechSphere />
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
-    </div>
+
+      {/* 03 How We Work */}
+      <section className="section section--dots" id="process" aria-labelledby="process-heading">
+        <div className="container">
+          <Reveal>
+            <SectionHeading
+              number="03"
+              label="How We Work"
+              title="Fixed quote. Weekly proof."
+              note="You talk directly to the engineer building your system. No account managers, and no telephone game."
+            />
+            <div className="process-grid">
+              <div className="process-step">
+                <div className="process-step__badge mono" aria-hidden="true">01</div>
+                <div className="process-step__label">Step 01 · Days 1 to 3</div>
+                <h3>Scope &amp; fixed quote</h3>
+                <p>
+                  We map your user flows and data model, then quote a fixed price
+                  and date. You approve before any code exists.
+                </p>
+              </div>
+              <div className="process-step">
+                <div className="process-step__badge mono" aria-hidden="true">02</div>
+                <div className="process-step__label">Step 02 · Week 1</div>
+                <h3>Staging link, live</h3>
+                <p>
+                  A private staging URL with the real database and auth: click
+                  through actual software in week 1, not mockups.
+                </p>
+              </div>
+              <div className="process-step">
+                <div className="process-step__badge mono" aria-hidden="true">03</div>
+                <div className="process-step__label">Step 03 · Weekly</div>
+                <h3>Builds you can test</h3>
+                <p>
+                  Staging updates on every milestone, with a short written note on
+                  what changed and what comes next.
+                </p>
+              </div>
+              <div className="process-step">
+                <div className="process-step__badge mono" aria-hidden="true">04</div>
+                <div className="process-step__label">Step 04 · Launch</div>
+                <h3>Handover, all yours</h3>
+                <p>
+                  Production deploy, then full transfer: repository, cloud
+                  accounts, and docs. 30 days of post-launch fixes included.
+                </p>
+              </div>
+            </div>
+
+            {/* Stack block */}
+            <div className="stack-block">
+              <div className="stack-block__label">Our Tech Stack</div>
+              <div className="stack-line mono">
+                Backend: Python · Django · FastAPI · Flask | Data: PostgreSQL ·
+                Redis · MongoDB | Async: Celery · RabbitMQ | Infra: Docker · AWS ·
+                GitHub Actions | Frontend: React · TypeScript
+              </div>
+              <p className="stack-note">
+                If we cannot defend it in a technical interview, it does not go on
+                this page.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 04 FAQ */}
+      <section className="section" id="faq" aria-labelledby="faq-heading">
+        <div className="container">
+          <Reveal>
+            <SectionHeading
+              number="04"
+              label="FAQ"
+              title="Questions clients usually ask"
+            />
+            <div className="faq-list">
+              {homeFaqs.map((faq, idx) => (
+                <div className="faq-item" key={idx}>
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => toggleFaq(idx)}
+                    aria-expanded={openFaq === idx}
+                    aria-controls={`faq-answer-${idx}`}
+                  >
+                    <span>{faq.question}</span>
+                    <span
+                      className="faq-indicator mono"
+                      aria-hidden="true"
+                    >
+                      {openFaq === idx ? '−' : '+'}
+                    </span>
+                  </button>
+                  <div
+                    id={`faq-answer-${idx}`}
+                    className={`faq-answer ${openFaq === idx ? 'open' : ''}`}
+                  >
+                    <div className="faq-answer-inner">
+                      <p>{faq.answer}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <ClosingCta />
+    </>
   )
 }
-
-export default Home

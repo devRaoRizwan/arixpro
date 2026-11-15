@@ -6,27 +6,23 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && node scripts/build.mjs",
-    "lint": "oxlint",
+    "lint": "oxlint src/",
     "preview": "vite preview"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "framer-motion": "^12.34.0",
     "lucide-react": "^0.548.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router-dom": "^7.13.0"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.4",
-    "@types/node": "^24.13.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "@vitejs/plugin-react": "^6.1.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
     "oxlint": "^1.79.0",
-    "tailwindcss": "^4.2.4",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2",
-    "vite-prerender-plugin": "^0.5.13"
+    "vite": "^8.3.8",
+    "vite-prerender-plugin": "^0.5.14"
   }
 }

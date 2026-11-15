@@ -1,38 +1,32 @@
-import { fileURLToPath, URL } from 'node:url'
-import tailwindcss from '@tailwindcss/vite'
-import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import { vitePrerenderPlugin } from 'vite-prerender-plugin'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
-    /* Renders every route to real HTML at build time. Without it the site ships
-       `<div id="root"></div>`, so crawlers see no H1, no links and no per-page
-       metadata. Routes are discovered by following links from `/`. */
     vitePrerenderPlugin({
       renderTarget: '#root',
-      prerenderScript: fileURLToPath(new URL('./src/prerender.tsx', import.meta.url)),
+      prerenderScript: path.resolve(__dirname, 'src/prerender.tsx'),
       additionalPrerenderRoutes: [
+        '/',
         '/services',
         '/work',
-        '/work/analytics-dashboard',
-        '/work/ecommerce-admin',
-        '/work/crm-platform',
+        '/work/jobharvester',
+        '/work/bomwatcher',
+        '/work/sitescopia',
+        '/work/jobbr',
         '/process',
         '/about',
-        '/careers',
         '/contact',
       ],
     }),
   ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
   build: {
-    target: 'es2022',
+    outDir: 'dist',
   },
 })
