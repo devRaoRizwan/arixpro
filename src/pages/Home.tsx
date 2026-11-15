@@ -102,7 +102,7 @@ export default function Home() {
             </div>
             <div>
               <span className="method">GET</span>{' '}
-              https://jobharvester-backend.arixpro.com/api/v1/jobs/
+              https://jobharvester-backend-3bto.onrender.com/api/v1/jobs/
             </div>
             <div style={{ marginTop: '8px' }}>
               Response &#123; &quot;count&quot;:{' '}
@@ -123,7 +123,7 @@ export default function Home() {
             <div className="proof-item">
               <div className="proof-item__stat">100k+ daily requests</div>
               <div className="proof-item__label">
-                Django APIs in production, the founder's engineering record
+                Django APIs in production — Rizwan's engineering record
               </div>
             </div>
             <div className="proof-item">
@@ -202,8 +202,10 @@ export default function Home() {
                       <span className="mono project-row__num" style={{ fontSize: '0.8125rem', fontWeight: 600 }}>
                         0{idx + 1}
                       </span>
-                      <h3 style={{ marginTop: '4px' }}>
-                        {project.name}{' '}
+                      <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginTop: '4px' }}>
+                        <Link to={`/work/${project.slug}`} style={{ color: 'var(--ink)' }}>
+                          {project.name}
+                        </Link>{' '}
                         <span
                           className="muted"
                           style={{ fontWeight: 400, fontSize: '1rem' }}

@@ -23,6 +23,7 @@ export default defineConfig({
         '/process',
         '/about',
         '/contact',
+        '/404',
       ],
     }),
   ],

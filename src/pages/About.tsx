@@ -64,16 +64,15 @@ export default function About() {
                 <div className="founder-photo" style={{ maxWidth: '240px', marginBottom: '24px' }}>
                   <img
                     src="/images/rizwan.jpg"
-                    alt="Rao Rizwan, founder of ArixPro"
+                    alt="Rao Rizwan"
                     width={240}
                     height={320}
                     loading="eager"
                   />
-                  <div className="founder-caption mono">RAO RIZWAN / FOUNDER — BACKEND</div>
+                  <div className="founder-caption mono">RAO RIZWAN</div>
                 </div>
 
                 <h3 id="member-rizwan" className="team-card__name">Rao Rizwan</h3>
-                <p className="team-card__role mono">FOUNDER · LEAD BACKEND ENGINEER</p>
 
                 <div className="team-card__bio">
                   <p>
@@ -91,9 +90,10 @@ export default function About() {
                     <Link to="/work">Work page</Link>.
                   </p>
                   <p>
-                    ArixPro is his studio. The person who scopes your project is the
-                    person who architects it. For a backend build, that is not a
-                    limitation: it is the primary advantage.
+                    ArixPro is a two-engineer studio run by two friends, Rizwan and
+                    Aneeq, with Rizwan leading the backend work. The people who
+                    scope your project are the people who build it. For a backend
+                    build, that is not a limitation — it is the advantage.
                   </p>
                 </div>
 
@@ -125,13 +125,13 @@ export default function About() {
               {/* ENTRY B — Aneeq */}
               <article className="team-card" aria-labelledby="member-aneeq">
                 <h3 id="member-aneeq" className="team-card__name">Aneeq</h3>
-                <p className="team-card__role mono">CO-FOUNDER · ENGINEER</p>
 
                 <div className="team-card__bio">
                   <p>
-                    Aneeq is the studio's second engineer and co-founder. He builds
-                    alongside Rizwan across the studio's products and client work — the
-                    other half of every scope call, build review and launch at ArixPro.
+                    Aneeq is an engineer and the studio's second pair of hands on
+                    everything ArixPro ships. He builds alongside Rizwan across the
+                    studio's own products and client work — the other half of every
+                    build review and launch.
                   </p>
                 </div>
               </article>

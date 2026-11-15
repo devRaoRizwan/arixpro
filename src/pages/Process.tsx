@@ -113,6 +113,42 @@ export default function Process() {
               </article>
             ))}
           </div>
+
+          <div
+            className="workflow-note"
+            style={{
+              marginTop: '36px',
+              border: '1px solid var(--line)',
+              borderRadius: 'var(--radius)',
+              padding: '32px',
+              background: 'var(--paper)',
+            }}
+          >
+            <div
+              className="mono"
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'var(--violet)',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                marginBottom: '12px',
+              }}
+            >
+              HOW WE SHIP FAST
+            </div>
+            <p
+              style={{
+                color: 'var(--body-text)',
+                fontSize: '1.0625rem',
+                lineHeight: 1.65,
+                maxWidth: '68ch',
+                margin: 0,
+              }}
+            >
+              We build with AI tooling — Claude and Claude Code — inside our workflow: scaffolding, tests and review passes. Every line is reviewed, tested and owned by us. You're hiring two engineers; the AI is how two engineers ship like five.
+            </p>
+          </div>
         </div>
       </section>
 

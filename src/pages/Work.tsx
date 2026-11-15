@@ -9,7 +9,7 @@ export default function Work() {
   useSeo({
     title: 'Work | ArixPro',
     description:
-      'Our own products, designed and built end-to-end by this studio: public, live, and inspectable. Client work exists too, but it is confidential; this is the proof we can actually show you.',
+      'Our own products, designed and built end-to-end by this studio: public, live, and inspectable. No confidential-client theatre.',
     canonical: `${site.url}/work`,
   });
 
@@ -30,8 +30,7 @@ export default function Work() {
               }}
             >
               Our own products, designed and built end-to-end by this studio: public, live, and
-              inspectable. Client work exists too, but it is confidential; this is the proof we can
-              actually show you.
+              inspectable. No confidential-client theatre.
             </p>
           </div>
 
