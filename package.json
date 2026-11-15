@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "arixpro",
   "private": true,
   "version": "1.0.0",
