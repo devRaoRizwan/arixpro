@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
 import { useSeo } from '../hooks/useSeo';
-import { site } from '../data/site';
 import ClosingCta from '../components/ClosingCta';
 
 const PRINCIPLES = [
@@ -52,89 +50,22 @@ export default function About() {
             </p>
           </div>
 
-          <div className="team-block" style={{ marginTop: '72px' }}>
-            <div className="section-heading" style={{ marginBottom: '36px' }}>
-              <p className="section-label">THE TEAM</p>
-              <h2>Two engineers. No hand-offs.</h2>
+          <div className="studio-story" style={{ marginTop: '72px' }}>
+            <div className="section-heading" style={{ marginBottom: '28px' }}>
+              <p className="section-label">THE STUDIO</p>
+              <h2>Built to stay small. Built to stay close to code.</h2>
             </div>
 
-            <div className="team-grid">
-              {/* ENTRY A — Rao Rizwan */}
-              <article className="team-card" aria-labelledby="member-rizwan">
-                <div className="founder-photo" style={{ maxWidth: '240px', marginBottom: '24px' }}>
-                  <img
-                    src="/images/rizwan.jpg"
-                    alt="Rao Rizwan"
-                    width={240}
-                    height={320}
-                    loading="eager"
-                  />
-                  <div className="founder-caption mono">RAO RIZWAN</div>
-                </div>
-
-                <h3 id="member-rizwan" className="team-card__name">Rao Rizwan</h3>
-
-                <div className="team-card__bio">
-                  <p>
-                    Python backend engineer based in Lahore, Pakistan. At Programmers
-                    Force (2024–2026) he built Django REST APIs serving 100,000+
-                    requests a day, with Celery workers moving the slow work off the
-                    request path. At Broadstone Technologies he worked on Flask
-                    backends on AWS with OAuth, and wired security scanning into the
-                    CI/CD pipeline.
-                  </p>
-                  <p>
-                    His own products (JobHarvester, BOMWatcher, SiteScopia and
-                    Jobbr) are the studio's public proof: designed, built and
-                    maintained end-to-end, and inspectable on the{' '}
-                    <Link to="/work">Work page</Link>.
-                  </p>
-                  <p>
-                    ArixPro is a two-engineer studio run by two friends, Rizwan and
-                    Aneeq, with Rizwan leading the backend work. The people who
-                    scope your project are the people who build it. For a backend
-                    build, that is not a limitation — it is the advantage.
-                  </p>
-                </div>
-
-                <div className="team-card__links">
-                  <a
-                    href={site.socials.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub @devRaoRizwan ↗
-                  </a>
-                  <a
-                    href={site.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn ↗
-                  </a>
-                  <a
-                    href="https://devraorizwan.online"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    devraorizwan.online ↗
-                  </a>
-                </div>
-              </article>
-
-              {/* ENTRY B — Aneeq */}
-              <article className="team-card" aria-labelledby="member-aneeq">
-                <h3 id="member-aneeq" className="team-card__name">Aneeq</h3>
-
-                <div className="team-card__bio">
-                  <p>
-                    Aneeq is an engineer and the studio's second pair of hands on
-                    everything ArixPro ships. He builds alongside Rizwan across the
-                    studio's own products and client work — the other half of every
-                    build review and launch.
-                  </p>
-                </div>
-              </article>
+            <div className="studio-story__body">
+              <p className="studio-story__lead">
+                ArixPro was built on a straightforward belief: the engineers who scope your architecture should be the engineers who write the code, run the migrations, and deploy to production.
+              </p>
+              <p>
+                We do not maintain sales layers, account managers, or junior benches. When you hire ArixPro, there is zero translation loss between your product requirements and the backend that powers them. Every database schema, API endpoint, and background queue is designed and built directly by senior engineers.
+              </p>
+              <p>
+                We keep the studio deliberately compact so we never take on more projects than we can give our full attention. For teams building serious backends, that focus is not a compromise — it is the competitive advantage.
+              </p>
             </div>
           </div>
         </div>
