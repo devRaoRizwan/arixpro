@@ -1103,7 +1103,84 @@ p a:not(.btn):not(.footer__socials a):hover,
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.stack-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stack-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
+}
+
+.stack-row:hover {
+  border-color: rgba(91, 46, 229, 0.35);
+}
+
+.stack-row__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.stack-category-icon {
+  color: var(--violet);
+  flex-shrink: 0;
+}
+
+.stack-row__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.stack-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--body-text);
+  line-height: 1.4;
+  transition: color 150ms ease-out, border-color 150ms ease-out;
+}
+
+.stack-pill:hover {
+  color: var(--ink);
+  border-color: var(--violet);
+}
+
+.stack-pill svg {
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: color 150ms ease-out;
+}
+
+.stack-pill:hover svg {
+  color: var(--violet);
 }
 
 .stack-line {
@@ -1116,7 +1193,20 @@ p a:not(.btn):not(.footer__socials a):hover,
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   color: var(--muted);
-  margin-top: 14px;
+  margin-top: 18px;
+}
+
+@media (max-width: 768px) {
+  .stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .stack-row__category {
+    min-width: auto;
+  }
 }
 
 /* --- Founder / Studio Section --- */

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Server, Database, Zap, Cloud, Layout } from 'lucide-react'
+import TechIcon from '../components/TechIcon'
 import { useSeo } from '../hooks/useSeo'
 import { services } from '../data/services'
 import { projects } from '../data/projects'
@@ -303,11 +304,68 @@ export default function Home() {
             {/* Stack block */}
             <div className="stack-block">
               <div className="stack-block__label">Our Tech Stack</div>
-              <div className="stack-line mono">
-                Backend: Python · Django · FastAPI · Flask | Data: PostgreSQL ·
-                Redis · MongoDB | Async: Celery · RabbitMQ | Infra: Docker · AWS ·
-                GitHub Actions | Frontend: React · TypeScript
+
+              <div className="stack-grid">
+                <div className="stack-row">
+                  <div className="stack-row__category">
+                    <Server size={15} className="stack-category-icon" aria-hidden="true" />
+                    <span>Backend</span>
+                  </div>
+                  <div className="stack-row__items">
+                    <span className="stack-pill"><TechIcon name="python" /> Python</span>
+                    <span className="stack-pill"><TechIcon name="django" /> Django</span>
+                    <span className="stack-pill"><TechIcon name="fastapi" /> FastAPI</span>
+                    <span className="stack-pill"><TechIcon name="flask" /> Flask</span>
+                  </div>
+                </div>
+
+                <div className="stack-row">
+                  <div className="stack-row__category">
+                    <Database size={15} className="stack-category-icon" aria-hidden="true" />
+                    <span>Data</span>
+                  </div>
+                  <div className="stack-row__items">
+                    <span className="stack-pill"><TechIcon name="postgresql" /> PostgreSQL</span>
+                    <span className="stack-pill"><TechIcon name="redis" /> Redis</span>
+                    <span className="stack-pill"><TechIcon name="mongodb" /> MongoDB</span>
+                  </div>
+                </div>
+
+                <div className="stack-row">
+                  <div className="stack-row__category">
+                    <Zap size={15} className="stack-category-icon" aria-hidden="true" />
+                    <span>Async</span>
+                  </div>
+                  <div className="stack-row__items">
+                    <span className="stack-pill"><TechIcon name="celery" /> Celery</span>
+                    <span className="stack-pill"><TechIcon name="rabbitmq" /> RabbitMQ</span>
+                  </div>
+                </div>
+
+                <div className="stack-row">
+                  <div className="stack-row__category">
+                    <Cloud size={15} className="stack-category-icon" aria-hidden="true" />
+                    <span>Infra</span>
+                  </div>
+                  <div className="stack-row__items">
+                    <span className="stack-pill"><TechIcon name="docker" /> Docker</span>
+                    <span className="stack-pill"><TechIcon name="aws" /> AWS</span>
+                    <span className="stack-pill"><TechIcon name="github" /> GitHub Actions</span>
+                  </div>
+                </div>
+
+                <div className="stack-row">
+                  <div className="stack-row__category">
+                    <Layout size={15} className="stack-category-icon" aria-hidden="true" />
+                    <span>Frontend</span>
+                  </div>
+                  <div className="stack-row__items">
+                    <span className="stack-pill"><TechIcon name="react" /> React</span>
+                    <span className="stack-pill"><TechIcon name="typescript" /> TypeScript</span>
+                  </div>
+                </div>
               </div>
+
               <p className="stack-note">
                 If we cannot defend it in a technical interview, it does not go on
                 this page.
