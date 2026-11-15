@@ -1,1 +1,12 @@
-/*  /index.html  200
+# 301 Permanent Redirects for legacy routes
+/work/analytics-dashboard  /work  301
+/work/ecommerce-admin      /work  301
+/work/crm-platform         /work  301
+/courses/*                 /services  301
+/courses                   /services  301
+/solutions                 /services  301
+/faq                       /  301
+/careers                   /about  301
+
+# SPA fallback
+/*                         /index.html  200

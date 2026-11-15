@@ -39,7 +39,7 @@ Pages import content from `src/data/` — no copy is hard-coded inside component
 | `/work` | Work | The studio's 4 public products: JobHarvester, BOMWatcher, SiteScopia, and Jobbr. |
 | `/work/:slug` | Project Detail | Detailed breakdown of each product: problem, what we built, architecture flow, stack, and demo links. |
 | `/process` | Process | 4-phase delivery model from scope to launch, deliverables checklist, and complete studio FAQ. |
-| `/about` | About | Independent studio manifesto, founder engineering background (Rao Rizwan), and 4 operational principles. |
+| `/about` | About | Independent studio manifesto, engineering standards, and operational principles. |
 | `/contact` | Contact | Real project enquiry form with Formspree integration and prefill support (`?service=<slug>`). |
 | `*` | 404 | Helpful not-found page with links back to Home and Work. |
 

@@ -35,10 +35,20 @@ export function useSeo({ title, description, canonical, ogImage }: SeoProps) {
       el.setAttribute('content', content);
     };
 
+    const image = ogImage || 'https://arixpro.com/og-image.png';
+
     setMeta('description', description);
     setMeta('og:title', title, 'property');
     setMeta('og:description', description, 'property');
     setMeta('og:type', 'website', 'property');
+    setMeta('og:site_name', 'ArixPro', 'property');
+    setMeta('og:locale', 'en_US', 'property');
+    setMeta('og:image', image, 'property');
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', title);
+    setMeta('twitter:description', description);
+    setMeta('twitter:image', image);
+
     if (canonical) {
       setMeta('og:url', canonical, 'property');
       let link = document.querySelector('link[rel="canonical"]');
@@ -48,9 +58,6 @@ export function useSeo({ title, description, canonical, ogImage }: SeoProps) {
         document.head.appendChild(link);
       }
       link.setAttribute('href', canonical);
-    }
-    if (ogImage) {
-      setMeta('og:image', ogImage, 'property');
     }
   }, [title, description, canonical, ogImage]);
 }

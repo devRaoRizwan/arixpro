@@ -20,8 +20,17 @@ export async function prerender({ url }: { url: string }) {
     { type: 'meta', props: { property: 'og:description', content: description } },
     { type: 'meta', props: { property: 'og:type', content: 'website' } },
     { type: 'meta', props: { property: 'og:url', content: canonical } },
-    { type: 'link', props: { rel: 'canonical', href: canonical } },
+    { type: 'meta', props: { property: 'og:site_name', content: 'ArixPro' } },
+    { type: 'meta', props: { property: 'og:locale', content: 'en_US' } },
     { type: 'meta', props: { property: 'og:image', content: ogImage } },
+    { type: 'meta', props: { property: 'og:image:width', content: '1200' } },
+    { type: 'meta', props: { property: 'og:image:height', content: '630' } },
+    { type: 'meta', props: { property: 'og:image:alt', content: `${title} — ArixPro` } },
+    { type: 'meta', props: { name: 'twitter:card', content: 'summary_large_image' } },
+    { type: 'meta', props: { name: 'twitter:title', content: title } },
+    { type: 'meta', props: { name: 'twitter:description', content: description } },
+    { type: 'meta', props: { name: 'twitter:image', content: ogImage } },
+    { type: 'link', props: { rel: 'canonical', href: canonical } },
   ])
 
   return {

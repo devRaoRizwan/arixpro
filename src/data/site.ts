@@ -12,7 +12,7 @@ export const site = {
   ],
   socials: {
     linkedin: 'https://www.linkedin.com/company/arixpro',
-    github: 'https://github.com/devRaoRizwan',
+    github: 'https://github.com/arixpro',
     instagram: '',
     facebook: '',
   },

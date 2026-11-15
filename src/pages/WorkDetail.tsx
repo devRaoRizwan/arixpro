@@ -16,6 +16,7 @@ function WorkDetailView({ project, projectIndex }: WorkDetailViewProps) {
     title: `${project.name} | ArixPro`,
     description: project.brief,
     canonical: `${site.url}/work/${project.slug}`,
+    ogImage: project.coverImage ? `${site.url}${project.coverImage}` : `${site.url}/og-image.png`,
   });
 
   const nextIndex = (projectIndex + 1) % projects.length;

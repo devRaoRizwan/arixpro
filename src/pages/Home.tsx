@@ -116,28 +116,6 @@ export default function Home() {
               See our work
             </Link>
           </div>
-
-          {/* Terminal / Live API Code Inspector */}
-          <div className="code-panel" role="region" aria-label="Live API verification">
-            <div className="code-panel__header">
-              <div className="code-panel__dots" aria-hidden="true">
-                <span className="code-panel__dot" />
-                <span className="code-panel__dot" />
-                <span className="code-panel__dot" />
-              </div>
-              <span className="mono">api.jobharvester.com · Live system inspection</span>
-            </div>
-            <div>
-              <span className="method">GET</span>{' '}
-              https://api.jobharvester.com/v1/jobs/
-            </div>
-            <div style={{ marginTop: '8px' }}>
-              Response &#123; &quot;count&quot;: <span className="green">1658</span>, &quot;status&quot;: <span className="green">&quot;200 OK&quot;</span> &#125;
-            </div>
-            <div className="comment" style={{ marginTop: '12px' }}>
-              1,658 live Pakistan tech jobs, crawled and de-duplicated · Counted 15 Nov 2026
-            </div>
-          </div>
         </div>
       </section>
 
@@ -148,11 +126,11 @@ export default function Home() {
             <div className="proof-item">
               <div className="proof-item__stat">100k+ daily requests</div>
               <div className="proof-item__label">
-                Django APIs in production — Rizwan's engineering record
+                High-throughput Python &amp; Django APIs in production
               </div>
             </div>
             <div className="proof-item">
-              <div className="proof-item__stat">4 active products</div>
+              <div className="proof-item__stat">3 active products</div>
               <div className="proof-item__label">
                 Designed, built and maintained end-to-end by this studio
               </div>
